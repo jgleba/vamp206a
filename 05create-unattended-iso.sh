@@ -148,8 +148,8 @@ echo en > $ntmp/iso_new/isolinux/lang
 
 # set late command
 #http://serverfault.com/questions/560150/how-to-include-additional-software-in-preseed-cfg-for-ubuntu-server-13-10
-late_command="chroot /target wget -N -O /home/$username/start.sh https://github.com/dgleba/vamp206a/raw/master/start.sh ;\
-    chroot /target chmod +x /home/$username/start.sh ; "
+late_command="chroot /target wget -N -O /home/$username/11start.sh https://github.com/dgleba/vamp206a/raw/master/11start.sh ;\
+    chroot /target chmod +x /home/$username/11start.sh ; "
 
 # copy the netson seed file to the iso
 cp -rT $ntmp/$seed_file $ntmp/iso_new/preseed/$seed_file
@@ -167,7 +167,7 @@ pwhash=$(echo $password | mkpasswd -s -m sha-512)
 # so instead, I am using @
 sed -i "s@{{username}}@$username@g" $ntmp/iso_new/preseed/$seed_file
 sed -i "s@{{pwhash}}@$pwhash@g" $ntmp/iso_new/preseed/$seed_file
-sed -i "s@{{nhostname}}@$nhostname@g" $ntmp/iso_new/preseed/$seed_file
+sed -i "s@{{hostname}}@$nhostname@g" $ntmp/iso_new/preseed/$seed_file
 sed -i "s@{{timezone}}@$timezone@g" $ntmp/iso_new/preseed/$seed_file
 
 #change grub timeout 
