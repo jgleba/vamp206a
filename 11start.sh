@@ -4,6 +4,11 @@ set -x
 get1()
 {
 # get zip of repo from github
+apt-get -y install mc
+apt-get -y install locate
+apt-get -y install openssh-server 
+apt-get -y install unzip 
+
 cd 
 mkdir -p tmp
 cd tmp
@@ -23,7 +28,7 @@ cd shc
 #find . -type f -exec chmod +x {} \;
 chmod -R 755 ./shc
 chmod -R +x ./shc
-
+updatedb
 }
 
 
