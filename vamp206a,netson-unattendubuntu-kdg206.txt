@@ -1,0 +1,14 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-10[Oct-Sat]20-57PM
+
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/bootstrap203.sh
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/import203.sh
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/django203.sh
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/start.sh
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/start.sh
+#blob is not correct.... https://github.com/dgleba/vamp203/blob/master/05create-unattended-iso.sh
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
