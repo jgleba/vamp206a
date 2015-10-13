@@ -2,6 +2,8 @@
 
 smbmn() {
 
+mkdir -p /var/www/html
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #edit these lines for your windows machines...
@@ -15,6 +17,7 @@ mkdir -p /mnt/REDWE/c
 :chmod -R 777 /mnt/REDWE/c
 
 sudo mount -t cifs //$ipredwe/c /mnt/REDWE/c -o username=$uredwe,password=$predwe
+sudo mount -t cifs //$ipredwe/htocs /var/www/html -o username=$uredwe,password=$predwe
 
 }
 

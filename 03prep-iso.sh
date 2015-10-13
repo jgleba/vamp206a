@@ -15,6 +15,7 @@ chmod +x 05create-unattended-iso.sh
 #  >>>>>>edit it for tmp and iso source
 sudo ./05create-unattended-iso.sh
 
+exit 0
 offline1() {
 test...
 }
