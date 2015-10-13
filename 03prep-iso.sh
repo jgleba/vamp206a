@@ -16,10 +16,8 @@ chmod +x 05create-unattended-iso.sh
 sudo ./05create-unattended-iso.sh
 
 offline1() {
-
 test...
-
 }
 
 #
-echo end03
+#echo end03

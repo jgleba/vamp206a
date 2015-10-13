@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #David Gleba 2015-10-01_Thu_12.11-PM using vamp198e
 #
-# this must sync with vagrant..
+# I sync ntmp with vagrant..
 ntmp="/var/varvamp/files"  # destination folder to store the final iso file
 nhostname="vamp206b"
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 # define spinner function for slow tasks
 # courtesy of http://fitnr.com/showing-a-bash-spinner.html

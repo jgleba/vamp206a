@@ -3,19 +3,18 @@
 :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :set env variables... Edit these to your liking.
-set vmname=vamp203k
+set vmname=vamp206b
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
 
-:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 :
-:  vamp203f failed to install due to archive unreachable. i think permissions at work.
-:  vamp203i used on hyperv 2015-10-07 - 10.4.10.250 - 00.15.5d.01.d2.61
 :: to get random mac addr,  coment these out...
 :set macaddvamp=08002795526A
 :set macaddvamp=08002795527B
 :
+:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 
 
 :Prepare date and temp folders

@@ -25,14 +25,6 @@ predwe="h"
 mkdir -p tmp
 tmp="/home/$userv/tmp"
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# backup hosts settings...
-
-
-do this.
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #comment this out for full auto run...
 exit 0
@@ -42,8 +34,9 @@ source ./shc/21base.sh
 source ./shc/23samm.sh
 source ./shc/25samsh.sh
 source ./shc/27apach.sh
-source ./shc/31dj.sh
-source ./shc/33imp.sh
+source ./shc/31guestad.sh
+source ./shc/41dj.sh
+source ./shc/43imp.sh
 
 
 echo " DONE; rebooting ... "
