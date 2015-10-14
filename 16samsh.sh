@@ -8,7 +8,6 @@ cd
 mkdir webwork
 mkdir /var/www/html
 
-
 sudo apt-get -y install samba
 
 #backup server config...

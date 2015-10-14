@@ -12,9 +12,9 @@ source shc/12env.sh
 
 source shc/15root.sh
 cd
-source shc/21base.sh
+source shc/16samm.sh
 cd
-source shc/23samm.sh
+source shc/21base.sh
 cd
 source shc/25samsh.sh
 cd
