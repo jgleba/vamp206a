@@ -47,12 +47,11 @@ cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
+#why do this stuff again... ???
 # set fqdn
 fqdn="$default_hostname.$default_domain"
-
 # update hostname
-echo "$nhostname" > /etc/hostname
+echo "$default_hostname" > /etc/hostname
 sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
 sed -i "s@ubuntu@$hostname@g" /etc/hosts
 #hostname "$default_hostname"

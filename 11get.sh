@@ -23,6 +23,7 @@ wget -N https://codeload.github.com/dgleba/vamp206a/zip/master
 unzip -uo ./master
 mkdir ~/shc
 cp -avf vamp206a-master/* ~/shc/
+cd
 cd shc
 #hmm not sure this is just files with no extension..
 #find -type f -not -name "*.*" -exec chmod +x \{\} \;
