@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -x
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,6 +20,10 @@ mysqluserpass="x"
 #windows machine red5a settings.
 uredwe="dg"
 predwe="h"
+
+#windows machine red5a settings.
+u3hz="dlgeba"
+p3hz="h"
 
 
 mkdir -p tmp

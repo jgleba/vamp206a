@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -x
 
 #Note: vbox shares are not available till it reboots after this start.sh script runs.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -x
 
 get1()
@@ -30,8 +30,8 @@ cd shc
 #chmod -R +x *.sh
 # make files executable recursively
 #find . -type f -exec chmod +x {} \;
-sudo chmod -R 755 ./
-sudo chmod -R +x ./
+sudo chmod -R 755 .
+sudo chmod -R  +x .
 updatedb
 cd
 }
