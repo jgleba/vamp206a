@@ -45,7 +45,7 @@ valid users = $userv
 #
 EOF
 
-smbpasswd -a albe
+smbpasswd -a $userv%$a
 
 sudo service smbd restart
 
