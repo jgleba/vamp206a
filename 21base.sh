@@ -13,6 +13,11 @@ source shc/12env.sh
 rsync -av ~/webwork/htdocs/ /var/www/html
 chmod -R 755 /var/www/html 
 
+#curl -u "domain\username:passwd" smb://server.example.com/share/file.txt
+curl -u "stackpole\dgleba:x" smb://10.4.10.243/htdocs/index.html
+curl: (1) Protocol smb not supported or disabled in libcurl
+
+
 
 #Note: vbox shares are not available till it reboots after this start.sh script runs.
 #
