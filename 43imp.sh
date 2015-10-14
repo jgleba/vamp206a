@@ -2,6 +2,7 @@
 
 # import mysql data...
 
+source shc/12env.sh
 
 date
 #echo requested commands...

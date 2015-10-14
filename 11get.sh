@@ -13,6 +13,10 @@ apt-get -y install locate
 # get zip of repo from github
 cd 
 rm -rf shc
+
+read -t 10 -p "Hit ENTER or wait ten seconds" ; echo ;
+read -t 10 -p "Hit ENTER or wait ten seconds" ; echo ;
+
 mkdir -p tmp
 cd tmp
 wget -N https://codeload.github.com/dgleba/vamp206a/zip/master 
