@@ -12,15 +12,17 @@ apt-get -y install unzip
 
 # get zip of repo from github
 cd 
+rm -rf shc
 mkdir -p tmp
 cd tmp
 wget -N https://codeload.github.com/dgleba/vamp206a/zip/master 
 #unzip [ -j junk paths - all in one folder ] 
-#rm -rf shc
+
 # unzip one folder...  unzip  ~/share203/master vamp206a-master/hyperv/* -d ./sh
 # unzip to destination.. unzip ~/share203/master -d ./sh
 unzip -u ./master
-cp -afr vamp206a-master ~/shc/
+mkdir ~/shc
+cp -avf vamp206a-master/* ~/shc/
 cd shc
 #hmm not sure this is just files with no extension..
 #find -type f -not -name "*.*" -exec chmod +x \{\} \;
@@ -31,7 +33,7 @@ cd shc
 sudo chmod -R 755 ./
 sudo chmod -R +x ./
 updatedb
-
+cd
 }
 
 
