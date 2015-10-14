@@ -2,11 +2,10 @@
 
 smbmn() {
 
-mkdir -p /var/www/html
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-#edit these lines for your windows machines...
+#edit these lines to match your windows machines shares...
 #
 
 #get ip address of windows machine...
@@ -16,7 +15,11 @@ echo "$ipredwe\n"
 mkdir -p /mnt/REDWE/c
 :chmod -R 777 /mnt/REDWE/c
 
+# this is a share for drive c - the whole drive
 sudo mount -t cifs //$ipredwe/c /mnt/REDWE/c -o username=$uredwe,password=$predwe
+
+# this is a share where the web root files are..
+mkdir -p /var/www/html
 sudo mount -t cifs //$ipredwe/htocs /var/www/html -o username=$uredwe,password=$predwe
 
 }

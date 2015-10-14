@@ -6,7 +6,6 @@
 set -x
 date
 
-
 vhost8985()
 {
 sudo tee /etc/apache2/sites-available/djangolin1.conf <<EOF

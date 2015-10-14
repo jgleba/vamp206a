@@ -2,9 +2,17 @@
 
 :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+: this is a windows batch file.
+: edit paths and names throughout this file...
+
 :set env variables... Edit these to your liking.
 set vmname=vamp206b
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
+
+:others to edit...
+:IF %_prefix%==REDWE  %vboxm% modifyvm %vmname%  --nic1 bridged --bridgeadapter1 "Intel(R) Dual Band Wireless-AC 3160 #2" --nictype1 virtio
+:C:\var\varvamp\files\ubuntu-14.04.3-server-amd64-unattended.iso
+:shared folders...
 
 :
 :: to get random mac addr,  coment these out...
@@ -41,7 +49,7 @@ set ymd=%date:~12,2%%date:~4,2%%date:~7,2%&set dhms=%date:~12,2%%date:~4,2%%date
 ::no...
 :%vboxm% modifyvm %vmname%   --nic1 bridged --bridgeadapter3 wlan0
 
-%vboxm% modifyvm %vmname% --memory 768 --cpus 1  --acpi on   --clipboard bidirectional
+%vboxm% modifyvm %vmname% --memory 768 --cpus 2  --acpi on   --clipboard bidirectional
 
 
 ::nic...
@@ -58,10 +66,11 @@ IF %_prefix%==REDWE  %vboxm% modifyvm %vmname%  --nic1 bridged --bridgeadapter1 
 SET _prefix=%COMPUTERNAME:~0,8% 
 IF %_prefix%==PMDS-3HZ  %vboxm% modifyvm %vmname%  --nic1 bridged --nictype1 virtio --bridgeadapter1 "Intel(R) Ethernet Connection I217-LM"
 
+: I could not run the vm inside the hyperv host....
 SET _prefix=%COMPUTERNAME:~0,8% 
 IF %_prefix%==PMDSDATA  %vboxm% modifyvm %vmname%  --nic1 bridged --nictype1 virtio --bridgeadapter1 "Microsoft Hyper-V Network Adapter"
 
-: set mac addr...
+: set mac addr... This is problematic if two vm's ge the same address... be careful...
 ::%vboxm% modifyvm %vmname% --macaddress1=%macaddvamp%
 
 ::not using NAT...
@@ -71,7 +80,7 @@ IF %_prefix%==PMDSDATA  %vboxm% modifyvm %vmname%  --nic1 bridged --nictype1 vir
 
 :
 :shared folders...
-
+:
 :%vboxm% sharedfolder add %vmname% --name %vmname% --hostpath c:/var/sharexx/ --automount
 %vboxm% sharedfolder remove %vmname% --name share203 
 mkdir c:\var\share203

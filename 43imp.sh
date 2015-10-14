@@ -2,6 +2,7 @@
 
 # import mysql data...
 
+
 date
 #echo requested commands...
 set -x

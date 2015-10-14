@@ -1,21 +1,20 @@
 #!/bin/bash
 set -x
 
-mdkdir /var
-mdkdir /var/varvamp
-cd /var/varvamp
-mkdir vamp206a
-cd vamp206a
+# folder for unattended iso creation...
+mdkdir -p /var/varvamp/files
+cd /var/varvamp/files
 
 rm ./05create-unattended-iso.sh
 
+#  >>>>>>edit iso creation .sh for tmp and iso source
+#
 wget -N https://raw.githubusercontent.com/dgleba/vamp206a/master/05create-unattended-iso.sh
-
 chmod +x 05create-unattended-iso.sh
-#  >>>>>>edit it for tmp and iso source
 sudo ./05create-unattended-iso.sh
 
 exit 0
+
 offline1() {
 test...
 }

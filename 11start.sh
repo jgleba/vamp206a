@@ -3,12 +3,14 @@ set -x
 
 get1()
 {
-# get zip of repo from github
+
+#get a few software to help get things started...
 apt-get -y install mc
 apt-get -y install locate
 apt-get -y install openssh-server 
 apt-get -y install unzip 
 
+# get zip of repo from github
 cd 
 mkdir -p tmp
 cd tmp
@@ -29,12 +31,13 @@ cd shc
 chmod -R 755 ./shc
 chmod -R +x ./shc
 updatedb
+
 }
 
 
 #get the repo and call the script that calls all others
 get1
-
+set -e
 echo "edit variables like username and passwords..  nano shc/14call.sh \n"
 echo "ctrl-o to write the file,  ctrl-x to exit editor.\n"
 echo "now run: sudo ./14call.sh\n\n"

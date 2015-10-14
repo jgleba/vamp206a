@@ -5,7 +5,8 @@
 #David Gleba 2015-10-01_Thu_12.11-PM using vamp198e
 #
 # I sync ntmp with vagrant..
-ntmp="/var/varvamp/files"  # destination folder to store the final iso file
+mkdir -p /var/varvamp/files  # destination folder to store the final iso file
+ntmp="/var/varvamp/files"    # destination folder to store the final iso file
 nhostname="vamp206b"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,7 +117,6 @@ if [[ ! -f $ntmp/$seed_file ]]; then
     #download "https://github.com/netson/ubuntu-unattended/raw/master/$seed_file"
     #download "https://raw.githubusercontent.com/dgleba/vamp206a/master/$seed_file"
     download "https://github.com/dgleba/vamp206a/raw/master/$seed_file"
-	#download "https://github.com/dgleba/vamp206a/raw/master/start.sh"
 fi
 
 # install required packages

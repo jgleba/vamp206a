@@ -38,6 +38,7 @@ source ./shc/31guestad.sh
 source ./shc/41dj.sh
 source ./shc/43imp.sh
 
+sleep 22
 
 echo " DONE; rebooting ... "
 reboot
