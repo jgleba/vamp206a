@@ -148,8 +148,8 @@ echo en > $ntmp/iso_new/isolinux/lang
 
 # set late command
 #http://serverfault.com/questions/560150/how-to-include-additional-software-in-preseed-cfg-for-ubuntu-server-13-10
-late_command="chroot /target wget -N -O /home/$username/11start.sh https://github.com/dgleba/vamp206a/raw/master/11start.sh ;\
-    chroot /target chmod +x /home/$username/11start.sh ; "
+late_command="chroot /target wget -N -O /home/$username/11get.sh https://github.com/dgleba/vamp206a/raw/master/11get.sh ;\
+    chroot /target chmod +x /home/$username/11get.sh ; "
 
 # copy the netson seed file to the iso
 cp -rT $ntmp/$seed_file $ntmp/iso_new/preseed/$seed_file

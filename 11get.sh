@@ -20,7 +20,7 @@ wget -N https://codeload.github.com/dgleba/vamp206a/zip/master
 
 # unzip one folder...  unzip  ~/share203/master vamp206a-master/hyperv/* -d ./sh
 # unzip to destination.. unzip ~/share203/master -d ./sh
-unzip -u ./master
+unzip -uo ./master
 mkdir ~/shc
 cp -avf vamp206a-master/* ~/shc/
 cd shc
