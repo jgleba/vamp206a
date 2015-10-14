@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -x
+source shc/12env.sh
 
 #Note: vbox shares are not available till it reboots after this start.sh script runs.
 #
