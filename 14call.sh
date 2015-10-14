@@ -27,7 +27,7 @@ tmp="/home/$userv/tmp"
 
 
 #comment this out for full auto run...
-exit 0
+#exit 0
 
 source ./shc/15root.sh
 source ./shc/21base.sh
