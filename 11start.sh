@@ -28,8 +28,8 @@ cd shc
 #chmod -R +x *.sh
 # make files executable recursively
 #find . -type f -exec chmod +x {} \;
-chmod -R 755 ./shc
-chmod -R +x ./shc
+sudo chmod -R 755 ./
+sudo chmod -R +x ./
 updatedb
 
 }
