@@ -9,6 +9,7 @@ apt-get -y install openssh-server
 apt-get -y install unzip 
 apt-get -y install mc
 apt-get -y install locate
+sudo apt-get -y install p7zip-full
 
 # get zip of repo from github
 cd 
