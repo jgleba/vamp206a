@@ -20,7 +20,7 @@ wget -N https://codeload.github.com/dgleba/vamp206a/zip/master
 # unzip one folder...  unzip  ~/share203/master vamp206a-master/hyperv/* -d ./sh
 # unzip to destination.. unzip ~/share203/master -d ./sh
 unzip -u ./master
-cp -a vamp206a-master ~/shc
+cp -afr vamp206a-master ~/shc/
 cd shc
 #hmm not sure this is just files with no extension..
 #find -type f -not -name "*.*" -exec chmod +x \{\} \;
