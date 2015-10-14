@@ -5,10 +5,10 @@ get1()
 {
 
 #get a few software to help get things started...
-apt-get -y install mc
-apt-get -y install locate
 apt-get -y install openssh-server 
 apt-get -y install unzip 
+apt-get -y install mc
+apt-get -y install locate
 
 # get zip of repo from github
 cd 
