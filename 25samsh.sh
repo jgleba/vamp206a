@@ -2,6 +2,8 @@
 
 smb() {
 
+source shc/12env.sh
+
 cd
 mkdir webwork
 mkdir /var/www/html

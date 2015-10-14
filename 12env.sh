@@ -8,8 +8,9 @@ cd
 mkdir -p _this-vamp206b
 
 #default_hostname="$(nhostname)"
-#userv="albe"
-userv=$USER
+userv="albe"
+#this stores root not the regular user.
+#userv=$USER
 
 default_hostname="vamp206b"
 default_domain="local"
