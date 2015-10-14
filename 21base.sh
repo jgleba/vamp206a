@@ -51,10 +51,10 @@ cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 fqdn="$default_hostname.$default_domain"
 
 # update hostname
-echo "$hostname" > /etc/hostname
+echo "$nhostname" > /etc/hostname
 sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
 sed -i "s@ubuntu@$hostname@g" /etc/hosts
-hostname "$default_hostname"
+#hostname "$default_hostname"
 
 # update repos
 apt-get -y update 
