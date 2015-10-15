@@ -4,8 +4,6 @@ set -x
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit these variables to match your system...
 #
-cd
-mkdir -p _this-vamp206b
 
 
 export userv="albe"
@@ -29,4 +27,6 @@ export p3hz="h"
 
 mkdir -p tmp
 tmp="/home/$userv/tmp"
+
+mkdir -p  /home/$userv/_this-vamp206b
 

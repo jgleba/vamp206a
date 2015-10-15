@@ -19,8 +19,8 @@ sudo apt-get -y install locate
 cd 
 sudo rm -rf shc
 
-read -t 10 -p "Hit ENTER or wait ten seconds" ; echo ;
-read -t 10 -p "Hit ENTER or wait ten seconds" ; echo ;
+read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
+read -t  1 -p "Hit ENTER or wait 1 seconds" ; echo ;
 
 mkdir -p tmp
 sudo chmod -R 777 tmp

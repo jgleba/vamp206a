@@ -52,6 +52,15 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1.* TO dg417
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1suprv.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2suprv.* TO dg417@localhost ;"
 
+
+
+#perms...
+
+sudo mkdir -p /var/www/html
+sudo chmod -R 755 /var/www/html 
+
+sudo chmod -R 777 /var/www/html/django
+
 #templates_c
 
 mkdir /var/www/html/cilist/templates_c
