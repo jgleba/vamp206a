@@ -36,11 +36,11 @@ sudo cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 # set fqdn
 fqdn="$default_hostname.$default_domain"
 # update hostname
-sudo echo "$default_hostname" > /etc/hostname
-sudo sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
-sudo sed -i "s@vamp206b.vamp206b@$fqdn@g" /etc/hosts
-sudo sed -i "s@ubuntu@$default_hostname@g" /etc/hosts
-sudo sed -i "s@vamp206b@$default_hostname@g" /etc/hosts
+$sudo echo "$default_hostname" > /etc/hostname
+#sudo sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
+#sudo sed -i "s@vamp206b.vamp206b@$fqdn  @g" /etc/hosts
+#sudo sed -i "s@ubuntu@$default_hostname@g" /etc/hosts
+#sudo sed -i "s@vamp206b@ $default_hostname @g" /etc/hosts
 #hostname "$default_hostname"
 
 # update repos

@@ -110,7 +110,7 @@ apache1()
 set -x
 date
 
-#djangosoft
+djangosoft
 vhost8985
 apache1
 updatedb
