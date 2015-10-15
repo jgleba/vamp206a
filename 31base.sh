@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -x
-source shc/12env.sh
+source shc/21env.sh
 
 
 

@@ -2,21 +2,21 @@
 
 smb() {
 
-source shc/12env.sh
+source shc/21env.sh
 
 cd
 mkdir webwork
-mkdir /var/www/html
+sudo mkdir -p /var/www/html
 
 sudo apt-get -y install samba
 
 #backup server config...
 mkdir ~/backup
-cp /etc/samba/smb.conf /etc/samba/smb.conf.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-cp /etc/samba/smb.conf    ~backup/smb.conf.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/samba/smb.conf    ~backup/smb.conf.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 
-cat <<EOF >> /etc/samba/smb.conf
+sudo cat <<EOF >> /etc/samba/smb.conf
 # -------------------------------------------------------------------
 # shares
 #
@@ -55,9 +55,9 @@ valid users = $userv
 #
 EOF
 
-smbpasswd -a $userv%a
+sudo smbpasswd -a $userv%a
 
-sudo service smbd restart
+sudo sudo service smbd restart
 
 sudo chmod -R 777 /home/$userv/webwork
 sudo chmod -R 755 /var/www/html

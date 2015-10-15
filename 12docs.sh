@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -x
-source shc/12env.sh
+source shc/21env.sh
+
 sudo chmod -R 777 tmp
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #get webroot code 

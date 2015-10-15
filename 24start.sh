@@ -4,27 +4,29 @@ set -x
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit these variables to match your system...
 #
-source shc/12env.sh
+source shc/21env.sh
 
 
 #comment this out for full auto run...
 #exit 0
 
-source shc/15root.sh
+source shc/12docs.sh
 cd
-source shc/16samm.sh
+source shc/15samsh.sh
 cd
-source shc/21base.sh
+source shc/25root.sh
 cd
-source shc/25samsh.sh
+source shc/31base.sh
 cd
-source shc/27apach.sh
+source shc/34samm.sh
 cd
-source shc/31guestad.sh
+source shc/43apach.sh
 cd
-source shc/41dj.sh
+source shc/47guestad.sh
 cd
-source shc/43imp.sh
+source shc/51dj.sh
+cd
+source shc/53imp.sh
 
 sleep 22
 

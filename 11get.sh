@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -x
 
+#
+# edit below username albe if needed.
+#
+
 get1()
 {
 
@@ -13,12 +17,14 @@ sudo apt-get -y install locate
 
 # get zip of repo from github
 cd 
-rm -rf shc
+sudo rm -rf shc
 
 read -t 10 -p "Hit ENTER or wait ten seconds" ; echo ;
 read -t 10 -p "Hit ENTER or wait ten seconds" ; echo ;
 
 mkdir -p tmp
+sudo chmod -R 777 tmp
+
 cd tmp
 wget -N https://codeload.github.com/dgleba/vamp206a/zip/master 
 #unzip [ -j junk paths - all in one folder ] 
@@ -36,10 +42,10 @@ cd shc
 #chmod -R +x *.sh
 # make files executable recursively
 #find . -type f -exec chmod +x {} \;
-sudo chown -R albe ~/shc
+sudo chown -R albe /home/albe/shc
 sudo chmod -R 777 .
 sudo chmod -R  +x .
-updatedb
+sudo updatedb
 cd
 }
 
