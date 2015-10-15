@@ -6,7 +6,7 @@
 : edit paths and names throughout this file...
 
 :set env variables... Edit these to your liking.
-set vmname=vamp206c
+set vmname=vamp206b
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
 
 :others to edit...

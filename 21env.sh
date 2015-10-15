@@ -5,26 +5,26 @@ set -x
 # edit these variables to match your system...
 #
 cd
-mkdir -p _this-vamp206c
+mkdir -p _this-vamp206b
 
 #default_hostname="$(nhostname)"
-userv="albe"
+export userv="albe"
 #this stores root not the regular user.
 #userv=$USER
 
-default_hostname="vamp206c"
-default_domain="local"
+export default_hostname="vamp206b"
+export default_domain="local"
 
-mysqlrootpassw="x"
-mysqluserpass="x"
-
-#windows machine red5a settings.
-uredwe="dg"
-predwe="h"
+export mysqlrootpassw="x"
+export mysqluserpass="x"
 
 #windows machine red5a settings.
-u3hz="dlgeba"
-p3hz="h"
+export uredwe="dg"
+export predwe="h"
+
+#windows machine red5a settings.
+export u3hz="dlgeba"
+export p3hz="h"
 
 
 mkdir -p tmp
