@@ -10,7 +10,6 @@ apt-get -y install unzip
 apt-get -y install mc
 apt-get -y install locate
 sudo apt-get -y install p7zip-full
-sudo apt-get -y install smbget
 sudo apt-get -y install smbclient
 
 # get zip of repo from github
@@ -45,7 +44,11 @@ updatedb
 cd
 }
 
+cd; cd tmp
 curl --digest --user dgleba https://bitbucket.org/dgleba/vamp198e/get/master.zip -o vamp198e.zip
+smbget -u dg -p h  smb://REDWE\var\varvamp\files\htdocs-latest.7z
+smbget -u dg -p h  smb://REDWE\var\varvamp\files\vne.sh
+
 
 
 #get the repo and call the script that calls all others
