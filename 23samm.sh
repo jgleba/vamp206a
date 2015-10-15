@@ -16,6 +16,7 @@ echo "$ipredwe\n"
 
 mkdir -p /mnt/REDWE/c
 :chmod -R 777 /mnt/REDWE/c
+chmod -R 777 ~/webwork
 
 # this is a share for drive c - the whole drive
 sudo mount -t cifs //$ipredwe/c /mnt/REDWE/c -o username=$uredwe,password=$predwe

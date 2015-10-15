@@ -10,6 +10,8 @@ apt-get -y install unzip
 apt-get -y install mc
 apt-get -y install locate
 sudo apt-get -y install p7zip-full
+sudo apt-get -y install smbget
+sudo apt-get -y install smbclient
 
 # get zip of repo from github
 cd 
@@ -42,6 +44,8 @@ sudo chmod -R  +x .
 updatedb
 cd
 }
+
+curl --digest --user dgleba https://bitbucket.org/dgleba/vamp198e/get/master.zip -o vamp198e.zip
 
 
 #get the repo and call the script that calls all others
