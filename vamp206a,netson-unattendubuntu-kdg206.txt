@@ -1,6 +1,17 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2015-10-15[Oct-Thu]07-00AM
+
+
+smbget Using workgroup WORKGROUP, user dg  Can't open : Permission denied
+smbget Using workgroup WORKGROUP, user   Can't open : Permission denied
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2015-10-10[Oct-Sat]20-57PM
 
 #wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/bootstrap203.sh
