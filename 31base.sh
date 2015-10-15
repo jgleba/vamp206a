@@ -3,23 +3,6 @@ set -x
 source shc/21env.sh
 
 
-
-#Note: vbox shares are not available till it reboots after this start.sh script runs.
-#
-#David Gleba 2015-10-01 03:15PM
-
-# define download function
-# courtesy of http://fitnr.com/showing-file-download-progress-using-wget.html
-# download()
-# {
-    # local url=$1
-    # echo -n "    "
-    # wget --progress=dot $url 2>&1 | grep --line-buffered "%" | \
-        # sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
-    # echo -ne "\b\b\b\b"
-    # echo " DONE"
-# }
-
 # determine ubuntu version
 ubuntu_version=$(lsb_release -cs)
 
@@ -56,8 +39,8 @@ fqdn="$default_hostname.$default_domain"
 sudo echo "$default_hostname" > /etc/hostname
 sudo sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
 sudo sed -i "s@vamp206b.vamp206b@$fqdn@g" /etc/hosts
-sudo sed -i "s@ubuntu@$hostname@g" /etc/hosts
-sudo sed -i "s@vamp206b@$hostname@g" /etc/hosts
+sudo sed -i "s@ubuntu@$default_hostname@g" /etc/hosts
+sudo sed -i "s@vamp206b@$default_hostname@g" /etc/hosts
 #hostname "$default_hostname"
 
 # update repos

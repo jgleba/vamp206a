@@ -87,6 +87,7 @@ EOF
 djangosoft()
 {
   sleep 1
+    sudo chmod -R 777 /var/www/html/django
   #moved to bootstrap.sh..
   #sudo pip install django-admin-bootstrapped
   # got error - use apt-get instead.......  sudo pip install mysql-python
