@@ -98,6 +98,14 @@ mv composer.phar /usr/local/bin/composer
 
 #sudo apt-get -y install mc
 
+
+#
+# make tempfiles folder writable. This is used with cilist, tnlist and others to write excel files and mail them..
+#
+  sudo mkdir -p /tmp/tempfiles
+  sudo chmod -R 777 /tmp/tempfiles
+
+
 #
 date
 #
