@@ -59,6 +59,10 @@ smbpasswd -a $userv%a
 
 sudo service smbd restart
 
+sudo chmod -R 777 /home/$userv/webwork
+sudo chmod -R 755 /var/www/html
+
+
 }
 
 

@@ -5,12 +5,11 @@ get1()
 {
 
 #get a few software to help get things started...
-apt-get -y install openssh-server 
-apt-get -y install unzip 
-apt-get -y install mc
-apt-get -y install locate
+sudo apt-get -y install openssh-server 
 sudo apt-get -y install p7zip-full
-sudo apt-get -y install smbclient
+sudo apt-get -y install unzip 
+sudo apt-get -y install mc
+sudo apt-get -y install locate
 
 # get zip of repo from github
 cd 
@@ -43,11 +42,6 @@ sudo chmod -R  +x .
 updatedb
 cd
 }
-
-cd ~/tmp
-#curl --digest --user dgleba https://bitbucket.org/dgleba/vamp198e/get/master.zip -o vamp198e.zip
-smbget -u dg -p h  smb://REDWE\var\varvamp\files\htdocs-latest.7z
-smbget -u=DG -p=h -w=WORKGROUP smb://REDWE/var/varvamp/files/vne.sh
 
 
 
