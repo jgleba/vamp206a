@@ -7,7 +7,7 @@ set -x
 cd
 mkdir -p _this-vamp206b
 
-#default_hostname="$(nhostname)"
+
 export userv="albe"
 #this stores root not the regular user.
 #userv=$USER
