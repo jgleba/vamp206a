@@ -23,6 +23,8 @@ fi
 
 if [ ! -f htdocs.PMDS-DATA.latest.7z ]; then
     curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
+    cd /home/$userv/tmp
+
     sudo rm -rf htdocs
     read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
     7z x htdocs.PMDS-DATA.latest.7z
