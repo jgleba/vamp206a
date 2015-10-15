@@ -2,7 +2,7 @@
 
 smb() {
 
-source shc/25root.sh
+source shc/root.sh
 source shc/21env.sh
 
 cd
@@ -56,7 +56,8 @@ valid users = $userv
 #
 EOF
 
-sudo smbpasswd -a $userv%a
+source shc/21env.sh
+sudo smbpasswd -a $userv
 
 sudo sudo service smbd restart
 

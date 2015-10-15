@@ -14,7 +14,7 @@ source shc/12docs.sh
 cd
 source shc/15samsh.sh
 cd
-source shc/25root.sh
+source shc/root.sh
 cd
 source shc/31base.sh
 cd
