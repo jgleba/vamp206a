@@ -9,6 +9,7 @@ sudo mkdir -p /var/www/html
 #
 #get webroot code 
 
+# I setup vsftp on a vagrant ubuntu machine that has shares to c: drive to get the files...
 cd /home/$userv/tmp
 curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh
 
