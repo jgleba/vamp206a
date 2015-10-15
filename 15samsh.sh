@@ -2,6 +2,7 @@
 
 smb() {
 
+source shc/25root.sh
 source shc/21env.sh
 
 cd
