@@ -9,7 +9,7 @@ sudo chmod -R 777 tmp
 #get webroot code 
 
 cd /home/$userv/tmp
-curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh
+curl -O -u vagrant:vagrant ftp://10.4.11.18//var/varvamp/files/vne.sh
 
 sudo cat vne.sh > /home/$userv/shc/21env.sh
 sudo chmod -R 777 /home/$userv/shc/21env.sh

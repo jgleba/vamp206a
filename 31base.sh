@@ -43,8 +43,8 @@ echo " preparing your server; this may take a few minutes ..."
 # backup hosts settings...
 
 #
-cp /etc/hosts /etc/hosts.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/hosts /etc/hosts.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -53,9 +53,11 @@ cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 # set fqdn
 fqdn="$default_hostname.$default_domain"
 # update hostname
-echo "$default_hostname" > /etc/hostname
-sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
-sed -i "s@ubuntu@$hostname@g" /etc/hosts
+sudo echo "$default_hostname" > /etc/hostname
+sudo sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
+sudo sed -i "s@vamp206b.vamp206b@$fqdn@g" /etc/hosts
+sudo sed -i "s@ubuntu@$hostname@g" /etc/hosts
+sudo sed -i "s@vamp206b@$hostname@g" /etc/hosts
 #hostname "$default_hostname"
 
 # update repos
