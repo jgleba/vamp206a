@@ -44,10 +44,10 @@ updatedb
 cd
 }
 
-cd; cd tmp
-curl --digest --user dgleba https://bitbucket.org/dgleba/vamp198e/get/master.zip -o vamp198e.zip
+cd ~/tmp
+#curl --digest --user dgleba https://bitbucket.org/dgleba/vamp198e/get/master.zip -o vamp198e.zip
 smbget -u dg -p h  smb://REDWE\var\varvamp\files\htdocs-latest.7z
-smbget -u dg -p h  smb://REDWE\var\varvamp\files\vne.sh
+smbget -u=DG -p=h -w=WORKGROUP smb://REDWE/var/varvamp/files/vne.sh
 
 
 
