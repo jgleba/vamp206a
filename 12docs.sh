@@ -12,8 +12,12 @@ sudo mkdir -p /var/www/html
 cd /home/$userv/tmp
 curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh
 
-sudo cat vne.sh > /home/$userv/shc/21env.sh
-sudo chmod -R 777 /home/$userv/shc/21env.sh
+
+if [ ! -f vne.sh ]; then
+    sudo cat vne.sh > /home/$userv/shc/21env.sh
+    sudo chmod -R 777 /home/$userv/shc/21env.sh
+fi
+
 
 if [ ! -f htdocs.PMDS-DATA.latest.7z ]; then
     curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
