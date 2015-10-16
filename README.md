@@ -31,9 +31,10 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 
 - create basic folders. `c:\var\varvamp`, `c:\var\varvamp\files`, `c:\var\share203`,  
 - put iso here, C:\var\varvamp\files\ubuntu-14.04.3-server-amd64.iso, or let it download it for you.
-- I put a copy of my served web root files in `c:\p2\vamp\htdocs`  
-    say for example it contains c:\p2\vamp\htdocs\menu\index.html   
+- I put a copy of my served web root files in `C:\var\varvamp\files\htdocs.pmds-data.latest.7z`  
+    say for example it contains `htdocs\menu\index.html` in the 7z file.  
 	Ask me for a sample website and data. 
+- I put edited 21env.sh in 	`C:\var\varvamp\files\vne.sh`
 - I had to run `vboxmanage list bridgedifs`  to get a list of adapter names to use in  `--bridgeadapter1 `  --  see `09createvbox.bat`.  
 
 
@@ -46,8 +47,9 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - http://10.4.10.249/menu/
 - http://10.4.10.249/test2/
 - http://10.4.10.249/test2/strap179/
-- 
+- .
 
+#
 
 _____________
 
