@@ -12,12 +12,23 @@ sudo chmod -R 755 /var/www/html
 
 # I setup vsftp on a vagrant ubuntu machine that has shares to c: drive to get the files...
 cd /home/$userv/tmp
-curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh
+rm -f vne.sh
+
+if [curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh] ; then
+	echo 'curl Ok'
+else
+	read  -p "Could not get file from ftp server." ; echo ;
+	exit 9
+fi	
 
 
-if [ ! -f vne.sh ]; then
+
+if [ -f vne.sh ]; then
     sudo cat vne.sh > /home/$userv/shc/21env.sh
     sudo chmod -R 777 /home/$userv/shc/21env.sh
+else
+		read  -p "Oops, ftp server may not be present." ; echo ; 	
+		exit 8
 fi
 
 
@@ -32,3 +43,10 @@ if [ ! -f htdocs.PMDS-DATA.latest.7z ]; then
     source ~/shc/21env.sh
     sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
 fi
+
+
+# bitbucket download tips...
+# http://stackoverflow.com/questions/17682143/download-private-bitbucket-repository-zip-file-using-http-authentication
+#
+# scp info...
+#http://stackoverflow.com/questions/50096/how-to-pass-password-to-scp
