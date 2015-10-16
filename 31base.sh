@@ -32,7 +32,11 @@ sudo cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#why do this stuff again... ???
+#why do this stuff again ?
+# I think it is a good idea to set the hostname. I may have used an older .iso file with an older hostname.
+#
+#try deleting the host lines and add new ones. http://stackoverflow.com/questions/5410757/delete-a-line-containing-a-specific-string-using-sed
+
 # set fqdn
 fqdn="$default_hostname.$default_domain"
 # update hostname
