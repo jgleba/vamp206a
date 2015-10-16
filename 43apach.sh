@@ -72,7 +72,15 @@ sudo sed -i "s@#write_enable=YES@write_enable=YES@g" /etc/vsftpd.conf
 #    http://askubuntu.com/questions/47609/how-to-have-my-php-send-mail
 sudo apt-get -y install ssmtp
 
-#  edit /etc/ssmtp/ssmtp.conf -- edit  mailhub=mail
+#  edit /etc/ssmtp/ssmtp.conf -- edit  mailhub=mail .. replace entire line with mailhub...
+# didn't work due to variation in original file. try to replace the line matching string with sed.
+# backup file before editing...
+sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+#2015-10-16_Fri_11.08-AM
+# add a marker comment like: #David Gleba 2015-10-16... http://stackoverflow.com/questions/11694980/using-sed-insert-a-line-below-or-above-the-pattern
+# now replace the line... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
+# need to replace line... not this... http://unix.stackexchange.com/questions/56123/remove-line-containing-certain-string-and-the-following-line
+# 
 sudo sed -i "s@mailhub=mail@mailhub=MESG01.stackpole.ca@g"  /etc/ssmtp/ssmtp.conf
 
 # edit /etc/php5/apache2/php.ini
