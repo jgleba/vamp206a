@@ -19,19 +19,19 @@ sudo apt-get -y install locate
 cd 
 sudo rm -rf shc
 
-read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
-read -t  1 -p "Hit ENTER or wait 1 seconds" ; echo ;
+read -t  9 -p "Hit ENTER or wait about ten seconds" ; echo ;
+read -t  3 -p "Hit ENTER or wait 3 seconds" ; echo ;
 
 mkdir -p tmp
 sudo chmod -R 777 tmp
 
 cd tmp
-wget -N https://codeload.github.com/dgleba/vamp206a/zip/master 
+wget -N --output-document=vamp206a-mast.zip https://codeload.github.com/dgleba/vamp206a/zip/master 
 #unzip [ -j junk paths - all in one folder ] 
 
 # unzip one folder...  unzip  ~/share203/master vamp206a-master/hyperv/* -d ./sh
 # unzip to destination.. unzip ~/share203/master -d ./sh
-unzip -uo ./master
+unzip -uo ./vamp206a-mast.zip
 mkdir ~/shc
 cp -avf vamp206a-master/* ~/shc/
 cd

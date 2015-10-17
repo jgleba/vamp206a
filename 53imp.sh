@@ -57,7 +57,7 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2suprv.* TO 
 #perms...
 
 sudo mkdir -p /var/www/html
-sudo chmod -R 755 /var/www/html 
+#sudo chmod -R 755 /var/www/html 
 
 sudo chmod -R 777 /var/www/html/django
 

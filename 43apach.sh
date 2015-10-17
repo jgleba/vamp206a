@@ -7,24 +7,6 @@
 date
 set -x
 
-# mount vbox shares...
-#
-mkdir -p ~/share203
-if mount | grep /share203 > /dev/null; then
-    echo "its mounted"
-else
-    echo "not, so mount it"
-	sudo mount -t vboxsf  share203 ~/share203
-fi
-#sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) vampx ~/share203
-#
-sudo mkdir -p /var/www/html
-if mount | grep /var/www/html > /dev/null; then
-    echo "already mounted"
-else
-    echo "now mount it"
-	sudo mount -t vboxsf  html /var/www/html
-fi
 
 
 # install apache 2.5 and php 5.5

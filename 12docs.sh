@@ -30,9 +30,14 @@ fi
 if [ -f vne.sh ]; then
     sudo cat vne.sh > /home/$userv/shc/21env.sh
     sudo chmod -R 777 /home/$userv/shc/21env.sh
+
+    # copy env.sh to profile.d so it runs a login for global variables...
+    # may not be needed...
+    sudo cp shc/21env.sh /etc/profile.d
+
 else
-		read  -p "Oops, ftp server may not be present. Press Enter." ; echo ; 	
-		exit 8
+        read  -p "Oops, ftp server may not be present. Press Enter." ; echo ; 	
+        exit 8
 fi
 
 
@@ -47,6 +52,8 @@ if [ ! -f htdocs.PMDS-DATA.latest.7z ]; then
     source ~/shc/21env.sh
     sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
 fi
+
+
 
 
 # bitbucket download tips...
