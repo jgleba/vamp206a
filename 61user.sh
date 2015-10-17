@@ -14,3 +14,5 @@ chmod -R g+w  /var/www/html
 
 #https://help.ubuntu.com/community/FilePermissions
 #chmod ugo+rwx file4
+
+#
