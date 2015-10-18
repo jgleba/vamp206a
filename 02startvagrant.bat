@@ -1,8 +1,7 @@
+setlocal enableextensions
 
 c:
-mkdir  \var\
-mkdir  \var\varvamp\
-mkdir  \var\varvamp\files
+mkdir  c:\var\varvamp\files
 :cd \var\varvamp\files
 
 call vggs.bat

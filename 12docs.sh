@@ -10,14 +10,14 @@ sudo mkdir -p /var/www/html
 #
 #get webroot code 
 
-# I setup vsftp on a vagrant ubuntu machine that has shares to c: drive to get the files...
+# I setup vsftp on a vagrant ubuntu machine, vamp198e, that has shares to c: drive to get the files...
 cd /home/$userv/tmp
 rm -f vne.sh
 pwd
 ls
 read -t 10 -p "Press ENTER or wait about ten seconds" ; echo ;
 
-
+#you may have to edit the ip address..
 if [curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh] ; then
 	echo 'curl Ok'
 else
@@ -58,6 +58,9 @@ fi
 
 # bitbucket download tips...
 # http://stackoverflow.com/questions/17682143/download-private-bitbucket-repository-zip-file-using-http-authentication
+#
+#https://bitbucket.org/site/master/issues/7393/in-addition-to-raw-allow-to-download-files
+# curl https://bitbucket.org/sschuberth/mingwgitdevenv/raw/sha1/filename
 #
 # scp info...
 #http://stackoverflow.com/questions/50096/how-to-pass-password-to-scp
