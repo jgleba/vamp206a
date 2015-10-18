@@ -33,7 +33,7 @@ set ymd=%date:~12,2%%date:~4,2%%date:~7,2%&set dhms=%date:~12,2%%date:~4,2%%date
 :
 :not used...
 :set vboxm1="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
-
+: for git bash,  noworky... 'c/Program Files/Oracle/VirtualBox/VBoxManage'
 
 :create the vm
 %vboxm% createvm --name %vmname% --ostype Ubuntu_64 --register
