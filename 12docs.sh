@@ -9,6 +9,7 @@ sudo mkdir -p /var/www/html
 
 
 # back ticks evaluate date when run...
+# http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
 sudo cat <<EOF >> /home/$userv/.bashrc
 # -------------------------------------------------------------------
