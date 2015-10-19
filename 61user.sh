@@ -2,6 +2,7 @@
 
 # add www group and a user
 
+cd
 set -x
 date
 
@@ -24,6 +25,5 @@ sudo deluser dgleba sudo
 
 #https://help.ubuntu.com/community/FilePermissions
 #chmod ugo+rwx file4
-
 #
 

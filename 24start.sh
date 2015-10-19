@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -x
+cd
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit these variables to match your system...

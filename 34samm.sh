@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+cd
 source shc/21env.sh
 
 smbmn() {

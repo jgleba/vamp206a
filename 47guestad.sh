@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -x
+cd
 
 #install virtual box guest additions.
 #http://virtualboxes.org/doc/installing-guest-additions-on-ubuntu/

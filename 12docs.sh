@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -x
+cd
 source shc/21env.sh
 
 sudo chmod -R 777 tmp

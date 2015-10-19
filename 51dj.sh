@@ -2,7 +2,7 @@
 
 # setup django and django apps...
 
-
+cd
 set -x
 date
 

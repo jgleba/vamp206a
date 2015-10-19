@@ -2,6 +2,7 @@
 
 # import mysql data...
 
+cd
 source shc/21env.sh
 
 date

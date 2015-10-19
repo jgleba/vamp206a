@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
+cd
 
 smb() {
 
 source shc/root.sh
 source shc/21env.sh
 
-cd
+
 mkdir webwork
 sudo mkdir -p /var/www/html
 

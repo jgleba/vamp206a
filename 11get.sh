@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -x
+cd
 
 #
 # edit below username albe if needed.
@@ -16,7 +17,6 @@ sudo apt-get -y install mc
 sudo apt-get -y install locate
 
 # get zip of repo from github
-cd 
 sudo rm -rf shc
 
 read -t  9 -p "Hit ENTER or wait about ten seconds" ; echo ;
