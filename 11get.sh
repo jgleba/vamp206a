@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-set -x
-cd
 
 #
 # edit below username albe if needed.
@@ -8,6 +6,9 @@ cd
 
 get1()
 {
+set -x
+cd
+
 
 #get a few software to help get things started...
 sudo apt-get -y install openssh-server 

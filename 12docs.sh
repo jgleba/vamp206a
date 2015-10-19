@@ -8,21 +8,6 @@ sudo mkdir -p /var/www/html
 #sudo chmod -R 755 /var/www/html 
 
 
-# back ticks evaluate date when run...
-# http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
-nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
-sudo cat <<EOF >> /home/$userv/.bashrc
-# -------------------------------------------------------------------
-# David Gleba $nowdg1
-#write history immediately...
-#http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
-shopt -s histappend
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-#
-EOF
-
-
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
@@ -42,7 +27,6 @@ else
 	read  -p "Could not get file from ftp server. Press Enter." ; echo ;
 	exit 9
 fi	
-
 
 
 if [ -f vne.sh ]; then
@@ -72,13 +56,17 @@ if [ ! -f htdocs.PMDS-DATA.latest.7z ]; then
 fi
 
 
-
-
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
 # bitbucket download tips...
 # http://stackoverflow.com/questions/17682143/download-private-bitbucket-repository-zip-file-using-http-authentication
+# https://bitbucket.org/site/master/issues/7393/in-addition-to-raw-allow-to-download-files
 #
-#https://bitbucket.org/site/master/issues/7393/in-addition-to-raw-allow-to-download-files
-# curl https://bitbucket.org/sschuberth/mingwgitdevenv/raw/sha1/filename
-#
-# scp info...
+# works..  prompts for password for private repo..   this gives the dl a name...
+#    curl    --user dgleba  https://bitbucket.org/dgleba/vamp206env/raw/master/vne.sh -o vne1.sh
+# works... prompts for password for private repo..  this uses name of source file...
+curl -O --user dgleba  https://bitbucket.org/dgleba/vamp206env/raw/master/vne.sh 
+
+# scp info... [i didn't use it.]
 #http://stackoverflow.com/questions/50096/how-to-pass-password-to-scp
+

@@ -23,11 +23,12 @@ vboxmanage list runningvms > \temp\runningvms.txt
 FOR /F delims^=^"^ tokens^=1 %%i in (\temp\runningvms.txt) do (
 echo '%%i'
 @echo on
+echo.
 vboxmanage controlvm "%%i" acpipowerbutton
 )
 echo.
 echo ...reached the end of stopmvs.bat file.
-timeout 3
+timeout 6
 echo.
 echo.
 

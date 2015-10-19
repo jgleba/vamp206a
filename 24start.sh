@@ -13,9 +13,9 @@ source shc/21env.sh
 
 source shc/12docs.sh
 cd
-source shc/15samsh.sh
-cd
 source shc/root.sh
+cd
+source shc/15samsh.sh
 cd
 source shc/31base.sh
 cd
@@ -28,8 +28,11 @@ cd
 source shc/51dj.sh
 cd
 source shc/53imp.sh
+cd
+source shc/61user.sh
 
-sleep 22
+read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
+
 
 echo " DONE; rebooting ... "
 reboot
