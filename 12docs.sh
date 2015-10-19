@@ -7,6 +7,22 @@ sudo chmod -R 777 tmp
 sudo mkdir -p /var/www/html
 #sudo chmod -R 755 /var/www/html 
 
+
+# back ticks evaluate date when run...
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo cat <<EOF >> /home/$userv/.bashrc
+# -------------------------------------------------------------------
+# David Gleba $nowdg1
+#write history immediately...
+#http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+#
+EOF
+
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #get webroot code 

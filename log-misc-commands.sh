@@ -5,6 +5,41 @@ sleep 999
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2015-10-18[Oct-Sun]22-54PM
+
+
+# back ticks evaluate date when run...
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo cat <<EOF >> /home/$userv/.bashrc
+# -------------------------------------------------------------------
+# David Gleba $nowdg1
+#write history immediately...
+#http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+#
+EOF
+
+
+
+
+# back ticks evaluate date when run...
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo cat <<EOF >> /home/$userv/tmpf1
+# -------------------------------------------------------------------
+# David Gleba $nowdg1
+#write history immediately...
+#http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+#
+EOF
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2015-10-18[Oct-Sun]22-09PM
 
 
