@@ -19,7 +19,7 @@ dgmethod="bitbucket"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-if [$dgmethod="ftp" ]; then
+if [$dgmethod = "ftp" ]; then
 
     # I setup vsftp on a vagrant ubuntu machine, vamp198e, that has shares to c: drive to get the files...
     cd /home/$userv/tmp
@@ -65,7 +65,7 @@ if [$dgmethod="ftp" ]; then
 fi
 
 
-if [$dgmethod="bitbucket"] ; then
+if [$dgmethod = "bitbucket"] ; then
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #
