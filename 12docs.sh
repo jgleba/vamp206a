@@ -67,6 +67,12 @@ fi
 
 if [ $dgmethod = "bitbucket" ] ; then
 
+
+# can't unzip the file....
+#  https://bitbucket.org/conservancy/kallithea/issues/35
+
+
+
     cd /home/$userv/tmp
     rm -f vne.sh
     pwd
