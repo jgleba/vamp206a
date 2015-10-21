@@ -14,12 +14,12 @@ sudo mkdir -p /var/www/html
 #get webroot code 
 
 # set method as either ftp or bitbucket...
-method="bitbucket"
+dgmethod="bitbucket"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-if [method="ftp" ]; then
+if [$dgmethod="ftp" ]; then
 
     # I setup vsftp on a vagrant ubuntu machine, vamp198e, that has shares to c: drive to get the files...
     cd /home/$userv/tmp
@@ -65,7 +65,7 @@ if [method="ftp" ]; then
 fi
 
 
-if [method="bitbucket"] ; then
+if [$dgmethod="bitbucket"] ; then
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #
