@@ -71,6 +71,17 @@ valid users = $userv
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
 #
+[home]
+path = /home/$userv
+browsable =yes
+writable = yes
+guest ok = no
+read only = no
+valid users = $userv
+# sudo smbpasswd -a $userv
+# http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
+# https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
+#
 [html]
 path = /var/www/html
 browsable =yes
