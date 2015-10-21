@@ -19,7 +19,7 @@ method="bitbucket"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-if method="ftp" ; then
+if [method="ftp" ]; then
 
     # I setup vsftp on a vagrant ubuntu machine, vamp198e, that has shares to c: drive to get the files...
     cd /home/$userv/tmp
@@ -65,7 +65,7 @@ if method="ftp" ; then
 fi
 
 
-if method="bitbucket"
+if [method="bitbucket"] ; then
 
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #
