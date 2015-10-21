@@ -17,6 +17,19 @@ sudo adduser dgleba
 #sudo passwd dgleba
 sudo usermod -G adm,dialout,plugdev,sambashare,www  dgleba
 
+sudo smbpasswd -a dgleba
+sudo sudo service smbd restart
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# edit /etc/samba/smb.conf to add dgleba
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 groups
 groups dgleba
 id dgleba
