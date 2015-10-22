@@ -20,8 +20,7 @@ sudo apt-get -y install locate
 # get zip of repo from github
 sudo rm -rf shc
 
-read -t  9 -p "Hit ENTER or wait about ten seconds" ; echo ;
-read -t  3 -p "Hit ENTER or wait 3 seconds" ; echo ;
+read -t  19 -p "Hit ENTER or wait about ten seconds" ; echo ;
 
 mkdir -p tmp
 sudo chmod -R 777 tmp
