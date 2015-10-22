@@ -30,7 +30,12 @@ if [ $dgmethod = "ftp" ] ; then
     read -t 10 -p "Press ENTER or wait about ten seconds" ; echo ;
 
     #you may have to edit the ip address..
-    curl -O -u vagrant:vagrant ftp://192.168.88.80/var/varvamp/files/vne.sh
+    #https://technicalsanctuary.wordpress.com/2012/11/01/curl-curl-9-server-denied-you-to-change-to-the-given-directory/
+    #example path: ftp://192.168.88.80//var/varvamp/files/vne.sh
+    #absolute path is  //var   << double slash for absolute path.
+    #else get error : curl: (9) Server denied you to change to the given directory
+
+    curl -O -u vagrant:vagrant ftp://10.4.10.254/var/varvamp/files/vne.sh
     
     if [ -f vne.sh ]; then
         sudo cat vne.sh > /home/$userv/shc/21env.sh
@@ -47,7 +52,7 @@ if [ $dgmethod = "ftp" ] ; then
 
 
     if [ ! -f htdocs.PMDS-DATA.latest.7z ] ; then
-        curl -O -u vagrant:vagrant ftp://192.168.88.80/var/varvamp/files/htdocs.PMDS-DATA.latest.7z
+        curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         cd /home/$userv/tmp
 
         sudo rm -rf htdocs
