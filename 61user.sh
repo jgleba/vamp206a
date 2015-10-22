@@ -9,6 +9,8 @@ date
 sudo groupadd www
 sudo chgrp -hR www /var/www/html
 sudo chmod -R g+rw  /var/www/html
+# make only folders +x so they can be cd into.
+sudo find /var/www/html -type d -exec chmod g+x {} +
 
 #adduser asks questions and does more...
 sudo adduser dgleba
@@ -41,3 +43,13 @@ id dgleba
 #chmod ugo+rwx file4
 #
 
+offline()
+{
+
+net use \\VAMP206B\ /delete
+net use * /delete
+
+:net use \\SERVER * /user:username
+net use \\vamp206b * /user:dgleba
+
+}
