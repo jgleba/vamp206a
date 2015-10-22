@@ -57,7 +57,8 @@ if [ $dgmethod = "ftp" ] ; then
 
         sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
-        7z x htdocs.PMDS-DATA.latest.7z
+        cd /home/$userv/tmp
+        7z x /home/$userv/tmp/htdocs.PMDS-DATA.latest.7z
 
         source ~/shc/21env.sh
         sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
