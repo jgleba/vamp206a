@@ -12,7 +12,7 @@ smbmn() {
 
 #get ip address of windows machine...
 ipredwe = nmblookup -S REDWE | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'  | head -n1
-echo "$ipredwe\n"
+echo "$ipredwe"
 
 mkdir -p /mnt/REDWE/c
 :chmod -R 777 /mnt/REDWE/c
@@ -29,7 +29,7 @@ sudo mount -t cifs //$ipredwe/htocs /var/www/html -o username=$uredwe,password=$
 
 #get ip address of windows machine...
 ip3hz=(nmblookup -S PMDS-3HZGD42) | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'  | head -n1
-echo "$ip3hz\n"
+echo "$ip3hz"
 
 mkdir -p /mnt/3hz/c
 :chmod -R 777 /mnt/3hz/c

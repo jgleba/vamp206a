@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#issues.
+
+# vagrant ftp has old version of file. have to vagrant reload to get new version. 2015-10-22_Thu_12.14-PM
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 set -x
 cd
 source shc/21env.sh
@@ -12,11 +24,11 @@ sudo chmod -R o+r /var/www/html
 # make only folders +x so they can be cd into.
 sudo find /var/www/html -type d -exec chmod o+x {} +
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#issues.
-
-# vagrant ftp has old version of file. have to vagrant reload to get new version. 2015-10-22_Thu_12.14-PM
+#
+# make tempfiles folder writable. This is used with cilist, tnlist and others to write excel files and mail them..
+#
+sudo mkdir -p /tmp/tempfiles
+sudo chmod -R 777 /tmp/tempfiles
 
 
 
