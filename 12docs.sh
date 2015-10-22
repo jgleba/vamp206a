@@ -7,6 +7,11 @@ sudo chmod -R 777 tmp
 sudo mkdir -p /var/www/html
 #sudo chmod -R 755 /var/www/html 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#issues.
+
+# vagrant ftp has old version of file. have to vagrant reload to get new version. 2015-10-22_Thu_12.14-PM
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

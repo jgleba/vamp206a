@@ -13,6 +13,9 @@ cd
 
 smb() {
 
+source shc/root.sh
+source shc/21env.sh
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #if this has run before, then exit...
 if [ -f /home/$userv/15run ]; then
@@ -22,10 +25,6 @@ if [ -f /home/$userv/15run ]; then
  else
     echo "run it... 15samsh.sh "
  fi
-
-
-source shc/root.sh
-source shc/21env.sh
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
