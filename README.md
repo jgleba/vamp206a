@@ -24,13 +24,13 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - edit shc/21env.sh to agree with your settings.  
        
 - run  `sudo shc/24start.sh`    
-    It runs the other files.
+    This runs the other files.
 - visit in your browser: `[ip-address]/menu` or any other address that leads to the web content you placed in `c:\p2\vamp\htdocs`  
   type `ifconfig` in the server console to get the ip of the machine.
 
 ## Preparation
 
-- create basic folders. `c:\var\varvamp`, `c:\var\varvamp\files`, `c:\var\share203`,  
+- create basic folders.  `c:\var\varvamp\files`, `c:\var\share203`,  
 - put iso here, C:\var\varvamp\files\ubuntu-14.04.3-server-amd64.iso, or let it download it for you.
 - I put a copy of my served web root files in `C:\var\varvamp\files\htdocs.pmds-data.latest.7z`  
     say for example it contains `htdocs\menu\index.html` in the 7z file.  

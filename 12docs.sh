@@ -35,7 +35,7 @@ if [ $dgmethod = "ftp" ] ; then
     #absolute path is  //var   << double slash for absolute path.
     #else get error : curl: (9) Server denied you to change to the given directory
 
-    curl -O -u vagrant:vagrant ftp://10.4.10.254/var/varvamp/files/vne.sh
+    curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh
     
     if [ -f vne.sh ]; then
         sudo cat vne.sh > /home/$userv/shc/21env.sh
