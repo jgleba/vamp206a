@@ -31,8 +31,7 @@ if [ $dgmethod = "ftp" ] ; then
 
     #you may have to edit the ip address..
     if [ curl -O -u vagrant:vagrant ftp://192.168.88.80/var/varvamp/files/vne.sh ] ; then
-          ftp://vagrant@192.168.88.80/var/varvamp/files/vne.sh
-  echo 'curl Ok'
+           echo 'curl Ok'
     else
             read  -p "Could not get file from ftp server. Press Enter." ; echo ;
             exit 9
