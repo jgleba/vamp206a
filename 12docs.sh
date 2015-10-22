@@ -38,12 +38,12 @@ if [ $dgmethod = "ftp" ] ; then
     curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh
     
     if [ -f vne.sh ]; then
-        sudo cat vne.sh > /home/$userv/shc/21env.sh
+        sudo cat /home/$userv/tmp/vne.sh > /home/$userv/shc/21env.sh
         sudo chmod -R 777 /home/$userv/shc/21env.sh
 
         # copy env.sh to profile.d so it runs a login for global variables...
         # may not be needed...
-        sudo cp shc/21env.sh /etc/profile.d
+        sudo cp /home/$userv/shc/21env.sh /etc/profile.d
 
     else
             read  -p "Oops, ftp server may not be present. Press Enter." ; echo ; 	
