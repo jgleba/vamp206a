@@ -47,7 +47,7 @@ sudo apt-get  -y install python-mysqldb
 apt-get -y install vsftpd
 # uncomment #write_enable=YES
 sudo sed -i "s@#write_enable=YES@write_enable=YES@g" /etc/vsftpd.conf
-
+sudo service vsftpd restart
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -71,8 +71,8 @@ valid users = $userv
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
 #
-[albe]
-path = /home/$userv
+[home]
+path = /home
 browsable =yes
 writable = yes
 guest ok = no
