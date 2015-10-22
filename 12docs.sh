@@ -30,14 +30,8 @@ if [ $dgmethod = "ftp" ] ; then
     read -t 10 -p "Press ENTER or wait about ten seconds" ; echo ;
 
     #you may have to edit the ip address..
-    if [ curl -O -u vagrant:vagrant ftp://192.168.88.80/var/varvamp/files/vne.sh ] ; then
-           echo 'curl Ok'
-    else
-            read  -p "Could not get file from ftp server. Press Enter." ; echo ;
-            exit 9
-    fi	
-
-
+    curl -O -u vagrant:vagrant ftp://192.168.88.80/var/varvamp/files/vne.sh
+    
     if [ -f vne.sh ]; then
         sudo cat vne.sh > /home/$userv/shc/21env.sh
         sudo chmod -R 777 /home/$userv/shc/21env.sh
