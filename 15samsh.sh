@@ -18,7 +18,7 @@ source shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #if this has run before, then exit...
-if [ -f /home/$userv/15run ]; then
+if [ -f /home/$userv/15ran ]; then
     # 15run exists, so don't run this again. exit.
     echo "15samsh.sh has run before, don't run again."
     exit 7
@@ -138,4 +138,6 @@ date
 saynow
 set -x
 smb
+cd
+touch /home/$userv/15ran
 date
