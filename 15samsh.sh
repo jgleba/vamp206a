@@ -10,7 +10,19 @@ cd
 # set samba shares and some linux user settings like immediate history write...
 
 
+
 smb() {
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#if this has run before, then exit...
+if [ -f /home/$userv/15run ]; then
+    # 15run exists, so don't run this again. exit.
+    echo "15samsh.sh has run before, don't run again."
+    exit 7
+ else
+    echo "run it... 15samsh.sh "
+ fi
+
 
 source shc/root.sh
 source shc/21env.sh
