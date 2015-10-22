@@ -14,7 +14,8 @@ sudo mkdir -p /var/www/html
 #get webroot code 
 
 # set method as either ftp or bitbucket...
-dgmethod="bitbucket"
+#dgmethod="bitbucket"
+dgmethod="ftp"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

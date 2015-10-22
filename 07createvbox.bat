@@ -22,7 +22,20 @@ set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
 :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
+@ECHO OFF
+echo Waiting for - Looking for - ubuntu-14.04.3-server-amd64-unattended.iso file...
+SET LookForFile="C:\var\varvamp\files\ubuntu-14.04.3-server-amd64-unattended.iso"
+:CheckForFile
+IF EXIST %LookForFile% GOTO FoundIt
+REM If we get here, the file is not found.
+REM Wait 10 seconds and then recheck.
+REM If no delay is needed, comment/remove the timeout line.
+:TIMEOUT /T 10 >nul
+TIMEOUT /T 10 
+GOTO CheckForFile
+:FoundIt
+ECHO Found: %LookForFile%
+Echo on
 
 
 :Prepare date and temp folders
