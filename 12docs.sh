@@ -30,7 +30,7 @@ if [ $dgmethod = "ftp" ] ; then
     read -t 10 -p "Press ENTER or wait about ten seconds" ; echo ;
 
     #you may have to edit the ip address..
-    if [curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/vne.sh] ; then
+    if [curl -O -u vagrant:vagrant ftp://192.168.3.7//var/varvamp/files/vne.sh] ; then
             echo 'curl Ok'
     else
             read  -p "Could not get file from ftp server. Press Enter." ; echo ;
@@ -53,7 +53,7 @@ if [ $dgmethod = "ftp" ] ; then
 
 
     if [ ! -f htdocs.PMDS-DATA.latest.7z ]; then
-        curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
+        curl -O -u vagrant:vagrant ftp://192.168.3.7//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         cd /home/$userv/tmp
 
         sudo rm -rf htdocs
