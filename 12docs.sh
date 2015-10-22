@@ -53,7 +53,7 @@ if [ $dgmethod = "ftp" ] ; then
 
     if [ ! -f htdocs.PMDS-DATA.latest.7z ] ; then
         curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
-        curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/htdocs.PMDS-DATA.latest.zip
+        #curl -O -u vagrant:vagrant ftp://10.4.10.254//var/varvamp/files/htdocs.PMDS-DATA.latest.zip
         #wget -N ftp://vagrant:vagrant@10.4.10.254//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         cd /home/$userv/tmp
 
@@ -62,11 +62,11 @@ if [ $dgmethod = "ftp" ] ; then
         cd /home/$userv/tmp
         7z x /home/$userv/tmp/htdocs.PMDS-DATA.latest.7z
 
-#
-#7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp/htdocs.PMDS-DATA.latest.7z
-#Error: Can not open file as archive
-#htdocs.PMDS-DATA.latest.7z
-#
+        # this problem is gone now...
+        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp/htdocs.PMDS-DATA.latest.7z
+        #Error: Can not open file as archive
+        #htdocs.PMDS-DATA.latest.7z
+        #
 
 
         source ~/shc/21env.sh
