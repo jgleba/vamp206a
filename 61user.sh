@@ -23,6 +23,10 @@ sudo usermod -G adm,dialout,plugdev,sambashare,www  dgleba
 sudo smbpasswd -a dgleba
 
 
+#add user to upload files by ftp...
+sudo adduser ftpup
+
+
 #--------
 #
 #  trying @www group for valid users. 2015-10-23_Fri_10.16-AM

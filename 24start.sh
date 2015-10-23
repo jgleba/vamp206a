@@ -15,7 +15,7 @@ source shc/12docs.sh
 cd
 source shc/root.sh
 cd
-#don't run more than once. source shc/15samsh.sh
+source shc/15samsh.sh
 cd
 source shc/31base.sh
 cd
