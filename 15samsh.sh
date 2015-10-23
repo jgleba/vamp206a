@@ -55,6 +55,8 @@ EOF
 
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 mkdir webwork
 sudo mkdir -p /var/www/html
@@ -63,11 +65,20 @@ sudo apt-get -y install samba
 
 #backup server config...
 mkdir ~/backup
-sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/samba/smb.conf    ~backup/smb.conf.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+# backup original file once...
+if [ ! -f /etc/samba/smb.conf.orig ] ; then  sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.orig ; fi
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 
-sudo cat <<EOF >> /etc/samba/smb.conf
+## one time fix... sudo cp /etc/samba/smb.conf.bak__2015-10-22_Thu_15.08.24-EDT /etc/samba/smb.conf.orig
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+sudo cat <<EOF >> /etc/samba/smb.conf 
+
 # -------------------------------------------------------------------
 # shares
 #
@@ -106,6 +117,10 @@ valid users = $userv,dgleba,@www
 #
 EOF
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 source shc/21env.sh
 sudo smbpasswd -a $userv
 
@@ -128,5 +143,6 @@ saynow
 set -x
 smb
 cd
+# create 15ran to mark that is has been run. Then don't run it again.
 touch /home/$userv/15ran
 date
