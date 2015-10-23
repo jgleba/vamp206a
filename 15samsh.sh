@@ -88,7 +88,8 @@ browsable =yes
 writable = yes
 guest ok = no
 read only = no
-valid users = $userv,dgleba,@www
+#was this, try without dgleba... valid users = $userv,dgleba,@www
+valid users = $userv,@www
 # sudo smbpasswd -a $userv
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
@@ -99,7 +100,7 @@ browsable =yes
 writable = yes
 guest ok = no
 read only = no
-valid users = $userv,dgleba,@www
+valid users = $userv,@www
 # sudo smbpasswd -a $userv
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
@@ -110,7 +111,7 @@ browsable =yes
 writable = yes
 guest ok = no
 read only = no
-valid users = $userv,dgleba,@www
+valid users = $userv,@www
 # sudo smbpasswd -a $userv
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
