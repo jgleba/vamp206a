@@ -47,10 +47,13 @@ groups dgleba
 id dgleba
 
 
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users
+#
 # sudo deluser dgleba sudo
-
+#
 #https://help.ubuntu.com/community/FilePermissions
 #chmod ugo+rwx file4
 #
