@@ -14,7 +14,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
         ( I used a vagrant Ubuntu VM to create it. vamp198e https://bitbucket.org/dgleba/vamp198e)   
       See instructions for unattended iso maker below...   
 	    vagrant share...   config.vm.synced_folder "/var/varvamp", "/var/varvamp"
-      I used `03prep-iso.sh`  
+      I used `04prep-iso.sh`  
 - create the virtual box  ( I did this from windows)  
   `07createvbox.bat`  
    This will also do an unattended install of the resulting Ubuntu 14.04 64bit server iso in vbox.    
@@ -175,10 +175,13 @@ Just fire off the start.sh script in your users' home directory to complete the 
 If you run into any issues, please create an issue; I am by no means a shell/bash expert (far from it), and it took me a while to compile this script into something that's easy to use and just works, but I'm happy to help where I can! :)
 
 ## License
-MIT  
-.
+MIT 
+
+Unattended Ubuntu ISO Maker - Created by: **Rinck Sonnenberg (Netson)**
+ 
+
 _____________
 
 
-David Gleba  
 https://github.com/dgleba/vamp206a  
+David Gleba  

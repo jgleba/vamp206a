@@ -9,7 +9,6 @@ date
 set -x
 
 
-
 # install apache 2.5 and php 5.5
 #sudo apt-get install -y apache2
 #sudo apt-get install -y php5
@@ -56,6 +55,9 @@ sudo service vsftpd restart
 #    http://askubuntu.com/questions/47609/how-to-have-my-php-send-mail
 sudo apt-get -y install ssmtp
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #  edit /etc/ssmtp/ssmtp.conf -- edit  mailhub=mail .. replace entire line with mailhub...
 #
 # didn't work due to variation in original file. try to replace the line matching string with sed.
@@ -63,19 +65,17 @@ sudo apt-get -y install ssmtp
 #
 # backup file before editing...
 sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-# 2015-10-16_Fri_11.08-AM
+
+# remove line containing  'mailhub'  and replace th line completely with the new text...
+# add marker line above my edits... 
 # add a marker comment like: #David Gleba 2015-10-16... http://stackoverflow.com/questions/11694980/using-sed-insert-a-line-below-or-above-the-pattern
 # now replace the line... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
-# 
-# add marker line above my edits... 
-# works 2015-10-19_Mon_10.50-AM
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
-sed -i "/mailhub/i # \n# David Gleba kdg54 $nowdg1 \n#"  /etc/ssmtp/ssmtp.conf
-#
-# remove line containing  'mailhub'  and replace th line completely with the new text...
+sed -i "/mailhub/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/ssmtp/ssmtp.conf
 sed -i 's/.*mailhub.*/mailhub=MESG01.stackpole.ca/g' /etc/ssmtp/ssmtp.conf
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 # edit /etc/php5/apache2/php.ini
@@ -98,10 +98,6 @@ sudo apt-get -y install git
 # install Composer
 curl -s https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
-
-#sudo apt-get -y install mc
-
-
 
 
 #

@@ -10,13 +10,12 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
 set -x
 cd
 source shc/21env.sh
 
-#make directories.
-
+# make directories.
+# html
 sudo chmod -R 777 tmp
 sudo mkdir -p /var/www/html
 # make read for other group...
@@ -29,6 +28,9 @@ sudo find /var/www/html -type d -exec chmod o+x {} +
 #
 sudo mkdir -p /tmp/tempfiles
 sudo chmod -R 777 /tmp/tempfiles
+
+sudo mkdir -p /var/www/tempfilesdg
+sudo chmod -R 777 /var/www/tempfilesdg
 
 
 
