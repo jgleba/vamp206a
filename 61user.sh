@@ -25,11 +25,12 @@ sudo smbpasswd -a dgleba
 
 #--------
 #
-# trying @www group for valid users. 2015-10-23_Fri_10.16-AM
+#  trying @www group for valid users. 2015-10-23_Fri_10.16-AM
 #
 # edit /etc/samba/smb.conf to add dgleba
 # like...  valid users = $userv,dgleba
 # http://stackoverflow.com/questions/9591744/add-to-the-end-of-a-line-containing-a-pattern-with-sed-or-awk
+#  https://www.samba.org/samba/docs/using_samba/ch09.html
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
