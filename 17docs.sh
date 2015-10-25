@@ -171,7 +171,7 @@ if [ $dgmethod = "bitbucket" ] ; then
 
         sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
-        7z x htdocs.PMDS-DATA.latest.7z
+        7z x htdocs.PMDS-DATA.latest.zip
 
         source ~/shc/21env.sh
         sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
