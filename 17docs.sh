@@ -57,8 +57,8 @@ sudo chmod -R 777 /var/www/tempfilesdg
 #get webroot code 
 
 # set method as either ftp or bitbucket...
-#dgmethod="bitbucket"
-dgmethod="ftp"
+dgmethod="bitbucket"
+#dgmethod="ftp"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -163,8 +163,9 @@ if [ $dgmethod = "bitbucket" ] ; then
             exit 8
     fi
 
-    if [ ! -f htdocs.PMDS-DATA.latest.7z ]; then
-        curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.PMDS-DATA.latest.7z
+    if [ ! -f htdocs.PMDS-DATA.latest.zip ]; then
+        #curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.PMDS-DATA.latest.7z
+        curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.PMDS-DATA.latest.zip
                                 
         cd /home/$userv/tmp
 
