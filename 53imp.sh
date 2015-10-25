@@ -104,6 +104,12 @@ chmod -R 777  /var/www/html/shiftcsd2/user_config
 chmod -R 777  /var/www/html/shiftcsd2sup/user_config
 
 
+# make read for other group...
+sudo chmod -R o+r /var/www/html 
+# make only folders +x so they can be cd into.
+sudo find /var/www/html -type d -exec chmod o+x {} +
+
+
 date
 
 #
