@@ -102,9 +102,12 @@ if [ $dgmethod = "ftp" ] ; then
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.zip
         #wget -N ftp://vagrant:vagrant@10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
-        cd /home/$userv/tmp
+    
+    fi
 
-        sudo rm -rf htdocs
+    fi  [ ! -d htdocs ] ; then
+        cd /home/$userv/tmp
+        #sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
         cd /home/$userv/tmp
         7z x /home/$userv/tmp/htdocs.PMDS-DATA.latest.7z
@@ -115,10 +118,10 @@ if [ $dgmethod = "ftp" ] ; then
         #htdocs.PMDS-DATA.latest.7z
         #
 
-
         source ~/shc/21env.sh
         sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
     fi
+
 fi
 
 
