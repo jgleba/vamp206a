@@ -6,7 +6,7 @@ mkdir  c:\var\varvamp\files
 
 call vggs.bat
 
-timeout 9
+:timeout 9
 
 
 vagrant up
