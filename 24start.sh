@@ -11,11 +11,12 @@ source shc/21env.sh
 #comment this out for full auto run...
 #exit 0
 
-source shc/12docs.sh
 cd
 source shc/root.sh
 cd
 source shc/15samsh.sh
+cd
+source shc/17docs.sh
 cd
 source shc/31base.sh
 cd

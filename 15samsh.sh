@@ -3,7 +3,7 @@ cd
 
 #note...
 #    if this is run more than once, it will duplicate entries...
-
+#
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # description:
@@ -20,12 +20,19 @@ source shc/21env.sh
 #if this has run before, then exit...
 if [ -f /home/$userv/15ran ]; then
     # 15run exists, so don't run this again. exit.
+    echo
     echo "15samsh.sh has run before, don't run again."
-    exit 7
+    echo
+    read -t  19 -p "Hit ENTER or wait about ten seconds" ; echo ;
+
  else
     echo "run it... 15samsh.sh "
+    runsam
  fi
 
+}
+
+function runsam() {
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -33,8 +40,6 @@ if [ -f /home/$userv/15ran ]; then
 #
 echo "alias lsl='ls -la'" >>   ~/.bash_aliases
 cat ~/.bash_aliases
-
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -130,6 +135,9 @@ sudo sudo service smbd restart
 sudo chmod -R 777 /home/$userv/webwork
 #sudo chmod -R 755 /var/www/html
 
+cd
+# create 15ran to mark that is has been run. Then don't run it again.
+touch /home/$userv/15ran
 
 }
 
@@ -143,7 +151,4 @@ date
 saynow
 set -x
 smb
-cd
-# create 15ran to mark that is has been run. Then don't run it again.
-touch /home/$userv/15ran
 date

@@ -14,6 +14,19 @@
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# ask if you want to put htdocs there manually with 15putht.bat from windows..
+set +vx
+echo
+date  +"__%Y-%m-%d_%a_%k.%M.%S-%Z"
+echo "Do you want to put htdocs there manually with 15putht.bat from windows?"
+read -t 999 -p "Hit ENTER or wait about 999 seconds" ; echo ;
+echo
+set -vx
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
 set -x
 cd
