@@ -9,7 +9,7 @@
 # https://en.wikipedia.org/wiki/Idempotence
 
 
-# vagrant ftp has old version of file. have to vagrant reload to get new version. 2015-10-22_Thu_12.14-PM
+# vagrant ftp has old version of file. have to 'vagrant reload' to get new version. 2015-10-22_Thu_12.14-PM
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,6 +49,7 @@ dgmethod="ftp"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+ 
 
 if [ $dgmethod = "ftp" ] ; then
 
@@ -65,7 +66,8 @@ if [ $dgmethod = "ftp" ] ; then
     #absolute path is  //var   << double slash for absolute path.
     #else get error : curl: (9) Server denied you to change to the given directory
 
-    curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/vne.sh
+    curl -O --user dgleba  https://bitbucket.org/dgleba/vamp206env/raw/master/vne.sh 
+    #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/vne.sh
     
     if [ -f vne.sh ]; then
         sudo cat /home/$userv/tmp/vne.sh > /home/$userv/shc/21env.sh
@@ -82,7 +84,9 @@ if [ $dgmethod = "ftp" ] ; then
 
 
     if [ ! -f htdocs.PMDS-DATA.latest.7z ] ; then
-        curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
+
+        curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.7z
+        #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.zip
         #wget -N ftp://vagrant:vagrant@10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         cd /home/$userv/tmp
@@ -157,3 +161,10 @@ if [ $dgmethod = "bitbucket" ] ; then
     fi
 fi
 
+function offline()
+{
+exit 999
+
+   curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.7z
+
+}
