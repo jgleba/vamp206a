@@ -105,7 +105,7 @@ if [ $dgmethod = "ftp" ] ; then
     
     fi
 
-    fi  [ ! -d htdocs ] ; then
+    if  [ ! -d htdocs ] ; then
         cd /home/$userv/tmp
         #sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
