@@ -26,9 +26,17 @@ sudo apt-get install opera
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+function removevnc() {
+#
+#sudo apt-get remove --purge tightvncserver
+tightvncserver -kill :1
+sudo apt-get --purge autoremove tightvncserver
+}
+
+
+
 function vnci () {
 
-#sudo apt-get remove --purge tightvncserver
 
 # vnc
 # http://vandorp.biz/2012/01/installing-a-lightweight-lxdevnc-desktop-environment-on-your-ubuntudebian-vps/#.VixnHH6rTIU
@@ -41,14 +49,19 @@ sudo apt-get -y install  tightvncserver
 tightvncserver :1
 # enter password twice...
 
+# backup original file once...
+if [ ! -f /home/$userv/.vnc/xstartup.orig ] ; then  sudo cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.orig ; fi
+sudo cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+
+
 # Then stop VNC
 tightvncserver -kill :1
 
 # Edit config file to start session with LXDE:
 # Add this at the bottom of the file:
 mkdir -p /home/$userv/.vnc/
-echo "lxterminal &"  >> /home/$userv/.vnc/xstartup
-echo "/usr/bin/lxsession -s LXDE &"  >> /home/$userv/.vnc/xstartup
+#echo "lxterminal &"  >> /home/$userv/.vnc/xstartup
+#echo "/usr/bin/lxsession -s LXDE &"  >> /home/$userv/.vnc/xstartup
 
 # Restart VNC
 tightvncserver :1
