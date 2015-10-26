@@ -96,9 +96,9 @@ if [ $dgmethod = "ftp" ] ; then
     fi
 
 
-    if [ ! -f htdocs.PMDS-DATA.latest.7z ] ; then
+    if [ ! -f htdocs.PMDS-DATA.latest.zip ] ; then
 
-        curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.7z
+        curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.zip
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.zip
         #wget -N ftp://vagrant:vagrant@10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
@@ -110,7 +110,7 @@ if [ $dgmethod = "ftp" ] ; then
         #sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
         cd /home/$userv/tmp
-        7z x /home/$userv/tmp/htdocs.PMDS-DATA.latest.7z
+        7z x /home/$userv/tmp/htdocs.PMDS-DATA.latest.zip
 
         # this problem is gone now...
         #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp/htdocs.PMDS-DATA.latest.7z

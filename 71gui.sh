@@ -3,6 +3,11 @@
 cd
 set -x
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+function gui1() {
 #install gui...
 sudo apt-get -y install lxde
 
@@ -23,6 +28,7 @@ sudo apt-get install opera
 # 235mb
 #sudo apt-get install epiphany-browser
 
+}
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -33,6 +39,8 @@ tightvncserver -kill :1
 sudo apt-get --purge autoremove tightvncserver
 }
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 function vnci () {
@@ -72,6 +80,8 @@ tightvncserver :1
 #notredlighternot,not9 192.168.88.79:1 ultravncviewer 
 #5901
 
+#reset password ..  vncpasswd   8 char max
+
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,4 +93,5 @@ exit 999
 }
 #
 
+gui1
 vnci
