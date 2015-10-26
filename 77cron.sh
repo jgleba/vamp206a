@@ -19,7 +19,7 @@ http://unix.stackexchange.com/questions/119481/how-come-crontab-e-is-different-f
 
 http://unix.stackexchange.com/questions/119481/how-come-crontab-e-is-different-from-less-etc-crontab
 
-
+crontab -e
 /var/spool/cron/crontabs/albe
 
 
