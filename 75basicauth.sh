@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
 cd
-# echo off
-set +vx
-# echo on
 set -vx
 
 
@@ -13,9 +10,16 @@ set -vx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function offline()
+function info()
 {
 exit 999
+
+Basic Auth:
+
+https://help.ubuntu.com/lts/serverguide/httpd.html
+
+http://www.server-world.info/en/note?os=Ubuntu_14.04&p=httpd&f=9
+
 
 }
 #

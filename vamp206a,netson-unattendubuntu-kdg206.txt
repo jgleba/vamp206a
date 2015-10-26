@@ -5,6 +5,7 @@ Title:  .
 
 test creation.
 
+use existing iso and unattenddiso..
 2015-Oct-25_Sun_08:22:00 PM  create vm
 2015-Oct-25_Sun_08:27:51 PM  login
 2015-Oct-25_Sun_08:28:16 PM  get, start.sh
