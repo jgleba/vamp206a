@@ -50,8 +50,9 @@ tightvncserver :1
 # enter password twice...
 
 # backup original file once...
-if [ ! -f /home/$userv/.vnc/xstartup.orig ] ; then  sudo cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.orig ; fi
-sudo cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+if [ ! -f /home/$userv/.vnc/xstartup.orig ] ; then  cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.orig ; fi
+ cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+ cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.$(date +"%s").bak
 
 
 # Then stop VNC
@@ -60,8 +61,8 @@ tightvncserver -kill :1
 # Edit config file to start session with LXDE:
 # Add this at the bottom of the file:
 mkdir -p /home/$userv/.vnc/
-#echo "lxterminal &"  >> /home/$userv/.vnc/xstartup
-#echo "/usr/bin/lxsession -s LXDE &"  >> /home/$userv/.vnc/xstartup
+echo "lxterminal &"  >> /home/$userv/.vnc/xstartup
+echo "/usr/bin/lxsession -s LXDE &"  >> /home/$userv/.vnc/xstartup
 
 # Restart VNC
 tightvncserver :1
