@@ -41,6 +41,8 @@ function vnci () {
 # vnc
 # http://vandorp.biz/2012/01/installing-a-lightweight-lxdevnc-desktop-environment-on-your-ubuntudebian-vps/#.VixnHH6rTIU
 # vnc
+# https://panel.cinfu.com/knowledgebase/20/Graphical-Desktop-LXDE-installation-in-VPS-with-Ubuntu-OS-for-a-low-RAM-VPS-plans.html
+# https://www.vultr.com/docs/how-to-install-vnc-desktop-on-ubuntu-14-04
 
 source shc/21env.sh
 
