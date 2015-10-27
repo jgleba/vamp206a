@@ -45,7 +45,6 @@ sudo apt-get --purge autoremove tightvncserver
 
 function vnci () {
 
-
 # vnc
 # http://vandorp.biz/2012/01/installing-a-lightweight-lxdevnc-desktop-environment-on-your-ubuntudebian-vps/#.VixnHH6rTIU
 # vnc
@@ -77,7 +76,7 @@ tightvncserver -kill :1
 # Add this at the bottom of the file:
 mkdir -p /home/$userv/.vnc/
 #autocutsel must be at top of file..
-#allow copy-paste cut-paste
+#allow copy-paste cut-paste in ultravnc
 #http://raspberrypi.stackexchange.com/questions/4474/tightvnc-copy-paste-between-local-os-and-raspberry-pi
 # use sed to add line after first line of the file..
 sed -i '1 a \# David Gleba\nautocutsel -fork' /home/$userv/.vnc/xstartup
@@ -88,7 +87,36 @@ cat /home/$userv/.vnc/xstartup
 
 
 # Restart VNC
-tightvncserver :1
+#tightvncserver :1
+
+
+#create upstart script for starting vnc...
+sudo tee /etc/init/tightvncserver1.conf <<EOF
+description "vnc start"
+author      "David Gleba"
+
+start on filesystem or runlevel [2345]
+stop on shutdown
+
+script
+    sleep 3
+    # Start tightvncserver
+    su - pi -c '/usr/bin/tightvncserver :1'
+end script
+
+pre-start script
+    echo "[`date`] tightvncserver1 start...." >> /var/log/tightvncserver1.log
+end script
+
+pre-stop script
+    rm /var/run/mountvshare.pid
+    echo "[`date`] .... stop tightvncserver1" >> /var/log/tightvncserver1.log
+end script
+EOF
+#
+sudo service tightvncserver1 start
+
+
 
 #notredlighternot,not9 192.168.88.79:1 ultravncviewer 
 #5901
@@ -121,7 +149,6 @@ lxterminal &
 function offline()
 {
 exit 999
-
 }
 #
 
