@@ -14,7 +14,7 @@ sudo chmod -R g+rw  /var/www/html
 # make only folders +x so they can be cd into.
 sudo find /var/www/html -type d -exec chmod g+x {} +
 
-sudo usermod -a -G adm,dialout,plugdev,sambashare,sudoers,www  $userv
+sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo,www  $userv
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -23,7 +23,7 @@ sudo adduser dgleba
 #sudo useradd -d /home/dgleba -m dgleba
 # no home dir... sudo useradd dgleba
 #sudo passwd dgleba
-sudo usermod -G -a adm,dialout,plugdev,sambashare,www  dgleba
+sudo usermod -a -G adm,dialout,plugdev,sambashare,www  dgleba
 sudo smbpasswd -a dgleba
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,7 +34,10 @@ sudo adduser pmdsu
 #sudo useradd -d /home/pmdsu -m pmdsu
 # no home dir... sudo useradd pmdsu
 #sudo passwd pmdsu
-sudo usermod -G -a www  pmdsu
+#add user to group www
+sudo usermod -a -G www  pmdsu
+#or
+sudo gpasswd -a pmdsu www
 #sudo smbpasswd -a pmdsu
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

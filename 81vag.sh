@@ -8,6 +8,7 @@ set +vx
 # echo on
 set -vx
 
+#https://www.howtoforge.com/vboxheadless-running-virtual-machines-with-virtualbox-4.3-on-a-headless-ubuntu-14.04-lts-server
 #http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts
 
 sudo apt-get -y install virtualbox
