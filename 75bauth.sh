@@ -11,7 +11,7 @@ sudo tee /etc/apache2/sites-available/baseauth1.conf <<EOF
 # require authentication under /var/www/html/authbasic
  <Directory /var/www/html/authbasic>
     AuthType Basic
-    AuthName "Basic Authentication"
+    AuthName "authbasic folder.. Basic Authentication"
     AuthUserFile /etc/apache2/.htpasswd
     require valid-user
 </Directory>
@@ -37,8 +37,10 @@ EOF
 }
 
 
-apache2()
+apache21()
 {
+
+sudo apt-get -y install apache2-utils
 
     sudo mkdir -p /var/www/html/authbasic
     # add a user ( create a new file with "-c" => only add "-c" at the first time. Do not add it 2nd time to add users. )
@@ -76,8 +78,9 @@ http://www.server-world.info/en/note?os=Ubuntu_14.04&p=httpd&f=9
 #echo requested commands...
 date
 
-ipage
 basauth
-apache2
+apache21
+ipage
+
 date
 #
