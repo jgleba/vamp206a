@@ -65,10 +65,14 @@ sudo sed -i "/$orig_hostname/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/hos
 sudo sed -i "s/.*$orig_hostname.*/127.0.1.1 $fqdn $default_hostname/g" /etc/hosts
 cat /etc/hosts
 
+
 # update repos
+#
 apt-get -y update 
 # update / upgrade
 #apt-get -y upgrade > /dev/null 2>&1
+#
+# unattended upgrade?? http://askubuntu.com/questions/250733/can-i-do-a-silent-or-unattended-release-upgrade
 #apt-get -y dist-upgrade > /dev/null 2>&1
 #sudo apt-get update
 #sudo apt-get -y upgrade
