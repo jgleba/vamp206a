@@ -91,6 +91,7 @@ cat /home/$userv/.vnc/xstartup
 
 
 #create upstart script for starting vnc...
+#this for rc.local, but i did upstart... http://raspberrypi.stackexchange.com/questions/27676/auto-start-tightvncserver-on-raspberry-pi-2
 sudo tee /etc/init/tightvncserver1.conf <<EOF
 description "vnc start"
 author      "David Gleba"
@@ -101,7 +102,7 @@ stop on shutdown
 script
     sleep 3
     # Start tightvncserver
-    su - pi -c '/usr/bin/tightvncserver :1'
+    su - $userv -c '/usr/bin/tightvncserver :1'
 end script
 
 pre-start script
