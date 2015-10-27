@@ -73,6 +73,7 @@ mkdir ~/backup
 # backup original file once...
 if [ ! -f /etc/samba/smb.conf.orig ] ; then  sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.orig ; fi
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.$(date +"%s").bak
 sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 

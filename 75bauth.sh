@@ -11,7 +11,7 @@ sudo tee /etc/apache2/sites-available/baseauth1.conf <<EOF
 # require authentication under /var/www/html/authbasic
  <Directory /var/www/html/authbasic>
     AuthType Basic
-    AuthName "authbasic folder.. Basic Authentication"
+    AuthName "===== Authbasic folder ====="
     AuthUserFile /etc/apache2/.htpasswd
     require valid-user
 </Directory>

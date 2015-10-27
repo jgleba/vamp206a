@@ -100,6 +100,25 @@ curl -s https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 
+sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bak
+
+
+function createindex1() 
+{
+sudo tee /var/www/html/index.html <<EOF
+<html>
+<body>
+<div style="width: 100%; font-size: 22px; font-weight: bold; text-align: left;">
+This address is offline. Try another address... 
+</div>
+<h5>2015-10-27
+</h5>
+</body>
+</html>
+EOF
+}
+
+
 #
 date
 #
