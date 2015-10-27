@@ -7,10 +7,14 @@ set -vx
 # run every 3 minutes
 crontab -l | { cat; echo "*/3 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
 
+#remove then add
+# run 0901am everyday
+crontab -l
+#remove
+crontab -u albe -l | grep -v '/excel2_script.sh'  | crontab -u albe -
 #add
-# run 1701 everyday
-crontab -l | { cat; echo "1 17 * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
-
+crontab -l | { cat; echo "1 9 * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
+crontab -l
 
 
 

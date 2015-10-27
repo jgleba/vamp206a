@@ -55,6 +55,10 @@ function vnci () {
 source shc/21env.sh
 
 sudo apt-get -y install  tightvncserver
+
+#for copy-paste
+sudo apt-get -y install autocutsel
+
 # Start VNC to create config file
 tightvncserver :1
 # enter password twice...
@@ -68,11 +72,20 @@ if [ ! -f /home/$userv/.vnc/xstartup.orig ] ; then  cp /home/$userv/.vnc/xstartu
 # Then stop VNC
 tightvncserver -kill :1
 
+
 # Edit config file to start session with LXDE:
 # Add this at the bottom of the file:
 mkdir -p /home/$userv/.vnc/
+#autocutsel must be at top of file..
+#allow copy-paste cut-paste
+#http://raspberrypi.stackexchange.com/questions/4474/tightvnc-copy-paste-between-local-os-and-raspberry-pi
+# use sed to add line after first line of the file..
+sed -i '1 a \# David Gleba\nautocutsel -fork' /home/$userv/.vnc/xstartup
+echo "#this noworky... vncconfig -nowin -iconic &"  >> /home/$userv/.vnc/xstartup
 echo "lxterminal &"  >> /home/$userv/.vnc/xstartup
 echo "/usr/bin/lxsession -s LXDE &"  >> /home/$userv/.vnc/xstartup
+cat /home/$userv/.vnc/xstartup
+
 
 # Restart VNC
 tightvncserver :1
@@ -81,6 +94,25 @@ tightvncserver :1
 #5901
 
 #reset password ..  vncpasswd   8 char max
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~/.vnc/xstartup works..
+#.....#!/bin/sh
+#vncconfig -nowin -iconic &
+autocutsel -fork
+xrdb $HOME/.Xresources
+xsetroot -solid grey
+#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+#x-window-manager &
+# Fix to make GNOME work
+export XKL_XMODMAP_DISABLE=1
+/etc/X11/Xsession
+lxterminal &
+/usr/bin/lxsession -s LXDE &
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 }
 
@@ -95,3 +127,4 @@ exit 999
 
 gui1
 vnci
+
