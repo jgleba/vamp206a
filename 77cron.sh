@@ -11,7 +11,7 @@ crontab -l | { cat; echo "*/3 * * * * /var/www/html/cilist/actions/excel2_script
 # run 0901am everyday
 crontab -l
 #remove
-crontab -u albe -l | grep -v '/excel2_script.sh'  | crontab -u albe -
+crontab -u $userv -l | grep -v '/excel2_script.sh'  | crontab -u $userv -
 #add
 crontab -l | { cat; echo "1 9 * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
 crontab -l
@@ -30,7 +30,7 @@ exit 999
 remove:
 http://blog.fayland.org/2011/10/removeadd-job-to-crontab-by-commandline.html
 #crontab -u fayland -l | grep -v 'perl /home/fayland/test.pl'  | crontab -u fayland -
-crontab -u albe -l | grep -v '/var/www/html/cilist/actions/excel2_script.sh'  | crontab -u albe -
+crontab -u $userv -l | grep -v '/var/www/html/cilist/actions/excel2_script.sh'  | crontab -u $userv -
 
 remove all:
 crontab -r 

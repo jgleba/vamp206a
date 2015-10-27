@@ -13,7 +13,7 @@ sudo chmod -R g+rw  /var/www/html
 # make only folders +x so they can be cd into.
 sudo find /var/www/html -type d -exec chmod g+x {} +
 
-sudo usermod -a -G adm,dialout,plugdev,sambashare,www,sudoers  albe
+sudo usermod -a -G adm,dialout,plugdev,sambashare,www,sudoers  $userv
 
 #adduser asks questions and does more...
 sudo adduser dgleba

@@ -42,7 +42,7 @@ cd shc
 #chmod -R +x *.sh
 # make files executable recursively
 #find . -type f -exec chmod +x {} \;
-sudo chown -R albe /home/albe/shc
+#2015-10-27_Tue_09.58-AM.. sudo chown -R albe /home/albe/shc
 sudo chmod -R 777 .
 sudo chmod -R  +x .
 sudo updatedb
