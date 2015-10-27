@@ -28,3 +28,10 @@ tmp="/home/$userv/tmp"
 
 mkdir -p  /home/$userv/_this-vamp206b
 
+
+function offline() {
+exit 9
+albe@vamp206b:~$ #sudo echo $HOME
+/home/albe
+albe@vamp206b:~$ 
+}
