@@ -5,10 +5,17 @@
 #
 
 export userv="albe"
+
+#user for automated emails
+export user2="pmdsu"
+
 #this stores root not the regular user.
 #userv=$USER
 
-export default_hostname="vamp206b"
+#hostname from unattended iso...
+export orig_hostname="vamp206b"
+# new hostname..
+export default_hostname="pmdsdata3"
 export default_domain="local"
 
 export mysqlrootpassw="x"

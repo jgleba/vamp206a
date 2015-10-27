@@ -6,6 +6,7 @@ cd
 set -x
 date
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 sudo groupadd www
 sudo chgrp -hR www /var/www/html
@@ -13,16 +14,30 @@ sudo chmod -R g+rw  /var/www/html
 # make only folders +x so they can be cd into.
 sudo find /var/www/html -type d -exec chmod g+x {} +
 
-sudo usermod -a -G adm,dialout,plugdev,sambashare,www,sudoers  $userv
+sudo usermod -a -G adm,dialout,plugdev,sambashare,sudoers,www  $userv
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #adduser asks questions and does more...
 sudo adduser dgleba
 #sudo useradd -d /home/dgleba -m dgleba
 # no home dir... sudo useradd dgleba
 #sudo passwd dgleba
-sudo usermod -G adm,dialout,plugdev,sambashare,www  dgleba
+sudo usermod -G -a adm,dialout,plugdev,sambashare,www  dgleba
 sudo smbpasswd -a dgleba
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#adduser asks questions and does more...
+sudo adduser pmdsu
+#sudo useradd -d /home/pmdsu -m pmdsu
+# no home dir... sudo useradd pmdsu
+#sudo passwd pmdsu
+sudo usermod -G -a www  pmdsu
+#sudo smbpasswd -a pmdsu
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #add user to upload files by ftp...
 sudo adduser ftpup

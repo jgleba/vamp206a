@@ -3,18 +3,14 @@
 cd
 set -vx
 
-# add
-# run every 3 minutes
-crontab -l | { cat; echo "*/3 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
 
-#remove then add
-# run 0901am everyday
-crontab -l
+#remove then add # run 0901am everyday
+sudo crontab -u pmdsu -l
 #remove
-crontab -u $userv -l | grep -v '/excel2_script.sh'  | crontab -u $userv -
+sudo crontab -u pmdsu -l | grep -v '/excel2_script.sh'  | sudo crontab -u pmdsu -
 #add
-crontab -l | { cat; echo "1 9 * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
-crontab -l
+sudo crontab -u pmdsu -l | { cat; echo "37 15 * 10 * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
+sudo crontab -u pmdsu -l
 
 
 
@@ -84,6 +80,20 @@ crontab -l | { cat; echo "5 * * * 1 ls"; } | crontab -
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h  dom mon dow   command
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+old:
+# add
+# run every 3 minutes
+crontab -l | { cat; echo "*/3 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
+#remove then add    # run 0901am everyday
+crontab -l
+#remove
+crontab -u $userv -l | grep -v '/excel2_script.sh'  | crontab -u $userv -
+#add
+crontab -l | { cat; echo "1 9 * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
+crontab -l
 
 
 
