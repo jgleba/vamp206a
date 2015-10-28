@@ -1,4 +1,5 @@
-"calc#set -x
+#
+#set -x
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit these variables to match your system...
