@@ -45,11 +45,6 @@ cat /etc/hosts
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-# set mail name
-
-sudo cp /etc/mailname /etc/mailname.$(date "+%Y-%m-%d_%s").bak
-sudo echo $default_hostname.$default_domain | sudo tee /etc/mailname
-cat /etc/mailname
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

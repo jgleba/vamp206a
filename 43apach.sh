@@ -65,6 +65,7 @@ sudo apt-get -y install ssmtp
 #
 # backup file before editing...
 sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.$(date +"%Y-%m-%d_%s").bak
 
 # remove line containing  'mailhub'  and replace th line completely with the new text...
 # add marker line above my edits... 
@@ -74,6 +75,25 @@ nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
 sed -i "/mailhub/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/ssmtp/ssmtp.conf
 sed -i 's/.*mailhub.*/mailhub=MESG01.stackpole.ca/g' /etc/ssmtp/ssmtp.conf
 
+#working on --  hostname=
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo sed -i "/hostname=/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/ssmtp/ssmtp.conf
+sudo sed -i "s/.*hostname=.*/hostname=$default_hostname.$default_domain/g" /etc/ssmtp/ssmtp.conf
+
+
+#working on --  FromLineOverride=
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo sed -i "/FromLineOverride=/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/ssmtp/ssmtp.conf
+sudo sed -i 's/.*FromLineOverride=.*/FromLineOverride=YES/g' /etc/ssmtp/ssmtp.conf
+
+cat /etc/ssmtp/ssmtp.conf
+
+
+# set mail name
+
+sudo cp /etc/mailname /etc/mailname.$(date "+%Y-%m-%d_%s").bak
+sudo echo $default_hostname.$default_domain | sudo tee /etc/mailname
+cat /etc/mailname
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

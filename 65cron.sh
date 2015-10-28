@@ -11,12 +11,21 @@ sudo crontab -u pmdsu -l | grep -v '/excel2_script.sh'  | sudo crontab -u pmdsu 
 #add
 sudo crontab -u pmdsu -l | { cat; echo "37 15 1 10 * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
 # every 2 min.
-#sudo crontab -u pmdsu -l | { cat; echo "*/2 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
+sudo crontab -u pmdsu -l | { cat; echo "*/2 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
 sudo crontab -u pmdsu -l
 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# incorrect from name fromname wrong..
+# solution..
+# email had old name vamp206b.vamp206b
+#sudo dpkg-reconfigure ssmtp
+#or edit /etc/ssmtp/ssmtp.conf
+#change fully qualified hostname and allow user to enter any from name.
+
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,6 +106,8 @@ crontab -u $userv -l | grep -v '/excel2_script.sh'  | crontab -u $userv -
 crontab -l | { cat; echo "1 9 * * * /var/www/html/cilist/actions/excel2_script.sh"; } | crontab -
 crontab -l
 
+
+sudo grep  vamp206b /etc/*
 
 
 
