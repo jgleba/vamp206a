@@ -42,6 +42,9 @@ sudo chmod -R o+r /var/www/html
 # make only folders +x so they can be cd into.
 sudo find /var/www/html -type d -exec chmod o+x {} +
 
+sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
+
+
 #
 # make tempfiles folder writable. This is used with cilist, tnlist and others to write excel files and mail them..
 #

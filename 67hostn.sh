@@ -8,6 +8,7 @@ set -vx
 #
 sudo cp /etc/hosts /etc/hosts.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 sudo cp /etc/hosts /etc/hosts.$(date +"%s").bak
+sudo cp /etc/hosts /etc/hosts.$(date "+%Y-%m-%d_%s").bak
 sudo cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,7 +22,7 @@ sudo cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 fqdn="$default_hostname.$default_domain"
 # update hostname
 #sudo echo "$default_hostname" > /etc/hostname
-echo $default_hostname | sudo tee /etc/hostname
+sudo echo $default_hostname | sudo tee /etc/hostname
 cat /etc/hostname
 #_____________
 #this was problematic... see next stanza
@@ -40,6 +41,15 @@ sudo sed -i "/$orig_hostname/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/hos
 sudo sed -i "s/.*$orig_hostname.*/127.0.1.1 $fqdn $default_hostname/g" /etc/hosts
 cat /etc/hosts
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# set mail name
+
+sudo cp /etc/mailname /etc/mailname.$(date "+%Y-%m-%d_%s").bak
+sudo echo $default_hostname.$default_domain | sudo tee /etc/mailname
+cat /etc/mailname
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

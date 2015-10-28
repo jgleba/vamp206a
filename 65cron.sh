@@ -9,7 +9,9 @@ sudo crontab -u pmdsu -l
 #remove
 sudo crontab -u pmdsu -l | grep -v '/excel2_script.sh'  | sudo crontab -u pmdsu -
 #add
-sudo crontab -u pmdsu -l | { cat; echo "37 15 * 10 * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
+sudo crontab -u pmdsu -l | { cat; echo "37 15 1 10 * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
+# every 2 min.
+#sudo crontab -u pmdsu -l | { cat; echo "*/2 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
 sudo crontab -u pmdsu -l
 
 
