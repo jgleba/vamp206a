@@ -30,12 +30,14 @@ export predwe="h"
 export u3hz="dlgeba"
 export p3hz="h"
 
+export pw1="a"
 
 mkdir -p tmp
 tmp="/home/$userv/tmp"
 
 mkdir -p  /home/$userv/_this-vamp206b
 
+export -p
 
 function offline() {
 exit 9
