@@ -2,6 +2,10 @@
 cd
 source shc/21env.sh
 
+#2015-10-28
+#can't mount using cmdline. can mount with pcmanfm on smb://PMDS-3HZGD42/C using dgleba domain=stackpole password
+
+
 
 smbmn() {
 
@@ -89,6 +93,7 @@ Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/s/samba/smbclient_4.1
 
 
 smb://PMDS-3HZGD42/C
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
