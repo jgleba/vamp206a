@@ -33,8 +33,7 @@ sudo cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-#why do this stuff again ?
+#why do this stuff again ? Yes, do it.
 # I think it is a good idea to set the hostname. I may have used an older .iso file with an older hostname.
 #
 #try deleting the host lines and add new ones. http://stackoverflow.com/questions/5410757/delete-a-line-containing-a-specific-string-using-sed
@@ -45,7 +44,6 @@ fqdn="$default_hostname.$default_domain"
 #sudo echo "$default_hostname" > /etc/hostname
 echo $default_hostname | sudo tee /etc/hostname
 cat /etc/hostname
-
 #_____________
 #this was problematic... see next stanza
 #sudo sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
@@ -54,8 +52,6 @@ cat /etc/hostname
 #sudo sed -i "s@vamp206b@ $default_hostname @g" /etc/hosts
 #hostname "$default_hostname"
 #_____________
-
-
 # remove line containing  'vamp206b'  and replace the line completely with the new text...
 # add marker line above my edits... # add a marker comment like: #David Gleba 2015-10-16... http://stackoverflow.com/questions/11694980/using-sed-insert-a-line-below-or-above-the-pattern
 # now replace the line... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
@@ -64,6 +60,9 @@ sudo sed -i "/$orig_hostname/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/hos
 #Use double quotes to make the shell expand variables while keeping whitespace:
 sudo sed -i "s/.*$orig_hostname.*/127.0.1.1 $fqdn $default_hostname/g" /etc/hosts
 cat /etc/hosts
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 # update repos
