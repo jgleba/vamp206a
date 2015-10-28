@@ -145,6 +145,52 @@ lxterminal &
 
 }
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+function setlxde() {
+
+#font
+
+/home/albe/.config/lxsession/LXDE/desktop.conf
+
+[GTK]
+#David Gleba
+sGtk/FontName=Sans 9
+
+
+
+# screen resolution
+
+#
+http://forum.lxde.org/viewtopic.php?f=1&t=375
+#
+
+/home/albe/.config/lxsession/LXDE/autostart
+
+@xscreensaver -no-splash
+@lxpanel --profile LXDE
+@pcmanfm --desktop --profile LXDE
+@/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+#David Gleba
+@xrandr -s 1024x768
+
+
+/home/albe/.config/autostart/lxrandr-autostart.desktop
+[Desktop Entry]
+Type=Application
+Name=LXRandR autostart
+Comment=Start xrandr with settings done in LXRandR
+#David Gleba
+Exec=xrandr --output VBOX0 --mode 1024x768
+OnlyShowIn=LXDE
+
+
+}
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function offline()
