@@ -130,12 +130,19 @@ EOF
 
 
 source shc/21env.sh
-sudo smbpasswd -a $userv
+sudo smbpasswd -a $userv 
+
+# http://stackoverflow.com/questions/12009/piping-password-to-smbpasswd
+# echo -ne "p2\np2\n" | sudo smbpasswd -a -s u2
+# echo -ne "$predwe\n$predwe\n" | smbpasswd -a -s u2
+# (echo pw; echo pw) | smbpasswd -s -a u3
+
 
 sudo sudo service smbd restart
 
 sudo chmod -R 777 /home/$userv/webwork
 #sudo chmod -R 755 /var/www/html
+
 
 cd
 # create 15ran to mark that is has been run. Then don't run it again.
