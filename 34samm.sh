@@ -2,8 +2,8 @@
 cd
 source shc/21env.sh
 
-smbmn() {
 
+smbmn() {
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
@@ -28,30 +28,78 @@ sudo mount -t cifs //$ipredwe/htocs /var/www/html -o username=$uredwe,password=$
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #get ip address of windows machine...
-ip3hz=(nmblookup -S PMDS-3HZGD42) | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'  | head -n1
-echo "$ip3hz"
+#notgood...  ip3hz = nmblookup -S PMDS-3HZGD42 | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'  | head -n1
+ip3hz1=$(ping -c 1 PMDS-3HZGD42 | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'  | head -n1)
+echo "$ip3hz1"
+export ip3hz="$ip3hz1"
 
 mkdir -p /mnt/3hz/c
 :chmod -R 777 /mnt/3hz/c
-
 # this is a share for drive c - the whole drive
 sudo mount -t cifs //$ip3hz/c /mnt/3hz/c -o username=$u3hz,password=$p3hz
 
 # this is a share where the web root files are..
 mkdir -p /var/www/html
-sudo mount -t cifs //$ip3hz/htocs /var/www/html -o username=$u3hz,password=$p3hz
+sudo mkdir -p /mnt/3hz/htdocs
+chmod -R 777 /mnt/3hz/htdocs
+#sudo mount -t cifs //10.4.10.243/htdocs /mnt/3hz/htdocs -o username=dgleba,password=x
+sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz,password=$p3hz
+sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz
 
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-saynow() {
+function smbcl() {
+
+sudo apt-get install smbclient
+
+smbclient -L redwe
+smbclient -L redex164
+
+
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+offlines() {
 date
+
+firewall at csd may be preventing...
+apt-get install smbclient...
+Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/s/samba/smbclient_4.1.6+dfsg-1ubuntu2.14.04.9_amd64.deb  Size mismatch
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+get ipaddress
+
+#gives : ..  10.4.11.10:
+ping -c 1 st-dgleba | grep "64 bytes from"|awk '{print $4}'
+#hmm. it always has a colon... this doens't work...
+ping -c 1 st-dgleba2 | awk -F'[ :]' 'NR==2 { print $4 }'
+#good..
+ping -c 1 st-dgleba | grep "64 bytes from " | awk '{print $4}' | cut -d":" -f1
+
+#good:
+ping -c 1 st-dgleba | awk -F" |:" '/from/{print $4}'
+#works..
+ipa21=$(ping -c 1 st-dgleba | awk -F" |:" '/from/{print $4}')
+echo $ipa21
+#but..
+# this returned pmds-jpruim-vm1.stackpole.ca from 64 bytes from pmds-jpruim-vm1.stackpole.ca (10.4.10.243): icmp_seq=1 ttl=128 time=1.11 ms
+#ip3hz=$(ping -c 1 PMDS-3HZGD42 | awk -F" |:" '/from/{print $4}')
+echo "$ip3hz"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-saynow
+
 set -x
 smbmn
 date

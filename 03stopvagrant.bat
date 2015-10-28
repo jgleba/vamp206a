@@ -1,9 +1,9 @@
 
 call vggs.bat
 
-timeout 7
+:timeout 7
 
 vagrant halt
 
-timeout 99
+timeout 9
 pause
