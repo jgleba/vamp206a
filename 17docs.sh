@@ -157,7 +157,7 @@ if [ $dgmethod = "bitbucket" ] ; then
 
         # copy env.sh to profile.d so it runs a login for global variables...
         # may not be needed...
-        sudo cp shc/21env.sh /etc/profile.d
+        sudo cp /home/$userv/shc/21env.sh /etc/profile.d
 
     else
             read  -p "Oops, ftp server may not be present. Press Enter." ; echo ; 	
@@ -178,6 +178,8 @@ if [ $dgmethod = "bitbucket" ] ; then
         sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
     fi
 fi
+
+cd
 
 function offline()
 {
