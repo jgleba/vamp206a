@@ -33,18 +33,20 @@ ip3hz1=$(ping -c 1 PMDS-3HZGD42 | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-
 echo "$ip3hz1"
 export ip3hz="$ip3hz1"
 
-mkdir -p /mnt/3hz/c
-:chmod -R 777 /mnt/3hz/c
+sudo mkdir -p /mnt/3hz/C
+sudo chmod -R 777 /mnt/3hz/C
 # this is a share for drive c - the whole drive
-sudo mount -t cifs //$ip3hz/c /mnt/3hz/c -o username=$u3hz,password=$p3hz
+#sudo mount -t cifs //$ip3hz/c /mnt/3hz/c -o username=$u3hz,password=$p3hz
+sudo mount -t cifs //$ip3hz/C /mnt/3hz/C -o domain=stackpole.com,username=$u3hz
+sudo mount -t cifs //PMDS-3HZGD42/C /mnt/3hz/C -o domain=stackpole.com,username=$u3hz
 
 # this is a share where the web root files are..
-mkdir -p /var/www/html
+sudo mkdir -p /var/www/html
 sudo mkdir -p /mnt/3hz/htdocs
 chmod -R 777 /mnt/3hz/htdocs
 #sudo mount -t cifs //10.4.10.243/htdocs /mnt/3hz/htdocs -o username=dgleba,password=x
-sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz,password=$p3hz
-sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz
+#sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz,password=$p3hz
+sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=stackpole/$u3hz
 
 }
 
@@ -61,6 +63,20 @@ smbclient -L redex164
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function umnta() 
+{
+http://stackoverflow.com/questions/74626/how-do-you-force-a-cifs-connection-to-unmount
+umount -l
+sudo umount -a -t cifs -l
+#??  sudo umount -u /mnt/3hz/htdocs
+umount /mnt
+umount /mnt/3hz/htdocs
+
+
+}
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -70,6 +86,9 @@ date
 firewall at csd may be preventing...
 apt-get install smbclient...
 Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/s/samba/smbclient_4.1.6+dfsg-1ubuntu2.14.04.9_amd64.deb  Size mismatch
+
+
+smb://PMDS-3HZGD42/C
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
