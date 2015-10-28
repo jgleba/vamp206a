@@ -21,9 +21,12 @@ source shc/43apach.sh
 source shc/51dj.sh
 source shc/53imp.sh
 source shc/61user.sh
+source shc/63bauth.sh
+source shc/65cron.sh
+source shc/67hostn.sh
 
 read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
 
 
-echo " DONE; rebooting ... "
-reboot
+echo " DONE; Please reboot...  "
+#reboot

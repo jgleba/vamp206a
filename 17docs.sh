@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+echo starting 17docs.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #issues.
