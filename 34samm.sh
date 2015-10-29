@@ -93,6 +93,8 @@ Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/s/samba/smbclient_4.1
 
 
 smb://PMDS-3HZGD42/C
+smb://dgleba@PMDS-3HZGD42/C
+smb://stackpole\dgleba@PMDS-3HZGD42/C
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
