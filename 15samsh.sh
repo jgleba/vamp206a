@@ -140,6 +140,8 @@ source shc/21env.sh
 
 smbpas () {
 
+notes...
+
 # http://stackoverflow.com/questions/12009/piping-password-to-smbpasswd
  echo -ne "p2\np2\n" | sudo smbpasswd -a -s u2
 #work...
@@ -148,7 +150,6 @@ smbpas () {
 
 
 http://unix.stackexchange.com/questions/204975/script-samba-password-but-securely
-
 pssword="pw"
 #IFS= read -r password </home/file.pw1
 #smbpasswd -a -s "$LOGIN" <<EOF

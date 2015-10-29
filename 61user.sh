@@ -19,25 +19,30 @@ sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo,www  $userv
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #adduser asks questions and does more...
-sudo adduser dgleba
+#sudo adduser dgleba
+sudo adduser dgleba --gecos "david gleba,RoomNumber,WorkPhone,HomePhone" --disabled-password
+echo "dgleba:a" | sudo chpasswd
 #sudo useradd -d /home/dgleba -m dgleba
 # no home dir... sudo useradd dgleba
 #sudo passwd dgleba
 sudo usermod -a -G adm,dialout,plugdev,sambashare,www  dgleba
-sudo smbpasswd -a dgleba
+#sudo smbpasswd -a dgleba
+(echo $pw1; echo $pw1) | sudo smbpasswd -s -a dgleba
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #adduser asks questions and does more...
-sudo adduser pmdsu
+#sudo adduser pmdsu
+sudo adduser pmdsu --gecos "pmds user,0,0,0" --disabled-password
+echo "pmdsu:a" | sudo chpasswd
 #sudo useradd -d /home/pmdsu -m pmdsu
 # no home dir... sudo useradd pmdsu
 #sudo passwd pmdsu
 #add user to group www
 sudo usermod -a -G www  pmdsu
 #or
-sudo gpasswd -a pmdsu www
+#sudo gpasswd -a pmdsu www
 #sudo smbpasswd -a pmdsu
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

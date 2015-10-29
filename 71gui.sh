@@ -174,7 +174,9 @@ http://forum.lxde.org/viewtopic.php?f=1&t=375
 @pcmanfm --desktop --profile LXDE
 @/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 #David Gleba
-@xrandr -s 1024x768
+@xrandr -s 1324x700
+
+redwe,1350x647
 
 
 /home/albe/.config/autostart/lxrandr-autostart.desktop
@@ -196,6 +198,27 @@ OnlyShowIn=LXDE
 function offline()
 {
 exit 999
+
+
+
+#use expect to answer questions in vnc password script...
+#!/bin/sh
+#http://askubuntu.com/questions/328240/assign-vnc-password-using-script
+prog=vncpasswd
+mypass="newpass"
+expect <<EOF
+spawn "$prog"
+expect "Password:"
+send "$mypass\r"
+expect "Verify:"
+send "$mypass\r"
+expect "Would you like to enter a view-only password (y/n)?"
+send "n\r"
+expect eof
+exit
+EOF
+
+
 }
 #
 
