@@ -94,8 +94,20 @@ Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/s/samba/smbclient_4.1
 
 smb://PMDS-3HZGD42/C
 smb://dgleba@PMDS-3HZGD42/C
-smb://stackpole\dgleba@PMDS-3HZGD42/C
+works.
+smb://stackpole;dgleba@PMDS-3HZGD42/C
 
+noworks.
+smb://stackpole.com;dgleba:a@PMDS-3HZGD42/C
+smb://stackpole.com;dgleba@PMDS-3HZGD42/C
+
+smb://DOM%5Cabcdefg@server.tld/server/path   (%5C is the URL encoding of the backslash character)
+
+
+smb://WORKGROUP;User@machine.somewhere.com/Share
+http://superuser.com/questions/145390/entering-domain-information-when-connecting-to-samba-share-in-dolphin
+http://hints.macworld.com/article.php?story=20031203172256827
+http://superuser.com/questions/344775/passing-unc-username-and-password-within-a-unc-path
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 get ipaddress

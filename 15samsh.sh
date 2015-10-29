@@ -100,9 +100,6 @@ guest ok = no
 read only = no
 #was this, try without dgleba... valid users = $userv,dgleba,@www
 valid users = $userv,@www
-# sudo smbpasswd -a $userv
-# http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
-# https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
 #
 [html]
 path = /var/www/html
@@ -111,9 +108,6 @@ writable = yes
 guest ok = no
 read only = no
 valid users = $userv,@www
-# sudo smbpasswd -a $userv
-# http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
-# https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
 #
 [rt]
 path = /
@@ -144,7 +138,7 @@ source shc/21env.sh
 
 sudo sudo service smbd restart
 
-sudo chmod -R 777 /home/$userv/webwork
+#sudo chmod -R 777 /home/$userv/webwork
 #sudo chmod -R 755 /var/www/html
 
 

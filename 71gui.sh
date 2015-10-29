@@ -165,6 +165,7 @@ sGtk/FontName=Sans 9
 
 #
 http://forum.lxde.org/viewtopic.php?f=1&t=375
+http://ubuntuforums.org/showthread.php?t=2194268  screen monitor resolution not persisting
 #
 
 /home/albe/.config/lxsession/LXDE/autostart

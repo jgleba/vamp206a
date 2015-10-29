@@ -33,22 +33,25 @@ sudo usermod -a -G adm,dialout,plugdev,sambashare,www  dgleba
 
 
 #adduser asks questions and does more...
-#sudo adduser pmdsu
 sudo adduser pmdsu --gecos "pmds user,0,0,0" --disabled-password
 echo "pmdsu:a" | sudo chpasswd
-#sudo useradd -d /home/pmdsu -m pmdsu
-# no home dir... sudo useradd pmdsu
-#sudo passwd pmdsu
 #add user to group www
 sudo usermod -a -G www  pmdsu
-#or
-#sudo gpasswd -a pmdsu www
-#sudo smbpasswd -a pmdsu
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#adduser asks questions and does more...
+sudo adduser dclark --gecos "pmds user,0,0,0" --disabled-password
+echo "dclark:dave" | sudo chpasswd
+#add user to group www
+sudo usermod -a -G www  dclark
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #add user to upload files by ftp...
 sudo adduser ftpup
+sudo adduser ftpup --gecos "ftp uploader user,0,0,0" --disabled-password
+echo "ftpup:upftp" | sudo chpasswd
 
 
 #--------
@@ -95,6 +98,18 @@ net use * /delete
 
 :net use \\SERVER * /user:username
 net use \\vamp206b * /user:dgleba
+
+Add user notes..
+
+#sudo useradd -d /home/pmdsu -m pmdsu
+#  no home dir... sudo useradd pmdsu
+#sudo passwd pmdsu
+
+sudo usermod -a -G www  pmdsu
+#or
+#sudo gpasswd -a pmdsu www
+#sudo smbpasswd -a pmdsu
+
 
 }
 #
