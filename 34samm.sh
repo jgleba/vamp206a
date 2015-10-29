@@ -68,7 +68,7 @@ smbclient -L redex164
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function umnta() 
+function umntinfo() 
 {
 http://stackoverflow.com/questions/74626/how-do-you-force-a-cifs-connection-to-unmount
 umount -l
@@ -93,7 +93,6 @@ Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/s/samba/smbclient_4.1
 
 
 smb://PMDS-3HZGD42/C
-
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

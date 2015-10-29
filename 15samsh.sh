@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 cd
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #note...
 #    if this is run more than once, it will duplicate entries...
 #
@@ -10,6 +12,7 @@ cd
 # set samba shares and some linux user settings like immediate history write...
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 smb() {
 
@@ -63,10 +66,10 @@ EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-mkdir webwork
+#mkdir webwork
 sudo mkdir -p /var/www/html
 
-sudo apt-get -y install samba
+sudo apt-get -y install samba cifs-utils
 
 #backup server config...
 mkdir ~/backup
@@ -131,12 +134,29 @@ EOF
 
 source shc/21env.sh
 #sudo smbpasswd -a $userv 
+# set password silently - answers supplied by script..
 (echo $pw1; echo $pw1) | sudo smbpasswd -s -a $userv
 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+sudo sudo service smbd restart
+
+sudo chmod -R 777 /home/$userv/webwork
+#sudo chmod -R 755 /var/www/html
+
+
+cd
+# create 15ran to mark that is has been run. Then don't run it again.
+touch /home/$userv/15ran
+
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 smbpas () {
 
@@ -160,23 +180,6 @@ EOF
 
 }
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-sudo sudo service smbd restart
-
-sudo chmod -R 777 /home/$userv/webwork
-#sudo chmod -R 755 /var/www/html
-
-
-cd
-# create 15ran to mark that is has been run. Then don't run it again.
-touch /home/$userv/15ran
-
-}
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 saynow() {
@@ -188,3 +191,4 @@ saynow
 set -x
 smb
 date
+#

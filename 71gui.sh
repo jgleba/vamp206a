@@ -201,7 +201,7 @@ exit 999
 
 
 
-#use expect to answer questions in vnc password script...
+#use expect to silently answer questions in vnc password script...
 #!/bin/sh
 #http://askubuntu.com/questions/328240/assign-vnc-password-using-script
 prog=vncpasswd

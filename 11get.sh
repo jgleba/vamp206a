@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# edit below username albe if needed.
+# edit below username if needed - I used albe.
 #
 
 get1()
@@ -20,7 +20,7 @@ sudo apt-get -y install locate
 # get zip of repo from github
 sudo rm -rf shc
 
-read -t  19 -p "Hit ENTER or wait about ten seconds" ; echo ;
+read -t  5 -p "Hit ENTER or wait some seconds" ; echo ;
 
 mkdir -p tmp
 sudo chmod -R 777 tmp
@@ -53,8 +53,8 @@ cd
 
 #get the repo and call the script that calls all others
 get1
-set -e
-echo "edit variables like username and passwords..  nano shc/14call.sh \n"
-echo "ctrl-o to write the file,  ctrl-x to exit editor.\n"
-echo "now run: sudo ./14call.sh\n\n"
+set +vx
+echo "edit variables like username and passwords..  nano shc/21env.sh"
+echo "ctrl-o to write the file,  ctrl-x to exit editor."
+echo "now run: sudo ./24start.sh"
 

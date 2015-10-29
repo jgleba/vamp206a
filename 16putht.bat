@@ -1,7 +1,7 @@
 
-copy /-Y /v  C:\n\Dropbox\csd\serve\vboxyard\htdocs\htdocs.PMDS-DATA.latest.7z \\VAMP206B\home\albe\tmp 
+: copy the zip rather than get it other ways...
 
-:export vbox empty...  [win]
+copy /-Y /v  C:\n\Dropbox\csd\serve\vboxyard\htdocs\htdocs.PMDS-DATA.latest.zip \\VAMP206B\home\albe\tmp 
 
 :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

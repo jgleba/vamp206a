@@ -3,19 +3,22 @@
 echo starting 17docs.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#issues.
-
 
 # check out ansible http://www.ansible.com/ it automation - devops  - infrastructure-as-code
 # https://en.wikipedia.org/wiki/Idempotence
 
 
-# vagrant ftp has old version of file. have to 'vagrant reload' to get new version. 2015-10-22_Thu_12.14-PM
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#issues.
+
+
+
+# problem.. vagrant ftp has old version of file. have to 'vagrant reload' to get new version. 2015-10-22_Thu_12.14-PM
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# ask if you want to put htdocs there manually with 15putht.bat from windows..
+# ask if you want to put htdocs there manually with 16putht.bat from windows..
 set +vx
 echo
 date  +"__%Y-%m-%d_%a_%k.%M.%S-%Z"
@@ -181,8 +184,12 @@ if [ $dgmethod = "bitbucket" ] ; then
         sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
     fi
 fi
-
 cd
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
 function offline()
 {

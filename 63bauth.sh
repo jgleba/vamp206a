@@ -60,7 +60,7 @@ sudo apt-get -y install apache2-utils
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function info()
+function info21()
 {
 exit 999
 
