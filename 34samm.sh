@@ -66,12 +66,14 @@ sudo mount -v -t cifs //PMDS-3HZGD42/C /mnt/3hz/C -o credentials=/home/$userv/.s
 # this is a share where the web root files are..
 sudo mkdir -p /var/www/html
 sudo mkdir -p /mnt/3hz/htdocs
+# need to check for a file there to ensure it's not mounted before doing this chmod...
 chmod -R 777 /mnt/3hz/htdocs
 #sudo mount -t cifs //10.4.10.243/htdocs /mnt/3hz/htdocs -o username=dgleba,password=x
 #sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz,password=$p3hz
 #sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o domain=stackpole,username=$u3hz,password=$p3hz
-worked:
+#worked:
 sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs  -o credentials=/home/$userv/.smbc
+
 
 
 }
@@ -127,6 +129,8 @@ smb://PMDS-3HZGD42/C
 smb://dgleba@PMDS-3HZGD42/C
 works.
 smb://stackpole;dgleba@PMDS-3HZGD42/C
+worked...
+smb://stackpole;dgleba@pmds-3hzgd42/c/0
 
 noworks.
 smb://stackpole.com;dgleba:a@PMDS-3HZGD42/C
@@ -177,6 +181,37 @@ sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs  -o credentials=~/sm
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-30[Oct-Fri]11-08AM
+
+it was mounted, doing it again...
+.. yet it got an error...
+
++ sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs -o credentials=/home/albe/.smbc
+domain=stackpole
+mount.cifs kernel mount options: ip=10.4.10.243,unc=\\PMDS-3HZGD42\htdocs,user=dlgeba,,domain=stackpole,pass=********
+mount error(13): Permission denied
+Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)
++ date
+Fri Oct 30 11:06:39 EDT 2015
+albe@pmdsdata3:~$ df
+Filesystem                    1K-blocks      Used Available Use% Mounted on
+/dev/mapper/vamp206b--vg-root   9165896   2804876   5872368  33% /
+none                                  4         0         4   0% /sys/fs/cgroup
+udev                             368304         4    368300   1% /dev
+tmpfs                             75888       644     75244   1% /run
+none                               5120         0      5120   0% /run/lock
+none                             379440         0    379440   0% /run/shm
+none                             102400         4    102396   1% /run/user
+/dev/sda1                        240972     38812    189719  17% /boot
+//PMDS-3HZGD42/htdocs         112690172 111846588    843584 100% /mnt/3hz/htdocs
+albe@pmdsdata3:~$ 
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 }
 
