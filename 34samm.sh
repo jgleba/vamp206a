@@ -15,15 +15,17 @@ smbmn() {
 #
 
 #get ip address of windows machine...
-ipredwe = nmblookup -S REDWE | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'  | head -n1
+#ipredwe=$(ping -c 1 REDWE | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'  | head -n1)
+ipredwe=nmblookup -S REDWE | grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'  | head -n1
 echo "$ipredwe"
 
-mkdir -p /mnt/REDWE/c
-:chmod -R 777 /mnt/REDWE/c
-chmod -R 777 ~/webwork
+sudo mkdir -p /mnt/REDWE//c
+sudo chmod -R 777 /mnt/REDWE/c
+#sudo chmod -R 777 ~/webwork
 
 # this is a share for drive c - the whole drive
 sudo mount -t cifs //$ipredwe/c /mnt/REDWE/c -o username=$uredwe,password=$predwe
+sudo mount -t cifs //redwe/c /mnt/REDWE/c -o username=$uredwe,password=$predwe
 
 # this is a share where the web root files are..
 mkdir -p /var/www/html
@@ -41,8 +43,8 @@ sudo mkdir -p /mnt/3hz/C
 sudo chmod -R 777 /mnt/3hz/C
 # this is a share for drive c - the whole drive
 #sudo mount -t cifs //$ip3hz/c /mnt/3hz/c -o username=$u3hz,password=$p3hz
-sudo mount -t cifs //$ip3hz/C /mnt/3hz/C -o domain=stackpole.com,username=$u3hz
-sudo mount -t cifs //PMDS-3HZGD42/C /mnt/3hz/C -o domain=stackpole.com,username=$u3hz
+#sudo mount -t cifs //$ip3hz/C /mnt/3hz/C -o domain=stackpole.com,username=$u3hz,password=$p3hz
+#sudo mount -t cifs //PMDS-3HZGD42/C /mnt/3hz/C -o domain=stackpole.com,username=$u3hz,password=$p3hz
 
 # this is a share where the web root files are..
 sudo mkdir -p /var/www/html
@@ -50,7 +52,7 @@ sudo mkdir -p /mnt/3hz/htdocs
 chmod -R 777 /mnt/3hz/htdocs
 #sudo mount -t cifs //10.4.10.243/htdocs /mnt/3hz/htdocs -o username=dgleba,password=x
 #sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz,password=$p3hz
-sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=stackpole/$u3hz
+sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o domain=stackpole,username=$u3hz,password=$p3hz
 
 }
 
@@ -101,7 +103,7 @@ noworks.
 smb://stackpole.com;dgleba:a@PMDS-3HZGD42/C
 smb://stackpole.com;dgleba@PMDS-3HZGD42/C
 
-smb://DOM%5Cabcdefg@server.tld/server/path   (%5C is the URL encoding of the backslash character)
+#smb://DOM%5Cabcdefg@server.tld/server/path   (%5C is the URL encoding of the backslash character)
 
 
 smb://WORKGROUP;User@machine.somewhere.com/Share
