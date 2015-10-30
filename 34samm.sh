@@ -13,7 +13,7 @@ smbmn() {
 #
 #edit these lines to match your windows machines shares...
 #
-
+sudo apt-get -y install smbclient
 
 
 
@@ -35,7 +35,9 @@ mkdir -p /var/www/html
 sudo mount -t cifs //$ipredwe/htocs /var/www/html -o username=$uredwe,password=$predwe
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+#
+#http://unix.stackexchange.com/questions/124342/mount-error-13-permission-denied
+#
 sudo cat <<EOF > ~/smbcredc
 username=$u3hz
 password=$p3hz
@@ -67,6 +69,7 @@ chmod -R 777 /mnt/3hz/htdocs
 #sudo mount -t cifs //10.4.10.243/htdocs /mnt/3hz/htdocs -o username=dgleba,password=x
 #sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz,password=$p3hz
 #sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o domain=stackpole,username=$u3hz,password=$p3hz
+worked:
 sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs  -o credentials=~/smbcredc
 
 
@@ -80,6 +83,15 @@ sudo apt-get install smbclient
 
 smbclient -L redwe
 smbclient -L redex164
+
+10.4.10.243 PMDS-3HZGD42
+#chmod 755 smbcredc
+smbclient -L -v 10.4.10.243  -A=.smbcredc
+smbclient -L PMDS-3HZGD42  -A=smbcredc
+
+albe@pmdsdata3:~$ smbclient -L 10.4.10.243  -A=smbcredc
+session setup failed: NT_STATUS_LOGON_FAILURE
+
 
 
 }
