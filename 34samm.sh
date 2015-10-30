@@ -38,12 +38,13 @@ sudo mount -t cifs //$ipredwe/htocs /var/www/html -o username=$uredwe,password=$
 #
 #http://unix.stackexchange.com/questions/124342/mount-error-13-permission-denied
 #
-sudo cat <<EOF > ~/smbcredc
+mkdir -p /home/$userv/.config/.smb
+sudo cat <<EOF > /home/$userv/.smbc
 username=$u3hz
 password=$p3hz
 domain=stackpole
 EOF
-chmod go-rwx ~/smbcredc
+chmod go-rwx /home/$userv/.smbc
 #cat ~/smbcredc
 
 #get ip address of windows machine...
@@ -58,7 +59,7 @@ sudo chmod -R 777 /mnt/3hz/C
 #sudo mount -t cifs //$ip3hz/c /mnt/3hz/c -o username=$u3hz,password=$p3hz
 #sudo mount -t cifs //$ip3hz/C /mnt/3hz/C -o domain=stackpole.com,username=$u3hz,password=$p3hz
 #sudo mount -t cifs //PMDS-3HZGD42/C /mnt/3hz/C -o domain=stackpole.com,username=$u3hz,password=$p3hz
-sudo mount -v -t cifs //PMDS-3HZGD42/C /mnt/3hz/C -o credentials=~/smbcredc
+sudo mount -v -t cifs //PMDS-3HZGD42/C /mnt/3hz/C -o credentials=/home/$userv/.smbc
 
 
 
@@ -70,7 +71,7 @@ chmod -R 777 /mnt/3hz/htdocs
 #sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz,password=$p3hz
 #sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o domain=stackpole,username=$u3hz,password=$p3hz
 worked:
-sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs  -o credentials=~/smbcredc
+sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs  -o credentials=/home/$userv/.smbc
 
 
 }
