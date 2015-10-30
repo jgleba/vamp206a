@@ -1,10 +1,27 @@
 
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
 -----------------------2015-10-29[Oct-Thu]19-08PM
 
+todo:
 ftpup passwd
 apache passwd
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-30[Oct-Fri]11-44AM
+
+windows command line ftp server idea...
+
+best free command line ftp server windows
+
+http://stahlworks.com/dev/?tool=ftpserv
+https://www.raymond.cc/blog/smallest-ftp-server-for-windows-that-runs-quietly-in-background-hidden-or-stealth/
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

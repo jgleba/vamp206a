@@ -66,7 +66,7 @@ sudo mount -v -t cifs //PMDS-3HZGD42/C /mnt/3hz/C -o credentials=/home/$userv/.s
 # this is a share where the web root files are..
 sudo mkdir -p /var/www/html
 sudo mkdir -p /mnt/3hz/htdocs
-# need to check for a file there to ensure it's not mounted before doing this chmod...
+# this needs improvement.. need to check for a file there to ensure it's not mounted before doing this chmod...
 chmod -R 777 /mnt/3hz/htdocs
 #sudo mount -t cifs //10.4.10.243/htdocs /mnt/3hz/htdocs -o username=dgleba,password=x
 #sudo mount -t cifs //$ip3hz/htdocs /mnt/3hz/htdocs -o username=$u3hz,password=$p3hz
