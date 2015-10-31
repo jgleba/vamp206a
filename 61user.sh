@@ -49,7 +49,6 @@ sudo usermod -a -G www  dclark
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #add user to upload files by ftp...
-sudo adduser ftpup
 sudo adduser ftpup --gecos "ftp uploader user,0,0,0" --disabled-password
 echo "ftpup:upftp" | sudo chpasswd
 

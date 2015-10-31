@@ -9,12 +9,9 @@ echo starting 17docs.sh
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#issues.
-
-
+#Issues.
 
 # problem.. vagrant ftp has old version of file. have to 'vagrant reload' to get new version. 2015-10-22_Thu_12.14-PM
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -23,7 +20,7 @@ set +vx
 echo
 date  +"__%Y-%m-%d_%a_%k.%M.%S-%Z"
 echo "Do you want to put htdocs there manually with 15putht.bat from windows?"
-read -t 999 -p "Hit ENTER or wait about 999 seconds" ; echo ;
+#read -t 999 -p "Hit ENTER or wait about 999 seconds" ; echo ;
 echo
 set -vx
 
@@ -64,8 +61,8 @@ sudo chmod -R 777 /var/www/tempfilesdg
 #get webroot code 
 
 # set method as either ftp or bitbucket...
-dgmethod="bitbucket"
-#dgmethod="ftp"
+#dgmethod="bitbucket"
+dgmethod="ftp"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -103,9 +100,10 @@ if [ $dgmethod = "ftp" ] ; then
     fi
 
 
-    if [ ! -f htdocs.PMDS-DATA.latest.zip ] ; then
+    if [ ! -f htdocs.PMDS-DATA.latest.7z ] ; then
 
-        curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.zip
+        curl -O -u dg:afruit ftp://192.168.88.94:4141//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
+        #curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.zip
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.zip
         #wget -N ftp://vagrant:vagrant@10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z

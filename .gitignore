@@ -1,5 +1,6 @@
 #info to exclude:
 
+#*.zzi
 
 configv1.sh
 
@@ -30,7 +31,7 @@ static/
 *.png
 *.gif
 *.jpg
-*.zip
+
 apache/manual/
 *.svg
 *.exp

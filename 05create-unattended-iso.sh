@@ -9,6 +9,8 @@ mkdir -p /var/varvamp/files  # destination folder to store the final iso file
 ntmp="/var/varvamp/files"    # destination folder to store the final iso file
 nhostname="vamp206b"
 
+# also consider https://github.com/ryanwalder/ubuntu-unattended
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
