@@ -72,6 +72,7 @@ mkdir /var/www/html/shiftcsd1/templates_c
 mkdir /var/www/html/shiftcsd1sup/templates_c
 mkdir /var/www/html/shiftcsd2/templates_c
 mkdir /var/www/html/shiftcsd2sup/templates_c
+mkdir /var/www/html/shiftsmsmeer/templates_c
 
 
 chmod -R 777  /var/www/html/cilist/templates_c
@@ -82,6 +83,7 @@ chmod -R 777  /var/www/html/shiftcsd1/templates_c
 chmod -R 777  /var/www/html/shiftcsd1sup/templates_c
 chmod -R 777  /var/www/html/shiftcsd2/templates_c
 chmod -R 777  /var/www/html/shiftcsd2sup/templates_c
+chmod -R 777  /var/www/html/shiftsmsmeer/templates_c
 
 #userconfig:
 
@@ -93,6 +95,7 @@ mkdir /var/www/html/shiftcsd1/user_config
 mkdir /var/www/html/shiftcsd1sup/user_config
 mkdir /var/www/html/shiftcsd2/user_config
 mkdir /var/www/html/shiftcsd2sup/user_config
+mkdir /var/www/html/shiftsmsmeer/user_config
 
 chmod -R 777  /var/www/html/cilist/user_config
 chmod -R 777  /var/www/html/dgnote130/user_config
@@ -102,6 +105,7 @@ chmod -R 777  /var/www/html/shiftcsd1/user_config
 chmod -R 777  /var/www/html/shiftcsd1sup/user_config
 chmod -R 777  /var/www/html/shiftcsd2/user_config
 chmod -R 777  /var/www/html/shiftcsd2sup/user_config
+chmod -R 777  /var/www/html/shiftsmsmeer/user_config
 
 
 # make read for other group...
