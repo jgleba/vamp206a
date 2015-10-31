@@ -10,17 +10,12 @@ set -x
 function gui1() {
 #install gui...
 sudo apt-get -y install lxde
+sudo apt-get -y install expect
 
 #install utils to allow resizing of gui..
 sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 
-function operai() {
-#get opera 92mb
-sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
-sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
-sudo apt-get update
-sudo apt-get install opera
-}  
+
 
 # Midori browser?  91mb
 #sudo apt-add-repository ppa:midori/ppa && sudo apt-get update -qq && sudo apt-get install midori
@@ -29,6 +24,14 @@ sudo apt-get install opera
 #sudo apt-get install epiphany-browser
 
 }
+
+function operai() {
+#get opera 92mb
+sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
+sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
+sudo apt-get update
+sudo apt-get install opera
+}  
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -57,6 +60,29 @@ sudo apt-get -y install  tightvncserver
 
 #for copy-paste
 sudo apt-get -y install autocutsel
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#vnc password.......
+#
+#use expect to silently answer questions in vnc password script...
+#!/bin/sh
+#http://askubuntu.com/questions/328240/assign-vnc-password-using-script
+prog=vncpasswd
+#mypass=$pw1  #too short
+mypass="vncpass"
+expect <<EOF
+spawn "$prog"
+expect "Password:"
+send "$mypass\r"
+expect "Verify:"
+send "$mypass\r"
+expect "Would you like to enter a view-only password (y/n)?"
+send "n\r"
+expect eof
+exit
+EOF
+
 
 # Start VNC to create config file
 tightvncserver :1
@@ -202,22 +228,7 @@ exit 999
 
 
 
-#use expect to silently answer questions in vnc password script...
-#!/bin/sh
-#http://askubuntu.com/questions/328240/assign-vnc-password-using-script
-prog=vncpasswd
-mypass="newpass"
-expect <<EOF
-spawn "$prog"
-expect "Password:"
-send "$mypass\r"
-expect "Verify:"
-send "$mypass\r"
-expect "Would you like to enter a view-only password (y/n)?"
-send "n\r"
-expect eof
-exit
-EOF
+
 
 
 }

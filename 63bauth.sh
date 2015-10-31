@@ -31,7 +31,6 @@ Test Page for Basic Auth
 </div>
 </body>
 </html>
-#
 EOF
   
 }
@@ -45,6 +44,7 @@ sudo apt-get -y install apache2-utils
     sudo mkdir -p /var/www/html/authbasic
     # add a user ( create a new file with "-c" => only add "-c" at the first time. Do not add it 2nd time to add users. )
     #sudo htpasswd -c /etc/apache2/.htpasswd $userv
+    #userv is albe...
     sudo htpasswd -b -c /etc/apache2/.htpasswd $userv $pw1
 
   sudo a2dissite baseauth1.conf
