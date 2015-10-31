@@ -1,12 +1,24 @@
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  .
+Title:  . top
 -----------------------2015-10-29[Oct-Thu]19-08PM
 
 todo:
-ftpup passwd
-apache passwd
+vncpassword
+
+testing:
+django
+basicauth
+xataface
+mail script
+phpexcel
+
+
+secure:
+users albe dgleba ftpup dclark pmdsu
+htpasswd
+vncpasswd
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

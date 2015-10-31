@@ -116,7 +116,7 @@ if [ $dgmethod = "ftp" ] ; then
         #sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
         cd /home/$userv/tmp
-        7z x /home/$userv/tmp/htdocs.PMDS-DATA.latest.zip
+        7z x /home/$userv/tmp/htdocs.PMDS-DATA.latest.7z
 
         # this problem is gone now...
         #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp/htdocs.PMDS-DATA.latest.7z

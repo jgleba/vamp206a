@@ -21,7 +21,7 @@ sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo,www  $userv
 #adduser asks questions and does more...
 #sudo adduser dgleba
 sudo adduser dgleba --gecos "david gleba,RoomNumber,WorkPhone,HomePhone" --disabled-password
-echo "dgleba:a" | sudo chpasswd
+echo "dgleba:$pw1" | sudo chpasswd
 #sudo useradd -d /home/dgleba -m dgleba
 # no home dir... sudo useradd dgleba
 #sudo passwd dgleba
@@ -34,7 +34,7 @@ sudo usermod -a -G adm,dialout,plugdev,sambashare,www  dgleba
 
 #adduser asks questions and does more...
 sudo adduser pmdsu --gecos "pmds user,0,0,0" --disabled-password
-echo "pmdsu:a" | sudo chpasswd
+echo "pmdsu:$pw1" | sudo chpasswd
 #add user to group www
 sudo usermod -a -G www  pmdsu
 
@@ -50,7 +50,7 @@ sudo usermod -a -G www  dclark
 
 #add user to upload files by ftp...
 sudo adduser ftpup --gecos "ftp uploader user,0,0,0" --disabled-password
-echo "ftpup:upftp" | sudo chpasswd
+echo "ftpup:ftp" | sudo chpasswd
 
 
 #--------
