@@ -20,7 +20,7 @@ sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo,www  $userv
 
 #adduser asks questions and does more...
 #sudo adduser dgleba
-sudo adduser dgleba --gecos "david gleba,RoomNumber,WorkPhone,HomePhone" --disabled-password
+sudo adduser dgleba --gecos "david gleba,RM,wPhone,hPhone" --disabled-password
 echo "dgleba:$pw1" | sudo chpasswd
 #sudo useradd -d /home/dgleba -m dgleba
 # no home dir... sudo useradd dgleba
