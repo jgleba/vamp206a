@@ -1,4 +1,4 @@
-setlocal enableextensions
+:setlocal enableextensions
 
 c:
 mkdir  c:\var\varvamp\files

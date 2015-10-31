@@ -54,7 +54,5 @@ cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-
 
 
 function temp22() {
-
 echo
-
 }

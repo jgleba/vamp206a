@@ -19,7 +19,6 @@ sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo,www  $userv
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #adduser asks questions and does more...
-#sudo adduser dgleba
 sudo adduser dgleba --gecos "david gleba,RM,wPhone,hPhone" --disabled-password
 echo "dgleba:$pw1" | sudo chpasswd
 #sudo useradd -d /home/dgleba -m dgleba
@@ -60,18 +59,16 @@ echo "ftpup:ftp" | sudo chpasswd
 # edit /etc/samba/smb.conf to add dgleba
 # like...  valid users = $userv,dgleba
 # http://stackoverflow.com/questions/9591744/add-to-the-end-of-a-line-containing-a-pattern-with-sed-or-awk
-#  https://www.samba.org/samba/docs/using_samba/ch09.html
+# https://www.samba.org/samba/docs/using_samba/ch09.html
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 sudo sudo service smbd restart
 
-
 groups
 groups dgleba
 id dgleba
-
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,17 +94,6 @@ net use * /delete
 
 :net use \\SERVER * /user:username
 net use \\vamp206b * /user:dgleba
-
-Add user notes..
-
-#sudo useradd -d /home/pmdsu -m pmdsu
-#  no home dir... sudo useradd pmdsu
-#sudo passwd pmdsu
-
-sudo usermod -a -G www  pmdsu
-#or
-#sudo gpasswd -a pmdsu www
-#sudo smbpasswd -a pmdsu
 
 
 }

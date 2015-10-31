@@ -3,9 +3,7 @@
 cd
 set -x
 
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 function gui1() {
 #install gui...
@@ -14,7 +12,6 @@ sudo apt-get -y install expect
 
 #install utils to allow resizing of gui..
 sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
-
 
 
 # Midori browser?  91mb
@@ -143,30 +140,7 @@ EOF
 #
 sudo service tightvncserver1 start
 
-
-
-#notredlighternot,not9 192.168.88.79:1 ultravncviewer 
-#5901
-
 #reset password ..  vncpasswd   8 char max
-
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~/.vnc/xstartup works..
-#.....#!/bin/sh
-#vncconfig -nowin -iconic &
-autocutsel -fork
-xrdb $HOME/.Xresources
-xsetroot -solid grey
-#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
-#x-window-manager &
-# Fix to make GNOME work
-export XKL_XMODMAP_DISABLE=1
-/etc/X11/Xsession
-lxterminal &
-/usr/bin/lxsession -s LXDE &
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 }
@@ -225,15 +199,8 @@ OnlyShowIn=LXDE
 function offline()
 {
 exit 999
-
-
-
-
-
-
 }
 #
 
 gui1
 vnci
-

@@ -55,7 +55,6 @@ sudo apt-get -y install apache2-utils
 
 
 
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,9 +64,7 @@ function info21()
 exit 999
 
 Basic Auth:
-
 https://help.ubuntu.com/lts/serverguide/httpd.html
-
 http://www.server-world.info/en/note?os=Ubuntu_14.04&p=httpd&f=9
 
 }

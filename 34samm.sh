@@ -6,7 +6,6 @@ source shc/21env.sh
 #can't mount using cmdline. can mount with pcmanfm on smb://PMDS-3HZGD42/C using dgleba domain=stackpole password
 
 
-
 smbmn() {
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -215,8 +214,9 @@ albe@pmdsdata3:~$
 
 }
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 set -x
 smbmn
