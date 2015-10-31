@@ -83,7 +83,8 @@ if [ $dgmethod = "ftp" ] ; then
     #absolute path is  //var   << double slash for absolute path.
     #else get error : curl: (9) Server denied you to change to the given directory
 
-    curl -O --user dgleba  https://bitbucket.org/dgleba/vamp206env/raw/master/vne.sh 
+    curl -O -u dg:afruit ftp://192.168.88.94:4141//var/varvamp/files/vne.sh
+    #curl -O --user dgleba  https://bitbucket.org/dgleba/vamp206env/raw/master/vne.sh 
     #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/vne.sh
     
     if [ -f vne.sh ]; then
