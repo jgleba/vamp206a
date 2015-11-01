@@ -192,7 +192,14 @@ pcmanfm
 
 pcmanfm.conf
 view_mode=list
+columns=name:200;desc:102;owner;perm;size;mtime;
 
+
+
+/home/albe/.xscreensaver
+/home/albe/.gtk-bookmarks
+/home/albe/.config/leafpad/leafpadrc
+/home/albe/.config/lxsession/LXDE/desktop.conf
 
 }
 
