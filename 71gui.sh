@@ -160,7 +160,6 @@ function setlxde() {
 sGtk/FontName=Sans 9
 
 
-
 # screen resolution
 
 #
@@ -188,6 +187,11 @@ Comment=Start xrandr with settings done in LXRandR
 #David Gleba
 Exec=xrandr --output VBOX0 --mode 1024x768
 OnlyShowIn=LXDE
+
+pcmanfm
+
+pcmanfm.conf
+view_mode=list
 
 
 }
