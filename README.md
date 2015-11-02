@@ -19,7 +19,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
   `07createvbox.bat`  
    This will also do an unattended install of the resulting Ubuntu 14.04 64bit server iso in vbox.    
 - after the vbox ubuntu server boots, log in, run   
-	`./11get.sh`   
+	`sudo ./11get.sh`   
    note: if black screen after it boots up after installing...  press ctrl-alt-f1 to get login prompt 
 - edit shc/21env.sh to agree with your settings.  
        
@@ -35,7 +35,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - I put a copy of my served web root files in `C:\var\varvamp\files\htdocs.pmds-data.latest.7z`  
     say for example it contains `htdocs\menu\index.html` in the 7z file.  
 	Ask me for a sample website and data. 
-- I put edited 21env.sh in 	`C:\var\varvamp\files\vne.sh`
+- I put edited 21env.sh in 	`C:\var\varvamp\files\vne.sh` It was used rather than the one in the repo.
 - I had to run `vboxmanage list bridgedifs`  to get a list of adapter names to use in  `--bridgeadapter1 `  --  see `09createvbox.bat`.  
 
 
