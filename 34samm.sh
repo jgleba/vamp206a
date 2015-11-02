@@ -118,6 +118,7 @@ umount /mnt/3hz/htdocs
 
 offlines() {
 date
+exit 999
 
 firewall at csd may be preventing...
 apt-get install smbclient...

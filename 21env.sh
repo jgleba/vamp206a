@@ -6,12 +6,11 @@
 #
 
 export userv="albe"
+#this stores root not the regular user.
+#userv=$USER
 
 #user for automated emails
 export user2="pmdsu"
-
-#this stores root not the regular user.
-#userv=$USER
 
 #hostname from unattended iso...
 export orig_hostname="vamp206b"
@@ -31,6 +30,7 @@ export u3hz="dlgeba"
 export p3hz="h"
 
 export pw1="a"
+export pw2="p"
 
 mkdir -p tmp
 tmp="/home/$userv/tmp"
@@ -39,9 +39,11 @@ mkdir -p  /home/$userv/_this-vamp206b
 
 export -p
 
+
 function offline() {
 exit 9
 albe@vamp206b:~$ #sudo echo $HOME
 /home/albe
 albe@vamp206b:~$ 
 }
+
