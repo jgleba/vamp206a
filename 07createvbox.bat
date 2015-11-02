@@ -14,10 +14,13 @@ set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
 :C:\var\varvamp\files\ubuntu-14.04.3-server-amd64-unattended.iso
 :shared folders...
 
-:
+
 :: to get random mac addr,  coment these out...
 set macaddvamp=08002795526A
-:set macaddvamp=08002795527B
+:
+::if redwe, then ...
+SET _prefix=%COMPUTERNAME:~0,5% 
+IF %_prefix%==REDWE  set macaddvamp=08002795527B
 :
 :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
