@@ -22,6 +22,9 @@ sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-
 
 }
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 function operai() {
 #get opera 92mb
 sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
@@ -58,7 +61,7 @@ sudo apt-get -y install  tightvncserver
 #for copy-paste
 sudo apt-get -y install autocutsel
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~
 
 #vnc password.......
 #
@@ -83,7 +86,6 @@ EOF
 
 # Start VNC to create config file
 tightvncserver :1
-# enter password twice...
 
 # backup original file once...
 if [ ! -f /home/$userv/.vnc/xstartup.orig ] ; then  cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.orig ; fi
@@ -114,7 +116,7 @@ cat /home/$userv/.vnc/xstartup
 
 
 #create upstart script for starting vnc...
-#this for rc.local, but i did upstart... http://raspberrypi.stackexchange.com/questions/27676/auto-start-tightvncserver-on-raspberry-pi-2
+#this webpage for rc.local, but i used upstart... http://raspberrypi.stackexchange.com/questions/27676/auto-start-tightvncserver-on-raspberry-pi-2
 sudo tee /etc/init/tightvncserver1.conf <<EOF
 description "vnc start"
 author      "David Gleba"
@@ -137,17 +139,17 @@ pre-stop script
     echo "[`date`] .... stop tightvncserver1" >> /var/log/tightvncserver1.log
 end script
 EOF
+
 #
+
 sudo service tightvncserver1 start
 
 #reset password ..  vncpasswd   8 char max
-
 
 }
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -159,3 +161,4 @@ exit 999
 
 gui1
 vnci
+#
