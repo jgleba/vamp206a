@@ -16,11 +16,13 @@ set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
 
 
 :: to get random mac addr,  coment these out...
+:this will assign this ip address at csd..
 set macaddvamp=08002795526A
 :
 ::if redwe, then ...
 SET _prefix=%COMPUTERNAME:~0,5% 
 IF %_prefix%==REDWE  set macaddvamp=08002795527B
+timeout 3
 :
 :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
