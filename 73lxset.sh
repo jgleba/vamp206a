@@ -4,8 +4,14 @@ cd
 set +vx
 # echo on
 set -vx
+source shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#untested...
+# backup user home dir ...
+tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/
+
 
 #to get it from ftp...
 if  [ 1=0 ] ; then
