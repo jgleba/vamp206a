@@ -4,8 +4,7 @@ cd
 source shc/21env.sh
 
 
-# determine ubuntu version
-ubuntu_version=$(lsb_release -cs)
+
 
 # check for interactive shell
 if ! grep -q "noninteractive" /proc/cmdline ; then
@@ -45,8 +44,8 @@ apt-get -y install mc
 apt-get -y install locate
 apt-get -y install openssh-server 
 apt-get -y install samba
-apt-get -y install apache2  
-apt-get -y install php5 
+#apt-get -y install apache2  
+#apt-get -y install php5 
 apt-get -y install cifs-utils 
 
 #backup ssh server config...

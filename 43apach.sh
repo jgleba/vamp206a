@@ -7,6 +7,7 @@ cd
 
 date
 set -x
+sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bak
 
 
 # install apache 2.5 and php 5.5
@@ -121,6 +122,9 @@ mv composer.phar /usr/local/bin/composer
 
 
 sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bak
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 function createindex1() 
