@@ -13,7 +13,7 @@ basicauth
 xataface
 mail script
 phpexcel
-
+cron
 
 secure:
 users albe dgleba ftpup dclark pmdsu
@@ -22,6 +22,12 @@ vncpasswd
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+tar -cvf dgleba-h1.tar /home/dgleba/
+tar -cvzf dgleba-h1.tgz /home/dgleba/
+
+tar -cvzf lxdehome.tgz .
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .

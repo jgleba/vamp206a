@@ -201,6 +201,7 @@ columns=name:200;desc:102;owner;perm;size;mtime;
 /home/albe/.config/leafpad/leafpadrc
 /home/albe/.config/lxsession/LXDE/desktop.conf
 
+
 }
 
 
