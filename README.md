@@ -179,6 +179,14 @@ MIT
 
 Unattended Ubuntu ISO Maker - Created by: **Rinck Sonnenberg (Netson)**
  
+_____________
+
+Credits:
+
+https://github.com/netson/ubuntu-unattended
+https://github.com/panique/vagrant-lamp-bootstrap
+https://github.com/mattandersen/vagrant-lamp
+
 
 _____________
 
