@@ -56,5 +56,6 @@ get1
 set +vx
 echo "edit variables like username and passwords..  nano shc/21env.sh"
 echo "ctrl-o to write the file,  ctrl-x to exit editor."
-echo "now run: sudo shc/24start.sh"
+echo "now run:   sudo shc/24start.sh "
 
+source shc/24start.sh
