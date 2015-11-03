@@ -45,6 +45,7 @@ sudo adduser dclark --gecos "pmds user,0,0,0" --disabled-password
 echo "dclark:dave" | sudo chpasswd
 #add user to group www
 sudo usermod -a -G www  dclark
+(echo $pw1; echo $pw1) | sudo smbpasswd -s -a dclark
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

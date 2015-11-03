@@ -5,8 +5,7 @@ set -x
 date
 source shc/21env.sh
 
-
-basauth()
+basauth1()
 {
 sudo tee /etc/apache2/sites-available/baseauth1.conf <<EOF
 #
@@ -21,10 +20,23 @@ sudo tee /etc/apache2/sites-available/baseauth1.conf <<EOF
 EOF
 }
 
+basauthmain()
+{
+sudo tee /etc/apache2/sites-available/baseauthmain.conf <<EOF
+#
+# require authentication under /var/www/html
+ <Directory /var/www/html>
+    AuthType Basic
+    AuthName "===== Authbasic Whole Site2 ====="
+    AuthUserFile /etc/apache2/.htpasswd
+    require valid-user
+</Directory>
+#
+EOF
+}
 
 ipage()
 {
-
 sudo tee /var/www/html/authbasic/i.htm <<EOF
 <html>
 <body>
@@ -34,13 +46,11 @@ Test Page for Basic Auth
 </body>
 </html>
 EOF
-  
 }
 
 
-apache21()
+apacheba1()
 {
-
 sudo apt-get -y install apache2-utils
 
     sudo mkdir -p /var/www/html/authbasic
@@ -52,9 +62,20 @@ sudo apt-get -y install apache2-utils
   sudo a2dissite baseauth1.conf
   sudo a2ensite baseauth1.conf
   sudo service apache2 reload
-
 }
 
+
+apacheba2()
+{
+    # add a user ( create a new file with "-c" => only add "-c" at the first time. Do not add it 2nd time to add users. )
+    #sudo htpasswd -c /etc/apache2/.htpasswd $userv
+    #userv is albe...
+    sudo htpasswd -b /etc/apache2/.htpasswd $userv $pw3
+
+  sudo a2dissite baseauthmain.conf
+  sudo a2ensite baseauthmain.conf
+  sudo service apache2 reload
+}
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,8 +98,10 @@ http://www.server-world.info/en/note?os=Ubuntu_14.04&p=httpd&f=9
 #echo requested commands...
 date
 
-basauth
-apache21
+basauth1
+basauthmain
+apacheba1
+apacheba2
 ipage
 
 date
