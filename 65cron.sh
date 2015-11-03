@@ -14,6 +14,8 @@ sudo crontab -u pmdsu -l | { cat; echo "37 15 1 10 * /var/www/html/cilist/action
 #sudo crontab -u pmdsu -l | { cat; echo "*/2 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
 sudo crontab -u pmdsu -l
 
+sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
