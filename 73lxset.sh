@@ -8,14 +8,17 @@ source shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#untested...
+
 # backup user home dir ...
 #works:
 #sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "/home/$userv/tmp" \
  --exclude "/home/$userv/backup"
 #works:
-sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "tmp" \
+#sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "tmp" \
  --exclude "backup"
+#works...
+sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz  /home/$userv/ --exclude={tmp,backup/*.tgz} 
+
 
 
 #to get it from ftp...
