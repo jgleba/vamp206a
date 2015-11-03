@@ -2,6 +2,8 @@
 
 cd
 set -vx
+source shc/21env.sh
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # backup hosts settings...

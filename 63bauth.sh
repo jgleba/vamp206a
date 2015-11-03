@@ -3,6 +3,8 @@
 cd
 set -x
 date
+source shc/21env.sh
+
 
 basauth()
 {

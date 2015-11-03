@@ -116,9 +116,14 @@ umount /mnt/3hz/htdocs
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-offlines() {
+offlines-notes() {
+
+# begin block comment =============================
+: <<'END'
+
 date
 exit 999
+
 
 firewall at csd may be preventing...
 apt-get install smbclient...
@@ -210,8 +215,10 @@ none                             102400         4    102396   1% /run/user
 albe@pmdsdata3:~$ 
 
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+END
+# end block comment ===============================
 
 }
 

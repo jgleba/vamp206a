@@ -39,7 +39,7 @@ mkdir -p  /home/$userv/_this-vamp206b
 
 # determine ubuntu version
 export ubuntu_versiona=$(lsb_release -sc)
-export ubuntu_versionb=$(lsb_release -sd)
+export ubuntu_versionb="$(lsb_release -sa)"
 
 export -p
 

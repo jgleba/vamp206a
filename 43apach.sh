@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
+
 cd
+source shc/21env.sh
 
 #Note: vbox shares are not available till it reboots after start.sh script runs.
 #

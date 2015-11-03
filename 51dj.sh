@@ -2,6 +2,8 @@
 
 # setup django and django apps...
 
+source shc/21env.sh
+
 cd
 set -x
 date

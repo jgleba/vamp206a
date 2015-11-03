@@ -2,6 +2,7 @@
 
 cd
 set -vx
+source shc/21env.sh
 
 #remove then add # run 0901am everyday
 sudo crontab -u pmdsu -l
