@@ -5,6 +5,7 @@ saynow()
 # works.
 date +"__%Y-%m-%d_%a_%k.%M.%S-%Z"
 date +"%Y-%m-%d_%k-%M-%S"
+date +"%Y.%m.%d_%k.%M.%S"
 date +"%s"
 echo $(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
