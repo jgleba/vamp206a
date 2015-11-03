@@ -84,6 +84,7 @@ if [ $dgmethod = "ftp" ] ; then
     #else get error : curl: (9) Server denied you to change to the given directory
 
     curl -O -u dg:fruit ftp://192.168.88.94:2141//files/vne.sh
+    curl -O -u dg:fruit ftp://10.4.10.243:2141//files/vne.sh
     #curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/vne.sh
     #curl -O --user dgleba  https://bitbucket.org/dgleba/vamp206env/raw/master/vne.sh 
     #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/vne.sh
@@ -105,6 +106,7 @@ if [ $dgmethod = "ftp" ] ; then
     if [ ! -f htdocs.PMDS-DATA.latest.7z ] ; then
 
         curl -O -u dg:fruit ftp://192.168.88.94:2141//files/htdocs.PMDS-DATA.latest.7z
+        curl -O -u dg:fruit ftp://10.4.10.243:2141//files/htdocs.PMDS-DATA.latest.7z
         #curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         #curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.zip
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
