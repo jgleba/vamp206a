@@ -16,7 +16,7 @@ tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/
 #to get it from ftp...
 if  [ 1=0 ] ; then
     cd tmp
-    curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/lxdehome.tgz
+    curl -O -u dg:fruit ftp://192.168.88.94:2141//files/lxdehome.tgz
     cd 
     tar -xvf tmp/lxdehome.tgz
 fi
