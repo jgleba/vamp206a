@@ -31,7 +31,14 @@ vncpasswd
 tar -cvf dgleba-h1.tar /home/dgleba/
 tar -cvzf dgleba-h1.tgz /home/dgleba/
 
-tar -cvzf lxdehome.tgz .
+
+#works:
+#sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "/home/$userv/tmp" \
+ --exclude "/home/$userv/backup"
+#works:
+#sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "tmp" \
+ --exclude "backup"
+#works...
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

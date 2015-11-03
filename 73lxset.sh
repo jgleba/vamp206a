@@ -10,13 +10,6 @@ source shc/21env.sh
 
 
 # backup user home dir ...
-#works:
-#sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "/home/$userv/tmp" \
- --exclude "/home/$userv/backup"
-#works:
-#sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "tmp" \
- --exclude "backup"
-#works...
 sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz  /home/$userv/ --exclude={tmp,backup/*.tgz} 
 
 
@@ -45,6 +38,10 @@ fi
 function offline()
 {
 exit 999
+
+#create home backup for unpacking with lxset.sh...
+# need .config desktop some .files in home/albe...
+#tar -cvzf lxdehome.tgz .
 
 }
 #
