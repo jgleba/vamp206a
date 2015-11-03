@@ -3,9 +3,18 @@ set -x
 cd
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# edit these variables to match your system...
+# edit the variables in 21env.sh to match your system...
 #
 source shc/21env.sh
+
+
+set +vx
+echo
+echo
+echo 24start.sh will commence...
+echo
+read -t  400 -p "Hit ENTER or wait about 400 seconds" ; echo ;
+set -vx
 
 
 #comment this out for full auto run...
@@ -43,7 +52,7 @@ cd
 source shc/73lxset.sh
 cd
 
-read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
+#read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
 
 
 echo " DONE; Please reboot...  "
