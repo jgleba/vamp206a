@@ -8,10 +8,10 @@ source shc/21env.sh
 
 # backup hosts settings...
 #
-sudo cp /etc/hosts /etc/hosts.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/hosts /etc/hosts.$(date +"%s").bak
+#sudo cp /etc/hosts /etc/hosts.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+#sudo cp /etc/hosts /etc/hosts.$(date +"%s").bak
 sudo cp /etc/hosts /etc/hosts.$(date "+%Y-%m-%d_%s").bak
-sudo cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/hostname /etc/hostname.$(date "+%Y-%m-%d_%s").bak
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -40,7 +40,7 @@ cat /etc/hostname
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
 sudo sed -i "/$orig_hostname/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/hosts
 #Use double quotes to make the shell expand variables while keeping whitespace:
-sudo sed -i "s/.*$orig_hostname.*/127.0.1.1 $fqdn $default_hostname/g" /etc/hosts
+sudo sed -i "s/.*$orig_hostname.*/127.0.1.1 $default_hostname.$default_domain $default_hostname/g" /etc/hosts
 cat /etc/hosts
 
 

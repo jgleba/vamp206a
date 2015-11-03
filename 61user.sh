@@ -26,6 +26,8 @@ echo "dgleba:$pw1" | sudo chpasswd
 # no home dir... sudo useradd dgleba
 #sudo passwd dgleba
 sudo usermod -a -G adm,dialout,plugdev,sambashare,www  dgleba
+sudo usermod -a -G sudo  dgleba
+
 #sudo smbpasswd -a dgleba
 (echo $pw1; echo $pw1) | sudo smbpasswd -s -a dgleba
 
