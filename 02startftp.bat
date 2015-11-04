@@ -3,6 +3,7 @@
 c:
 mkdir  c:\var\varvamp\files
 :cd \var\varvamp\files
+md C:\n\Dropbox\csd\serve\vboxyard\vamp206a
 cd C:\n\Dropbox\csd\serve\vboxyard\vamp206a
 pwd
 timeout 15
