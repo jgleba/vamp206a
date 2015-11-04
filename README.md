@@ -8,7 +8,7 @@ also see https://github.com/dgleba/vamp203
 
 I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running in windows to create the iso).
 
-- see preparation below.
+- See preparation below.
 - Install virtualbox
 - create unattended ubuntu 14.04 server iso 
         ( I used a vagrant Ubuntu VM to create it. vamp198e https://bitbucket.org/dgleba/vamp198e)   
@@ -21,7 +21,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - after the vbox ubuntu server boots, log in, run   
 	`sudo ./11get.sh`   
    note: if black screen after it boots up after installing...  press ctrl-alt-f1 to get login prompt 
-- edit shc/21env.sh to agree with your settings.  
+- copy shc/21env-example.sh to 21env.sh and edit to agree with your settings.  
        
 - run  `sudo shc/24start.sh`    
     This runs the other files.
@@ -30,27 +30,25 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 
 ## Preparation
 
-- create basic folders.  `c:\var\varvamp\files`, `c:\var\share203`,  
+- create basic folders.  `c:\var\varvamp\files`,  Possible optional `c:\var\share203`,  
 - put iso here, C:\var\varvamp\files\ubuntu-14.04.3-server-amd64.iso, or let it download it for you.
 - I put a copy of my served web root files in `C:\var\varvamp\files\htdocs.pmds-data.latest.7z`  
     say for example it contains `htdocs\menu\index.html` in the 7z file.  
 	Ask me for a sample website and data. 
-- I put edited 21env.sh in 	`C:\var\varvamp\files\vne.sh` It was used rather than the one in the repo.
-- I had to run `vboxmanage list bridgedifs`  to get a list of adapter names to use in  `--bridgeadapter1 `  --  see `09createvbox.bat`.  
+- I put an edited 21env.sh in 	`C:\var\varvamp\files\vne.sh` It was used rather than the one in the repo.
+- I ran `vboxmanage list bridgedifs`  to get a list of adapter names to use in  `--bridgeadapter1 `  --  see `09createvbox.bat`.  
 
 
 
-## Examples of code I served up.
+## Example addresses of code I served up.
 
 - http://10.4.10.249:8985/django161c/admin/
 - http://10.4.10.249/dgnote130/
-- http://10.4.10.249/menu2/
+- http://10.4.10.249/authbasic/
 - http://10.4.10.249/menu/
-- http://10.4.10.249/test2/
 - http://10.4.10.249/test2/strap179/
-- .
 
-#
+
 
 _____________
 
@@ -187,6 +185,7 @@ https://github.com/netson/ubuntu-unattended
 https://github.com/panique/vagrant-lamp-bootstrap
 https://github.com/mattandersen/vagrant-lamp
 
+Also see credits.txt
 
 _____________
 
