@@ -17,8 +17,12 @@ sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz  /home/$userv/ --ex
 #to get it from ftp...
 if  [ 1=0 ] ; then
     cd tmp
-    curl -O -u dg:fruit ftp://192.168.88.94:2141//files/lxdehome.tgz
-    curl -O -u dg:fruit ftp://10.4.10.243:2141//files/lxdehome.tgz
+        if ping -c 1 192.168.88.94 &> /dev/null
+        then
+          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/lxdehome.tgz
+        else
+          curl -O -u dg:fruit ftp://10.4.10.243:2141//files/lxdehome.tgz
+        fi
     cd 
     tar -xvf tmp/lxdehome.tgz
 fi

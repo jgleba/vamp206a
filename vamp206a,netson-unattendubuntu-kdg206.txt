@@ -24,6 +24,24 @@ vncpasswd
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-11-03[Nov-Tue]21-28PM
+
+http://www.techradar.com/us/news/computing/pc/how-to-verify-your-files-in-linux-with-md5-641436
+
+md5sum a.txt b.txt > md5sums.md5
+
+This line generates two MD5 hash values – one for a.txt and another for b.txt. 
+It then pipes these values (with filenames) to a plain text file named md5sums.md5. 
+To then validate that a.txt and b.txt haven't changed since you produced this checksum, 
+we type the following into a terminal:
+
+md5sum -c md5sums.md5
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .git
 -----------------------2015-11-03[Nov-Tue]12-57PM
 
