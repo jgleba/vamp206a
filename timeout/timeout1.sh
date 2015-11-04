@@ -7,23 +7,24 @@
 # eg:    timeout1.sh 12
 
 
+
 IFS=_
 count=0
 count="$1"
-echo -e "\nHit a key to continue..."
+echo -e " \n"
 while [ $count -ge 1 ]
 do
-    echo -e -n "\r                 Time remaining: $count     "
+    echo -e -n "\r  Hit a key to continue...  $count      "
     read -n 1 -s -t 1 myresponse
     if [ "$myresponse" ]
     then
-        echo -e -n "\nYou entered:  $myresponse\n\n"
+        echo -e -n "\n  You entered:  $myresponse\n\n"
         break
     fi
     ((count--))
 done
 if [ $count -eq 0 ]
 then
-    echo -e  "\nYou did not entered anything.\n"
+    echo -e  "\n  You did not enter anything, continuing...\n"
 fi
 
