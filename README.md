@@ -25,8 +25,8 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
        
 - run  `sudo shc/24start.sh`    
     This runs the other files.
-- visit in your browser: `[ip-address]/menu` or any other address that leads to the web content you placed in `c:\p2\vamp\htdocs`  
-  type `ifconfig` in the server console to get the ip of the machine.
+- visit in your browser: `[ip-address]/menu` or any other address that leads to the web content you placed in `C:\var\varvamp\files\htdocs.pmds-data.latest.7z`  
+  - type `ifconfig` in the server console to get the ip of the machine.
 
 ## Preparation
 
