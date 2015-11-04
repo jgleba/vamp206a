@@ -13,7 +13,7 @@ echo
 echo
 echo 24start.sh will commence...
 echo
-read -t  400 -p "Hit ENTER or wait about 400 seconds" ; echo ;
+read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
 set -vx
 
 
