@@ -47,6 +47,17 @@ sudo chmod -R 777 .
 sudo chmod -R  +x .
 sudo updatedb
 cd
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#add home bin directory. it will be added to the path if it exists -- in debian.
+#http://askubuntu.com/questions/402353/how-to-add-home-username-bin-to-path
+
+mkdir -p bin
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 }
 
 

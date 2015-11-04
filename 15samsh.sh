@@ -44,6 +44,7 @@ function runsam() {
 echo "alias lsl='ls -la'" >>   ~/.bash_aliases
 cat ~/.bash_aliases
 
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # write history immediately...
