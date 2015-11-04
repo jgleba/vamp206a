@@ -7,7 +7,7 @@ md C:\n\Dropbox\csd\serve\vboxyard\vamp206a
 cd C:\n\Dropbox\csd\serve\vboxyard\vamp206a
 
 pwd
-timeout 15
+timeout 2
 copy /y lxdehome.tgz c:\var\varvamp\files
 copy /y C:\n\Dropbox\csd\serve\vboxyard\vamp206env\vne.sh c:\var\varvamp\files
 copy /y C:\n\Dropbox\csd\copyof\CI\backups\htdocs\htdocs.PMDS-DATA.latest.7z c:\var\varvamp\files
@@ -27,5 +27,5 @@ powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compressi
 start c:\p2\slimftpd\slimftpd.exe
 
 
-timeout 99
+timeout 0
 pause

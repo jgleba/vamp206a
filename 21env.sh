@@ -15,7 +15,7 @@ export user2="pmdsu"
 #hostname from unattended iso...
 export orig_hostname="vamp206b"
 # new hostname..
-export default_hostname="pmdsdata3"
+export default_hostname="pmdsdata9"
 export default_domain="local"
 
 export mysqlrootpassw="x"
@@ -30,7 +30,9 @@ export u3hz="dlgeba"
 export p3hz="h"
 
 export pw1="a"
-export pw2="p"
+export pw2="a"
+export pw3="a"
+export pw4="a"
 
 mkdir -p tmp
 tmp="/home/$userv/tmp"
@@ -39,9 +41,9 @@ mkdir -p  /home/$userv/_this-vamp206b
 
 # determine ubuntu version
 export ubuntu_versiona=$(lsb_release -sc)
-export ubuntu_versionb="$(lsb_release -sa)"
+export ubuntu_versionb="$(lsb_release -sd)"
 
-export -p
+#export -p
 
 
 function offline() {
