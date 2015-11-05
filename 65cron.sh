@@ -14,7 +14,16 @@ sudo crontab -u pmdsu -l | { cat; echo "37 15 1 10 * /var/www/html/cilist/action
 #sudo crontab -u pmdsu -l | { cat; echo "*/2 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
 sudo crontab -u pmdsu -l
 
+
+#Make scripts executable.
 sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
+sudo chmod -R ug+x /var/www/html/shiftcsd2sup/actions/*.sh
+
+#turn off excecute in this folder...
+find /var/www/html/dokuwiki/ -type f -name '*.sh' -exec chmod ug-x {} \;
+
+#find permissions of files using tree and grep on *.sh files - all scripts - *.sh
+tree -ifpugDs $PWD |grep "\.sh"
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -32,6 +41,8 @@ sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
 function info()
 {
 exit 999
+# begin block comment =============================
+: <<'END'
 
 remove all:
 crontab -r 
@@ -41,6 +52,9 @@ http://unix.stackexchange.com/questions/119481/how-come-crontab-e-is-different-f
 http://stackoverflow.com/questions/878600/how-to-create-cronjob-using-bash
 
 /var/spool/cron/crontabs/albe
+
+END
+# end block comment ===============================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

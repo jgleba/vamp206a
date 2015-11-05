@@ -25,6 +25,57 @@ vncpasswd
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2015-11-05[Nov-Thu]09-10AM
+
+timings
+
+ubuntu 1404 64bit server
+pdata9t  .89  vbox on dgpc csd
+pdata3  1.3  hyperv 
+
+pdata   4.99 old hyperv win7
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-11-05[Nov-Thu]08-23AM
+
+list all files matching *.sh
+find $(pwd) -name \*.sh 
+
+permissions of all files recursively...
+tree -ifpugDs $PWD 
+
+find permissions of files using tree and grep on *.sh files - all scripts - *.sh
+tree -ifpugDs $PWD |grep "\.sh"
+
+
+http://chrisgilligan.com/wordpress/chmod-recursive-files-only-directories-type/
+
+Recursively chmod only directories
+find . -type d -exec chmod 755 {} \;
+
+Similarly, recursively set the execute bit on every directory
+chmod -R a+X *
+The +X flag sets the execute bit on directories only
+
+Recursively chmod only files
+find . -type f -exec chmod 644 {} \;
+
+Recursively chmod only PHP files (with extension .php)
+find . -type f -name '*.php' -exec chmod 644 {} \;
+
+#turn off excecute...
+find /var/www/html/vm -type f -name '*.sh' -exec chmod ug-x {} \;
+find /var/www/html/dokuwiki/ -type f -name '*.sh' -exec chmod ug-x {} \;
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2015-11-03[Nov-Tue]21-28PM
 
 http://www.techradar.com/us/news/computing/pc/how-to-verify-your-files-in-linux-with-md5-641436
@@ -40,13 +91,6 @@ md5sum -c md5sums.md5
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  .git
------------------------2015-11-03[Nov-Tue]12-57PM
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
