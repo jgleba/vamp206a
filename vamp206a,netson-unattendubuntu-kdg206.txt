@@ -39,7 +39,8 @@ pdata   4.99 old hyperv win7
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  .
+Title:  . find , chmod , list permissions.
+
 -----------------------2015-11-05[Nov-Thu]08-23AM
 
 list all files matching *.sh

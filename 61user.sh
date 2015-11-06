@@ -95,10 +95,14 @@ exit 999
 :stuff to manage user on windows...
 
 net use \\VAMP206B\ /delete
+
+net use \\pmdsdata3\ /delete
+
 net use * /delete
 
 :net use \\SERVER * /user:username
 net use \\vamp206b * /user:dgleba
+net use \\pmdsdata3 * /user:dgleba
 
 
 }
