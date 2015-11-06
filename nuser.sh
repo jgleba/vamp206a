@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 date
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# add user. use env variable for password. 
-
+# add new user. 
 echo usage nuser.sh  user password
-
 nuser="$1"
 pwnu1="$2"
 echo $pwnu1
@@ -15,23 +13,7 @@ echo "$nuser:$pwnu1" | sudo chpasswd
 sudo usermod -a -G www  $nuser
 (echo "$pwnu1"; echo "$pwnu1") | sudo smbpasswd -s -a $nuser
 groups 
-
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-function offline()
-{
-exit 999
-# begin block comment =============================
-: <<'END'
-ls
-END
-# end block comment ===============================
-}
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 date
 #
-
