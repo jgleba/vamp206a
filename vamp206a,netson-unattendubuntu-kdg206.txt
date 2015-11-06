@@ -38,6 +38,9 @@ pdata   4.99 old hyperv win7
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+tree -ifpugDs $PWD |grep "data-all"
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  . find , chmod , list permissions.
 
