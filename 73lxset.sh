@@ -15,7 +15,7 @@ sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz  /home/$userv/ --ex
 
 
 #to get it from ftp...
-if  [ 1=0 ] ; then
+if  [ 1 = 0 ] ; then
     cd tmp
         if ping -c 1 192.168.88.94 &> /dev/null
         then
@@ -28,7 +28,7 @@ if  [ 1=0 ] ; then
 fi
 
 # if it was retreived from the repo already...
-if  [ 1=1 ] ; then
+if  [ 1 = 1 ] ; then
     cd 
     tar -xvf shc/lxdehome.tgz
 fi
