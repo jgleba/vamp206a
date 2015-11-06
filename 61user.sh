@@ -103,6 +103,8 @@ id dgleba
 #
 # sudo deluser dgleba sudo
 #
+# disable..    sudo passwd -l user
+#
 #https://help.ubuntu.com/community/FilePermissions
 #chmod ugo+rwx file4
 #
