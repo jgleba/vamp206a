@@ -101,13 +101,18 @@ id dgleba
 
 #http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users
 #
-# sudo deluser dgleba sudo
-#
+# sudo deluser dg5
+# sudo rm -r dg5
+# delete user and home directory... sudo deluser --remove-home dg2
+# list groups...   sudo cat /etc/group
+
 # disable..    sudo passwd -l user
 #
 #https://help.ubuntu.com/community/FilePermissions
 #chmod ugo+rwx file4
 #
+#To get a list of all users you type (as users are listed in /etc/passwd)
+#  getent passwd
 
 
 offline()
@@ -135,6 +140,7 @@ net use \\SERVER * /user:username
 net use \\pmdsdata3 * /user:albe
 ***  error..........     System error 1219 has occurred.
 
+worked:
 rundll32.exe keymgr.dll, KRShowKeyMgr
 
 END
