@@ -49,6 +49,27 @@ echo "dclark:dave" | sudo chpasswd
 sudo usermod -a -G www  dclark
 (echo $pw1; echo $pw1) | sudo smbpasswd -s -a dclark
 
+#adduser asks questions and does more...
+sudo adduser cstrutton --gecos "pmds user,0,0,0" --disabled-password
+echo "cstrutton:dri239se" | sudo chpasswd
+#add user to group www
+sudo usermod -a -G www  cstrutton
+(echo dri239se; echo dri239se) | sudo smbpasswd -s -a cstrutton
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# add user. use env variable for password. 
+
+pwnu1="abop"
+echo $pwnu1
+#adduser asks questions and does more...
+sudo adduser dg2 --gecos "pmds user,0,0,0" --disabled-password
+echo "dg2:$pwnu1" | sudo chpasswd
+#add user to group www
+sudo usermod -a -G www  dg2
+(echo "$pwnu1"; echo "$pwnu1") | sudo smbpasswd -s -a dg2
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #add user to upload files by ftp...
@@ -90,6 +111,8 @@ id dgleba
 offline()
 {
 
+# begin block comment =============================
+: <<'END'
 exit 999
 
 :stuff to manage user on windows...
@@ -105,5 +128,14 @@ net use \\vamp206b * /user:dgleba
 net use \\pmdsdata3 * /user:dgleba
 
 
+http://superuser.com/questions/123833/how-do-i-change-the-user-i-am-logged-in-with-on-a-network-share
+net use \\SERVER * /user:username
+net use \\pmdsdata3 * /user:albe
+***  error..........     System error 1219 has occurred.
+
+rundll32.exe keymgr.dll, KRShowKeyMgr
+
+END
+# end block comment ===============================
 }
 #
