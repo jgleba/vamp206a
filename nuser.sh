@@ -15,7 +15,7 @@ nuser="$1"
 echo user: "$nuser"
 echo $pwnu1
 #adduser asks questions and does more...
-sudo adduser $nuser --gecos "pmds user,0,0,0" --disabled-password
+sudo adduser $nuser --gecos "$nuser,..,..,.." --disabled-password
 echo "$nuser:$pwnu1" | sudo chpasswd
 #add user to group www
 sudo usermod -a -G www  $nuser

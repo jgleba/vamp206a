@@ -42,33 +42,10 @@ sudo usermod -a -G www  pmdsu
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#adduser asks questions and does more...
-sudo adduser dclark --gecos "pmds user,0,0,0" --disabled-password
-echo "dclark:dave" | sudo chpasswd
-#add user to group www
-sudo usermod -a -G www  dclark
-(echo $pw1; echo $pw1) | sudo smbpasswd -s -a dclark
-
-#adduser asks questions and does more...
-sudo adduser cstrutton --gecos "pmds user,0,0,0" --disabled-password
-echo "cstrutton:dri239se" | sudo chpasswd
-#add user to group www
-sudo usermod -a -G www  cstrutton
-(echo dri239se; echo dri239se) | sudo smbpasswd -s -a cstrutton
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# add user. use env variable for password. 
-
-pwnu1="abop"
-echo $pwnu1
-#adduser asks questions and does more...
-sudo adduser dg2 --gecos "pmds user,0,0,0" --disabled-password
-echo "dg2:$pwnu1" | sudo chpasswd
-#add user to group www
-sudo usermod -a -G www  dg2
-(echo "$pwnu1"; echo "$pwnu1") | sudo smbpasswd -s -a dg2
-
+#   see nuser.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -142,6 +119,16 @@ net use \\pmdsdata3 * /user:albe
 
 worked:
 rundll32.exe keymgr.dll, KRShowKeyMgr
+
+not-worked:
+Control panel - User Accounts and Family Safety.
+(Click your image in the start menu, or navigate through control panel).
+In the left hand side panel, select Manage your credentials.
+Under Windows Credentials:
+maybe...
+delete the credential for the computer with the smb share...
+logout and log back in?
+
 
 END
 # end block comment ===============================
