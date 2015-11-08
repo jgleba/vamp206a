@@ -10,7 +10,7 @@ source shc/21env.sh
 
 
 # backup user home dir ...
-sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz  /home/$userv/ --exclude={tmp,backup/*.tgz} 
+sudo tar -cvzf backup/$userv-home.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /home/$userv/ --exclude={tmp,backup,Trash/files,backup/*.tgz} 
 
 
 
