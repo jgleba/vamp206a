@@ -9,13 +9,16 @@ source shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-sudo groupadd www
-sudo chgrp -hR www /var/www/html
+# sudo groupadd www  # just use www-data group
+#sudo chgrp -hR www /var/www/html
+sudo chgrp -hR www-data /var/www/html
 sudo chmod -R g+rw  /var/www/html
+sudo chmod -R o-rw /var/www/html
 # make only folders +x so they can be cd into.
 sudo find /var/www/html -type d -exec chmod g+x {} +
 
-sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo,www  $userv
+sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo  $userv
+sudo usermod -a -G www-data  $userv
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -25,7 +28,7 @@ echo "dgleba:$pw1" | sudo chpasswd
 #sudo useradd -d /home/dgleba -m dgleba
 # no home dir... sudo useradd dgleba
 #sudo passwd dgleba
-sudo usermod -a -G adm,dialout,plugdev,sambashare,www  dgleba
+sudo usermod -a -G adm,dialout,plugdev,sambashare,www-data dgleba
 sudo usermod -a -G sudo  dgleba
 
 #sudo smbpasswd -a dgleba
@@ -38,7 +41,7 @@ sudo usermod -a -G sudo  dgleba
 sudo adduser pmdsu --gecos "pmds user,0,0,0" --disabled-password
 echo "pmdsu:$pw1" | sudo chpasswd
 #add user to group www
-sudo usermod -a -G www  pmdsu
+sudo usermod -a -G www-data  pmdsu
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -72,6 +75,10 @@ sudo sudo service smbd restart
 groups
 groups dgleba
 id dgleba
+
+groups
+groups $userv
+id $userv
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

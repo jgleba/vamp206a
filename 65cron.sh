@@ -10,8 +10,8 @@ sudo crontab -u pmdsu -l
 sudo crontab -u pmdsu -l | grep -v '/excel2_script.sh'  | sudo crontab -u pmdsu -
 #add
 sudo crontab -u pmdsu -l | { cat; echo "37 15 1 10 * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
-# every 2 min.
-#sudo crontab -u pmdsu -l | { cat; echo "*/2 * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
+# every min.
+#sudo crontab -u pmdsu -l | { cat; echo "* * * * * /var/www/html/cilist/actions/excel2_script.sh"; } | sudo crontab -u pmdsu -
 sudo crontab -u pmdsu -l
 
 
@@ -23,6 +23,8 @@ sudo chmod -R ug+x /var/www/html/shiftcsd2sup/actions/*.sh
 find /var/www/html/dokuwiki/ -type f -name '*.sh' -exec chmod ug-x {} \;
 
 #find permissions of files using tree and grep on *.sh files - all scripts - *.sh
+sudo apt-get install tree
+cd /var/www/html
 tree -ifpugDs $PWD |grep "\.sh"
 
 
@@ -52,6 +54,8 @@ http://unix.stackexchange.com/questions/119481/how-come-crontab-e-is-different-f
 http://stackoverflow.com/questions/878600/how-to-create-cronjob-using-bash
 
 /var/spool/cron/crontabs/albe
+
+#sudo crontab -u pmdsu -l | { cat; echo "*/2 * * * * cript.sh"; } | sudo crontab -u pmdsu -
 
 END
 # end block comment ===============================
