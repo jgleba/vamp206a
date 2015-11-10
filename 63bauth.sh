@@ -24,12 +24,17 @@ basauthmain()
 {
 sudo tee /etc/apache2/sites-available/baseauthmain.conf <<EOF
 #
+AddType application/x-httpd-php htm
+AddType application/x-httpd-php html
+
 # require authentication under /var/www/html
  <Directory /var/www/html>
     AuthType Basic
     AuthName "===== Authbasic Whole Site2 ====="
     AuthUserFile /etc/apache2/.htpasswd
     require valid-user
+    # Prepend to top
+    php_value auto_prepend_file "/var/www/html/menu/banner1.php"
 </Directory>
 #
 EOF

@@ -72,7 +72,7 @@ if [ $dgmethod = "ftp" ] ; then
 
     # I setup vsftp on a vagrant ubuntu machine, vamp198e, that has shares to c: drive to get the files...
     cd /home/$userv/tmp
-    rm -f /home/$userv/tmpvne.sh
+    rm -f /home/$userv/vne.sh
     pwd
     ls
     read -t 10 -p "Press ENTER or wait about ten seconds" ; echo ;

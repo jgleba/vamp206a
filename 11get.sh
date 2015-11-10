@@ -36,6 +36,7 @@ mkdir ~/shc
 cp -avf vamp206a-master/* ~/shc/
 cd
 cd shc
+cp 21env-example.sh 21env.sh
 #hmm not sure this is just files with no extension..
 #find -type f -not -name "*.*" -exec chmod +x \{\} \;
 #no working..
