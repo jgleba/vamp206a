@@ -19,7 +19,7 @@ sudo crontab -u pmdsu -l
 sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
 sudo chmod -R ug+x /var/www/html/shiftcsd2sup/actions/*.sh
 
-#turn off excecute in this folder...
+#example.. turn off excecute in this folder...
 find /var/www/html/dokuwiki/ -type f -name '*.sh' -exec chmod ug-x {} \;
 
 #find permissions of files using tree and grep on *.sh files - all scripts - *.sh

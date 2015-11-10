@@ -127,7 +127,7 @@ net use \\pmdsdata3 * /user:albe
 worked:
 rundll32.exe keymgr.dll, KRShowKeyMgr
 
-not-worked:
+not-worked?:
 Control panel - User Accounts and Family Safety.
 (Click your image in the start menu, or navigate through control panel).
 In the left hand side panel, select Manage your credentials.

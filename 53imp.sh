@@ -57,61 +57,62 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2suprv.* TO 
 
 #perms...
 
-sudo mkdir -p /var/www/html
-#sudo chmod -R 755 /var/www/html 
+sudo sudo mkdir -p /var/www/html
+#sudo sudo chmod -R 755 /var/www/html 
+#sudo sudo chmod -R 777 /var/www/html/django
 
-sudo chmod -R 777 /var/www/html/django
+# make read for other group...
+#sudo sudo chmod -R o+r /var/www/html 
+# make only folders +x so they can be cd into.
+# sudo sudo chmod -R o-x /var/www/html/
+# not needed when using www-data group for access..   sudo find /var/www/html -type d -exec sudo chmod o+x {} +
+
 
 #templates_c
 
-mkdir /var/www/html/cilist/templates_c
-mkdir /var/www/html/dgnote130/templates_c
-mkdir /var/www/html/leanmfg/templates_c
-mkdir /var/www/html/prodrpt/templates_c
-mkdir /var/www/html/shiftcsd1/templates_c
-mkdir /var/www/html/shiftcsd1sup/templates_c
-mkdir /var/www/html/shiftcsd2/templates_c
-mkdir /var/www/html/shiftcsd2sup/templates_c
-mkdir /var/www/html/shiftsmsmeer/templates_c
+sudo mkdir /var/www/html/cilist/templates_c
+sudo mkdir /var/www/html/dgnote130/templates_c
+sudo mkdir /var/www/html/leanmfg/templates_c
+sudo mkdir /var/www/html/prodrpt/templates_c
+sudo mkdir /var/www/html/shiftcsd1/templates_c
+sudo mkdir /var/www/html/shiftcsd1sup/templates_c
+sudo mkdir /var/www/html/shiftcsd2/templates_c
+sudo mkdir /var/www/html/shiftcsd2sup/templates_c
+sudo mkdir /var/www/html/shiftsmsmeer/templates_c
 
 
-chmod -R 777  /var/www/html/cilist/templates_c
-chmod -R 777  /var/www/html/dgnote130/templates_c
-chmod -R 777  /var/www/html/leanmfg/templates_c
-chmod -R 777  /var/www/html/prodrpt/templates_c
-chmod -R 777  /var/www/html/shiftcsd1/templates_c
-chmod -R 777  /var/www/html/shiftcsd1sup/templates_c
-chmod -R 777  /var/www/html/shiftcsd2/templates_c
-chmod -R 777  /var/www/html/shiftcsd2sup/templates_c
-chmod -R 777  /var/www/html/shiftsmsmeer/templates_c
+sudo chmod -R 777  /var/www/html/cilist/templates_c
+sudo chmod -R 777  /var/www/html/dgnote130/templates_c
+sudo chmod -R 777  /var/www/html/leanmfg/templates_c
+sudo chmod -R 777  /var/www/html/prodrpt/templates_c
+sudo chmod -R 777  /var/www/html/shiftcsd1/templates_c
+sudo chmod -R 777  /var/www/html/shiftcsd1sup/templates_c
+sudo chmod -R 777  /var/www/html/shiftcsd2/templates_c
+sudo chmod -R 777  /var/www/html/shiftcsd2sup/templates_c
+sudo chmod -R 777  /var/www/html/shiftsmsmeer/templates_c
 
 #userconfig:
 
-mkdir /var/www/html/cilist/user_config
-mkdir /var/www/html/dgnote130/user_config
-mkdir /var/www/html/leanmfg/user_config
-mkdir /var/www/html/prodrpt/user_config
-mkdir /var/www/html/shiftcsd1/user_config
-mkdir /var/www/html/shiftcsd1sup/user_config
-mkdir /var/www/html/shiftcsd2/user_config
-mkdir /var/www/html/shiftcsd2sup/user_config
-mkdir /var/www/html/shiftsmsmeer/user_config
+sudo mkdir /var/www/html/cilist/user_config
+sudo mkdir /var/www/html/dgnote130/user_config
+sudo mkdir /var/www/html/leanmfg/user_config
+sudo mkdir /var/www/html/prodrpt/user_config
+sudo mkdir /var/www/html/shiftcsd1/user_config
+sudo mkdir /var/www/html/shiftcsd1sup/user_config
+sudo mkdir /var/www/html/shiftcsd2/user_config
+sudo mkdir /var/www/html/shiftcsd2sup/user_config
+sudo mkdir /var/www/html/shiftsmsmeer/user_config
 
-chmod -R 777  /var/www/html/cilist/user_config
-chmod -R 777  /var/www/html/dgnote130/user_config
-chmod -R 777  /var/www/html/leanmfg/user_config
-chmod -R 777  /var/www/html/prodrpt/user_config
-chmod -R 777  /var/www/html/shiftcsd1/user_config
-chmod -R 777  /var/www/html/shiftcsd1sup/user_config
-chmod -R 777  /var/www/html/shiftcsd2/user_config
-chmod -R 777  /var/www/html/shiftcsd2sup/user_config
-chmod -R 777  /var/www/html/shiftsmsmeer/user_config
+sudo chmod -R 777  /var/www/html/cilist/user_config
+sudo chmod -R 777  /var/www/html/dgnote130/user_config
+sudo chmod -R 777  /var/www/html/leanmfg/user_config
+sudo chmod -R 777  /var/www/html/prodrpt/user_config
+sudo chmod -R 777  /var/www/html/shiftcsd1/user_config
+sudo chmod -R 777  /var/www/html/shiftcsd1sup/user_config
+sudo chmod -R 777  /var/www/html/shiftcsd2/user_config
+sudo chmod -R 777  /var/www/html/shiftcsd2sup/user_config
+sudo chmod -R 777  /var/www/html/shiftsmsmeer/user_config
 
-
-# make read for other group...
-sudo chmod -R o+r /var/www/html 
-# make only folders +x so they can be cd into.
-sudo find /var/www/html -type d -exec chmod o+x {} +
 
 
 date

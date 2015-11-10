@@ -139,9 +139,6 @@ source shc/21env.sh
 
 sudo sudo service smbd restart
 
-#sudo chmod -R 777 /home/$userv/webwork
-#sudo chmod -R 755 /var/www/html
-
 
 cd
 # create 15ran to mark that is has been run. Then don't run it again.
