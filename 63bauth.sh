@@ -24,6 +24,7 @@ basauthmain()
 {
 sudo tee /etc/apache2/sites-available/baseauthmain.conf <<EOF
 #
+#this needed to make banner work for most files...
 AddType application/x-httpd-php htm
 AddType application/x-httpd-php html
 
@@ -33,7 +34,7 @@ AddType application/x-httpd-php html
     AuthName "  =====   Authbasic Whole Site2   ===== "
     AuthUserFile /etc/apache2/.htpasswd
     require valid-user
-    # Prepend banner to top
+    # Prepend banner to top of every page..
     php_value auto_prepend_file "/var/www/html/menu/banner1.php"
 </Directory>
 #
