@@ -56,8 +56,20 @@ cd
 
 mkdir -p bin
 
-cp shc/21env-example.sh shc/21env.sh
+if [  -f shc/21env.sh ]; then
+    # 21env.sh exists, so don't copy over top.
+    echo
+    echo "shc/21env.sh exists, we won't copy over..."
+    echo
+    read -t  19 -p "Hit ENTER or wait about ten seconds" ; echo ;
+
+ else
+    cp shc/21env-example.sh shc/21env.sh
+ fi
+
+#Copy vne.sh over top. it won't copy if it isn't there.
 cp tmp/vne.sh shc/21env.sh
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
