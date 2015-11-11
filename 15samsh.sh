@@ -67,7 +67,6 @@ EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#mkdir webwork
 sudo mkdir -p /var/www/html
 
 sudo apt-get -y install samba cifs-utils

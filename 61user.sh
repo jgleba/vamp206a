@@ -95,8 +95,10 @@ id $userv
 #https://help.ubuntu.com/community/FilePermissions
 #chmod ugo+rwx file4
 #
+# list  all  users
 #To get a list of all users you type (as users are listed in /etc/passwd)
 #  getent passwd
+#    cut -d: -f1 /etc/passwd
 
 
 offline()
