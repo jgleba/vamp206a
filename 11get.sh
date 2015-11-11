@@ -8,7 +8,8 @@ get1()
 {
 set -x
 cd
-
+userv11=$USER
+echo $userv11
 
 #get a few software to help get things started...
 sudo apt-get update
@@ -56,10 +57,11 @@ cd
 
 mkdir -p bin
 
-if [  -f shc/21env.sh ]; then
+if [  -f "/home/$userv11/shc/21env.sh" ]; then
     # 21env.sh exists, so don't copy over top.
     echo
     echo "shc/21env.sh exists, we won't copy over..."
+    echo userv11 = $userv11
     echo
     read -t  19 -p "Hit ENTER or wait about ten seconds" ; echo ;
 
