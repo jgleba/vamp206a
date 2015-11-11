@@ -15,7 +15,7 @@ vagrant up
 mkdir c:\p2\slimftpd
 copy /y  C:\n\Dropbox\csd\serve\vboxyard\vamp206a\SlimFTPd.exe c:\p2\slimftpd
 copy /y  C:\n\Dropbox\csd\serve\vboxyard\vamp206a\slimftpd.conf c:\p2\slimftpd
-c:\p2\slimftpd\slimftpd
+:c:\p2\slimftpd\slimftpd
 
 
 timeout 99

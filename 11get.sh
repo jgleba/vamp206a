@@ -37,7 +37,6 @@ mkdir ~/shc
 cp -avf vamp206a-master/* ~/shc/
 cd
 cd shc
-cp 21env-example.sh 21env.sh
 #hmm not sure this is just files with no extension..
 #find -type f -not -name "*.*" -exec chmod +x \{\} \;
 #no working..
@@ -56,6 +55,9 @@ cd
 #http://askubuntu.com/questions/402353/how-to-add-home-username-bin-to-path
 
 mkdir -p bin
+
+cp shc/21env-example.sh shc/21env.sh
+cp tmp/vne.sh shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
