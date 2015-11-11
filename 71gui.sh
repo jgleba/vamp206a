@@ -9,17 +9,13 @@ source shc/21env.sh
 function gui1() {
 #install gui...
 sudo apt-get -y install lxde
+sudo apt-get -y install thunar
 sudo apt-get -y install expect
 
 #install utils to allow resizing of gui..
 sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 
 
-# Midori browser?  91mb
-#sudo apt-add-repository ppa:midori/ppa && sudo apt-get update -qq && sudo apt-get install midori
-
-# 235mb
-#sudo apt-get install epiphany-browser
 
 }
 
@@ -27,11 +23,21 @@ sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-
 
 
 function operai() {
-#get opera 92mb
+#get opera browser 92mb
 sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
 sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
 sudo apt-get update
 sudo apt-get install opera
+
+
+#others..
+#
+# Midori browser?  91mb
+#sudo apt-add-repository ppa:midori/ppa && sudo apt-get update -qq && sudo apt-get install midori
+#
+# 235mb
+#sudo apt-get install epiphany-browser
+
 }  
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

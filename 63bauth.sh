@@ -30,15 +30,16 @@ AddType application/x-httpd-php html
 # require authentication under /var/www/html
  <Directory /var/www/html>
     AuthType Basic
-    AuthName "===== Authbasic Whole Site2 ====="
+    AuthName "  =====   Authbasic Whole Site2   ===== "
     AuthUserFile /etc/apache2/.htpasswd
     require valid-user
-    # Prepend to top
+    # Prepend banner to top
     php_value auto_prepend_file "/var/www/html/menu/banner1.php"
 </Directory>
 #
 EOF
 }
+
 
 ipage()
 {
