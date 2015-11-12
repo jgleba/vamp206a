@@ -4,7 +4,17 @@
 
 also see https://github.com/dgleba/vamp203
 
-## General Usage - This is how I used it.
+## Overview
+
+- Create Unattended Ubuntu Iso.
+- Create virtialbox machine and install iso.
+- run 11get.sh to get the latest code.
+- edit your settings - like passwords.
+- run 24start.sh to setup the web server and settings.
+- visit a web page on the finished server.
+
+
+## Usage - This is how I used it.
 
 I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running in windows to create the iso).
 
