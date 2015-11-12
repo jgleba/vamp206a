@@ -15,6 +15,7 @@ https://github.com/panique/vagrant-lamp-bootstrap
 ideas:
 https://github.com/mattandersen/vagrant-lamp
 
-
+slimftp:
+http://www.whitsoftdev.com/slimftpd/
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
