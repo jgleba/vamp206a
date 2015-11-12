@@ -65,7 +65,7 @@ tasksel tasksel/first                                       multiselect Basic Ub
 d-i pkgsel/update-policy                                    select unattended-upgrades
 d-i pkgsel/update-policy                                   select      none
 d-i pkgsel/updatedb                                         boolean     true
-d-i pkgsel/include string openssh-server build-essential unzip p7zip-full
+d-i pkgsel/include string openssh-server build-essential unzip p7zip-full mc
 
 # disk partitioning
 
