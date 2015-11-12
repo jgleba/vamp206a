@@ -18,8 +18,8 @@ echo $pwnu1
 #adduser asks questions and does more...
 sudo adduser $nuser --gecos "$nuser,..,..,.." --disabled-password
 echo "$nuser:$pwnu1" | sudo chpasswd
-#add user to group www
-sudo usermod -a -G www  $nuser
+#add user to group www-data
+sudo usermod -a -G www-data  $nuser
 (echo "$pwnu1"; echo "$pwnu1") | sudo smbpasswd -s -a $nuser
 sudo mkdir /home/$nuser/bin
 sudo chown  $nuser:$nuser /home/$nuser/bin
