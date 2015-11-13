@@ -3,8 +3,17 @@
 c:
 mkdir  c:\var\varvamp\files
 :cd \var\varvamp\files
+
+echo
+echo I put the vamp206a files from the repo here manually myself...
+echo
+:
 md C:\n\Dropbox\csd\serve\vboxyard\vamp206a
 cd C:\n\Dropbox\csd\serve\vboxyard\vamp206a
+rem I put the vamp206a files from the repo here manually myself...
+
+
+
 
 pwd
 timeout 2

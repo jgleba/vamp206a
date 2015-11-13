@@ -23,7 +23,7 @@ sudo usermod -a -G www-data  $nuser
 (echo "$pwnu1"; echo "$pwnu1") | sudo smbpasswd -s -a $nuser
 sudo mkdir /home/$nuser/bin
 sudo chown  $nuser:$nuser /home/$nuser/bin
-echo groups:
+#echo groups..
 groups $nuser
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
