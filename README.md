@@ -7,7 +7,7 @@ also see https://github.com/dgleba/vamp203
 ## Overview
 
 - Create Unattended Ubuntu Iso.
-- Create virtialbox machine and install iso.
+- Create virtualbox machine and install iso.
 - run 11get.sh to get the latest code.
 - edit your settings - like passwords.
 - run 24start.sh to setup the web server and settings.

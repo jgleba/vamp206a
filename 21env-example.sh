@@ -26,7 +26,7 @@ export uredwe="dg"
 export predwe="h"
 
 #windows machine red5a settings.
-export u3hz="dlgeba"
+export u3hz="dgleba"
 export p3hz="h"
 
 export pw1="a"
