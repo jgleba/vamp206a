@@ -14,7 +14,15 @@ http://localhost/phreeze/builder/
 
 http://vamp206b/test/phreeze/builder/
 
-chmod
+sudo chmod -R 777 /var/www/html/phreeze
+
+The requested URL /phreeze/builder/analyze was not found on this server.
+
+in .conf... vhost...
+~like~ allowoveride all
+
+in .htaccess
+     RewriteBase /phreeze/builder
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
