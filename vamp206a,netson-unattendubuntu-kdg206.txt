@@ -5,7 +5,6 @@ Title:  . top
 -----------------------2015-10-29[Oct-Thu]19-08PM
 
 todo:
-.
 
 testing:
 django
