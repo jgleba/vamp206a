@@ -14,6 +14,7 @@ sudo tee /etc/apache2/sites-available/djangolin1.conf <<EOF
 #
 # works on vagrant ubuntu vm 2015-09-28_Mon_23.25-PM 
 # http://192.168.3.7:8985/django161c/admin/
+# http://pmdsdata:8985/django161c/admin/
 listen 8985
 <VirtualHost *:8985>
     DocumentRoot /var/www/html/django/django161c
@@ -82,6 +83,24 @@ listen 8987
     </Directory>
 </VirtualHost>
 #
+############
+#http://pmdsdata.stackpole.ca:8988/dj162/admin/
+#http://vamp206b:8988/dj162/admin/
+listen 8988
+<VirtualHost *:8988>
+    DocumentRoot /var/www/html/django/dj162
+    ServerName 127.0.0.1
+    Alias /static/ /var/www/html/django/dj162/static/
+    WSGIDaemonProcess dj162 processes=1 threads=5 display-name=%{GROUP}
+    WSGIProcessGroup dj162
+    WSGIScriptAlias /dj162 /var/www/html/django/apache/dj162.wsgi 
+    <Directory /var/www/html/django/apache>
+        Order deny,allow
+        Allow from all
+    </Directory>
+</VirtualHost>
+#
+
 EOF
 }
 

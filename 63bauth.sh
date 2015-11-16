@@ -30,6 +30,7 @@ AddType application/x-httpd-php html
 
 # require authentication under /var/www/html
  <Directory /var/www/html>
+    AllowOverride all
     AuthType Basic
     AuthName "  =====   Authbasic Whole Site2   ===== "
     AuthUserFile /etc/apache2/.htpasswd

@@ -1,26 +1,121 @@
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  . top
------------------------2015-10-29[Oct-Thu]19-08PM
+Title:  . phreeze
 
-todo:
+-----------------------2015-11-16[Nov-Mon]15-18PM
 
-testing:
-django
-basicauth
-xataface
-mail script
-phpexcel
-cron
+http://phreeze.com/phreeze/documentation/installation.php
 
-secure:
-users albe dgleba ftpup dclark pmdsu
-htpasswd
-vncpasswd
+cd /var/www/html/test/
+
+git clone git://github.com/jasonhinkle/phreeze.git
+
+http://localhost/phreeze/builder/
+
+http://vamp206b/test/phreeze/builder/
+
+chmod
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  . express-admin
+
+-----------------------2015-11-16[Nov-Mon]11-09AM
+
+http://simov.github.io/express-admin/
+
+https://github.com/simov/express-admin-examples
+
+
+admin for mysql...
+
+sudo apt-get update
+sudo apt-get install nodejs
+
+sudo apt-get install npm
+
+sudo npm install -g express-admin
+
+sudo ln -s "$(which nodejs)" /usr/bin/node
+
+sudo mkdir /srv/node
+sudo chgrp -hR www-data /srv/node
+sudo chmod -R g+rw  /srv/node
+sudo chmod -R o-rwx /srv/node
+
+cd /srv/node
+git clone https://github.com/simov/express-admin-examples
+cd express-admin-examples
+npm install
+
+#mysql
+CREATE SCHEMA `express-admin-examples` ;
+CREATE USER liolio@localhost IDENTIFIED BY 'karamba' ;
+GRANT ALL ON `express-admin-examples`.* TO liolio@localhost ;
+
+# MySQL
+mysql -p --user=root 'express-admin-examples' < fixtures/mysql/schema.sql
+mysql -p --user=root 'express-admin-examples' < fixtures/mysql/insert.sql
+
+sudo admin config/mysql/
+
+goto http://vamp206b:3000
+
+_____________
+
+admin config/mysql/
+
+Error: EACCES, permission denied '/usr/local/lib/node_modules/express-admin/public/upload'
+    at Object.fs.mkdirSync (fs.js:647:18)
+.
+.
+    at /usr/local/lib/node_modules/express-admin/lib/db/schema.js:42:3
+albe@vamp206b:/srv/node/express-admin-examples$ 
+
+sudo admin config/mysql/
+_____________
+
+
+works.
+
+is there a search feature?
+
+add this to settings.json for car table
+            "page": 25,
+            "filter": ["model", "id"]
+
+the search is very basic. it searches from the first letter of the column.
+one box for each column.
+Not very flexible.
+
+sad face :(
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
