@@ -6,7 +6,9 @@ set +vx
 # echo on
 set -vx
 
-#set hostname with hardcoded name not env variable.
+#purpose...
+#set hostname with   ** hardcoded **  name not env variable.
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -23,7 +25,7 @@ cat /etc/hostname
 sudo tee /etc/hosts <<EOF
 #
 127.0.0.1	localhost
-127.0.1.1	pmdsdata3.local	pmdsdata3
+127.0.1.1	pmdsdata3.local pmdsdata3.stackpole.ca	pmdsdata3
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
@@ -51,12 +53,9 @@ exit 999
 # begin block comment =============================
 : <<'END'
 #begin block comment --  http://stackoverflow.com/questions/947897/block-comments-in-a-shell-script
-
 ls
-
 END
 # end block comment ===============================
-
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -8,6 +8,7 @@ source shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# import my lxde settings from archive tgz
 
 # backup user home dir ...
 sudo tar -cvzf backup/$userv-home.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /home/$userv/ --exclude={tmp,backup,Trash/files,backup/*.tgz} 
