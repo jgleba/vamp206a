@@ -9,9 +9,9 @@ rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start her
 :: don't include the prjfold that is a couple lines below.
 set srcdir=\\vamp206b\html\django
 ::next item is in the above folder.
-set prjfold=dj162
-set bkdir=c:\backup\dj162
-set bkfname=dj162
+set prjfold=cilistsite
+set bkdir=c:\backup\cilistsite
+set bkfname=cilistsite
 set dbxcpy=C:\n\Dropbox\csd\copyof
 rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %bkfname%
 :Title:
