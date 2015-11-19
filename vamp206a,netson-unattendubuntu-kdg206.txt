@@ -1,31 +1,49 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  . phreeze
+Title:  . dj162 dgnote130 admin.
 
------------------------2015-11-16[Nov-Mon]15-18PM
+-----------------------2015-11-18[Nov-Wed]21-24PM
 
-http://phreeze.com/phreeze/documentation/installation.php
+tar -cvzf /c/n/Dropbox/csd/tmp2013/dj162.tgz //VAMP206B/html/django/dj162/ --exclude={tmp,backup,static,backup/*.tgz} 
 
-cd /var/www/html/test/
+:set env...
+set timea=%TIME: =0%
+set ymd=%date:~12,2%%date:~4,2%%date:~7,2%&set dhms=%date:~12,2%%date:~4,2%%date:~7,2%_%timea:~0,2%%timea:~3,2%%timea:~6,2%
+set seven="C:\n\dropbox\csd\p2\7-zip\7z.exe"
+%seven% a -y -t7z -xr!static "C:\n\dropbox\csd\tmp2013\dj162-%dhms%.7z" "\\VAMP206B\html\django\dj162"
+dir  C:\n\dropbox\csd\tmp2013\dj162*
 
-git clone git://github.com/jasonhinkle/phreeze.git
 
-http://localhost/phreeze/builder/
 
-http://vamp206b/test/phreeze/builder/
+https://github.com/WoLpH/django-admin-generator
 
-sudo chmod -R 777 /var/www/html/phreeze
+albe@vamp206b:/var/www/html/django/dj162$
+  
+sudo pip install django-admin-generator
+Add django_admin_generator to your INSTALLED_APPS
 
-The requested URL /phreeze/builder/analyze was not found on this server.
+generate..
+manage.py admin_generator <APP_NAME> >> <APP_NAME>/admin.py
+python manage.py admin_generator dgnote130 > dgnote130/admin.py
 
-in .conf... vhost...
-~like~ allowoveride all
+..worked.
 
-in .htaccess
-     RewriteBase /phreeze/builder
+added search fields to...
+sudo nano /usr/local/lib/python2.7/dist-packages/django_admin_generator/management/commands/admin_generator.py
+SEARCH_FIELD_NAMES = (
+    'name',
+    'note_fld',
+    'tags_fld',
+    'slug',
+)
+
+got error searching note_fld.
+
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 

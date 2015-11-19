@@ -100,7 +100,6 @@ listen 8988
     </Directory>
 </VirtualHost>
 #
-
 EOF
 }
 

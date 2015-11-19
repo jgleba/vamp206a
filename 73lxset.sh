@@ -14,7 +14,6 @@ source shc/21env.sh
 sudo tar -cvzf backup/$userv-home.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /home/$userv/ --exclude={tmp,backup,Trash/files,backup/*.tgz} 
 
 
-
 #to get it from ftp...
 if  [ 1 = 0 ] ; then
     cd tmp
