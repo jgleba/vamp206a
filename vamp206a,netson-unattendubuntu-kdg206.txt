@@ -1,4 +1,20 @@
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-11-19[Nov-Thu]16-29PM
+
+cd /var/www/html/django/cilistsite
+
+python manage.py inspectdb >cilist-inspect-raw.txt
+
+edit models.py
+delete admin.py .pyc
+
+python manage.py admin_generator cilist1 > cilist1/admin.py
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 
