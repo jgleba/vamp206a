@@ -36,7 +36,7 @@ AddType application/x-httpd-php html
     AuthUserFile /etc/apache2/.htpasswd
     require valid-user
     # Prepend banner to top of every page..
-    php_value auto_prepend_file "/var/www/html/menu/banner1.php"
+    # php_value auto_prepend_file "/var/www/html/menu/banner1.php"
 </Directory>
 #
 EOF
