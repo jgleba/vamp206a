@@ -109,7 +109,7 @@ listen 8989
     DocumentRoot /var/www/html/django/cilistsite
     ServerName 127.0.0.1
     Alias /static/ /var/www/html/django/cilistsite/static/
-    WSGIDaemonProcess cilist processes=1 threads=5 display-name=%{GROUP}
+    WSGIDaemonProcess cilistsite processes=1 threads=5 display-name=%{GROUP}
     WSGIProcessGroup cilistsite
     WSGIScriptAlias /cilist /var/www/html/django/apache/cilistsite.wsgi 
     <Directory /var/www/html/django/apache>
