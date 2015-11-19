@@ -102,8 +102,8 @@ listen 8988
 #
 #
 ############
-#  http://pmdsdata.stackpole.ca:8989/cilist/admin/
-#  http://vamp206b:8989/cilist/admin/
+#  http://pmdsdata.stackpole.ca:8989/cilistsite/admin/
+#  http://vamp206b:8989/cilistsite/admin/
 listen 8989
 <VirtualHost *:8989>
     DocumentRoot /var/www/html/django/cilistsite
@@ -118,7 +118,6 @@ listen 8989
     </Directory>
 </VirtualHost>
 #
-
 EOF
 }
 
