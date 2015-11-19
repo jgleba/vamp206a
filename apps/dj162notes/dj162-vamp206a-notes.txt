@@ -1,0 +1,60 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  . dj162 dgnote130 admin.
+
+-----------------------2015-11-18[Nov-Wed]21-24PM
+
+tar -cvzf /c/n/Dropbox/csd/tmp2013/dj162.tgz //VAMP206B/html/django/dj162/ --exclude={tmp,backup,static,backup/*.tgz} 
+
+:set env...
+set timea=%TIME: =0%
+set ymd=%date:~12,2%%date:~4,2%%date:~7,2%&set dhms=%date:~12,2%%date:~4,2%%date:~7,2%_%timea:~0,2%%timea:~3,2%%timea:~6,2%
+set seven="C:\n\dropbox\csd\p2\7-zip\7z.exe"
+%seven% a -y -t7z -xr!static "C:\n\dropbox\csd\tmp2013\dj162-%dhms%.7z" "\\VAMP206B\html\django\dj162"
+dir  C:\n\dropbox\csd\tmp2013\dj162*
+
+
+
+https://github.com/WoLpH/django-admin-generator
+
+albe@vamp206b:/var/www/html/django/dj162$
+  
+cd /var/www/html/django/dj162
+
+sudo pip install django-admin-generator
+Add django_admin_generator to your INSTALLED_APPS
+
+python manage.py migrate
+python manage.py createsuperuser
+
+generate..
+manage.py admin_generator <APP_NAME> >> <APP_NAME>/admin.py
+python manage.py admin_generator dgnote130 > dgnote130/admin.py
+
+..worked.
+
+added search fields to...
+sudo nano /usr/local/lib/python2.7/dist-packages/django_admin_generator/management/commands/admin_generator.py
+SEARCH_FIELD_NAMES = (
+    'name',
+    'note_fld',
+    'tags_fld',
+    'slug',
+)
+
+got error searching note_fld.
+
+_____________
+
+win:
+
+cd C:\p2\Python27\Scripts
+pip install django-admin-generator
+
+cd C:\p2\xampp\htdocs\django\dj162
+c:\p2\python27\python manage.py migrate
+c:\p2\python27\python manage.py createsuperuser
+ --> admin admin
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

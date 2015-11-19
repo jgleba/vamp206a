@@ -33,6 +33,8 @@ sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
 sudo apt-get -y install phpmyadmin
 
+# Python Django software..
+
 sudo apt-get -y install python-pip libapache2-mod-wsgi
 sudo pip install django
 

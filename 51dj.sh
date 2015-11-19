@@ -67,8 +67,8 @@ listen 8986
 #---
 #
 ############
-#http://pmds-data.stackpole.ca:8987/mysite/admin/
-#http://192.168.3.5:8987/mysite/admin/
+# http://pmds-data.stackpole.ca:8987/mysite/admin/
+# http://192.168.3.5:8987/mysite/admin/
 listen 8987
 <VirtualHost *:8987>
     DocumentRoot /var/www/html/django/mysite
@@ -84,8 +84,8 @@ listen 8987
 </VirtualHost>
 #
 ############
-#http://pmdsdata.stackpole.ca:8988/dj162/admin/
-#http://vamp206b:8988/dj162/admin/
+#  http://pmdsdata.stackpole.ca:8988/dj162/admin/
+#  http://vamp206b:8988/dj162/admin/
 listen 8988
 <VirtualHost *:8988>
     DocumentRoot /var/www/html/django/dj162
@@ -100,6 +100,25 @@ listen 8988
     </Directory>
 </VirtualHost>
 #
+#
+############
+#  http://pmdsdata.stackpole.ca:8989/cilist/admin/
+#  http://vamp206b:8989/cilist/admin/
+listen 8989
+<VirtualHost *:8989>
+    DocumentRoot /var/www/html/django/cilistsite
+    ServerName 127.0.0.1
+    Alias /static/ /var/www/html/django/cilistsite/static/
+    WSGIDaemonProcess cilist processes=1 threads=5 display-name=%{GROUP}
+    WSGIProcessGroup cilistsite
+    WSGIScriptAlias /cilist /var/www/html/django/apache/cilistsite.wsgi 
+    <Directory /var/www/html/django/apache>
+        Order deny,allow
+        Allow from all
+    </Directory>
+</VirtualHost>
+#
+
 EOF
 }
 
