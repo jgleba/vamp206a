@@ -7,7 +7,7 @@ c: & md c:\temp\log\"%dhms%"  & cd c:\temp\log\"%dhms%"
 
 rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start here..
 :: don't include the prjfold that is a couple lines below.
-set srcdir=\\vamp206b\html\django
+set srcdir=\\10.4.11.40\html\django
 ::next item is in the above folder.
 set prjfold=dj162
 set bkdir=c:\backup\dj162

@@ -7,11 +7,11 @@ c: & md c:\temp\log\"%dhms%"  & cd c:\temp\log\"%dhms%"
 
 rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start here..
 :: don't include the prjfold that is a couple lines below.
-set srcdir=\\vamp206b\html\django
+set srcdir=\\10.4.11.40\html\django
 ::next item is in the above folder.
-set prjfold=dj162
-set bkdir=c:\backup\dj162
-set bkfname=dj162
+set prjfold=cilistsite
+set bkdir=c:\backup\cilistsite
+set bkfname=cilistsite
 set dbxcpy=C:\n\Dropbox\csd\copyof
 rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %bkfname%
 :Title:
@@ -49,19 +49,6 @@ goto end
 goto end
 goto end
 :#######
-_____________
-
-tar -cvzf /c/n/Dropbox/csd/tmp2013/dj162.tgz //VAMP206B/html/django/dj162/ --exclude={tmp,backup,static,backup/*.tgz} 
-
-:set env...
-set timea=%TIME: =0%
-set ymd=%date:~12,2%%date:~4,2%%date:~7,2%&set dhms=%date:~12,2%%date:~4,2%%date:~7,2%_%timea:~0,2%%timea:~3,2%%timea:~6,2%
-set seven="C:\n\dropbox\csd\p2\7-zip\7z.exe"
-%seven% a -y -t7z -xr!static "C:\n\dropbox\csd\tmp2013\dj162-%dhms%.7z" "\\VAMP206B\html\django\dj162"
-dir  C:\n\dropbox\csd\tmp2013\dj162*
-
-_____________
-
 
 timeout 3777
 C:\p\1ziptar\7-Zip\7z.exe d -y -t7z -xr!vendor -xr!.svn "c:\n\dropbox\csd\copyof\dgn146\dgn146a.wgit.%computername%.7z" *.* -r
