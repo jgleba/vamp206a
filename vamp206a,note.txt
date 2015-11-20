@@ -26,6 +26,11 @@ python manage.py collectstatic
 
 python manage.py createsuperuser
 
+_____________
+
+http://stackoverflow.com/questions/20732660/change-the-column-width-in-the-django-admin-panel
+
+one in the pic is django-suit...but i have switched to a more kickass project called xadmin..do check them out.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
