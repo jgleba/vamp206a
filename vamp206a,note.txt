@@ -3,6 +3,9 @@
 Title:  .
 -----------------------2015-11-19[Nov-Thu]16-29PM
 
+copy dj162 site to cilistsite
+edit dj162 to cilistsite , and dgnote130 to cilist1, etc.
+
 cd /var/www/html/django/cilistsite
 
 python manage.py inspectdb >cilist-inspect-raw.txt
@@ -10,7 +13,18 @@ python manage.py inspectdb >cilist-inspect-raw.txt
 edit models.py
 delete admin.py .pyc
 
+#delete all .pyc
+find . -name '*.pyc' -delete
+
 python manage.py admin_generator cilist1 > cilist1/admin.py
+
+
+python manage.py makemigrations
+python manage.py migrate
+sudo service apache2 restart
+python manage.py collectstatic
+
+python manage.py createsuperuser
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
