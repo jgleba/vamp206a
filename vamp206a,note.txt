@@ -34,7 +34,7 @@ http://stackoverflow.com/questions/20732660/change-the-column-width-in-the-djang
 one in the pic is django-suit...but i have switched to a more kickass project called xadmin..do check them out.
 
 
-robocopy \\10.4.11.40\html\django\cilistsite \\PMDS-DATA\p2\xampp\htdocs\django\cilistsite /e /xo
+robocopy \\10.4.10.220\html\django\cilistsite \\PMDS-DATA\p2\xampp\htdocs\django\cilistsite /e /xo
 
 
 _____________
@@ -49,6 +49,7 @@ c:\p2\python27\python manage.py createsuperuser
  --> dgleba
 c:\p2\python27\python manage.py collectstatic
 
+win services... apache2 restart
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
