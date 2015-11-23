@@ -7,7 +7,7 @@ c: & md c:\temp\log\"%dhms%"  & cd c:\temp\log\"%dhms%"
 
 rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ start here..
 :: don't include the prjfold that is a couple lines below.
-set srcdir=\\10.4.11.40\html\django
+set srcdir=\\10.4.10.220\html\django
 ::next item is in the above folder.
 set prjfold=cilistsite
 set bkdir=c:\backup\cilistsite

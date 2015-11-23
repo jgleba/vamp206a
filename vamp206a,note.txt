@@ -41,10 +41,14 @@ _____________
 
 win
 
+c:
 cd C:\p2\xampp\htdocs\django\cilistsite
+c:\p2\python27\python manage.py makemigrations
 c:\p2\python27\python manage.py migrate
 c:\p2\python27\python manage.py createsuperuser
- --> admin admin
+ --> dgleba
+c:\p2\python27\python manage.py collectstatic
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
