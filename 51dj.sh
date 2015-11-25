@@ -108,6 +108,7 @@ listen 8989
 <VirtualHost *:8989>
     DocumentRoot /var/www/html/django/cilistsite
     ServerName 127.0.0.1
+    # removed cilistsite from alias so that static will be common to all sites in /var/www/html/django folder..
     Alias /static/ /var/www/html/django/static/
     WSGIDaemonProcess cilistsite processes=1 threads=5 display-name=%{GROUP}
     WSGIProcessGroup cilistsite
@@ -118,6 +119,25 @@ listen 8989
     </Directory>
 </VirtualHost>
 #
+############
+#  http://pmdsdata.stackpole.ca:8990/ci-site/admin/
+#  http://vamp206b:8990/ci-site/admin/
+listen 8990
+<VirtualHost *:8990>
+    DocumentRoot /var/www/html/django/ci-site
+    ServerName 127.0.0.1
+    # removed ci-site from alias so that static will be common to all sites in /var/www/html/django folder..
+    Alias /static/ /var/www/html/django/static/
+    WSGIDaemonProcess ci-site processes=1 threads=5 display-name=%{GROUP}
+    WSGIProcessGroup ci-site
+    WSGIScriptAlias /ci-site /var/www/html/django/apache/ci-site.wsgi 
+    <Directory /var/www/html/django/apache>
+        Order deny,allow
+        Allow from all
+    </Directory>
+</VirtualHost>
+#
+
 EOF
 }
 
