@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 
+
 # vagrant
+
+_____________
+
+#contents:
+#October
+#2015-11-24
+_____________
+
+
 
 cd
 # echo off
@@ -138,8 +148,8 @@ Building initial module for 3.19.0-25-generic
 ERROR: Cannot create report: [Errno 17] File exists: '/var/crash/virtualbox-dkms.0.crash'
 Error! Bad return status for module build on kernel: 3.19.0-25-generic (x86_64)
 Consult /var/lib/dkms/virtualbox/4.3.10/build/make.log for more information.
- * Stopping VirtualBox kernel modules                                                                                                                          [ OK ] 
- * Starting VirtualBox kernel modules                                                                                                                                  * No suitable module for running kernel found
+ * Stopping VirtualBox kernel modules                                                                             [ OK ] 
+ * Starting VirtualBox kernel modules                                               * No suitable module for running kernel found
                                                               [fail]
 invoke-rc.d: initscript virtualbox, action "restart" failed.
 Setting up virtualbox-qt (4.3.10-dfsg-1ubuntu5) ...
@@ -186,6 +196,21 @@ sudo dpkg -i  /home/albe/virtualbox-4.3_4.3.32-103443~Ubuntu~raring_amd64.deb
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-11-24[Nov-Tue]08-35AM
+
+noworky:
+needs help...
+sudo cat "deb http://download.virtualbox.org/virtualbox/debian trusty  contrib" >> /etc/apt/sources.list
+
+http://askubuntu.com/questions/671812/virtualbox-not-installing-on-ubuntu-14-04-lts
+
+https://www.virtualbox.org/wiki/Linux_Downloads
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
