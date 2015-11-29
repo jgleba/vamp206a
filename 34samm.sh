@@ -2,6 +2,10 @@
 cd
 source shc/21env.sh
 
+# purpose: mount windows shares on linux machine...
+# good luck, you will need it...
+
+
 #2015-10-28
 #can't mount using cmdline. can mount with pcmanfm on smb://PMDS-3HZGD42/C using dgleba domain=stackpole password
 
@@ -81,6 +85,8 @@ sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs  -o credentials=/hom
 
 function smbcl() {
 
+# list smb shares in the network
+
 sudo apt-get install smbclient
 
 smbclient -L redwe
@@ -95,6 +101,7 @@ albe@pmdsdata3:~$ smbclient -L 10.4.10.243  -A=smbcredc
 session setup failed: NT_STATUS_LOGON_FAILURE
 
 
+smbtree
 
 }
 

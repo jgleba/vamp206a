@@ -137,7 +137,43 @@ listen 8990
     </Directory>
 </VirtualHost>
 #
+############
+<VirtualHost *:914>
+    ServerName 127.0.0.1
+    ServerAlias ciyii2
+    DocumentRoot /var/www/html/ciyii2/frontend/web/
 
+    <Directory "/var/www/html/ciyii2/frontend/web/">
+        # use mod_rewrite for pretty URL support
+        RewriteEngine on
+        # If a directory or a file exists, use the request directly
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        # Otherwise forward the request to index.php
+        RewriteRule . index.php
+
+        # ...other settings...
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:915>
+    ServerName 127.0.0.1
+    ServerAlias ciyii2
+    DocumentRoot /var/www/html/ciyii2/backend/web/
+
+    <Directory "/var/www/html/ciyii2/backend/web/">
+        # use mod_rewrite for pretty URL support
+        RewriteEngine on
+        # If a directory or a file exists, use the request directly
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        # Otherwise forward the request to index.php
+        RewriteRule . index.php
+
+        # ...other settings...
+    </Directory>
+</VirtualHost>
+#
 EOF
 }
 
