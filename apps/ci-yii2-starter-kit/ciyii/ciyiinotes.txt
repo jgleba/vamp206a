@@ -21,7 +21,7 @@ sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
 
 visit  https://github.com/settings/tokens/new?scopes=repo&description=Composer+on+vamp206b+2015-11-26+1532
 got token
-d50329415645daf97707c75377a0644c6426bc7c
+d50329w45r33wefergfrtgfwwergwq1a5daf97707c75377a0644c6426bc7c
 
 
 cd /var/www/html
