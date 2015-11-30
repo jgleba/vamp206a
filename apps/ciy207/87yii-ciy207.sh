@@ -8,7 +8,8 @@ source shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#yii
+# yii2
+# based on doing it easy basic yii2 template /  app - see lesson 5
 
 #ciy207
 
