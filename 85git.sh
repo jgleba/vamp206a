@@ -31,13 +31,13 @@ git clone https://github.com/dgleba/ciy207.git
 composer install
 git pull origin master
 # not this, use next line... composer global require "fxp/composer-asset-plugin:1.0.0"
-composer global require "fxp/composer-asset-plugin:"
+composer global require "fxp/composer-asset-plugin"
 #sudo chmod g+x /var/www/html/ciy207/yii
 composer --prefer-dist install
 
 #error:
 #PHP Fatal error:  Call to undefined method Fxp\Composer\AssetPlugin\Package\Version\VersionParser::parseLinks() in /home/albe/.composer/vendor/fxp/composer-asset-plugin/Repository/VcsPackageFilter.php on line 272
-#soln: composer global require "fxp/composer-asset-plugin:"
+#soln: composer global require "fxp/composer-asset-plugin"
 
 
 END
