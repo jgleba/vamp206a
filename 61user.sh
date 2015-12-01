@@ -11,7 +11,10 @@ source shc/21env.sh
 
 # sudo groupadd www  # just use www-data group
 #sudo chgrp -hR www /var/www/html
+# chown and chgrp the html files appropriately.. chgrp -hR www-data /var/www/html
 sudo chgrp -hR www-data /var/www/html
+sudo chown -R root /var/www/html
+
 sudo chmod -R g+rw  /var/www/html
 sudo chmod -R o-rw /var/www/html
 # make only folders +x so they can be cd into.

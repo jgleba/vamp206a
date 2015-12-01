@@ -214,6 +214,38 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Title:  . install virtual box on vamp206a worked.
+
+-----------------------2015-12-01[Dec-Tue]06-35AM
+
+http://ubuntuhandbook.org/index.php/2015/07/install-virtualbox-5-0-ubuntu-15-04-14-04-12-04/
+
+#no use.. see below..
+wget http://download.virtualbox.org/virtualbox/5.0.10/virtualbox-5.0_5.0.10-104061~Ubuntu~trusty_amd64.deb
+
+sudo apt-get purge virtualbox virtualbox-4* virtualbox-5*
+
+#got error..
+#sudo dpkg -i virtualbox-5.0_5.0.10-104061~Ubuntu~trusty_amd64.deb
+
+worked:
+sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+#got error:  E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a solution).
+sudo apt-get install virtualbox-5.0
+#but this fixed it...
+sudo apt-get -f install
+virtualbox
+#works..
+
+sudo apt-get install vagrant
+
+sudo apt-get install dkms
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
