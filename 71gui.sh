@@ -38,7 +38,7 @@ sudo apt-get install opera
 # 235mb
 #sudo apt-get install epiphany-browser
 
-# 104mb
+# 104 mb
 #sudo apt-get install iceweasel
 
 

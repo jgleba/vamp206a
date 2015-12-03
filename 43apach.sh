@@ -32,6 +32,12 @@ sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $mysqlrootpassw"
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
 sudo apt-get -y install phpmyadmin
+sudo apt-get -y install php5-xsl
+sudo apt-get -y install php5-intl
+sudo apt-get -y install php5-gd
+sudo apt-get -y install php5-mcrypt
+sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
+
 
 # Python Django software..
 
