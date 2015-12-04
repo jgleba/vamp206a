@@ -6,8 +6,13 @@
 _____________
 
 #contents:
-#October
-#2015-11-24
+
+# October
+
+# 2015-11-24
+
+# 2015-12-01 worked on ubuntu 14.04 vamp206a
+
 _____________
 
 
