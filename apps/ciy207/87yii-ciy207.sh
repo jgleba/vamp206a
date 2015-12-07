@@ -19,6 +19,10 @@ cd /var/www/html
 
 composer create-project --prefer-dist yiisoft/yii2-app-basic ciy207
 
+get a blank one to compare to... 
+2015-12-07
+composer create-project --prefer-dist yiisoft/yii2-app-basic ciy207b
+
 gii
 http://www.yiiframework.com/doc-2.0/guide-start-gii.html
 
@@ -35,6 +39,7 @@ http://vamp206b/ciy207/web/index.php?r=gii
         'allowedIPs' => ['127.0.0.1', '::1', '192.168.88.*', '10.4.10.251'] // adjust this to your needs
 
 set creds in \\VAMP206B\html\ciy207\config\db.php
+
 _____________
 
 
@@ -50,6 +55,7 @@ Unable to write the file '/var/www/html/ciy207/models/Cilisting1.php'.
 sudo chmod 777 -R /var/www/html/ciy207/models
 sudo chmod 777 -R /var/www/html/ciy207/views
 sudo chmod 777 -R /var/www/html/ciy207/controllers
+
 _____________
 
 
@@ -74,6 +80,7 @@ cant have dashes in the field name?
 commented out and removed    z-updatedtime
 
 works..
+
 _____________
 
 move edit buttons to left side of grid...
@@ -118,6 +125,8 @@ column width..
 http://www.bsourcecode.com/yiiframework2/gridview-in-yiiframework-2-0/#gridview-options
 
 noworky..
+
+used the following workaround.  underscores in the label..
 
             [
             'attribute' => 'comments',
