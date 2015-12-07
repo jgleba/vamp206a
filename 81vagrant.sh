@@ -34,8 +34,10 @@ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key a
 #got error:  E: Unmet dependencies. Try 'apt-get -f install' with no packages (or specify a solution).
 #2015-12-07 - version 5 is not supported...
 sudo apt-get -y install virtualbox-4.3
+
 #but this fixed it...
-sudo apt-get -f install
+#sudo apt-get -f install
+
 virtualbox
 #works..
 
