@@ -249,6 +249,10 @@ sudo apt-get install vagrant
 
 sudo apt-get install dkms
 
+#version 5 is not supported...
+sudo apt-get install virtualbox-4.3
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
