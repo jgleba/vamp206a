@@ -48,5 +48,23 @@ exit 999
 # need .config desktop some .files in home/albe...
 #tar -cvzf lxdehome.tgz .
 
+
+_____________
+
+
+error:
+http://askubuntu.com/questions/452108/cannot-change-screen-size-from-640x480-after-14-04-installation-on-virtualbox-os
+
+i changed the memory size and then could not change the screen size...
+
+sudo apt-get install virtualbox-guest-dkms
+
+this fixed it.
+
+2015-12-07_Mon_14.26-PM
+
+_____________
+
+
 }
 #
