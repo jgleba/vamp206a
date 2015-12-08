@@ -4,6 +4,12 @@ cd
 set -x
 source shc/21env.sh
 
+
+
+# i may need to take the vnc setup out of this so it can be run as user no sudo...
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function gui1() {
