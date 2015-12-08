@@ -59,6 +59,21 @@ sudo apt-get --purge autoremove tightvncserver
 
 function vnci () {
 
+
+#
+#
+# note **************  to start vnc use:
+#
+# sudo service tightvncserver1 start
+#
+#
+
+
+
+
+
+
+
 # vnc
 # http://vandorp.biz/2012/01/installing-a-lightweight-lxdevnc-desktop-environment-on-your-ubuntudebian-vps/#.VixnHH6rTIU
 # vnc
@@ -96,7 +111,9 @@ EOF
 
 
 # Start VNC to create config file
+# think this should not be sudo becuase a I got a root vnc session after running this as sudo...
 tightvncserver :1
+
 
 # backup original file once...
 if [ ! -f /home/$userv/.vnc/xstartup.orig ] ; then  cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.orig ; fi
@@ -135,10 +152,12 @@ author      "David Gleba"
 start on filesystem or runlevel [2345]
 stop on shutdown
 
+VNCUSER='albe'
+
 script
     sleep 3
     # Start tightvncserver
-    su - $userv -c '/usr/bin/tightvncserver :1'
+    su - $VNCUSER -c '/usr/bin/tightvncserver :1'
 end script
 
 pre-start script
@@ -149,6 +168,7 @@ pre-stop script
     rm /var/run/mountvshare.pid
     echo "[`date`] .... stop tightvncserver1" >> /var/log/tightvncserver1.log
 end script
+#
 EOF
 
 #
@@ -167,6 +187,11 @@ sudo service tightvncserver1 start
 function offline()
 {
 exit 999
+fix...
+sudo leafpad /etc/init/tightvncserver1.conf 
+    su - albe -c '/usr/bin/tightvncserver :1'
+sudo chown -R .vnc albe
+
 }
 #
 

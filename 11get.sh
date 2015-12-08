@@ -8,6 +8,9 @@ get1()
 {
 set -x
 cd
+#make user's bin folder so scripts can be run from there in the path
+mkdir -p bin
+
 userv11=$USER
 echo $userv11
 
