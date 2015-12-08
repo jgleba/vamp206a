@@ -96,7 +96,7 @@ sudo apt-get -y install autocutsel
 #http://askubuntu.com/questions/328240/assign-vnc-password-using-script
 prog=vncpasswd
 #mypass=$pw1  #too short
-mypass="vncpass"
+mypass=$pw4
 expect <<EOF
 spawn "$prog"
 expect "Password:"
@@ -187,10 +187,13 @@ sudo service tightvncserver1 start
 function offline()
 {
 exit 999
+
+I started it with "sudo tightvncserver :1" - that was a mistake. messed up the permissions. 2015-12-08_Tue_14.56-PM
 fix...
 sudo leafpad /etc/init/tightvncserver1.conf 
-    su - albe -c '/usr/bin/tightvncserver :1'
-sudo chown -R .vnc albe
+ change to.. su - albe -c '/usr/bin/tightvncserver :1'
+sudo chown -R albe .vnc 
+
 
 }
 #
