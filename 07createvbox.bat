@@ -118,12 +118,12 @@ mkdir c:\var\share203
 cd \temp
 mkdir "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\"
 
-%vboxm% createhd --filename "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vmdk" --size 10240
+%vboxm% createhd --filename "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vdi" --size 16240 --format VDI
 
 %vboxm%  storagectl %vmname% --name storage --add sata  --controller IntelAHCI 
 :# %vboxm%  storagectl %vmname% --name storage --add sata --controller IntelAHCI --portcount 4 --hostiocache off
 
-%vboxm% storageattach %vmname% --storagectl storage --port 1 --medium "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vmdk" --type hdd
+%vboxm% storageattach %vmname% --storagectl storage --port 1 --medium "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vdi" --type hdd
 
 %vboxm% storageattach %vmname% --storagectl storage --port 2 --medium C:\var\varvamp\files\ubuntu-14.04.3-server-amd64-unattended.iso --type dvddrive
 
@@ -142,6 +142,6 @@ mkdir "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\"
 ::http://crysol.github.io/recipe/2013-10-05/virtualbox-import-export-clone/#.VhQzPxFVhBc
 ::%vboxm% export %vmname% -o "C:\var\varvamp\files\%vmname%_%ymd%-%macaddvamp%-rand%random%.ova" --manifest
 
-:%vboxm%  modifyhd "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vmdk"  --resize 13920
+:%vboxm%  modifyhd "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vdi"  --resize 13920
 
 pause
