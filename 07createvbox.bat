@@ -142,4 +142,6 @@ mkdir "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\"
 ::http://crysol.github.io/recipe/2013-10-05/virtualbox-import-export-clone/#.VhQzPxFVhBc
 ::%vboxm% export %vmname% -o "C:\var\varvamp\files\%vmname%_%ymd%-%macaddvamp%-rand%random%.ova" --manifest
 
+:%vboxm%  modifyhd "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vmdk"  --resize 13920
+
 pause
