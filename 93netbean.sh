@@ -7,7 +7,6 @@ set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # netbeans and git cola git eye install..
-roject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list'
 
 sudo apt-get update
 
@@ -18,7 +17,7 @@ sudo apt-get install default-jdk
 cd tmp
 sudo su -
 #wget http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-php-linux.sh
- #wget  http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-php-linux-x64.sh
+ wget  http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-php-linux-x64.sh
 
 
 chmod +x netbeans-8.1-php-linux-x64.sh

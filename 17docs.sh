@@ -86,7 +86,7 @@ if [ $dgmethod = "ftp" ] ; then
     then
       curl -O -u dg:fruit ftp://192.168.88.94:2141//files/vne.sh
     else
-      curl -O -u dg:fruit ftp://10.4.10.243:2141//files/vne.sh
+      curl -O -u dg:fruit ftp://10.4.10.225:2141//files/vne.sh
     fi
     #curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/vne.sh
     #curl -O --user dgleba  https://bitbucket.org/dgleba/vamp206env/raw/master/vne.sh 
@@ -112,7 +112,7 @@ if [ $dgmethod = "ftp" ] ; then
         then
           curl -O -u dg:fruit ftp://192.168.88.94:2141//files/htdocs.PMDS-DATA.latest.7z
         else
-          curl -O -u dg:fruit ftp://10.4.10.243:2141//files/htdocs.PMDS-DATA.latest.7z
+          curl -O -u dg:fruit ftp://10.4.10.225:2141//files/htdocs.PMDS-DATA.latest.7z
         fi
         
         #curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/htdocs.PMDS-DATA.latest.7z

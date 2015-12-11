@@ -23,11 +23,11 @@ sudo mkdir /var/share206
 sudo chown albe /var/share206
 vboxmanage sharedfolder add $orig_hostname --name share206 --hostpath /var/share206/ 
 
-vboxmanage createhd --filename "/home/albe/VirtualBox VMs/$orig_hostname/$orig_hostname.vmdk" --size 3240
+vboxmanage createhd --filename "/home/albe/VirtualBox VMs/$orig_hostname/$orig_hostname.vdi" --size 113240 --format vdi
 
 vboxmanage  storagectl $orig_hostname --name storage --add sata  --controller IntelAHCI 
 
-vboxmanage storageattach $orig_hostname --storagectl storage --port 1 --medium "/home/albe/VirtualBox VMs/$orig_hostname/$orig_hostname.vmdk" --type hdd
+vboxmanage storageattach $orig_hostname --storagectl storage --port 1 --medium "/home/albe/VirtualBox VMs/$orig_hostname/$orig_hostname.vdi" --type hdd
 
 vboxmanage storageattach $orig_hostname --storagectl storage --port 2 --medium /var/share206/ubuntu-14.04.3-server-amd64-unattended.iso --type dvddrive
 
