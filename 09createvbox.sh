@@ -14,9 +14,9 @@ vboxmanage modifyvm $orig_hostname --memory 512 --cpus 1  --acpi on   --clipboar
 # worked..
 vboxmanage modifyvm $orig_hostname  --nic1 bridged --nictype1 virtio --bridgeadapter1 eth0
 
-:
-:shared folders...
-:
+#:
+#:shared folders...
+#:
 vboxmanage sharedfolder remove $orig_hostname --name share206
 sudo mkdir /var/share206
 #sudo rmdir /var/share206
@@ -29,7 +29,7 @@ vboxmanage  storagectl $orig_hostname --name storage --add sata  --controller In
 
 vboxmanage storageattach $orig_hostname --storagectl storage --port 1 --medium "/home/albe/VirtualBox VMs/$orig_hostname/$orig_hostname.vdi" --type hdd
 
-vboxmanage storageattach $orig_hostname --storagectl storage --port 2 --medium /var/share206/ubuntu-14.04.3-server-amd64-unattended.iso --type dvddrive
+vboxmanage storageattach $orig_hostname --storagectl storage --port 2 --medium /home/albe/var/ubuntu-14.04.3-server-amd64-unattended.iso --type dvddrive
 
 vboxmanage modifyvm $orig_hostname --boot1 dvd
 

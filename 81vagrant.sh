@@ -38,7 +38,7 @@ sudo apt-get -y install virtualbox-4.3
 #but this fixed it...
 #sudo apt-get -f install
 
-virtualbox
+#virtualbox
 #works..
 
 sudo apt-get -y install vagrant
