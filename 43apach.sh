@@ -42,7 +42,15 @@ sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 # Python Django software..
 
 sudo apt-get -y install python-pip libapache2-mod-wsgi
-sudo pip install django
+sudo pip install django==1.8
+
+#http://stackoverflow.com/questions/13916820/how-to-install-a-specific-version-of-a-package-with-pip
+#pip uninstall django_modeltranslation
+
+#http://stackoverflow.com/questions/27359964/how-to-downgrade-from-django-1-7-to-django-1-6
+#sudo php install django==1.8
+#sudo php install django==1.8.7
+
 
 sudo pip install django-admin-bootstrapped
 # got error - use apt-get instead.......  sudo pip install mysql-python
