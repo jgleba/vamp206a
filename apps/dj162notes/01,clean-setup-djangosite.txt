@@ -153,7 +153,7 @@ C:\n\Dropbox\csd\0-csd\django15a\django-deploy-2015-jan-success\06,session_cooki
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 c:\p2\python27\python
-import django
+import django  
 django.VERSION
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
