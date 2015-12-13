@@ -10,7 +10,7 @@ set -vx
 #set hostname with   ** hardcoded **  name not env variable.
 
 
-export hostv="vamp206e"
+export hostv="vamp206dbxtst1212"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
