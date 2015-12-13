@@ -11,7 +11,7 @@ function stopvb(){
     while [ "`su -c 'VBoxManage list runningvms' -s /bin/bash theuser`" != "" ]
     do
         echo waiting for VMs to shutdown
-        sleep 3
+        sleep 4
     done
 }
 
@@ -34,7 +34,11 @@ END
 
 # halt all vagrant machines...
 sudo vagrant global-status | grep virtualbox | cut -c 1-9 | while read line; do echo $line; vagrant halt $line; done;
+read -t  345 -p "Hit ENTER or wait some seconds" ; echo ;
+
 stopvb
+read -t  995 -p "Hit ENTER or wait some seconds" ; echo ;
+
 #restart reboot the system...
 sudo shutdown -r now
 
