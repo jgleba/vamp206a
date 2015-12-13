@@ -24,7 +24,7 @@ sudo chown albe /var/share206
 vboxmanage sharedfolder remove $orig_hostname --name share206
 vboxmanage sharedfolder add $orig_hostname --name share206 --hostpath /var/share206/ 
 
-vboxmanage createhd --filename "/home/albe/VirtualBox VMs/$orig_hostname/$orig_hostname.vdi" --size 113240 --format vdi
+vboxmanage createhd --filename "/home/albe/VirtualBox VMs/$orig_hostname/$orig_hostname.vdi" --size 114240 --format vdi
 
 vboxmanage  storagectl $orig_hostname --name storage --add sata  --controller IntelAHCI 
 
