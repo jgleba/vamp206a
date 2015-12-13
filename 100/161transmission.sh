@@ -6,18 +6,32 @@ set +vx
 set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#graphical disk usage
 
 
-#http://www.makeuseof.com/tag/how-to-analyze-your-disk-usage-pattern-in-linux/
-
-sudo apt-get install baobab
-
+#mullvad
 cd
 mkdir -p 09
 cd 09
-wget http://xdiskusage.sourceforge.net/xdiskusage.gz
-tar -xvf xdiskusage.gz
+wget https://mullvad.net/static/download/mullvad_55-1_all.deb
+sudo dpkg -i mullvad_55-1_all.deb
+sudo apt-get -f -y install
+sudo dpkg -i mullvad_55-1_all.deb
+
+#mullvad gui not showing..
+sudo apt-get install lubuntu-desktop
+
+
+
+#bittorrent
+
+sudo apt-get update
+
+#sudo add-apt-repository ppa:transmissionbt/ppa
+#sudo apt-get -y install transmission-cli transmission-common transmission-daemon
+#sudo apt-get -y install transmission-gtk 
+sudo apt-get -y purge transmission-cli transmission-common transmission-daemon
+
+sudo apt-get -y install deluge
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

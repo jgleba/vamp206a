@@ -42,6 +42,8 @@ function runsam() {
 #alias for ls -la
 #
 echo "alias lsl='ls -la'" >>   ~/.bash_aliases
+sudo chmod ugo+rw  ~/.bash_aliases
+echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
 cat ~/.bash_aliases
 
 
