@@ -7,8 +7,8 @@ set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function stopvb(){
-    su -c "VBoxManage controlvm thevm acpipowerbutton" -s /bin/bash theuser
-    while [ "`su -c 'VBoxManage list runningvms' -s /bin/bash theuser`" != "" ]
+    su -c "VBoxManage controlvm redekv1 acpipowerbutton" -s /bin/bash albe
+    while [ "`su -c 'VBoxManage list runningvms' -s /bin/bash albe`" != "" ]
     do
         echo waiting for VMs to shutdown
         sleep 4
@@ -33,11 +33,20 @@ END
 #main...
 
 # halt all vagrant machines...
+#noworkyyy....  globalstatus no go...
 sudo vagrant global-status | grep virtualbox | cut -c 1-9 | while read line; do echo $line; vagrant halt $line; done;
-read -t  345 -p "Hit ENTER or wait some seconds" ; echo ;
+#read -t  122 -p "Hit ENTER or wait some seconds" ; echo ;
 
-stopvb
-read -t  995 -p "Hit ENTER or wait some seconds" ; echo ;
+#stopvb
+#read -t  123 -p "Hit ENTER or wait some seconds" ; echo ;
+
+VBoxManage controlvm redekv1 acpipowerbutton
+
+#https://forums.virtualbox.org/viewtopic.php?f=6&t=53684
+VBoxManage setextradata "redekv1" GUI/DefaultCloseAction Shutdown
+
+read -t  71 -p "Hit ENTER or wait some seconds" ; echo ;
+
 
 #restart reboot the system...
 sudo shutdown -r now

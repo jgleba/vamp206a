@@ -158,12 +158,12 @@ author      "David Gleba"
 start on filesystem or runlevel [2345]
 stop on shutdown
 
-VNCUSER='albe'
 
 script
+    #VNCUSER='albe'
     sleep 3
     # Start tightvncserver
-    su - $VNCUSER -c '/usr/bin/tightvncserver :1'
+    su  albe -c '/usr/bin/tightvncserver :1'
 end script
 
 pre-start script
@@ -176,10 +176,12 @@ pre-stop script
 end script
 #
 EOF
+init-checkconf /etc/init/tightvncserver1.conf
 
 #
 
 sudo service tightvncserver1 start
+ps -ef | grep vnc
 
 #reset password ..  vncpasswd   8 char max
 
@@ -199,6 +201,16 @@ fix...
 sudo leafpad /etc/init/tightvncserver1.conf 
  change to.. su - albe -c '/usr/bin/tightvncserver :1'
 sudo chown -R albe .vnc 
+
+_____________
+
+error
+upstart 
+sudo service tightvncserver1 start 
+start: Unknown job: tightvncserver1
+
+checkit..
+init-checkconf /etc/init/tightvncserver1.conf
 
 
 }
