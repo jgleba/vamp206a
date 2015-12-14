@@ -17,8 +17,14 @@ sudo dpkg -i mullvad_55-1_all.deb
 sudo apt-get -f -y install
 sudo dpkg -i mullvad_55-1_all.deb
 
+#try installing some gui stuff...
+sudo apt-get install python-qt4 pyqt4-dev-tools
+
+
 #mullvad gui not showing..
 sudo apt-get install lubuntu-desktop
+# this works, but wish i didn't have to install ubuntu desktop
+sudo apt-get install ubuntu-desktop
 
 
 
