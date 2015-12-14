@@ -22,7 +22,7 @@ sudo apt-get -f -y install
 sudo dpkg -i mullvad_55-1_all.deb
 
 #try installing some gui stuff...
-sudo apt-get install python-qt4 pyqt4-dev-tools
+sudo apt-get -y install python-qt4 pyqt4-dev-tools
 
 
 #mullvad gui not showing..
