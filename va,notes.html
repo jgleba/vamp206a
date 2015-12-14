@@ -1,0 +1,30 @@
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  . xrdp
+-----------------------2015-12-13[Dec-Sun]16-30PM
+
+sudo apt-get install xrdp
+
+sudo cat <<EOF >> /home/albe/.xsession
+#!/bin/sh
+# -------------------------------------------------------------------
+# David Gleba 
+lxsession -s LXDE -e LXDE
+#
+EOF
+
+xrdp-any
+password failed
+
+http://c-nergy.be/blog/?p=5357
+sudo service xrdp restart
+
+
+echo "dgleba:asas" | sudo chpasswd
+echo "albe:asas" | sudo chpasswd
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+a
