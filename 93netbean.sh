@@ -14,7 +14,7 @@ sudo apt-get update
 
 sudo apt-get install default-jdk
 
-cd tmp
+cd tmp01
 sudo su -
 #wget http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-php-linux.sh
  wget  http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-php-linux-x64.sh

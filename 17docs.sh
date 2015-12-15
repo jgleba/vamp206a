@@ -35,7 +35,7 @@ source shc/21env.sh
 
 # make directories.
 # html
-sudo chmod -R 777 tmp
+sudo chmod -R 777 tmp01
 sudo mkdir -p /var/www/html
 # make read for other group...
 #sudo chmod -R o+r /var/www/html 
@@ -47,8 +47,8 @@ sudo mkdir -p /var/www/html
 #
 # make tempfiles folder writable. This is used with cilist, tnlist and others to write excel files and mail them..
 #
-sudo mkdir -p /tmp/tempfiles
-sudo chmod -R 777 /tmp/tempfiles
+sudo mkdir -p /tmp01/tempfiles
+sudo chmod -R 777 /tmp01/tempfiles
 
 sudo mkdir -p /var/www/tempfilesdg
 sudo chmod -R 777 /var/www/tempfilesdg
@@ -70,7 +70,7 @@ dgmethod="ftp"
 if [ $dgmethod = "ftp" ] ; then
 
     # I setup vsftp on a vagrant ubuntu machine, vamp198e, that has shares to c: drive to get the files...
-    cd /home/$userv/tmp
+    cd /home/$userv/tmp01
     rm -f /home/$userv/vne.sh
     pwd
     ls
@@ -93,7 +93,7 @@ if [ $dgmethod = "ftp" ] ; then
     #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/vne.sh
     
     if [ -f vne.sh ]; then
-        sudo cat /home/$userv/tmp/vne.sh > /home/$userv/shc/21env.sh
+        sudo cat /home/$userv/tmp01/vne.sh > /home/$userv/shc/21env.sh
         sudo chmod -R 777 /home/$userv/shc/21env.sh
 
         # copy env.sh to profile.d so it runs at login for global variables...
@@ -127,20 +127,20 @@ if [ $dgmethod = "ftp" ] ; then
     fi
 
     if  [ ! -d htdocs ] ; then
-        cd /home/$userv/tmp
+        cd /home/$userv/tmp01
         #sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
-        cd /home/$userv/tmp
-        7z x /home/$userv/tmp/htdocs.PMDS-DATA.latest.7z
+        cd /home/$userv/tmp01
+        7z x /home/$userv/tmp01/htdocs.PMDS-DATA.latest.7z
 
         # this problem is gone now...
-        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp/htdocs.PMDS-DATA.latest.7z
+        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp01/htdocs.PMDS-DATA.latest.7z
         #Error: Can not open file as archive
         #htdocs.PMDS-DATA.latest.7z
         #
 
         source ~/shc/21env.sh
-        sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
+        sudo rsync -vrltgoD /home/$userv/tmp01/htdocs/  /var/www/html
     fi
 
 fi
@@ -152,7 +152,7 @@ if [ $dgmethod = "bitbucket" ] ; then
 #  https://bitbucket.org/conservancy/kallithea/issues/35
 
 
-    cd /home/$userv/tmp
+    cd /home/$userv/tmp01
     rm -f vne.sh
     pwd
     ls
@@ -188,14 +188,14 @@ if [ $dgmethod = "bitbucket" ] ; then
         #curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.PMDS-DATA.latest.7z
         curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.PMDS-DATA.latest.zip
                                 
-        cd /home/$userv/tmp
+        cd /home/$userv/tmp01
 
         sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
         7z x htdocs.PMDS-DATA.latest.zip
 
         source ~/shc/21env.sh
-        sudo rsync -vrltgoD /home/$userv/tmp/htdocs/  /var/www/html
+        sudo rsync -vrltgoD /home/$userv/tmp01/htdocs/  /var/www/html
     fi
 fi
 cd

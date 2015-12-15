@@ -11,12 +11,12 @@ source shc/21env.sh
 # import my lxde settings from archive tgz
 
 # backup user home dir ...
-sudo tar -cvzf backup/$userv-home.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /home/$userv/ --exclude={tmp,backup,Trash/files,backup/*.tgz} 
+sudo tar -cvzf backup/$userv-home.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /home/$userv/ --exclude={tmp01,backup,Trash/files,backup/*.tgz} 
 
 
 #to get it from ftp...
 if  [ 1 = 0 ] ; then
-    cd tmp
+    cd tmp01
         if ping -c 1 192.168.88.94 &> /dev/null
         then
           curl -O -u dg:fruit ftp://192.168.88.94:2141//files/lxdehome.tgz
@@ -24,7 +24,7 @@ if  [ 1 = 0 ] ; then
           curl -O -u dg:fruit ftp://10.4.10.243:2141//files/lxdehome.tgz
         fi
     cd 
-    tar -xvf tmp/lxdehome.tgz
+    tar -xvf tmp01/lxdehome.tgz
 fi
 
 # if it was retreived from the repo already...

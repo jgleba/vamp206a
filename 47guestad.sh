@@ -18,11 +18,11 @@ sudo apt-get -y install build-essential module-assistant
 sudo m-a prepare
 
 cd 
-mkdir -p mnt/tmp
+mkdir -p mnt/tmp01
 cd /mnt
 wget -N http://download.virtualbox.org/virtualbox/5.0.2/VBoxGuestAdditions_5.0.2.iso
-sudo mount -o loop VBoxGuestAdditions_5.0.2.iso /mnt/tmp
-cd /mnt/tmp
+sudo mount -o loop VBoxGuestAdditions_5.0.2.iso /mnt/tmp01
+cd /mnt/tmp01
 sudo ./VBoxLinuxAdditions.run
 
 # check loaded modules
