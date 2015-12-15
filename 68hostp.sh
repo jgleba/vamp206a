@@ -67,3 +67,5 @@ END
 date
 #
 
+cat /etc/hostname
+cat /etc/hosts
