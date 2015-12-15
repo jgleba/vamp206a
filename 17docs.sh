@@ -113,6 +113,7 @@ if [ $dgmethod = "ftp" ] ; then
           curl -O -u dg:fruit ftp://192.168.88.94:2141//files/htdocs.PMDS-DATA.latest.7z
           curl -O -u dg:fruit ftp://192.168.88.94:2141//files/nomachine_5.0.53_1_amd64.deb
           curl -O -u dg:fruit ftp://192.168.88.94:2141//files/lxdehome.tgz
+          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/mullvadconfig.zip
         else
           curl -O -u dg:fruit ftp://10.4.10.225:2141//files/htdocs.PMDS-DATA.latest.7z
         fi

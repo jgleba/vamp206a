@@ -27,10 +27,10 @@ sudo rm -rf shc
 
 read -t  5 -p "Hit ENTER or wait some seconds" ; echo ;
 
-mkdir -p tmp
-sudo chmod -R 777 tmp
+mkdir -p tmp01
+sudo chmod -R 777 tmp01
 
-cd tmp
+cd tmp01
 wget -N --output-document=vamp206a-mast.zip https://codeload.github.com/dgleba/vamp206a/zip/master 
 #unzip [ -j junk paths - all in one folder ] 
 
@@ -73,7 +73,7 @@ if [  -f "/home/$userv11/shc/21env.sh" ]; then
  fi
 
 #Copy vne.sh over top. it won't copy if it isn't there.
-cp tmp/vne.sh shc/21env.sh
+cp tmp01/vne.sh shc/21env.sh
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

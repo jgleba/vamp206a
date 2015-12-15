@@ -14,18 +14,21 @@ rem I put the vamp206a files from the repo here manually myself...
 
 
 
-
 pwd
 timeout 2
 copy /y lxdehome.tgz c:\var\varvamp\files
 copy /y C:\n\Dropbox\csd\serve\vboxyard\vamp206env\vne.sh c:\var\varvamp\files
 copy /y C:\n\Dropbox\csd\copyof\CI\backups\htdocs\htdocs.PMDS-DATA.latest.7z c:\var\varvamp\files
+copy C:\n\Dropbox\csd\serve\vboxyard\vamp206a\documents\mullvad\mullvadconfig-nl.zip c:\var\varvamp\files\mullvadconfig.zip
+
 
 :Start ftp
 mkdir c:\p2\slimftpd
+: slimftpd.exe seems to get altered in git or something. have to zip it up. store in git, then unzip it...
 :copy /y  C:\n\Dropbox\csd\serve\vboxyard\vamp206a\SlimFTPd.zip c:\p2\slimftpd
 :copy /y  C:\n\Dropbox\csd\serve\vboxyard\vamp206a\SlimFTPd.exe c:\p2\slimftpd
 copy /y  C:\n\Dropbox\csd\serve\vboxyard\vamp206a\slimftpd.conf c:\p2\slimftpd
+
 
 cd c:\p2\slimftpd
 :start slimftpd.exe
