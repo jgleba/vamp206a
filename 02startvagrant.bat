@@ -8,6 +8,7 @@ call vggs.bat
 
 :timeout 9
 
+copy /y C:\n\Dropbox\csd\serve\vboxyard\vamp206a\04prep-iso.sh c:\var\varvamp\files
 
 vagrant up
 

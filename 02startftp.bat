@@ -19,8 +19,8 @@ timeout 2
 copy /y lxdehome.tgz c:\var\varvamp\files
 copy /y C:\n\Dropbox\csd\serve\vboxyard\vamp206env\vne.sh c:\var\varvamp\files
 copy /y C:\n\Dropbox\csd\copyof\CI\backups\htdocs\htdocs.PMDS-DATA.latest.7z c:\var\varvamp\files
-copy C:\n\Dropbox\csd\serve\vboxyard\vamp206a\documents\mullvad\mullvadconfig-nl.zip c:\var\varvamp\files\mullvadconfig.zip
-
+copy /y C:\n\Dropbox\csd\serve\vboxyard\vamp206a\documents\mullvad\mullvadconfig-nl.zip c:\var\varvamp\files\mullvadconfig.zip
+copy /y C:\n\Dropbox\csd\serve\vboxyard\vamp206a\04prep-iso.sh c:\var\varvamp\files
 
 :Start ftp
 mkdir c:\p2\slimftpd
