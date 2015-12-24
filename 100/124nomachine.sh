@@ -12,6 +12,8 @@ set -vx
 
 cd 
 cd Downloads
+cd 
+cd tmp01
 sudo dpkg -i nomachine_5.0.53_1_amd64.deb
 
 
