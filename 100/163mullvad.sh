@@ -74,7 +74,7 @@ NEWS
  LOG OUT
 OPENVPN
 
-Account number: 369959095035
+Account number: 369959092134
 Time left: 5 days 
 OpenVPN configuration: mullvadconfig.zip
 
