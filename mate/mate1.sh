@@ -19,6 +19,7 @@ set -vx
 #exit 0
 
 #install utils to allow resizing of gui..
+sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 
 cd

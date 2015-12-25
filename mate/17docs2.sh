@@ -7,7 +7,7 @@ echo starting 17docs.sh
 # no make htdocs.  touch /home/dg/tmp01/htdocs.PMDS-DATA.latest.7z
 cd
 mkdir -p tmp01/htdocs
-
+cd tmp01
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
