@@ -36,7 +36,6 @@ sudo apt-get -y install php5-xsl
 sudo apt-get -y install php5-intl
 sudo apt-get -y install php5-gd
 sudo apt-get -y install php5-mcrypt
-sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 
 
 # Python Django software..

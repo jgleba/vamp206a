@@ -5,7 +5,6 @@ source shc/21env.sh
 
 
 
-
 # check for interactive shell
 if ! grep -q "noninteractive" /proc/cmdline ; then
     stty sane
@@ -19,7 +18,6 @@ fi
 
 # print status message
 echo " preparing your server; this may take a few minutes ..."
-
 
 
 
@@ -51,6 +49,7 @@ apt-get -y install cifs-utils
 #backup ssh server config...
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.$(date +"%Y.%m.%d_%k.%M.%S").bak
+
 
 
 function temp22() {
