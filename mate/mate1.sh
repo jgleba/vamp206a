@@ -18,6 +18,9 @@ set -vx
 #comment this out for full auto run...
 #exit 0
 
+#install utils to allow resizing of gui..
+sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
+
 cd
 source shc/root.sh
 cd
@@ -31,8 +34,6 @@ source shc/34samm.sh
 cd
 
 
-#install utils to allow resizing of gui..
-sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 
 cd
 sudo shc/100/124nomachine.sh
