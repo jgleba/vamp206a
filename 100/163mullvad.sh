@@ -135,6 +135,7 @@ _____________
 
 sudo apt-get install openvpn resolvconf
 
+sudo apt-get -y install python-wxgtk2.8 python-wxgtk3.0 openvpn python-appindicator python-appdirs python-ipaddr python-psutil
 
 
 
