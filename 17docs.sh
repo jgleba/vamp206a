@@ -15,6 +15,15 @@ echo starting 17docs.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+function nowebfiles() 
+{
+#if you want to proceed with no web data, run this...
+cd
+touch tmp01/htdocs.PMDS-DATA.latest.7z
+mkdir -p tmp01/htdocs
+#
+}
+
 # ask if you want to put htdocs there manually with 16putht.bat from windows..
 set +vx
 echo
@@ -26,6 +35,7 @@ set -vx
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 

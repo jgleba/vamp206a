@@ -47,9 +47,9 @@ source shc/65cron.sh
 cd
 #source shc/67hostn.sh
 cd
-source shc/71gui.sh
+#source shc/71gui.sh
 cd
-source shc/73lxset.sh
+#source shc/73lxset.sh
 cd
 
 #read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;

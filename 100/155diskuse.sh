@@ -6,7 +6,7 @@ set +vx
 set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#graphical disk usage
+#graphical disk usage du
 
 
 #http://www.makeuseof.com/tag/how-to-analyze-your-disk-usage-pattern-in-linux/
