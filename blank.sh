@@ -6,7 +6,7 @@ set +vx
 set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#put code here...
+#put code here, or at the bottom...
 
 
 

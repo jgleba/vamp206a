@@ -17,7 +17,12 @@ set -vx
 #sudo apt-get -y install transmission-gtk 
 #sudo apt-get -y purge transmission-cli transmission-common transmission-daemon
 
-sudo apt-get -y install deluge
+#sudo apt-get -y install deluge
+
+#qbittorrent
+sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+sudo apt-get update
+sudo apt-get -y install qbittorrent
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
