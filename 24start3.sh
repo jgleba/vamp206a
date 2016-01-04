@@ -6,7 +6,8 @@ cd
 
 # purpose:
 
-# 24start.sh  = yes web files,  yes gui.
+# 24start3.sh  = no web files, no gui.
+
 
 
 
@@ -27,6 +28,20 @@ set -vx
 
 #comment this out for full auto run...
 #exit 0
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#if you want to proceed with no web data, run this...
+cd
+touch tmp01/htdocs.PMDS-DATA.latest.7z
+mkdir -p tmp01/htdocs
+#
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 cd
 source shc/root.sh
@@ -55,9 +70,9 @@ source shc/65cron.sh
 cd
 #source shc/67hostn.sh
 cd
-source shc/71gui.sh
+#source shc/71gui.sh
 cd
-source shc/73lxset.sh
+#source shc/73lxset.sh
 cd
 
 #read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;

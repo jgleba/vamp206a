@@ -3,6 +3,13 @@ set -x
 cd
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# purpose:
+
+# 24start2.sh  = just gui - LXDE.
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit the variables in 21env.sh to match your system...
 #
 source shc/21env.sh
