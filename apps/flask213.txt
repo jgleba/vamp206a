@@ -1,5 +1,5 @@
 
-#flask213
+# flask213
 # first flask 2016-01-07_Thu_19.14-PM
 
 
@@ -74,17 +74,17 @@ python examples/sqla/app.py
 it works.
 2016-01-07_Thu_20.42-PM
 
+
 _____________
 
 auth example..
 
 pip install -r /var/www/html/python/flask-admin/examples/auth-flask-login/requirements.txt
 
-python examples/sqla/app2.py
-
 python /var/www/html/python/flask-admin/examples/auth-flask-login/app.py
 
 _____________
+
 
 
 
