@@ -62,9 +62,14 @@ Installing setuptools, pip, wheel...done.
 
 deactivate () {
     unset pydoc
+_____________
+
+note:
+
+if i copy and paste it it works.
+I get this error if I run the script.
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 
 END
 # end block comment ===============================
@@ -74,6 +79,9 @@ END
 #
 date
 #
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #main...
 
@@ -92,7 +100,7 @@ virtualenv env213b
 
 . env213b/bin/activate
 
-sudo pip install Flask
+pip install Flask
 
 #create hello1.py ...
 
@@ -111,23 +119,5 @@ EOF
 #    http://127.0.0.1:5000/
 #works.
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# flask admin
-#   https://github.com/flask-admin/Flask-Admin/tree/master/examples/sqla
-
-cd /var/www/html/python
-
-git clone https://github.com/flask-admin/flask-admin.git flaskad213c
-cd flaskad213c
-
-virtualenv env213c
-source env213c/bin/activate
-
-sudo pip install -r 'examples/sqla/requirements.txt'
-
-python examples/sqla/app.py
-
-#
+python hello1.py
 
