@@ -15,6 +15,11 @@ sudo crontab -u pmdsu -l | { cat; echo "37 15 1 10 * /var/www/html/cilist/action
 sudo crontab -u pmdsu -l
 
 
+# import all data daily...
+sudo crontab -u pmdsu -l | { cat; echo "1 16 * * 1-6 /home/albe/shc/53imp.sh"; } | sudo crontab -u pmdsu -
+
+
+
 #Make scripts executable.
 sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
 sudo chmod -R ug+x /var/www/html/shiftcsd2sup/actions/*.sh

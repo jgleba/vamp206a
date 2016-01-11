@@ -58,14 +58,6 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2suprv.* TO 
 #perms...
 
 sudo sudo mkdir -p /var/www/html
-#sudo sudo chmod -R 755 /var/www/html 
-#sudo sudo chmod -R 777 /var/www/html/django
-
-# make read for other group...
-#sudo sudo chmod -R o+r /var/www/html 
-# make only folders +x so they can be cd into.
-# sudo sudo chmod -R o-x /var/www/html/
-# not needed when using www-data group for access..   sudo find /var/www/html -type d -exec sudo chmod o+x {} +
 
 
 #templates_c

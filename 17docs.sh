@@ -47,11 +47,6 @@ source shc/21env.sh
 # html
 sudo chmod -R 777 tmp01
 sudo mkdir -p /var/www/html
-# make read for other group...
-#sudo chmod -R o+r /var/www/html 
-# make only folders +x so they can be cd into.
-#sudo find /var/www/html -type d -exec chmod o+x {} +
-#sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
 
 
 #

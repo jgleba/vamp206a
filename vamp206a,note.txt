@@ -1,4 +1,50 @@
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Title:  dgleba@gmail.com N5A 3L4 2016-01-10
+# 
+#  -----------------------2016-01-10[Jan-Sun]20-07PM
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-10[Jan-Sun]20-07PM
+
+
+was in 53imp.sh..
+
+# old... [chmod chgrp chown]
+#  sudo sudo chmod -R 755 /var/www/html 
+#  sudo sudo chmod -R 777 /var/www/html/django
+# make read for other group...
+#  sudo sudo chmod -R o+r /var/www/html 
+#  make only folders +x so they can be cd into.
+#  sudo sudo chmod -R o-x /var/www/html/
+#  not needed when using www-data group for access..   sudo find /var/www/html -type d -exec sudo chmod o+x {} +
+
+
+was in 17docs.sh
+# make read for other group...
+#sudo chmod -R o+r /var/www/html 
+# make only folders +x so they can be cd into.
+#sudo find /var/www/html -type d -exec chmod o+x {} +
+#sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-08[Jan-Fri]13-20PM
+
+\\v206csd2
+
+robocopy \\v206csd2\html\ciy207  \\PMDS-DATA\p2\xampp\htdocs\ciy207 /e
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+==
 
 ==
 

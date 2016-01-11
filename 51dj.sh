@@ -186,7 +186,7 @@ EOF
 djangosoft()
 {
   sleep 1
-  # sudo chmod -R 777 /var/www/html/django
+  # 
   
 }
 
