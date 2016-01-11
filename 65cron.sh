@@ -16,8 +16,13 @@ sudo crontab -u pmdsu -l
 
 
 # import all data daily...
+#  list, remove, list, add, list...
+sudo crontab -u pmdsu -l
+sudo crontab -u pmdsu -l | grep -v 'albe/shc/53imp.sh'  | sudo crontab -u pmdsu -
+sudo crontab -u pmdsu -l
+sudo crontab -u pmdsu -l | { cat; echo "51 10 * * 1-6 /home/albe/shc/53imp.sh"; } | sudo crontab -u pmdsu -
 sudo crontab -u pmdsu -l | { cat; echo "1 16 * * 1-6 /home/albe/shc/53imp.sh"; } | sudo crontab -u pmdsu -
-
+sudo crontab -u pmdsu -l
 
 
 #Make scripts executable.
