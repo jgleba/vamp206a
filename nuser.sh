@@ -11,7 +11,13 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
+
+#ask for password...
+
 read -ep "Please enter the new users password: " pwnu1
+
+
+
 nuser="$1"
 echo user: "$nuser"
 echo $pwnu1

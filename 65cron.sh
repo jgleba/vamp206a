@@ -17,12 +17,25 @@ sudo crontab -u pmdsu -l
 
 # import all data daily...
 #  list, remove, list, add, list...
+sudo crontab -u albe -l
+# remove
+sudo crontab -u albe -l | grep -v 'albe/shc/53imp.sh'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l  #list
+sudo crontab -u albe -l | { cat; echo "22 13 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "1 16 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l
+
+#list cron logs 
+grep CRON /var/log/syslog | grep albe
+
+
+
+#remove from pmdsu... better to run as albe, the env variables are already present...
+#  list, remove, list, add, list...
 sudo crontab -u pmdsu -l
-sudo crontab -u pmdsu -l | grep -v 'albe/shc/53imp.sh'  | sudo crontab -u pmdsu -
-sudo crontab -u pmdsu -l
-sudo crontab -u pmdsu -l | { cat; echo "51 10 * * 1-6 /home/albe/shc/53imp.sh"; } | sudo crontab -u pmdsu -
-sudo crontab -u pmdsu -l | { cat; echo "1 16 * * 1-6 /home/albe/shc/53imp.sh"; } | sudo crontab -u pmdsu -
-sudo crontab -u pmdsu -l
+sudo crontab -u pmdsu -l | grep -v 'albe/shc/53imp.sh'  | sudo crontab -u pmdsu - #remove
+sudo crontab -u pmdsu -l  #list
+
 
 
 #Make scripts executable.
