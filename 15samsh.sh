@@ -19,6 +19,8 @@ smb() {
 source shc/root.sh
 source shc/21env.sh
 
+sudo sudo service smbd restart
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #if this has run before, then exit...
 if [ -f /home/$userv/15ran ]; then

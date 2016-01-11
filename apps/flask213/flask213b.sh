@@ -57,7 +57,7 @@ date
 # flask213b
 # first flask 2016-01-10_Sun_20.13-PM 2016-01-07_Thu_19.14-PM
 
-pip install virtualenv
+sudo pip install virtualenv
 
 cd /var/www/html
 mkdir -p python
@@ -69,7 +69,7 @@ virtualenv env213b
 
 . env213b/bin/activate
 
-pip install Flask
+sudo pip install Flask
 
 #create hello1.py ...
 
@@ -102,7 +102,7 @@ cd flaskad213c
 virtualenv env213c
 source env213c/bin/activate
 
-pip install -r 'examples/sqla/requirements.txt'
+sudo pip install -r 'examples/sqla/requirements.txt'
 
 python examples/sqla/app.py
 
