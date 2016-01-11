@@ -21,7 +21,7 @@ sudo crontab -u albe -l
 # remove
 sudo crontab -u albe -l | grep -v 'albe/shc/53imp.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l  #list
-sudo crontab -u albe -l | { cat; echo "22 13 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "36 8 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l | { cat; echo "1 16 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l
 
