@@ -43,6 +43,29 @@ building blocks right away,
 _____________
 
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+error:
+
+mkdir: cannot create directory ‘flask213b’: File exists
+cd flask213b
++ cd flask213b
+virtualenv env213b
++ virtualenv env213b
+New python executable in env213b/bin/python
+Installing setuptools, pip, wheel...done.
+
+. env213b/bin/activate
++ . env213b/bin/activate
+# This file must be used with "source bin/activate" *from bash*
+# you cannot run it directly
+
+deactivate () {
+    unset pydoc
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 END
 # end block comment ===============================
 }
@@ -107,3 +130,4 @@ sudo pip install -r 'examples/sqla/requirements.txt'
 python examples/sqla/app.py
 
 #
+
