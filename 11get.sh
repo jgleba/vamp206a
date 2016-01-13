@@ -26,7 +26,7 @@ sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 # get zip of repo from github
 sudo rm -rf shc
 
-read -t  5 -p "Hit ENTER or wait some seconds" ; echo ;
+read -t 1 -p "Hit ENTER or wait some seconds" ; echo ;
 
 mkdir -p tmp01
 sudo chmod -R 777 tmp01
