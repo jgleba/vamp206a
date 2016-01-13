@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#comment content
+#Purpose:  
 
 END
 # end block comment ===============================

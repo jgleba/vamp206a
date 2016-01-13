@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#comment content
+# Purpose: create shared folder for a group to work in.
 
 END
 # end block comment ===============================
