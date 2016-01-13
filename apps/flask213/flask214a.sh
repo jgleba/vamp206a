@@ -52,6 +52,9 @@ docker-machine --version
 docker-compose --version
 #docker-compose version: 1.5.0
 
+#
+# install docker-machine..
+#
 # https://github.com/docker/machine/releases/  get path to download here....
 mkdir -p ~/tmp01
 sudo curl -L https://github.com/docker/machine/releases/download/v0.5.6/docker-machine_linux-amd64 > ~/tmp01/docker-machine
