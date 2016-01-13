@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
-cd ; set +vx  ; set -vx ; date # echo off, then echo on
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function Purpose() {
-: <<'END' 
-# begin block comment ===============================
+# begin block comment =============================
+: <<'END'
 
-Purpose:
+#comment content
 
-END # end block comment =============================
+END
+# end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
+#
 
 #put code here...
 
