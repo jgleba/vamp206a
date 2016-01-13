@@ -59,15 +59,16 @@ Installing setuptools, pip, wheel...done.
 + . env213b/bin/activate
 # This file must be used with "source bin/activate" *from bash*
 # you cannot run it directly
-
 deactivate () {
     unset pydoc
+
 _____________
 
 note:
 
 if i copy and paste it it works.
 I get this error if I run the script.
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -105,7 +106,6 @@ pip install Flask
 #create hello1.py ...
 
 cat <<EOF >> hello1.py
-
 from flask import Flask
 app = Flask(__name__)
 @app.route('/')
