@@ -8,6 +8,7 @@ cd
 
 # 24start3.sh  = no web files, no gui.
 
+# uses 0 length web files 7z file. it is setup -  but no files.
 
 
 

@@ -62,4 +62,33 @@ csd1b, i choose lightdm 2015-12-15_Tue_15.05-PM.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  . disable auto login logon
+
+-----------------------2016-01-13[Jan-Wed]22-51PM
+
+Hi guys.
+I want to know if anyone can tell me how to disable the automatic login in Ubuntu Mate 14.04.
+Thanks.
+
+Open a terminal.
+
+sudo nano /etc/lightdm/lightdm.conf
+It displays some text as follows:
+
+[SeatDefaults]  
+greeter-session=lightdm-gtk-greeter  
+user-session=mate
+autologin-user=username
+Solution
+
+This would be your particular user name that is automatically logged in with or without password. Delete this username and type in the administrative username or leave it blank.
+
+Shut down the system. It will go back to the login selection screen. Just power down the system and put it on again.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 a

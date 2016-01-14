@@ -1,3 +1,18 @@
+#!/usr/bin/env bash
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function Purpose() {
+# begin block comment =============================
+: <<'END'
+
+#Purpose:  
+
+END
+# end block comment ===============================
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
+#
+
 #main...
 
 # flask213d
@@ -10,7 +25,7 @@ cd python
 mkdir flask213d
 cd flask213d
 
-pip install Flask
+sudo pip install Flask
 
 #create hello1.py ...
 
@@ -30,3 +45,4 @@ EOF
 
 python hello1.py
 
+#works 2016-01-14
