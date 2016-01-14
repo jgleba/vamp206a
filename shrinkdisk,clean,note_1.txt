@@ -27,6 +27,17 @@ sound useful.
 
 sudo apt-get install zerofree
 
+boot to recovery mode.
+
+service rsyslog stop
+service network-manager stop
+killall dhclient
+
+mount -n -o remount,ro -t ext3 /dev/sda1 /
+zerofree -v /dev/sda1
+#shutdown -h now
+
+
 VboxManage modifyvdi /path/to/your/VM.vdi compact
 # i used...
 VboxManage modifyhd /path/to/your/VM.vdi compact

@@ -17,7 +17,9 @@ sudo apt-add-repository -y ppa:ubuntu-mate-dev/trusty-mate
 sudo apt-get update 
 sudo apt-get upgrade
 sudo apt-get -y install --no-install-recommends ubuntu-mate-core ubuntu-mate-desktop
+
 shc/68hostp.sh v206csd1b
+
 sudo apt-get install catfish
 sudo apt-get install gnome-search-tool
 gnome-search-tool
@@ -26,6 +28,7 @@ sudo find /  -name *ci* | grep list
 sudo find /  -name *ci* | grep list | xls
 sudo find /  -name *ci* | grep list | grep xls
 catfish --help
+
 
 result: 
 
