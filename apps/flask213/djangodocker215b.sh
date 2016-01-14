@@ -1,34 +1,23 @@
 #!/usr/bin/env bash
-cd
-# echo off
-set +vx
-# echo on
-set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function offline()
-{
-exit 999
+function Purpose() {
 # begin block comment =============================
 : <<'END'
-comment...
+
+#Purpose:  
+
 END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
-date
-#
-#main...
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-date
-#
-
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  . docker python
+
+Title:  . docker python from docker docs
+
 
 -----------------------2016-01-12[Jan-Tue]14-38PM
 
@@ -71,7 +60,6 @@ web:
     - "8000:8000"
   links:
     - db
-
 
 
 docker-compose run web django-admin.py startproject composeexample .

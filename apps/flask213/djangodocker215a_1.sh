@@ -1,29 +1,24 @@
 #!/usr/bin/env bash
-cd
-# echo off
-set +vx
-# echo on
-set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function offline()
-{
-exit 999
+function Purpose() {
 # begin block comment =============================
 : <<'END'
-comment...
+
+#Purpose:  
+
 END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-date
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 
-#main...
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # django docker
+
 
 #
 date

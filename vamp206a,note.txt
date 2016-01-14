@@ -1,9 +1,10 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  .
+Title:  . clean up disk...
+
 -----------------------2016-01-13[Jan-Wed]13-38PM
 
-clean up reduce .vdi file size
+clean up - reduce .vdi file size
 
 
 1) Analyze your disk usage
@@ -50,6 +51,16 @@ https://www.google.ca/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=ubun
 
 http://unix.stackexchange.com/questions/44234/clear-unused-space-with-zeros-ext3-ext4
 
+
+#
+http://superuser.com/questions/19326/how-to-wipe-free-disk-space-in-linux
+sudo apt-get install secure-delete
+
+
+bleachbit...
+http://bleachbit.sourceforge.net/download/file/t?file=bleachbit_1.10_all_ubuntu1404.deb&c=ppt
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -59,6 +70,36 @@ http://unix.stackexchange.com/questions/44234/clear-unused-space-with-zeros-ext3
 #  -----------------------2016-01-10[Jan-Sun]20-07PM
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  . xrdp
+-----------------------2015-12-13[Dec-Sun]16-30PM
+
+sudo apt-get install xrdp
+
+sudo cat <<EOF >> /home/albe/.xsession
+#!/bin/sh
+# -------------------------------------------------------------------
+# David Gleba 
+lxsession -s LXDE -e LXDE
+#
+EOF
+
+xrdp-any
+password failed
+
+http://c-nergy.be/blog/?p=5357
+sudo service xrdp restart
+
+
+echo "dgleba:asas" | sudo chpasswd
+echo "albe:asas" | sudo chpasswd
+
+echo "albe:a" | sudo chpasswd
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
