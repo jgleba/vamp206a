@@ -46,7 +46,7 @@ cat <<EOF > /var/www/html/python/flask213e/examples/sqla/.htaccess
 RewriteEngine on
 Options +FollowSymLinks
 #RewriteBase /
-RewriteRule ^(flask213)\/(.+)$ http://localhost/$2 [R=301]#
+RewriteRule ^(flask213e)\/(.+)$ http://localhost/$2 [R=301]#
 EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

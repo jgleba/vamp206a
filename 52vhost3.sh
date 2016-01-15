@@ -57,7 +57,7 @@ listen 917
 # http://localhost:918/flask213e
 listen 918
 <VirtualHost *:918>
-    AllowOverride All
+    #AllowOverride All
     DocumentRoot /var/www/html/python/flask213e/examples/sqla
     ServerName 127.0.0.1
     #
