@@ -52,7 +52,7 @@ from hello1 import app as application
 EOF
 
 # virtual host config for apache is here... run it ...
-source ~/shc/52vhost3.sh
+sudo source ~/shc/52vhost3.sh
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
