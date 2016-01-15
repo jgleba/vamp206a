@@ -22,6 +22,7 @@ sudo tee /etc/apache2/sites-available/vhost3.conf <<EOF
 ############
 #
 # http://l10.4.10.141:917/flask213d
+# http://10.4.11.19:917/flask213d
 # http://192.168.88.58:917/flask213d
 # http://localhost:917/flask213d
 listen 917
@@ -50,11 +51,13 @@ listen 917
 #
 ############
 #
+# http://10.4.11.19:918
 # http://l10.4.10.141:918/flask213e
 # http://192.168.88.58:918/flask213e
 # http://localhost:918/flask213e
 listen 918
 <VirtualHost *:918>
+    AllowOverride All
     DocumentRoot /var/www/html/python/flask213e/examples/sqla
     ServerName 127.0.0.1
     #
@@ -73,6 +76,9 @@ listen 918
     <Directory /var/www/html/python/flask213e>
        Order deny,allow
        Deny from all
+     </Directory>
+    <Directory /var/www/html/python/flask213e/examples/sqla>
+       AllowOverride All
      </Directory>
 </VirtualHost>
 ############

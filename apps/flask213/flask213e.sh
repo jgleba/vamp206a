@@ -41,12 +41,12 @@ mv /var/www/html/python/flask213e/examples/sqla/app.py /var/www/html/python/flas
 # redirect to 918 if "flask213e/" is matched. so localhost/flask213e/ redirects to: localhost:917
 #
 cat <<EOF > /var/www/html/python/flask213e/examples/sqla/.htaccess
+#
+# redirect to 918 if "flask213e" is matched
 RewriteEngine on
-#
-# redirect to 918 if "flask213e/" is matched
-RewriteCond %{SERVER_PORT} !^918$
-RewriteRule ^flask213e/(.*[^/])/?$ http://%{HTTP_HOST}:918/$1/ [R=301,L]
-#
+Options +FollowSymLinks
+#RewriteBase /
+RewriteRule ^(flask213)\/(.+)$ http://localhost/$2 [R=301]#
 EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

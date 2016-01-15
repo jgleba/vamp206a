@@ -1,4 +1,50 @@
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-15[Jan-Fri]09-58AM
+
+trying to get htaccess working...
+
+
+RewriteEngine on
+#
+# redirect to 918 if "flask213e/" is matched
+#RewriteCond %{SERVER_PORT} !^918$
+#RewriteRule    ^flask213e/(.*[^/])/?$ %{HTTP_HOST}:918/$1/ [R=301,L]
+#RewriteRule ^some-prefix/(.*[^/])/?$ http://%{HTTP_HOST}:8080/some-prefix/$1/ [R=301,L]
+#
+//Rewrite to www
+Options +FollowSymLinks
+RewriteCond %{HTTP_HOST} ^localhost:918[nc]
+RewriteRule ^(.*)$ http://www.localhost:918/$1 [r=301,nc]
+
+//301 Redirect Entire Directory
+RedirectMatch 301 /f1(.*) //$1
+
+
+RewriteCond %{REQUEST_URI} ^/(directory)
+RewriteRule ^(.*)$ http://domain.com:81/$1 [P,QSA,L]
+
+RewriteCond %{REQUEST_URI} ^/(directory)
+RewriteRule ^(.*)$ http://%{HTTP_HOST}:918/$1 [P,QSA,L]
+
+
+http://stackoverflow.com/questions/18973058/how-to-remove-folder-name-from-url-using-htaccess
+
+#
+RewriteRule ^flask213e/(.*)$ /$1 [L,NC,R]
+#
+
+
+   RewriteEngine on
+   RewriteRule ^flask213e(/.*|)$ $1 [L,NC]  
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 http://v206redwe1:8985/django161c/admin/
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
