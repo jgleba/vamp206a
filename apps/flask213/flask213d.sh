@@ -4,7 +4,9 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:  
+#  Purpose:  deploy flask hello world
+
+shc/apps/flask213/flask213d.sh
 
 END
 # end block comment ===============================
@@ -52,7 +54,7 @@ from hello1 import app as application
 EOF
 
 # virtual host config for apache is here... run it ...
-sudo source ~/shc/52vhost3.sh
+source ~/shc/52vhost3.sh
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
