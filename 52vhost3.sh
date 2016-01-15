@@ -22,16 +22,14 @@ sudo tee /etc/apache2/sites-available/vhost3.conf <<EOF
 ############
 #
 # http://l10.4.10.141:917/flask213d
+# http://192.168.88.58:917/flask213d
 # http://localhost:917/flask213d
 listen 917
 <VirtualHost *:917>
     DocumentRoot /var/www/html/python/flask213d
     ServerName 127.0.0.1
     #
-    #Alias /static/ /var/www/html/django/django161c/static/
-    #
     WSGIDaemonProcess hello1 processes=1 threads=5 python-path=/var/www/html/python/flask213d
-    #WSGIDaemonProcess hello1 processes=1 threads=5 
     WSGIProcessGroup hello1
     WSGIApplicationGroup %{GLOBAL}
     #

@@ -48,9 +48,9 @@ EOF
 
 mkdir -p apache
 cat <<EOF > apache/flask213d.wsgi
+# path is in vhost file, not here like in docs at..  http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#creating-a-wsgi-file
 #import sys
 #sys.path.insert(0, '/var/www/html/python/flask213d')
-#
 from hello1 import app as application
 EOF
 
@@ -63,7 +63,7 @@ source ~/shc/52vhost3.sh
 # using dev server...
 
 #works 2016-01-14
-python hello1.py
+python /var/www/html/python/flask213dhello1.py
 
 #visit:
 #    http://127.0.0.1:5000/
