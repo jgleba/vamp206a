@@ -23,10 +23,11 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 mkdir -p /var/www/html/python/apache
 cat <<EOF > /var/www/html/python/apache/flask213e.wsgi
+import sys
+sys.stdout = sys.stderr
 # path is in vhost file, not here like in docs at..  http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#creating-a-wsgi-file
-#import sys
-#sys.path.insert(0, '/var/www/html/python/flask213e')
-from examples/sqla/app2.py import app as application
+# sys.path.insert(0, '/var/www/html/python/flask213e')
+from examples/sqla/app2 import app as application
 EOF
 
 # virtual host config for apache is here... run it ...
