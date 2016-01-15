@@ -38,6 +38,17 @@ EOF
 # virtual host config for apache is here... run it ...
 source ~/shc/52vhost3.sh
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+cat <<EOF > /var/www/html/python/flask213e/examples/sqla/.htaccess
+RewriteEngine on
+#
+# redirect to 918 if "flask213e/" is matched
+RewriteCond %{SERVER_PORT} !^918$
+RewriteRule ^flask213e/(.*[^/])/?$ http://%{HTTP_HOST}:918/$1/ [R=301,L]
+#
+EOF
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
