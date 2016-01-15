@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#Purpose:  flask admin example
+#Purpose:  flask admin examples
 
 END
 # end block comment ===============================
@@ -26,7 +26,7 @@ cat <<EOF > /var/www/html/python/apache/flask213e.wsgi
 # path is in vhost file, not here like in docs at..  http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#creating-a-wsgi-file
 #import sys
 #sys.path.insert(0, '/var/www/html/python/flask213e')
-from ? import app as application
+from examples/sqla/app2.py import app as application
 EOF
 
 # virtual host config for apache is here... run it ...
@@ -43,8 +43,8 @@ source ~/shc/52vhost3.sh
 mkdir -p /var/www/html/python/
 cd       /var/www/html/python/
 
-git clone https://github.com/flask-admin/flask-admin.git flaskad213e
-cd flaskad213e
+git clone https://github.com/flask-admin/flask-admin.git flask213e
+cd flask213e
 
 sudo pip install -r 'examples/sqla/requirements.txt'
 
