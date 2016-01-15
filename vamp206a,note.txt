@@ -9,8 +9,8 @@ trying to get htaccess working...
 RewriteEngine on
 #
 # redirect to 918 if "flask213e/" is matched
-#RewriteCond %{SERVER_PORT} !^918$
-#RewriteRule    ^flask213e/(.*[^/])/?$ %{HTTP_HOST}:918/$1/ [R=301,L]
+RewriteCond %{SERVER_PORT} !^918$
+RewriteRule    ^flask213e/(.*[^/])/?$ %{HTTP_HOST}:918/$1/ [R=301,L]
 #RewriteRule ^some-prefix/(.*[^/])/?$ http://%{HTTP_HOST}:8080/some-prefix/$1/ [R=301,L]
 #
 //Rewrite to www
@@ -40,7 +40,15 @@ RewriteRule ^flask213e/(.*)$ /$1 [L,NC,R]
    RewriteRule ^flask213e(/.*|)$ $1 [L,NC]  
 
 
+RewriteRule ^(flask213e)\/(.+)$ %{HTTP_HOST}%{SERVER_PORT}/$2 [R=301]#
 
+
+http://stackoverflow.com/questions/9153262/tips-for-debugging-htaccess-rewrite-rules
+
+http://htaccess.madewithlove.be/
+
+
+tail -f /var/log/apache2/error.log|fgrep '[rewrite:'
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
