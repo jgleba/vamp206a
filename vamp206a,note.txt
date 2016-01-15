@@ -1,6 +1,19 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2016-01-15[Jan-Fri]11-11AM
+
+http://stackoverflow.com/questions/19389344/how-can-i-remove-this-directory-folder-from-url-with-htaccess-rewrite
+
+http://stackoverflow.com/questions/18271982/url-rewrites-removing-folders-htaccess
+
+http://stackoverflow.com/questions/12862809/mod-rewrite-remove-folder-name-from-url
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2016-01-15[Jan-Fri]09-58AM
 
 trying to get htaccess working...
