@@ -6,10 +6,12 @@ function Purpose() {
 
 #Purpose:  flask admin examples
 
+
 ref:
 https://github.com/petrus-jvrensburg/flask-admin-examples
 
 http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi
+
 
 END
 # end block comment ===============================
@@ -32,7 +34,7 @@ import sys
 sys.stdout = sys.stderr
 # path is in vhost file, not here like in docs at..  http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#creating-a-wsgi-file
 # sys.path.insert(0, '/var/www/html/python/flask213e')
-from app2 import app as application
+from examples/sqla/app2 import app as application
 EOF
 
 # virtual host config for apache is here... run it ...
@@ -57,7 +59,6 @@ sudo pip install -r 'examples/sqla/requirements.txt'
 python examples/sqla/app.py
 
 sudo tail /var/log/apache2/error.log
-
 
 #
 
