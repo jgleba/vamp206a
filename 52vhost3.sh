@@ -48,7 +48,41 @@ listen 917
 </VirtualHost>
 ############
 #
+############
+#
+# http://l10.4.10.141:918/flask213e
+# http://192.168.88.58:918/flask213e
+# http://localhost:918/flask213e
+listen 918
+<VirtualHost *:918>
+    DocumentRoot /var/www/html/python/flask213e
+    ServerName 127.0.0.1
+    #
+    WSGIDaemonProcess hello1 processes=1 threads=5 python-path=/var/www/html/python/flask213e
+    WSGIProcessGroup hello1
+    WSGIApplicationGroup %{GLOBAL}
+    #
+    WSGIScriptAlias /flask213e /var/www/html/python/apache/flask213e.wsgi
+    #
+    #allow access to wsgi file...
+    <Directory /var/www/html/python/apache>
+       Order deny,allow
+       Allow from all
+     </Directory>
+     # deny directory listing of this folder... http://localhost:918
+    <Directory /var/www/html/python/flask213e>
+       Order deny,allow
+       Deny from all
+     </Directory>
+</VirtualHost>
+############
+#
 EOF
+
+
+
+
+
 }
 
 apache3()
