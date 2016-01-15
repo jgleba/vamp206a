@@ -55,14 +55,14 @@ listen 917
 # http://localhost:918/flask213e
 listen 918
 <VirtualHost *:918>
-    DocumentRoot /var/www/html/python/flask213e
+    DocumentRoot /var/www/html/python/flask213e/examples/sqla
     ServerName 127.0.0.1
     #
-    WSGIDaemonProcess app2 processes=1 threads=5 python-path=/var/www/html/python/flask213e/examples/sqla
-    WSGIProcessGroup app2
+    WSGIDaemonProcess app processes=1 threads=5 python-path=/var/www/html/python/flask213e/examples/sqla
+    WSGIProcessGroup app
     WSGIApplicationGroup %{GLOBAL}
     #
-    WSGIScriptAlias /flask213e /var/www/html/python/apache/flask213e.wsgi
+    WSGIScriptAlias / /var/www/html/python/apache/flask213e.wsgi
     #
     #allow access to wsgi file...
     <Directory /var/www/html/python/apache>
