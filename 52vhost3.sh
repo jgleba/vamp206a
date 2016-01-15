@@ -33,15 +33,15 @@ listen 917
     WSGIProcessGroup hello1
     WSGIApplicationGroup %{GLOBAL}
     #
-    WSGIScriptAlias /flask213d /var/www/html/python/flask213d/apache/flask213d.wsgi
+    WSGIScriptAlias /flask213d /var/www/html/python/flask213d/flask213d.wsgi
     #
     #allow access to wsgi file...
-    <Directory /var/www/html/python/flask213d/apache>
+    <Directory /var/www/html/python/flask213d>
        Order deny,allow
        Allow from all
      </Directory>
      # deny directory listing of this folder... http://localhost:917
-    <Directory /var/www/html/python/flask213d>
+    <Directory /var/www/html/python>
        Order deny,allow
        Deny from all
      </Directory>
