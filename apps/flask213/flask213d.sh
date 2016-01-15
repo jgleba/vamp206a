@@ -20,12 +20,8 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 # flask213d
 # first flask d 2016-01-13
 
-cd /var/www/html
-mkdir -p python
-cd python
-
-mkdir flask213d
-cd flask213d
+mkdir -p /var/www/html/python/flask213d
+cd       /var/www/html/python/flask213d
 
 sudo pip install Flask
 
@@ -46,8 +42,8 @@ EOF
 
 # deploy with apache...
 
-mkdir -p apache
-cat <<EOF > apache/flask213d.wsgi
+mkdir -p /var/www/html/python/apache
+cat <<EOF > /var/www/html/python/apache/flask213d.wsgi
 # path is in vhost file, not here like in docs at..  http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#creating-a-wsgi-file
 #import sys
 #sys.path.insert(0, '/var/www/html/python/flask213d')
@@ -63,7 +59,7 @@ source ~/shc/52vhost3.sh
 # using dev server...
 
 #works 2016-01-14
-python /var/www/html/python/flask213dhello1.py
+python /var/www/html/python/flask213d/hello1.py
 
 #visit:
 #    http://127.0.0.1:5000/
