@@ -58,8 +58,8 @@ listen 918
     DocumentRoot /var/www/html/python/flask213e
     ServerName 127.0.0.1
     #
-    WSGIDaemonProcess hello1 processes=1 threads=5 python-path=/var/www/html/python/flask213e
-    WSGIProcessGroup hello1
+    WSGIDaemonProcess examples/sqla/app2 processes=1 threads=5 python-path=/var/www/html/python/flask213e
+    WSGIProcessGroup sqlaapp2
     WSGIApplicationGroup %{GLOBAL}
     #
     WSGIScriptAlias /flask213e /var/www/html/python/apache/flask213e.wsgi
