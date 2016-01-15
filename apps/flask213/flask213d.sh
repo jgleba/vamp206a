@@ -46,6 +46,7 @@ EOF
 
 # deploy with apache...
 
+mkdir -p apache
 cat <<EOF > apache/flask213d.wsgi
 #import sys
 #sys.path.insert(0, '/var/www/html/python/flask213d')
