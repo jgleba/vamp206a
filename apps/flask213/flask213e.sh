@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#Purpose:  flask admin examples
+#Purpose:  flask admin examples sqla - test the apache deployment.
 
 ref:
 https://github.com/petrus-jvrensburg/flask-admin-examples

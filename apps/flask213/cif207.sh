@@ -6,9 +6,7 @@ function Purpose() {
 
 #Purpose:  flask cif216 ci listing app in flask
 
-ref:
-https://github.com/petrus-jvrensburg/flask-admin-examples
-http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi
+http://v206b1:919/admin/#
 
 shc/apps/flask213/cif207.sh
 
@@ -20,10 +18,6 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 
 #main...
-
-
-# flask admin
-#   https://github.com/flask-admin/Flask-Admin/tree/master/examples/sqla
 
 mkdir -p /var/www/html/python/
 cd       /var/www/html/python/

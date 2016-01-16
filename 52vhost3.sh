@@ -86,9 +86,10 @@ listen 918
 ############
 #
 # http://10.4.11.19:919
-# http://l10.4.10.141:919/cif207
-# http://192.168.88.58:919/cif207
-# http://localhost:919/cif207
+# http://l10.4.10.141:919
+# http://192.168.88.58:919
+# http://v206b1:919/
+# http://localhost:919
 listen 919
 <VirtualHost *:919>
     #AllowOverride All
