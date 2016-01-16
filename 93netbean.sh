@@ -24,17 +24,6 @@ chmod +x netbeans-8.1-php-linux-x64.sh
 sh netbeans-8.1-php-linux-x64.sh
 
 
-sudo apt-get install git-cola
-#I think it works, but it is basic. I switched to giteye - more like sourcetree.
-
-#https://www.open.collab.net/nonav/downloads/giteye/thankyou.html?_=d
-http://www.collab.net/downloads/giteye
-download git eye
-unpack it and put it in 
-/home/albe/bin/giteye
-chmod +x ./GitEye
-.GitEye
-works well.
 
 
 

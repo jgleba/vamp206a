@@ -1,7 +1,29 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2016-01-16[Jan-Sat]15-55PM
+
+mkdir -p /var/www/html/python/
+cd       /var/www/html/python/
+cd flask213e
+sudo pip install -r 'examples/auth-flask-login/requirements.txt'
+# start dev server . visit localhost:5000
+python /var/www/html/python/flask213e/examples/auth-flask-login/app.py
+
+sudo pip install -r 'examples/auth/requirements.txt'
+# start dev server . visit localhost:5000
+python /var/www/html/python/flask213e/examples/auth/app.py
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2016-01-15[Jan-Fri]11-11AM
+
+https://24ways.org/2013/url-rewriting-for-the-fearful/
+
+url rewrite tutorial
 
 http://stackoverflow.com/questions/19389344/how-can-i-remove-this-directory-folder-from-url-with-htaccess-rewrite
 

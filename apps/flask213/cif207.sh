@@ -4,13 +4,13 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#Purpose:  flask admin examples
+#Purpose:  flask cif216 ci listing app in flask
 
 ref:
 https://github.com/petrus-jvrensburg/flask-admin-examples
 http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi
 
-shc/apps/flask213/flask213e.sh
+shc/apps/flask213/cif207.sh
 
 END
 # end block comment ===============================
@@ -28,31 +28,30 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 mkdir -p /var/www/html/python/
 cd       /var/www/html/python/
 
-git clone https://github.com/flask-admin/flask-admin.git flask213e
-cd flask213e
+git clone https://github.com/dgleba/cif207.git cif207
+cd cif207
 
-sudo pip install -r 'examples/sqla/requirements.txt'
+sudo pip install -r 'requirements.txt'
 
 # the app throws an error when it is called app.py, rename it...
-#file "/var/www/html/python/apache/flask213e.wsgi", line 5, in <module> [:error] [pid 6602] from app import app as application [:error] ImportError: No module named app
-mv /var/www/html/python/flask213e/examples/sqla/app.py /var/www/html/python/flask213e/examples/sqla/app1.py
+#file "/var/www/html/python/apache/cif207.wsgi", line 5, in <module> [:error] [pid 6602] from app import app as application [:error] ImportError: No module named app
+#mv /var/www/html/python/cif207/examples/sqla/app.py /var/www/html/python/cif207/examples/sqla/app1.py
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 # htaccess
 #
-# redirect to 918 if "flask213e/" is matched. so localhost/flask213e/ redirects to: localhost:917
+# redirect to 918 if "cif207/" is matched. so localhost/cif207/ redirects to: localhost:917
 #
 # logging: /etc/apache2/apache2.conf >  LogLevel alert rewrite:trace3  | tail -f /var/log/apache2/error.log|fgrep '[rewrite:'
-
 #
-cat <<EOF > /var/www/html/python/flask213e/examples/sqla/.htaccess
+cat <<EOF > /var/www/html/python/cif207/.htaccess
 #
-# redirect to 918 if "flask213e" is matched
+# redirect to 919 if "cif207" is matched
 RewriteEngine on
 Options +FollowSymLinks
 #RewriteBase /
-RewriteRule ^(flask213e)\/(.+)$ http://localhost/$2 [R=301]#
+RewriteRule ^(cif207)\/(.+)$ http://localhost/$2 [R=301]#
 EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -63,12 +62,12 @@ EOF
 # deploy with apache...
 #
 mkdir -p /var/www/html/python/apache
-cat <<EOF > /var/www/html/python/apache/flask213e.wsgi
+cat <<EOF > /var/www/html/python/apache/cif207.wsgi
 import sys
 sys.stdout = sys.stderr
 # path is in vhost file, not here like in docs at..  http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/#creating-a-wsgi-file
-# sys.path.insert(0, '/var/www/html/python/flask213e')
-from app1 import app as application
+# sys.path.insert(0, '/var/www/html/python/cif207')
+from cif207 import app as application
 EOF
 
 # virtual host config for apache is here... run it ...
@@ -77,7 +76,7 @@ source ~/shc/52vhost3.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # start dev server . visit localhost:5000
-python /var/www/html/python/flask213e/examples/sqla/app1.py
+python /var/www/html/python/cif207/cif207.py
 
 #show apache log..
 sudo tail /var/log/apache2/error.log
