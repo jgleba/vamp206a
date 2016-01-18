@@ -61,12 +61,12 @@ sudo service apache2 restart
 
 sudo mkdir -p /srv/web/flask217
 #
-sudo chgrp -hR www-data /srv # change group to www-data ( apache group. apache already was installed.)
-sudo chown -R root /srv 
-sudo chmod -R g+rw  /srv # writable for group
-sudo chmod -R o-rw /srv # not viewable for others..
+sudo chgrp -hR www-data /srv/web # change group to www-data ( apache group. apache already was installed.)
+sudo chown -R root /srv/web 
+sudo chmod -R g+rw  /srv/web # writable for group
+sudo chmod -R o-rw /srv/web # not viewable for others..
 # make only folders +x so they can be cd into.
-sudo find /srv -type d -exec chmod g+x {} +
+sudo find /srv/web -type d -exec chmod g+x {} +
 #
 cd /srv/web/flask217
 
