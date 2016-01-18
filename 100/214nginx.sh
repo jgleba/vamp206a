@@ -35,7 +35,7 @@ sudo apt-get install python-pip python-dev nginx
 sudo cp  /etc/nginx/sites-enabled/default  /etc/nginx/sites-enabled/default.$(date "+%Y-%m-%d_%s").bak
 sudo cp  /etc/nginx/sites-available/default  /etc/nginx/sites-available/default.$(date "+%Y-%m-%d_%s").bak
 # remove line containing  '?????'  and replace the line completely with the new text...
-nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+nowdg1=`date +'__%Y-%m-%d_%a_%H.%M.%S-%Z'`
 sudo sed -i "/.*listen 80 .*/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/nginx/sites-enabled/default # add marker above the change.
 #Use double quotes to make the shell expand variables while keeping whitespace:
 sudo sed -i "s/.*listen 80 .*/       listen 82 default_server;/g" /etc/nginx/sites-enabled/default
@@ -71,7 +71,7 @@ sudo find /srv/web -type d -exec chmod g+x {} +
 cd /srv/web/flask217
 
 # create readme
-nowdg1=`date +'_%Y.%m.%d_%k.%M.%S'`
+nowdg1=`date +'_%Y.%m.%d_%H.%M.%S'`
 tee /srv/web/00readme.txt <<EOF
 Purpose: for nginx served projects, and possibly other projects.
 This folder - /srv/web
@@ -200,8 +200,42 @@ cd /home/file
 mkdir -p /home/file/backup
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# hmm errors.. 7z a -y -t7z  "/home/file/backup/flask217.$(date +"%Y.%m.%d_%k.%M").$HOSTNAME.7z" /srv/web/flask217 -xr!flask217env
-tar -cvzf /home/file/backup/flask217.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
+# hmm errors.. 7z a -y -t7z  "/home/file/backup/flask217.$(date +"%Y.%m.%d_%H.%M").$HOSTNAME.7z" /srv/web/flask217 -xr!flask217env
+tar -cvzf /home/file/backup/flask217.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
+#tar -cvzf /home/file/backup/flask217.$(date +"%Y.%m.%d_%s").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
+sudo chown albe /home/albe/backup
+#tar -cvzf /home/albe/backup/flask217.$(date +"%Y.%m.%d_%s").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
+tar -cvzf /home/albe/backup/flask217.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
+echo $(date +"%Y.%m.%d_%H.%M.%S")
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# how to reload code changes?
+
+# https://github.com/mking/flask-uwsgi
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#http://askubuntu.com/questions/134666/what-is-the-easiest-way-to-enable-php-on-nginx
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# uwsgi or gnuicorn multiple apps..
+
+#http://michal.karzynski.pl/blog/2013/10/29/serving-multiple-django-applications-with-nginx-gunicorn-supervisor/
+#https://tghw.com/blog/multiple-django-and-flask-sites-with-nginx-and-uwsgi-emperor
+#https://jawher.me/2012/03/16/multiple-python-apps-with-nginx-uwsgi-emperor-upstart/
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #

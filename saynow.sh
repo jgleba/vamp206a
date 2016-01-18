@@ -3,14 +3,15 @@
 saynow()
 {
 # works.
-date +"__%Y-%m-%d_%a_%k.%M.%S-%Z"
-date +"%Y-%m-%d_%k-%M-%S"
+date +"__%Y-%m-%d_%a_%k.%M.%S-%Z"   # %k has no leading zero not what I want...
+date +"__%Y-%m-%d_%a_%H.%M.%S-%Z"   # %H has leading zero
+date +"%Y-%m-%d_%H-%M-%S"
+date +"%s"  # seconds since unix epoch
+echo $(date +"__%Y-%m-%d_%a_%H.%M.%S-%Z")
 
-#preffered backup format for date...
-date +"_%Y.%m.%d_%k.%M.%S.bak"
+#preferred backup format for date...
+date +"_%Y.%m.%d_%H.%M.%S.bak"
 
-date +"%s"
-echo $(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 #gives error
 #shc/saynow.sh: line 12: syntax error near unexpected token `date'

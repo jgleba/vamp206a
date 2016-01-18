@@ -6,8 +6,6 @@
 
 # use nuser.sh to add a user...
 
-
-
 # yes: use www-data group, don't:  add www group and a user
 
 
@@ -58,7 +56,7 @@ sudo usermod -a -G adm,dialout,plugdev,sambashare,www-data dgleba
 sudo adduser pmdsu --gecos "pmds user,0,0,0" --disabled-password
 echo "pmdsu:$pw1" | sudo chpasswd
 #add user to group www
-sudo usermod -a -G www-data  pmdsu
+sudo usermod -a -G www-data,sudo  pmdsu
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -84,14 +82,6 @@ sudo chmod 755 -R /home/ftpup/upload
 # http://stackoverflow.com/questions/9591744/add-to-the-end-of-a-line-containing-a-pattern-with-sed-or-awk
 # https://www.samba.org/samba/docs/using_samba/ch09.html
 
-
-# allow users to reload apache without root access...
-#       service apache2 reload
-sudo tee /etc/sudoers.d/apache2reload <<EOF
-username    ALL=NOPASSWD:/usr/bin/service apache2 reload
-EOF
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 sudo sudo service smbd restart
 
