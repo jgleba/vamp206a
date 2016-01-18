@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function Purpose() {
-# begin block comment =============================
+# begin bloenvck comment =============================
 : <<'END'
 
 #  Purpose:   nginx postgres gnuicorn etc..
@@ -19,7 +19,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 #main: 
 
-sudo apt-get update
+# sudo apt-get update
 sudo apt-get install python-pip python-dev nginx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,15 +27,14 @@ sudo apt-get install python-pip python-dev nginx
 #change nginx default port to 82 so apache still works on 80..
 
 #sudo leafpad /etc/nginx/sites-enabled/default
-# old settings...
+# orig settings...
 #    listen 80 default_server;
 #    listen [::]:80 default_server ipv6only=on;
 
 # backup..
-#oops forgot to backup, this fixes it.... sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo cp  /etc/nginx/sites-enabled/default  /etc/nginx/sites-enabled/default.$(date "+%Y-%m-%d_%s").bak
 sudo cp  /etc/nginx/sites-available/default  /etc/nginx/sites-available/default.$(date "+%Y-%m-%d_%s").bak
-# remove line containing  'vamp206b'  and replace the line completely with the new text...
+# remove line containing  '?????'  and replace the line completely with the new text...
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
 sudo sed -i "/.*listen 80 .*/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/nginx/sites-enabled/default # add marker above the change.
 #Use double quotes to make the shell expand variables while keeping whitespace:
@@ -60,7 +59,7 @@ sudo service apache2 restart
 # make folder and change permissions...
 # my standard practice for shared web stuff...
 
-sudo mkdir -p /srv/nginx/flask217a
+sudo mkdir -p /srv/web/flask217
 #
 sudo chgrp -hR www-data /srv # change group to www-data ( apache group. apache already was installed.)
 sudo chown -R root /srv 
@@ -69,59 +68,121 @@ sudo chmod -R o-rw /srv # not viewable for others..
 # make only folders +x so they can be cd into.
 sudo find /srv -type d -exec chmod g+x {} +
 #
-cd /srv/nginx/flask217a
+cd /srv/web/flask217
+
+# create readme
+nowdg1=`date +'_%Y.%m.%d_%k.%M.%S'`
+tee /srv/web/00readme.txt <<EOF
+Purpose: for nginx served projects, and possibly other projects.
+This folder - /srv/web
+made by David Gleba
+echo $nowdg1
+.
+EOF
+
+
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 sudo pip install virtualenv
 
-virtualenv env217a
-source env217a/bin/activate
+virtualenv flask217env
+source flask217env/bin/activate
 pip install uwsgi flask
 
 
-# create app hello217a
-tee /srv/nginx/flask217a/hello217a.py <<EOF
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# create app flask217
+tee /srv/web/flask217/flask217.py <<EOF
 from flask import Flask
 application = Flask(__name__)
 @application.route("/")
 def hello():
-    return "<h1 style='color:blue'>Hello There!</h1>"
+    return "<h1 style='color:blue'>Hello There! flask217-2</h1>"
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
 EOF
 
-python hello217a.py
+#  python flask217.py
 
 #visit localhost:5000
 
-#create hello217a.wsgi
-tee /srv/nginx/flask217a/hello217a.wsgi <<EOF
-from hello217a import application
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#create flask217.wsgi
+tee /srv/web/flask217/flask217.wsgi <<EOF
+from flask217 import application
 if __name__ == "__main__":
     application.run()
 EOF
 
 #test uwsgi...
-uwsgi --socket 0.0.0.0:8000 --protocol=http -w hello217a
+#  uwsgi --socket 0.0.0.0:8000 --protocol=http -w flask217
 
 #visit localhost:8000 and use localip:8000 from another pc on the local network..
 
-deactivate.
+deactivate
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #create uwsgi ini file..
-tee /srv/nginx/flask217a/hello217a.ini <<EOF
+tee /srv/web/flask217/flask217.ini <<EOF
 [uwsgi]
-module = hello217a
+module = flask217
 master = true
 processes = 5
-socket = hello217a.sock
+socket = flask217.sock
 chmod-socket = 660
 vacuum = true
 die-on-term = true
 EOF
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudo tee /etc/init/flask217.conf <<EOF
+#
+description "uWSGI server instance configured to serve myproject"
+#
+start on runlevel [2345]
+stop on runlevel [!2345]
+#
+setuid albe
+setgid www-data
+#
+env PATH=/srv/web/flask217/flask217env/bin
+chdir /srv/web/flask217
+exec uwsgi --ini flask217.ini
+#
+EOF
 
+sudo start flask217
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudo tee /etc/nginx/sites-available/flask217 <<EOF
+#
+server {
+    listen 951;
+    server_name v206b1;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/srv/web/flask217/flask217.sock;
+    }
+}
+#
+EOF
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudo ln -s /etc/nginx/sites-available/flask217 /etc/nginx/sites-enabled
+
+
+# oops.. cleaning up mistakes...
+#sudo rm /etc/nginx/sites-available/flask217.conf
+#sudo rm /etc/nginx/sites-enabled/myproject
+sudo rm /etc/nginx/sites-available/hello217
+sudo rm /etc/init/hello217.conf
+
+
+sudo service flask217 restart
+sudo service nginx restart
 
 #
 date
