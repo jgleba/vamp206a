@@ -6,6 +6,23 @@ function Purpose() {
 
 #  Purpose:   nginx postgres gnuicorn etc..
 
+
+
+
+
+
+
+    this one uses different names:  env217 hello217a
+
+
+
+
+
+
+
+
+
+
 # no.. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
 
 https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04

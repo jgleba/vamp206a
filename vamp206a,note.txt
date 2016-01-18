@@ -1,6 +1,30 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2016-01-18[Jan-Mon]08-29AM
+
+
+http://stackoverflow.com/questions/525672/is-there-a-way-to-start-restart-stop-apache-server-on-linux-as-non-root-user
+
+If you have sudo installed you can create a file: /etc/suduers.d/apache2reload with the following content:
+username    ALL=NOPASSWD:/usr/bin/service apache2 reload
+
+sudo tee /etc/sudoers.d/apache2reload <<EOF
+username    ALL=NOPASSWD:/usr/bin/service apache2 reload
+EOF
+
+_____________
+
+
+not...
+use visudo to edit...
+http://serverfault.com/questions/69847/linux-how-to-give-a-user-permission-to-restart-apache
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2016-01-16[Jan-Sat]15-55PM
 
 mkdir -p /var/www/html/python/
@@ -98,6 +122,8 @@ prep for new server
 
 putty
 ide or software to grep search vamp206b project files on local disk
+
+10.4.1.224 pmdsdata3
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

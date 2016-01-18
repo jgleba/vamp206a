@@ -8,6 +8,7 @@ also see https://github.com/dgleba/vamp203
 
 - Create Unattended Ubuntu Iso.
 - Create virtualbox machine and install iso.
+- after the vm is started, login to it. 
 - run 11get.sh to get the latest code.
 - edit your settings - like passwords.
 - run 24start.sh to setup the web server and settings.
@@ -28,7 +29,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - create the virtual box  ( I did this from windows)  
   `07createvbox.bat`  
    This will also do an unattended install of the resulting Ubuntu 14.04 64bit server iso in vbox.    
-- after the vbox ubuntu server boots, log in, run   
+- after the vbox ubuntu server boots, log in with user albe password a , run   
 	`sudo ./11get.sh`   
    note: if black screen after it boots up after installing...  press ctrl-alt-f1 to get login prompt 
 - copy shc/21env-example.sh to 21env.sh and edit to agree with your settings.  
@@ -47,6 +48,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 	Ask me for a sample website and data. 
 - I put an edited 21env.sh in 	`C:\var\varvamp\files\vne.sh` It was used rather than the one in the repo.
 - I ran `vboxmanage list bridgedifs`  to get a list of adapter names to use in  `--bridgeadapter1 `  --  see `09createvbox.bat`.  
+- Starting around line 90 in 17docs.sh edit the ip address which is now 192.168.88.94 to your local windows host ip address. This is where it will get the data from by ftp using slimftp.
 
 
 

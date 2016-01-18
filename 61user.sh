@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 
-# add www group and a user
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#  notes:
+
+# use nuser.sh to add a user...
+
+
+
+# yes: use www-data group, don't:  add www group and a user
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 cd
 set -x
@@ -34,7 +46,7 @@ echo "dgleba:$pw1" | sudo chpasswd
 # no home dir... sudo useradd dgleba
 #sudo passwd dgleba
 sudo usermod -a -G adm,dialout,plugdev,sambashare,www-data dgleba
-sudo usermod -a -G sudo  dgleba
+#sudo usermod -a -G sudo  dgleba
 
 #sudo smbpasswd -a dgleba
 (echo $pw1; echo $pw1) | sudo smbpasswd -s -a dgleba
@@ -72,6 +84,12 @@ sudo chmod 755 -R /home/ftpup/upload
 # http://stackoverflow.com/questions/9591744/add-to-the-end-of-a-line-containing-a-pattern-with-sed-or-awk
 # https://www.samba.org/samba/docs/using_samba/ch09.html
 
+
+# allow users to reload apache without root access...
+#       service apache2 reload
+sudo tee /etc/sudoers.d/apache2reload <<EOF
+username    ALL=NOPASSWD:/usr/bin/service apache2 reload
+EOF
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -142,6 +160,25 @@ Under Windows Credentials:
 maybe...
 delete the credential for the computer with the smb share...
 logout and log back in?
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# remove user from a group
+#       sudo gpasswd -d username group
+sudo gpasswd -d dgleba sudo
+sudo gpasswd -d dclark sudo
+sudo gpasswd -d cstrutton sudo
+
+# list sudoers..
+grep -Po '^sudo.+:\K.*$' /etc/group
+
+
+noworky... usermod -R "group" "user name"
+    usermod -R sudo dgleba
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 END
