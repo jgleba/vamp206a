@@ -184,6 +184,26 @@ sudo rm /etc/init/hello217.conf
 sudo service flask217 restart
 sudo service nginx restart
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# backup folder
+sudo mkdir -p /home/file
+#
+sudo chgrp -hR www-data /home/file # change group to www-data ( apache group. apache already was installed.)
+sudo chown -R root /home/file 
+sudo chmod -R g+rw  /home/file # writable for group
+sudo chmod -R o-rw /home/file # not viewable for others..
+# make only folders +x so they can be cd into.
+sudo find /home/file -type d -exec chmod g+x {} +
+#
+cd /home/file
+mkdir -p /home/file/backup
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# hmm errors.. 7z a -y -t7z  "/home/file/backup/flask217.$(date +"%Y.%m.%d_%k.%M").$HOSTNAME.7z" /srv/web/flask217 -xr!flask217env
+tar -cvzf /home/file/backup/flask217.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
+
+
 #
 date
 #
