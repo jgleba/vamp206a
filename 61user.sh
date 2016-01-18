@@ -110,8 +110,9 @@ id $userv
 #
 # list  all  users
 #To get a list of all users you type (as users are listed in /etc/passwd)
-#  getent passwd
-#    cut -d: -f1 /etc/passwd
+#   getent passwd
+#or
+#   cut -d: -f1 /etc/passwd
 
 
 offline()
