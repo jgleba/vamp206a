@@ -29,7 +29,7 @@ mkdir -p /var/www/html/python/
 cd       /var/www/html/python/
 
 git clone https://github.com/flask-admin/flask-admin.git flask213e
-cd flask213e
+cd /var/www/html/python/flask213e
 
 sudo pip install -r 'examples/sqla/requirements.txt'
 

@@ -13,7 +13,11 @@ set -vx
 
 cd /var/www/html/django/trakberry
 git pull origin master
-sudo service apache2 reload
+service apache2 reload
+
+#http://stackoverflow.com/questions/15166722/use-own-username-password-with-git-and-bitbucket
+#dclark@pmdsdata3:/var/www/html/django/trakberry$ git remote -v
+#origin  https://dgleba@bitbucket.org/dgleba/trakberry.git (fetch)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
