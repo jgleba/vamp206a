@@ -84,6 +84,12 @@ listen 8987
 </VirtualHost>
 #
 ############
+#
+<VirtualHost *:80>
+    ServerName dj162.$HOSTNAME
+    redirect / $HOSTNAME:8988/dj162
+</VirtualHost>
+#
 #  http://pmdsdata.stackpole.ca:8988/dj162/admin/
 #  http://vamp206b:8988/dj162/admin/
 listen 8988

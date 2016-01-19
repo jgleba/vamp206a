@@ -40,7 +40,7 @@ cat /etc/hostname
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
 sudo sed -i "/$orig_hostname/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/hosts
 #Use double quotes to make the shell expand variables while keeping whitespace:
-sudo sed -i "s/.*$orig_hostname.*/127.0.1.1 $default_hostname.$default_domain $default_hostname/g" /etc/hosts
+sudo sed -i "s/.*$orig_hostname.*/127.0.0.1 $default_hostname.$default_domain $default_hostname/g" /etc/hosts
 cat /etc/hosts
 
 
