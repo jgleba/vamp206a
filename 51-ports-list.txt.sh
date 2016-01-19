@@ -3,12 +3,13 @@
 ports:
 
 see... 
+ports are defined in these files 
 
-51dg.sh
-52vhost
-52vhost3
+51dg.sh      :8985..
+52vhost      :916
+52vhost3     :917
 
-214nginx.sh
+214nginx.sh  :951
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

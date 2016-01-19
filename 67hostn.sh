@@ -44,6 +44,10 @@ sudo sed -i "s/.*$orig_hostname.*/127.0.0.1 $default_hostname.$default_domain $d
 cat /etc/hosts
 
 
+# why does initial ubuntu  hosts file have "127.0.1.1 ubuntu"  ?
+# note the 1.1
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
