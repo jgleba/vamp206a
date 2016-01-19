@@ -92,7 +92,7 @@ class Tree(db.Model):
 # Flask views
 @app.route('/')
 def index():
-    return '<a href="/admin/">Click me to get to Admin!</a>'
+    return '<a href="/sqla/admin/">Click me to get to Admin!</a>'
 
 
 # Customized User model admin
