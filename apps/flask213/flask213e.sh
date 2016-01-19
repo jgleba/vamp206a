@@ -48,6 +48,7 @@ mv /var/www/html/python/flask213e/examples/sqla/app.py /var/www/html/python/flas
 #
 cat <<EOF > /var/www/html/python/flask213e/examples/sqla/.htaccess
 #
+# I could not get this to work...
 # redirect to 918 if "flask213e" is matched
 RewriteEngine on
 Options +FollowSymLinks

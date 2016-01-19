@@ -52,9 +52,9 @@ listen 917
 ############
 #
 # http://10.4.11.19:918
-# http://l10.4.10.141:918/flask213e
-# http://192.168.88.58:918/flask213e
-# http://localhost:918/flask213e
+# http://l10.4.10.141:918/
+# http://192.168.88.58:918/
+# http://localhost:918/
 listen 918
 <VirtualHost *:918>
     #AllowOverride All
@@ -82,16 +82,53 @@ listen 918
      </Directory>
 </VirtualHost>
 ############
+############
+#
+# http://10.4.11.19:919/sqla
+# http://l10.4.10.141:919/sqla
+# http://192.168.88.58:919/sqla
+# http://localhost:919/sqla
+listen 918
+<VirtualHost *:919>
+    #AllowOverride All
+    DocumentRoot /var/www/html/python/flask213e/examples
+    ServerName 127.0.0.1
+    #
+    WSGIDaemonProcess app1 user=albe group=www-data processes=1 threads=5 python-path=/var/www/html/python/flask213e/examples/sqla
+    #
+    #copy app1 to app3, edit edit route to include /sqla
+    #     return '<a href="/sqla/admin/">Click me to get to Admin!</a>'
+    #
+    WSGIProcessGroup app3
+    WSGIApplicationGroup %{GLOBAL}
+    #
+    WSGIScriptAlias /sqla /var/www/html/python/apache/flask213e.wsgi
+    #
+    #allow access to wsgi file...
+    <Directory /var/www/html/python/apache>
+       Order deny,allow
+       Allow from all
+     </Directory>
+     # deny directory listing of this folder... http://localhost:919
+    <Directory /var/www/html/python/flask213e>
+       Order deny,allow
+       Deny from all
+     </Directory>
+    <Directory /var/www/html/python/flask213e/examples/sqla>
+       AllowOverride All
+     </Directory>
+</VirtualHost>
+############
 #
 ############
 #
-# http://10.4.11.19:919
-# http://l10.4.10.141:919
-# http://192.168.88.58:919
-# http://v206b1:919/
-# http://localhost:919
+# http://10.4.11.19:920
+# http://l10.4.10.141:920
+# http://192.168.88.58:920
+# http://v206b1:920/
+# http://localhost:920
 listen 919
-<VirtualHost *:919>
+<VirtualHost *:920>
     #AllowOverride All
     DocumentRoot /var/www/html/python/cif207
     ServerName 127.0.0.1
@@ -107,7 +144,7 @@ listen 919
        Order deny,allow
        Allow from all
      </Directory>
-     # deny directory listing of this folder... http://localhost:919
+     # deny directory listing of this folder... http://localhost:920
     <Directory /var/www/html/python/cif207>
        AllowOverride All
        Order deny,allow

@@ -1,4 +1,6 @@
 
+do I need allowoverride all?
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
@@ -49,3 +51,70 @@ try:
 
 _____________
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-19[Jan-Tue]15-55PM
+no error, no worky...
+
+<VirtualHost *:80>
+    ServerName fa.v206b1.local
+    redirect / v206b1.local:918
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName stp.v206b1.local
+    redirect /  stp.v206b1.local:80/test2/strap179
+</VirtualHost>
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-19[Jan-Tue]15-56PM
+
+###########
+#   port with path...   this way you can see the port and /sqla in the path to give a hint what app it is..
+#    http://localhost:918/sqla
+listen 918
+<VirtualHost *:918>
+    #AllowOverride All
+    DocumentRoot /var/www/html/python/flask213e/examples    <*note*
+    ServerName 127.0.0.1
+    #
+    WSGIDaemonProcess app1 user=albe group=www-data processes=1 threads=5 python-path=/var/www/html/python/flask213e/examples/sqla
+    WSGIProcessGroup app1
+    WSGIApplicationGroup %{GLOBAL}
+    #
+    WSGIScriptAlias /sqla   <*note*  /var/www/html/python/apache/flask213e.wsgi
+    #
+    #allow access to wsgi file...
+    <Directory /var/www/html/python/apache>
+       Order deny,allow
+       Allow from all
+     </Directory>
+     # deny directory listing of this folder... http://localhost:918
+    <Directory /var/www/html/python/flask213e>
+       Order deny,allow
+       Deny from all
+     </Directory>
+    <Directory /var/www/html/python/flask213e/examples/sqla>
+       AllowOverride All
+     </Directory>
+</VirtualHost>
+############
+
+
+
+# edit app1.py...
+# Flask views
+@app.route('/')
+def index():
+                    |*note* below sqla|
+    return '<a href="/sqla/admin/">Click me to get to Admin!</a>'
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
