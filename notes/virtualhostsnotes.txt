@@ -1,5 +1,23 @@
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-19[Jan-Tue]18-51PM
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 do I need allowoverride all?
+
+
+in 000-default.conf..
+	DocumentRoot /var/www/html
+	# david gleba add...
+ 	   <Directory /var/www/html>
+ 	      AllowOverride All
+ 	    </Directory>
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
