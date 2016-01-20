@@ -118,7 +118,7 @@ mkdir c:\var\share203
 cd \temp
 mkdir "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\"
 
-%vboxm% createhd --filename "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vdi" --size 39240 --format VDI
+%vboxm% createhd --filename "C:\Users\%USERNAME%\VirtualBox VMs\%vmname%\%vmname%.vdi" --size 43240 --format VDI
 
 %vboxm%  storagectl %vmname% --name storage --add sata  --controller IntelAHCI 
 :# %vboxm%  storagectl %vmname% --name storage --add sata --controller IntelAHCI --portcount 4 --hostiocache off

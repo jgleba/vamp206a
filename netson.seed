@@ -23,7 +23,7 @@ d-i debconf/language                                        string      en_US:en
 
 # network settings
 d-i netcfg/choose_interface                                 select      auto
-d-i netcfg/dhcp_timeout                                     string      25
+d-i netcfg/dhcp_timeout                                     string      35
 d-i netcfg/get_hostname                                     string      {{hostname}}
 d-i netcfg/get_domain                                       string      {{hostname}}
 
@@ -90,8 +90,8 @@ d-i partman-partitioning/confirm_write_new_label            boolean     true
 
 d-i grub-installer/only_debian                              boolean     true
 d-i grub-installer/with_other_os                            boolean     true
-# Wait for x seconds in grub
-d-i	grub-installer/timeout                                  string      6
+# Wait for x seconds in grub, then start...
+d-i	grub-installer/timeout                              string      20
 
 # finish installation
 
