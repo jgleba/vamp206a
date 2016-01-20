@@ -3,6 +3,17 @@
 echo starting 17docs.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#get webroot code 
+
+# set method as either ftp or bitbucket...
+#dgmethod="bitbucket"
+dgmethod="ftp"
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # check out ansible http://www.ansible.com/ it automation - devops  - infrastructure-as-code
 # https://en.wikipedia.org/wiki/Idempotence
@@ -14,6 +25,7 @@ echo starting 17docs.sh
 # problem.. vagrant ftp has old version of file. have to 'vagrant reload' to get new version. 2015-10-22_Thu_12.14-PM
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 function nowebfiles() 
 {
@@ -37,8 +49,6 @@ set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
-
 set -x
 cd
 source shc/21env.sh
@@ -59,16 +69,6 @@ sudo mkdir -p /var/www/tempfilesdg
 sudo chmod -R 777 /var/www/tempfilesdg
 
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#get webroot code 
-
-# set method as either ftp or bitbucket...
-#dgmethod="bitbucket"
-dgmethod="ftp"
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  
 
