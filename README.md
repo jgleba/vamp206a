@@ -14,6 +14,11 @@ also see https://github.com/dgleba/vamp203
 - run 24start.sh to setup the web server and settings.
 - visit a web page on the finished server.
 
+## Caution
+
+The unattended iso has a timeout of about 20 seconds on boot, then it goes ahead and wipes the entire disk and installs itself with no warning or quesitons!
+It is unattended! You have been warned!
+
 
 ## Usage - This is how I used it.
 
