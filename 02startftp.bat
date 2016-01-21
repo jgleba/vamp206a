@@ -35,6 +35,7 @@ cd c:\p2\slimftpd
 :http://stackoverflow.com/questions/17546016/how-can-you-zip-or-unzip-from-the-command-prompt-using-only-windows-built-in-ca
 : not sure that this is....  expand C:\n\Dropbox\csd\serve\vboxyard\vamp206a\SlimFTPd.zip c:\p2\slimftpd\
 powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('C:\n\Dropbox\csd\serve\vboxyard\vamp206a\SlimFTPd.zip', 'c:\p2\slimftpd\'); }"
+: I had no luck with powershell, so I am using 7z...
 C:\n\Dropbox\csd\p2\7-Zip\7z.exe e -y -oc:\p2\slimftpd C:\n\Dropbox\csd\serve\vboxyard\vamp206a\SlimFTPd.zip 
 
 start c:\p2\slimftpd\slimftpd.exe
