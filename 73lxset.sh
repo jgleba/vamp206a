@@ -12,6 +12,13 @@ source shc/21env.sh
 
 # backup user home dir ...
 sudo tar -cvzf backup/$userv-home.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /home/$userv/ --exclude={tmp01,backup,Trash/files,backup/*.tgz} 
+# create lxde settings file...
+sudo tar -cvzf backup/$userv-lxdeset2.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /home/$userv/ --exclude={.dbus,Downloads,.local,Music,Pictures,Templates,.thumbnails,Videos,tmp,.gconf,Public,.vnc,.mozilla,shc,.cache,tmp01,backup,Trash/files,backup/*.tgz} 
+# this seems to take just the files in the home folder without any directories and then add folder like .config, bin, Desktop.
+#  http://unix.stackexchange.com/questions/24870/tar-files-only-no-directories
+cd
+find . -maxdepth 1 -type f -print0 | tar cvzf backup/lxdeset3albehome.$(date +"%Y.%m.%d_%k.%M.%S").tgz .config bin Desktop --exclude={15ran,11get.sh} --null -T -
+
 
 
 #to get it from ftp...

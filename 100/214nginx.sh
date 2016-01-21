@@ -140,6 +140,8 @@ die-on-term = true
 EOF
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# create upstart job...
+
 sudo tee /etc/init/flask217.conf <<EOF
 #
 description "uWSGI server instance configured to serve myproject"

@@ -88,7 +88,7 @@ listen 918
 # http://l10.4.10.141:919/sqla
 # http://192.168.88.58:919/sqla
 # http://localhost:919/sqla
-listen 918
+listen 919
 <VirtualHost *:919>
     #AllowOverride All
     DocumentRoot /var/www/html/python/flask213e/examples
@@ -127,7 +127,7 @@ listen 918
 # http://192.168.88.58:920
 # http://v206b1:920/
 # http://localhost:920
-listen 919
+listen 920
 <VirtualHost *:920>
     #AllowOverride All
     DocumentRoot /var/www/html/python/cif207
