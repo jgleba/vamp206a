@@ -13,18 +13,21 @@ Apache/2.4.7 (Ubuntu) Server at localhost Port 8988
 
 
 
-
 ans.
 
 in apache log..
   raise RuntimeError("populate() isn't reentrant")
 
-did a manage.py db migrate
+did a ...
+python manage.py makemigrations
+python manage.py migrate
     it said the following app was missing.
 
-check that all apps are installed.
-
 I was missing django-admin-generator
+
+
+bottomline:
+check that all apps are installed.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

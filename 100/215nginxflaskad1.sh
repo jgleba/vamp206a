@@ -23,6 +23,27 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 #main: 
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-20[Jan-Wed]22-32PM
+
+
+sub flaskadmin auth example in...
+
+copy auth files in place..
+
+cd /srv/web/flask217
+#virtualenv flask217env
+source flask217env/bin/activate
+sudo pip install -r 'requirements.txt'
+deactivate
+sudo service flask217 restart
+sudo service nginx restart
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # sudo apt-get update
 sudo apt-get install python-pip python-dev nginx
 
@@ -111,12 +132,17 @@ EOF
 
 #visit localhost:5000
 
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #create flask217.wsgi
 tee /srv/web/flask217/flask217.wsgi <<EOF
-from flask217 import application
-if __name__ == "__main__":
-    application.run()
+#from flask217 import application
+#if __name__ == "__main__":
+#    application.run()
+#
+from flask217 import app as application
+#if __name__ == "__main__":
+application.run()
 EOF
 
 #test uwsgi...
@@ -164,8 +190,9 @@ sudo tee /etc/nginx/sites-available/flask217 <<EOF
 #
 server {
     listen 951;
-    #   can this be localhost??????????????...
-    server_name v206b1;
+    #worked.. server_name v206b1;
+    #server_name 127.0.0.1;
+    server_name v206b2;
 
     location / {
         include uwsgi_params;

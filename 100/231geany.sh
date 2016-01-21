@@ -1,31 +1,22 @@
 #!/usr/bin/env bash
-cd
-# echo off
-set +vx
-# echo on
-set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#put code here...
-
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function offline()
-{
-exit 999
+function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-comment content
-ls
+#  Purpose:  
 
 END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
+#
+
+#  main...
+
+sudo apt-get -y install geany
 
 #
 date
 #
-
