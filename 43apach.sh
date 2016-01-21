@@ -48,6 +48,8 @@ python -c "import django; print(django.get_version())"
 
 
 sudo pip install django-admin-bootstrapped
+sudo pip install django-admin-generator
+
 # got error - use apt-get instead.......  sudo pip install mysql-python
 sudo apt-get  -y install python-mysqldb
 

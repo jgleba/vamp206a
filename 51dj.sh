@@ -15,6 +15,7 @@ sudo tee /etc/apache2/sites-available/djangolin1.conf <<EOF
 # works on vagrant ubuntu vm 2015-09-28_Mon_23.25-PM 
 # http://192.168.3.7:8985/django161c/admin/
 # http://pmdsdata:8985/django161c/admin/
+# http://localhost:8985/django161c/admin/
 listen 8985
 <VirtualHost *:8985>
     DocumentRoot /var/www/html/django/django161c
@@ -92,6 +93,7 @@ listen 8987
 #
 #  http://pmdsdata.stackpole.ca:8988/dj162/admin/
 #  http://vamp206b:8988/dj162/admin/
+#  http://localhost:8988/dj162/admin/
 listen 8988
 <VirtualHost *:8988>
     DocumentRoot /var/www/html/django/dj162
@@ -108,26 +110,9 @@ listen 8988
 #
 #
 ############
-#  http://pmdsdata.stackpole.ca:8989/cilistsite/admin/
-#  http://vamp206b:8989/cilistsite/admin/
-listen 8989
-<VirtualHost *:8989>
-    DocumentRoot /var/www/html/django/cilistsite
-    ServerName 127.0.0.1
-    # removed cilistsite from alias so that static will be common to all sites in /var/www/html/django folder..
-    Alias /static/ /var/www/html/django/static/
-    WSGIDaemonProcess cilistsite processes=1 threads=5 display-name=%{GROUP}
-    WSGIProcessGroup cilistsite
-    WSGIScriptAlias /cilistsite /var/www/html/django/apache/cilistsite.wsgi 
-    <Directory /var/www/html/django/apache>
-        Order deny,allow
-        Allow from all
-    </Directory>
-</VirtualHost>
-#
-############
 #  http://pmdsdata.stackpole.ca:8990/ci-site/admin/
 #  http://vamp206b:8990/ci-site/admin/
+#  http://localhost:8990/ci-site/admin/
 listen 8990
 <VirtualHost *:8990>
     DocumentRoot /var/www/html/django/ci-site
