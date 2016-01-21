@@ -11,6 +11,11 @@ ide or software to grep search vamp206b project files on local disk
 
 service apache2 reload
 
+C:\var\varvamp\files\ubuntu-14.04.3-server-amd64-unattended.iso
+C:\var\varvamp\files\htdocs.PMDS-DATA.latest.7z
+
+geany
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

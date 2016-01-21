@@ -11,7 +11,16 @@ Please contact the server administrator at [no address given] to inform them of 
 More information about this error may be available in the server error log.
 Apache/2.4.7 (Ubuntu) Server at localhost Port 8988
 
+
+
+
 ans.
+
+in apache log..
+  raise RuntimeError("populate() isn't reentrant")
+
+did a manage.py db migrate
+    it said the following app was missing.
 
 check that all apps are installed.
 
