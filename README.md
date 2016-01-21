@@ -54,7 +54,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 	Ask me for a sample website and data. 
 - I put an edited 21env.sh in 	`C:\var\varvamp\files\vne.sh` It was used rather than the one in the repo.
 - I ran `vboxmanage list bridgedifs`  to get a list of adapter names to use in  `--bridgeadapter1 `  --  see `09createvbox.bat`.  
-- I used 02startftp.bat to start an ftp server on a windows machine to serve up the web code, some settings, etc... Sorry, it has hardcoded paths in it. You can use them or edit the file to suit your system.
+- I used 02startftp.bat to start an ftp server on a windows machine to serve up the web code, some settings, etc... Sorry, it has hardcoded paths in it. You can use those paths as is, edit the file to suit your system or just manually do what the script does yourself.
 - Starting around line 90 in 17docs.sh edit the ip address which is now 192.168.88.94 to your local windows host ip address. This is where it will get the data from by ftp using slimftp.
 
 
