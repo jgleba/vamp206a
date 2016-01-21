@@ -29,9 +29,9 @@ Title:  .
 -----------------------2016-01-20[Jan-Wed]22-32PM
 
 
-sub flaskadmin auth example in...
+substitute flaskadmin auth example in for hellothere...
 
-copy auth files in place..
+copy flask-admin auth example files in place..
 
 cd /srv/web/flask217
 #virtualenv flask217env
