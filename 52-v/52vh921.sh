@@ -20,7 +20,7 @@ sudo tee /etc/apache2/sites-available/vhost921.conf <<EOF
 #
 # http://10.4.11.19:921/sqla
 # http://l10.4.10.141:921/sqla
-# http://192.168.88.58:921/sqla
+# http://192.168.88.65:921
 # http://localhost:921/
 listen 921
 <VirtualHost *:921>

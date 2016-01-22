@@ -27,7 +27,7 @@ set -vx
 sudo apt-get -y install deluge
 # comment..
 # scheduler: you have to cleck each square respresenting an hour. it is positive and solid. You have to change the scheduled speed to change it. again it is positive not loosy goosey.
-
+# to start..  deluge-gtk 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

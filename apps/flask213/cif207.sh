@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#Purpose:  flask cif216 ci listing app in flask
+#Purpose:  flask cif216 ci listing app in flask, start with flaskadmin auth example
 hmm, i called it cif207.
 
 http://v206b1:920/admin/#
