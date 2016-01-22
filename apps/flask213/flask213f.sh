@@ -6,6 +6,8 @@ function Purpose() {
 
 #Purpose:  flask admin examples sqla - test the apache deployment.
 
+flask213f port 921
+
 ref:
 https://github.com/petrus-jvrensburg/flask-admin-examples
 http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi

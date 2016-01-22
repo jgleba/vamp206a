@@ -94,12 +94,13 @@ listen 919
     DocumentRoot /var/www/html/python/flask213e/examples
     ServerName 127.0.0.1
     #
-    WSGIDaemonProcess app1 user=albe group=www-data processes=1 threads=5 python-path=/var/www/html/python/flask213e/examples/sqla
+    # the name like app3 below cannot be duplicated..
+    WSGIDaemonProcess app3 user=albe group=www-data processes=1 threads=5 python-path=/var/www/html/python/flask213e/examples/sqla
     #
     #copy app1 to app3, edit edit route to include /sqla
     #     return '<a href="/sqla/admin/">Click me to get to Admin!</a>'
     #
-    WSGIProcessGroup appsqla
+    WSGIProcessGroup app3
     WSGIApplicationGroup %{GLOBAL}
     #
     WSGIScriptAlias /sqla /var/www/html/python/apache/flask213e.wsgi
