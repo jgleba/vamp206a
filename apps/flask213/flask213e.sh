@@ -37,6 +37,18 @@ sudo pip install -r 'examples/sqla/requirements.txt'
 #file "/var/www/html/python/apache/flask213e.wsgi", line 5, in <module> [:error] [pid 6602] from app import app as application [:error] ImportError: No module named app
 mv /var/www/html/python/flask213e/examples/sqla/app.py /var/www/html/python/flask213e/examples/sqla/app1.py
 
+
+# edit route in app so url localhost:919/sqla will work...
+
+# remove line containing  '?????'  and replace the line completely with the new text...
+nowdg1=`date +'__%Y-%m-%d_%a_%H.%M.%S-%Z'`
+sudo sed -i "/.*Click me to get to Admin.*/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /var/www/html/python/flask213e/examples/sqla/app1.py # add marker above the change.
+#Use double quotes to make the shell expand variables while keeping whitespace:
+#sudo sed -i "s/.*\/admin\/.*/    return \'\<a href=\"\/admin\/\"\>Click me to get to Admin!\<\/a\>\'/g" /var/www/html/python/flask213e/examples/sqla/app1.py
+
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 # htaccess
