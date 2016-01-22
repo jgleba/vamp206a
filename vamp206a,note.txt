@@ -62,27 +62,6 @@ geany
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  . nginx rewrite port 
-
------------------------2016-01-18[Jan-Mon]15-10PM
-
-http://serverfault.com/questions/709037/removing-port-from-nginx-redirect
-
-http://serverfault.com/questions/536576/nginx-how-do-i-forward-a-http-request-to-another-port
-
-
-nginx flask two apps one server
-
-https://gist.github.com/soheilhy/8b94347ff8336d971ad0
-
-nginx flask two apps one server redirect port
-http://stackoverflow.com/questions/23649444/redirect-subdomain-to-port-nginx-flask
-
-apache subdomain redirect to port
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
