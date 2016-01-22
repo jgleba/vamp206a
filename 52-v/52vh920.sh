@@ -25,14 +25,14 @@ sudo tee /etc/apache2/sites-available/vhost920.conf <<EOF
 listen 920
 <VirtualHost *:920>
     #AllowOverride All
-    DocumentRoot /var/www/html/python/
+    DocumentRoot /var/www/html/python/cif207
     ServerName 127.0.0.1
     #
     WSGIDaemonProcess cif207 user=albe group=www-data processes=1 threads=5 python-path=/var/www/html/python/cif207
     WSGIProcessGroup cif207
     WSGIApplicationGroup %{GLOBAL}
     #
-    WSGIScriptAlias /cif207 /var/www/html/python/apache/cif207.wsgi
+    WSGIScriptAlias / /var/www/html/python/apache/cif207.wsgi
     #
     #allow access to wsgi file...
     <Directory /var/www/html/python/apache>
