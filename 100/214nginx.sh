@@ -76,6 +76,8 @@ sudo chmod -R g+rw  /srv/web # writable for group
 sudo chmod -R o-rw /srv/web # not viewable for others..
 # make only folders +x so they can be cd into.
 sudo find /srv/web -type d -exec chmod g+x {} +
+#also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+sudo chmod -R g+rws  /srv/web 
 #
 cd /srv/web/flask217
 
