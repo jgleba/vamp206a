@@ -4,14 +4,19 @@ function Purpose() {
 # begin bloenvck comment =============================
 : <<'END'
 
-#  Purpose:   nginx postgres gnuicorn etc..
+#  Purpose:   nginx uwsgi hello there deployed at localhost:951 
 
+# for more nginx, see apps/flask217nginx...
+
+
+
+usage: 
 cd;sudo ls; sudo shc/100/214nginx.sh
 
 
 https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
 
-# no.. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
+# not.. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
 
 
 END
@@ -218,32 +223,37 @@ echo $(date +"%Y.%m.%d_%H.%M.%S")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# how to reload code changes?
 
-# https://github.com/mking/flask-uwsgi
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function morenotes() {
+# begin bloenvck comment =============================
+: <<'END'
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ how to reload code changes?
+
+ https://github.com/mking/flask-uwsgi
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+http://askubuntu.com/questions/134666/what-is-the-easiest-way-to-enable-php-on-nginx
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ uwsgi or gnuicorn multiple apps..
+
+http://michal.karzynski.pl/blog/2013/10/29/serving-multiple-django-applications-with-nginx-gunicorn-supervisor/
+https://tghw.com/blog/multiple-django-and-flask-sites-with-nginx-and-uwsgi-emperor
+https://jawher.me/2012/03/16/multiple-python-apps-with-nginx-uwsgi-emperor-upstart/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#http://askubuntu.com/questions/134666/what-is-the-easiest-way-to-enable-php-on-nginx
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# uwsgi or gnuicorn multiple apps..
-
-#http://michal.karzynski.pl/blog/2013/10/29/serving-multiple-django-applications-with-nginx-gunicorn-supervisor/
-#https://tghw.com/blog/multiple-django-and-flask-sites-with-nginx-and-uwsgi-emperor
-#https://jawher.me/2012/03/16/multiple-python-apps-with-nginx-uwsgi-emperor-upstart/
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+END
+# end block comment ===============================
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #
 date
