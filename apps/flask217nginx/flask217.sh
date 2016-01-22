@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function Purpose() {
-# begin bloenvck comment =============================
+# begin block comment =============================
 : <<'END'
 
-#  Purpose:   nginx postgres uwsgi etc..
+#  Purpose:   nginx  uwsgi  flask_admin auth example
 
 cd;sudo ls; sudo shc/100/215nginxflaskad1.sh
 
 
 https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
-
-# no.. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
+# not.. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
 
 
 END
@@ -29,7 +28,7 @@ Title:  .
 -----------------------2016-01-20[Jan-Wed]22-32PM
 
 
-substitute flaskadmin auth example in for hellothere...
+substitute flask admin auth example in for hellothere from 214nginx.sh...
 
 copy flask-admin auth example files in place..
 
@@ -232,40 +231,8 @@ cd /home/file
 mkdir -p /home/file/backup
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# hmm errors.. 7z a -y -t7z  "/home/file/backup/flask217.$(date +"%Y.%m.%d_%H.%M").$HOSTNAME.7z" /srv/web/flask217 -xr!flask217env
-tar -cvzf /home/file/backup/flask217.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
-#tar -cvzf /home/file/backup/flask217.$(date +"%Y.%m.%d_%s").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
-sudo chown albe /home/albe/backup
-#tar -cvzf /home/albe/backup/flask217.$(date +"%Y.%m.%d_%s").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
-tar -cvzf /home/albe/backup/flask217.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask217/ --exclude={flask217env,backup,Trash/files,*.tgz} 
-echo $(date +"%Y.%m.%d_%H.%M.%S")
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# how to reload code changes?
-
-# https://github.com/mking/flask-uwsgi
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#http://askubuntu.com/questions/134666/what-is-the-easiest-way-to-enable-php-on-nginx
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# uwsgi or gnuicorn multiple apps..
-
-#http://michal.karzynski.pl/blog/2013/10/29/serving-multiple-django-applications-with-nginx-gunicorn-supervisor/
-#https://tghw.com/blog/multiple-django-and-flask-sites-with-nginx-and-uwsgi-emperor
-#https://jawher.me/2012/03/16/multiple-python-apps-with-nginx-uwsgi-emperor-upstart/
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
