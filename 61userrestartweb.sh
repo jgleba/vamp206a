@@ -8,7 +8,10 @@ Title:  .
 
 # note:
 
-# apache doesn't need sudo to reload. 2016-01-18_Mon_13.43-PM
+sudo initctl stop flask217; sudo initctl start flask217
+
+sudo service apache2 reload
+
 
 # i don't think nginx needs to reload, it is flask217 uwsgi upstart service that needs to restart.
 
