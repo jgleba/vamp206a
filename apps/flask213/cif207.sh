@@ -5,8 +5,9 @@ function Purpose() {
 : <<'END'
 
 #Purpose:  flask cif216 ci listing app in flask
+hmm, i called it cif207.
 
-http://v206b1:919/admin/#
+http://v206b1:920/admin/#
 
 shc/apps/flask213/cif207.sh
 
@@ -41,7 +42,7 @@ sudo pip install -r 'requirements.txt'
 #
 cat <<EOF > /var/www/html/python/cif207/.htaccess
 #
-# redirect to 919 if "cif207" is matched
+# redirect to 920 if "cif207" is matched
 RewriteEngine on
 Options +FollowSymLinks
 #RewriteBase /
@@ -65,7 +66,7 @@ from cif207 import app as application
 EOF
 
 # virtual host config for apache is here... run it ...
-source ~/shc/52vhost3.sh
+source ~/shc/52-v/52vh920.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

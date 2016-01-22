@@ -6,6 +6,9 @@ function Purpose() {
 
 #Purpose:  flask admin examples sqla - test the apache deployment.
 
+url is localhost:919/sqla  <- both port and folder so it is self documenting. you know the port and what app it is.
+
+
 ref:
 https://github.com/petrus-jvrensburg/flask-admin-examples
 http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi
@@ -42,9 +45,12 @@ mv /var/www/html/python/flask213e/examples/sqla/app.py /var/www/html/python/flas
 
 # remove line containing  '?????'  and replace the line completely with the new text...
 nowdg1=`date +'__%Y-%m-%d_%a_%H.%M.%S-%Z'`
+# add marker above this line...
 sudo sed -i "/.*Click me to get to Admin.*/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /var/www/html/python/flask213e/examples/sqla/app1.py # add marker above the change.
 #Use double quotes to make the shell expand variables while keeping whitespace:
 #sudo sed -i "s/.*\/admin\/.*/    return \'\<a href=\"\/admin\/\"\>Click me to get to Admin!\<\/a\>\'/g" /var/www/html/python/flask213e/examples/sqla/app1.py
+#just replace the text found, not the whole line...
+sudo sed -i "s@\/admin\/@\/sqla\/admin\/@g"  /var/www/html/python/flask213e/examples/sqla/app1.py
 
 
 

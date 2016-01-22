@@ -1,6 +1,17 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2016-01-21[Jan-Thu]19-44PM
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2016-01-20[Jan-Wed]22-06PM
 
 Subject: Docker -- Do you have a  Docker -  Python(django or Flask or ?) SQL (mysql or postgres) (any server - nginx/apache/lighttpd/i-don’t-care) setup I can try?
