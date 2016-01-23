@@ -1,39 +1,41 @@
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  .
------------------------2016-01-18[Jan-Mon]14-04PM
-
+#!/usr/bin/env bash
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function Purpose() {
+# begin block comment =============================
+: <<'END'
+
+#  Purpose:  
 
 # allow users to reload apache without root access...
 
 # note:
 
-sudo initctl stop flask217; sudo initctl start flask217
-
 sudo service apache2 reload
 
+sudo initctl stop flask217; sudo initctl start flask217
 
 # i don't think nginx needs to reload, it is flask217 uwsgi upstart service that needs to restart.
 
+
+END
+# end block comment ===============================
+}
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
+#
+
+# Main: put code here...
 
 
-#    service apache2 reload   service nginx reload
-# not sure this is the way to go...
-# http://stackoverflow.com/questions/525672/is-there-a-way-to-start-restart-stop-apache-server-on-linux-as-non-root-user
-# http://www.softpanorama.org/Access_control/Sudo/sudoer_file_examples.shtml
-
-
-
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # todo
 # better.. create the file in /tmp/dg/websreload , sudo chmod 0440 websreload , copy it into /etc/sudoers.d ...
 # http://www.peppertop.com/blog/?p=1015
 
 
-
-
-sudo tee /etc/sudoers.d/websreload <<EOF
+mkdir -p /tmp/dg
+sudo tee /tmp/websreload <<EOF
 # www-data group on all machines can run this command...
 %www-data   ALL= NOPASSWD:  /usr/bin/service apache2 reload, /usr/bin/service apache2 restart
 # nginx uwsgi
@@ -42,11 +44,40 @@ sudo tee /etc/sudoers.d/websreload <<EOF
 # use...  sudo initctl stop flask217; sudo initctl start flask217
 %www-data ALL= (root) NOPASSWD: /sbin/initctl stop flask217, /sbin/initctl start flask217
 EOF
+sudo chmod 0440 /tmp/dg/websreload
+sudo cp /tmp/dg/websreload /etc/sudoers.d/websreload
 cat /etc/sudoers.d/websreload
 
+#
+date
+#
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~n
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
+
+
+
+### notes....
+
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function notes() {
+# begin block comment =============================
+: <<'END'
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#    service apache2 reload   service nginx reload
+# not sure this is the way to go...
+# http://stackoverflow.com/questions/525672/is-there-a-way-to-start-restart-stop-apache-server-on-linux-as-non-root-user
+# http://www.softpanorama.org/Access_control/Sudo/sudoer_file_examples.shtml
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # clean up my junk...
 #sudo rm /etc/sudoers.d/apache2reload
@@ -67,15 +98,13 @@ sudo chmod ugo+x /usr/local/bin/webreload.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
 #
-sudo rm /etc/sudoers.d/webreload2
+#sudo rm /etc/sudoers.d/webreload2
 # http://stackoverflow.com/questions/3011067/restart-nginx-without-sudo
 #sudo tee /etc/sudoers.d/webreload2 <<EOF
 #error, why?  pmdsu $HOSTNAME ALL=NOPASSWD:/usr/local/bin/webreload.sh
 # ans. all is the hostname. remove $HOSTNAME.
 #EOF
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -104,9 +133,7 @@ sudo rm /etc/sudoers.d/webreload2
 # rm /etc/sudoers.d/webreload2
 # rm /etc/sudoers.d/websreload
 
-
 #  sudo rm /etc/sudoers.d/websreload
-
 
 # best practice to create sudoer.d file, it checks for errors before writing it..
 #
@@ -114,3 +141,7 @@ sudo rm /etc/sudoers.d/webreload2
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+END
+# end block comment ===============================
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
