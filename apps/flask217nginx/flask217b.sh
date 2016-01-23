@@ -18,19 +18,6 @@ https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications
 
 
 
-some notes...
-substitute flask admin auth example in for hellothere from 214nginx.sh...
-copy flask-admin auth example files in place..
-cd /srv/web/flask217b
-#virtualenv flask217benv
-source flask217benv/bin/activate
-sudo pip install -r 'requirements.txt'
-deactivate
-sudo service flask217b restart
-sudo service nginx restart
-
-
-
 END
 # end block comment ===============================
 }
@@ -248,6 +235,11 @@ localhost:952
 I got error 2016-01-23_Sat_11.48-AM
 
 error 502 bad gateway
+
+uwsgi nginx flask socket file not created
+
+
+http://stackoverflow.com/questions/33586013/flask-app-on-uwsgi-nginx-unix-socket-file-is-not-created-on-booting
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
