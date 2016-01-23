@@ -123,10 +123,10 @@ pip install -r 'requirements.txt'
 # create app flask217b
    
 cd /srv/web/flask217b
-cp app.py flask217b.py
+mv app.py flask217b.py
+rm app2.py
 
 # expose dev app on all ip's ...   application.run(host='0.0.0.0')
-
 
 # run in Dev..
 
