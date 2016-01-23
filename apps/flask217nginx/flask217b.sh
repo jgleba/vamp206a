@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:   nginx  uwsgi  flask_admin auth example
+#  Purpose:   nginx  uwsgi venv flask_admin auth example
 
 # caution:
     # this changes the default nginx port from 80 to 82.
@@ -124,6 +124,7 @@ sudo pip install virtualenv
 
 cd /srv/web/flask217b
 virtualenv flask217benv
+
 cd /srv/web/flask217b
 source flask217benv/bin/activate
 
@@ -148,14 +149,13 @@ cp app.py flask217b.py
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cd /srv/web/flask217b
+source flask217benv/bin/activate
+
 #create flask217b.wsgi
 tee /srv/web/flask217b/flask217b.wsgi <<EOF
-#from flask217b import application
-#if __name__ == "__main__":
-#    application.run()
 #
-from flask217b import app
-
+from flask217b import app as application
 if __name__ == "__main__":
     app.run()
 #
@@ -163,20 +163,20 @@ EOF
 
 #test uwsgi...
 cd /srv/web/flask217b
- uwsgi --socket 0.0.0.0:8000 --protocol=http -w ./flask217b
+ uwsgi --socket 0.0.0.0:8000 --protocol=http  -w flask217b --callable app
 
 #visit localhost:8000 and use localip:8000 from another pc on the local network..
 
-#error uwsgi ImportError: No module named flask217b
-#  ans. i was in the wrong folder.
-
-# error..
-# unable to load app 0 (mountpoint='') (callable not found or import error)
-
-ImportError: Import by filename is not supported.
-
-ImportError: Import by filename is not supported. unable to load app 0 (mountpoint='') (callable not found or import error)
-*** no app loaded. going in full dynamic mode ***
+#error:
+#unable to load app 0 (mountpoint='') (callable not found or import error)
+#*** no app loaded. going in full dynamic mode ***
+#*** uWSGI is running in multiple interpreter mode ***
+#spawned uWSGI worker 1 (and the only) (pid: 3917, cores: 1)
+#--- no python application found, check your startup logs for errors ---
+#ans.
+#http://stackoverflow.com/questions/12030809/flask-and-uwsgi-unable-to-load-app-0-mountpoint-callable-not-found-or-im
+#uwsgi --socket 127.0.0.1:6000 --file /path/to/folder/run.py --callable app -  
+#i added callable to the usgi call
 
 
 deactivate
@@ -204,7 +204,7 @@ description "uWSGI server instance configured to serve myproject"
 start on runlevel [2345]
 stop on runlevel [!2345]
 #
-setuid albe
+setuid www-data
 setgid www-data
 #
 env PATH=/srv/web/flask217b/flask217benv/bin
@@ -222,8 +222,8 @@ sudo tee /etc/nginx/sites-available/flask217b <<EOF
 server {
     listen 952;
     #worked.. server_name v206b1;
-    #server_name 127.0.0.1;
-    server_name v206b2;
+    server_name 127.0.0.1;
+    #server_name v206b2.local;
 
     location / {
         include uwsgi_params;
@@ -240,6 +240,15 @@ sudo ln -s /etc/nginx/sites-available/flask217b /etc/nginx/sites-enabled
 
 sudo service flask217b restart
 sudo service nginx restart
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+localhost:952
+
+I got error 2016-01-23_Sat_11.48-AM
+
+error 502 bad gateway
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
