@@ -4,7 +4,7 @@ function Purpose() {
 # begin bloenvck comment =============================
 : <<'END'
 
-#  Purpose:   nginx uwsgi hello there deployed at localhost:951 
+#  Purpose:   nginx uwsgi hello there flask deployed at localhost:951 
 
 # for more nginx, see apps/flask217nginx...
 
