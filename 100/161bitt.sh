@@ -27,7 +27,7 @@ set -vx
 sudo apt-get -y install deluge
 # comment..
 # scheduler: you have to cleck each square respresenting an hour. it is positive and solid. You have to change the scheduled speed to change it. again it is positive not loosy goosey.
-# to start..  deluge-gtk 
+# to start..  deluge-gtk    [look in  /usr/share/applications  for the definition]
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -50,21 +50,21 @@ sudo apt-get -y install qbittorrent
 
 
 
-popcorn-time.se
-dl and extract 
-Download Beta 3.2 For 64-bit Linux Users
-/home/albe/bin/Popcorn-Time-linux64.tar.gz
-#noworky..
-sudo apt-get install libudev0:i386
-got error.
-this helped...
-sudo ln -s /lib/x86_64-linux-gnu/libudev.so.1 /usr/lib/libudev.so.0
-but..
-----
-albe@redekmatev2:~/bin$ ./Popcorn-Time
-[18483:0104/193620:WARNING:simple_index_file.cc(338)] Could not map Simple Index file.
-[18483:0104/193620:INFO:simple_index_file.cc(437)] Simple Cache Index is being restored from disk.
-----
+#popcorn-time.se
+#dl and extract 
+#Download Beta 3.2 For 64-bit Linux Users
+#/home/albe/bin/Popcorn-Time-linux64.tar.gz
+##noworky..
+#sudo apt-get install libudev0:i386
+#got error.
+#this helped...
+#sudo ln -s /lib/x86_64-linux-gnu/libudev.so.1 /usr/lib/libudev.so.0
+#but..
+#----
+#albe@redekmatev2:~/bin$ ./Popcorn-Time
+#[18483:0104/193620:WARNING:simple_index_file.cc(338)] Could not map Simple Index file.
+#[18483:0104/193620:INFO:simple_index_file.cc(437)] Simple Cache Index is being restored from disk.
+#----
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
