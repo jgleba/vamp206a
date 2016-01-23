@@ -6,11 +6,29 @@ function Purpose() {
 
 #  Purpose:   nginx  uwsgi  flask_admin auth example
 
-cd;sudo ls; sudo shc/100/215nginxflaskad1.sh
+# caution:
+    # this changes the default nginx port from 80 to 82.
+
+
+2fix.. cd;sudo ls; sudo shc/100/215nginxflaskad1.sh
 
 
 https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
 # not.. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
+
+
+
+some notes...
+substitute flask admin auth example in for hellothere from 214nginx.sh...
+copy flask-admin auth example files in place..
+cd /srv/web/flask217b
+#virtualenv flask217benv
+source flask217benv/bin/activate
+sudo pip install -r 'requirements.txt'
+deactivate
+sudo service flask217b restart
+sudo service nginx restart
+
 
 
 END
@@ -22,26 +40,6 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 #main: 
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  .
------------------------2016-01-20[Jan-Wed]22-32PM
-
-
-substitute flask admin auth example in for hellothere from 214nginx.sh...
-
-copy flask-admin auth example files in place..
-
-cd /srv/web/flask217
-#virtualenv flask217env
-source flask217env/bin/activate
-sudo pip install -r 'requirements.txt'
-deactivate
-sudo service flask217 restart
-sudo service nginx restart
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # sudo apt-get update
 sudo apt-get install python-pip python-dev nginx
@@ -83,89 +81,123 @@ sudo service apache2 restart
 # make folder and change permissions...
 # my standard practice for shared web stuff...
 
-sudo mkdir -p /srv/web/flask217
+sudo mkdir -p /srv/web/flask217b
 #
 sudo chgrp -hR www-data /srv/web # change group to www-data ( apache group. apache already was installed.)
 sudo chown -R root /srv/web 
-sudo chmod -R g+rw  /srv/web # writable for group
+# include sticky on group to preserve group on new file creation..
+sudo chmod -R g+rws  /srv/web # writable for group
 sudo chmod -R o-rw /srv/web # not viewable for others..
 # make only folders +x so they can be cd into.
 sudo find /srv/web -type d -exec chmod g+x {} +
 #
-cd /srv/web/flask217
+cd /srv/web/flask217b
 
 # create readme
 nowdg1=`date +'_%Y.%m.%d_%H.%M.%S'`
 tee /srv/web/00readme.txt <<EOF
 Purpose: for nginx served projects, and possibly other projects.
 This folder - /srv/web
-made by David Gleba
+Made by David Gleba
 echo $nowdg1
 .
 EOF
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# copy example code
+
+mkdir -p /tmp/dg
+cd /tmp/dg
+rm -rf /tmp/dg/flaskadm
+git clone https://github.com/flask-admin/flask-admin.git flaskadm
+cd ./flaskadm/examples/sqla
+cp -a .  /srv/web/flask217b
 
 
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+cd /srv/web/flask217b
+
 sudo pip install virtualenv
 
-virtualenv flask217env
-source flask217env/bin/activate
+cd /srv/web/flask217b
+virtualenv flask217benv
+cd /srv/web/flask217b
+source flask217benv/bin/activate
+
 pip install uwsgi flask
+pip install -r 'requirements.txt'
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# create app flask217
-tee /srv/web/flask217/flask217.py <<EOF
-from flask import Flask
-application = Flask(__name__)
-@application.route("/")
-def hello():
-    return "<h1 style='color:blue'>Hello There! flask217-2</h1>"
-if __name__ == "__main__":
-    application.run(host='0.0.0.0')
-EOF
+# create app flask217b
+   
+cd /srv/web/flask217b
+cp app.py flask217b.py
 
-#  python flask217.py
+# expose dev app on all ip's ...   application.run(host='0.0.0.0')
+
+
+# run in Dev..
+
+#  python flask217b.py
 
 #visit localhost:5000
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#create flask217.wsgi
-tee /srv/web/flask217/flask217.wsgi <<EOF
-#from flask217 import application
+#create flask217b.wsgi
+tee /srv/web/flask217b/flask217b.wsgi <<EOF
+#from flask217b import application
 #if __name__ == "__main__":
 #    application.run()
 #
-from flask217 import app as application
-#if __name__ == "__main__":
-application.run()
+from flask217b import app
+
+if __name__ == "__main__":
+    app.run()
+#
 EOF
 
 #test uwsgi...
-#  uwsgi --socket 0.0.0.0:8000 --protocol=http -w flask217
+cd /srv/web/flask217b
+ uwsgi --socket 0.0.0.0:8000 --protocol=http -w ./flask217b
 
 #visit localhost:8000 and use localip:8000 from another pc on the local network..
+
+#error uwsgi ImportError: No module named flask217b
+#  ans. i was in the wrong folder.
+
+# error..
+# unable to load app 0 (mountpoint='') (callable not found or import error)
+
+ImportError: Import by filename is not supported.
+
+ImportError: Import by filename is not supported. unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+
 
 deactivate
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #create uwsgi ini file..
-tee /srv/web/flask217/flask217.ini <<EOF
+tee /srv/web/flask217b/flask217b.ini <<EOF
 [uwsgi]
-module = flask217
+module = flask217b
+mount = ws/flask217b.py
+callable = app
 master = true
 processes = 5
-socket = flask217.sock
+socket = flask217b.sock
 chmod-socket = 660
 vacuum = true
 die-on-term = true
 EOF
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-sudo tee /etc/init/flask217.conf <<EOF
+sudo tee /etc/init/flask217b.conf <<EOF
 #
 description "uWSGI server instance configured to serve myproject"
 #
@@ -175,61 +207,56 @@ stop on runlevel [!2345]
 setuid albe
 setgid www-data
 #
-env PATH=/srv/web/flask217/flask217env/bin
-chdir /srv/web/flask217
-exec uwsgi --ini flask217.ini
+env PATH=/srv/web/flask217b/flask217benv/bin
+chdir /srv/web/flask217b
+exec uwsgi --ini flask217b.ini
 #
 EOF
 
-sudo start flask217
+sudo start flask217b
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-sudo tee /etc/nginx/sites-available/flask217 <<EOF
+sudo tee /etc/nginx/sites-available/flask217b <<EOF
 #
 server {
-    listen 951;
+    listen 952;
     #worked.. server_name v206b1;
     #server_name 127.0.0.1;
     server_name v206b2;
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix:/srv/web/flask217/flask217.sock;
+        uwsgi_pass unix:/srv/web/flask217b/flask217b.sock;
     }
 }
 #
 EOF
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-sudo ln -s /etc/nginx/sites-available/flask217 /etc/nginx/sites-enabled
+
+sudo ln -s /etc/nginx/sites-available/flask217b /etc/nginx/sites-enabled
 
 
-# oops.. cleaning up mistakes...
-#sudo rm /etc/nginx/sites-available/flask217.conf
-#sudo rm /etc/nginx/sites-enabled/myproject
-sudo rm /etc/nginx/sites-available/hello217
-sudo rm /etc/init/hello217.conf
-
-
-sudo service flask217 restart
+sudo service flask217b restart
 sudo service nginx restart
 
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # backup folder
+
 sudo mkdir -p /home/file
-#
 sudo chgrp -hR www-data /home/file # change group to www-data ( apache group. apache already was installed.)
 sudo chown -R root /home/file 
-sudo chmod -R g+rw  /home/file # writable for group
+sudo chmod -R g+rws  /home/file # writable for group
 sudo chmod -R o-rw /home/file # not viewable for others..
 # make only folders +x so they can be cd into.
 sudo find /home/file -type d -exec chmod g+x {} +
 #
 cd /home/file
 mkdir -p /home/file/backup
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+tar -cvzf /home/file/backup/flask217b.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask217b/ --exclude={flask217benv,backup,Trash/files,*.tgz} 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

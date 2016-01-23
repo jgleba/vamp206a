@@ -205,7 +205,7 @@ sudo mkdir -p /home/file
 #
 sudo chgrp -hR www-data /home/file # change group to www-data ( apache group. apache already was installed.)
 sudo chown -R root /home/file 
-sudo chmod -R g+rw  /home/file # writable for group
+sudo chmod -R g+rws  /home/file # writable for group
 sudo chmod -R o-rw /home/file # not viewable for others..
 # make only folders +x so they can be cd into.
 sudo find /home/file -type d -exec chmod g+x {} +
