@@ -85,4 +85,7 @@ ggl: flask apps github
 https://github.com/mitsuhiko/flask/wiki/Large-app-how-to
 
 
+http://stackoverflow.com/questions/17652937/how-to-build-a-flask-application-around-an-already-existing-database
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
