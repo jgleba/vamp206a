@@ -1,6 +1,17 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2016-01-23[Jan-Sat]22-27PM
+
+best practice for security?
+
+https://github.com/sasaporta/flask-security-admin-example
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2016-01-21[Jan-Thu]20-06PM
 
 flask admin example sqlalchemy model reflecting
