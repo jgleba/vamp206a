@@ -25,6 +25,10 @@ sqlacodegen sqlite:////var/www/html/python/cif207/sample_db.sqlite > modelsgen.t
 result.
 not exactly what is in the flask admin examples.
 
+
+sqlacodegen mysql://root:x@localhost/cilist > models-sqlacodegen.txt
+
+
 =
 
 generate flask admin model from already existing database

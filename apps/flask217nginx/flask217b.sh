@@ -6,6 +6,9 @@ function Purpose() {
 
 #  Purpose:   nginx  uwsgi venv flask_admin auth example
 
+-   localhost:952
+
+
 # caution:
     # this changes the default nginx port from 80 to 82.
 
