@@ -10,6 +10,9 @@ set -vx
 #https://www.nomachine.com/download/download&id=2
 #download it.
 
+# with I could find a persistent url to download nomahine with using curl or wget...
+
+
 cd 
 cd Downloads
 cd 

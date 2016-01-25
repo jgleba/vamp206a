@@ -8,7 +8,7 @@ source shc/21env.sh
 
 # i may need to take the vnc setup out of this so it can be run as user no sudo...
 
-
+# for vnc :   ip:1 , eg: 10.4.11.19:1
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -143,6 +143,7 @@ echo "#this noworky... vncconfig -nowin -iconic &"  >> /home/$userv/.vnc/xstartu
 echo "lxterminal &"  >> /home/$userv/.vnc/xstartup
 echo "/usr/bin/lxsession -s LXDE &"  >> /home/$userv/.vnc/xstartup
 cat /home/$userv/.vnc/xstartup
+sudo chown -R albe .vnc 
 
 
 # Restart VNC
@@ -214,8 +215,11 @@ init-checkconf /etc/init/tightvncserver1.conf
 
 
 }
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 
 gui1
 vnci
+sudo service tightvncserver1 start
+
 #

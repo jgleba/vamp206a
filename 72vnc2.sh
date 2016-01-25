@@ -3,6 +3,32 @@ cd
 set -x
 source shc/21env.sh
 
+
+
+
+
+
+
+
+
+
+
+#Multiple users...
+#this is ridiculous
+# port dedicated to a user. ugh. can it be any more un-sustainable?
+#http://ubuntuforums.org/showthread.php?t=1053242&p=7442474#post7442474
+#http://askubuntu.com/questions/581979/ubuntu-14-10-multiple-simultaneous-independent-remote-desktop-like-connection
+
+
+
+
+
+
+
+
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function vnc2() {

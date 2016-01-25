@@ -1,0 +1,29 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-20[Jan-Wed]22-06PM
+
+Subject: Docker -- Do you have a  Docker -  Python(django or Flask or ?) SQL (mysql or postgres) (any server - nginx/apache/lighttpd/i-don’t-care) setup I can try?
+
+I also found this while looking for the other one  I sent you.  You might use this one for your own experimenting:
+http://www.newmediacampaigns.com/blog/docker-for-php-developers
+It is a complete containerized PHP stack.
+Something that may not be obvious with all these examples:  You only need one NGINX container and one database.
+
+From: Chris Strutton
+Sent: Monday, January 18, 2016 19:58
+
+https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/
+The procedure here is reasonably up to date and very complete.  Of note is using gunicorn in the python container to actually runs the app.  
+This still doesn’t take care of static files as well as I would like (I would like them linked into the NGINX container) 
+but it works fairly well.  Note that the Redis container is not required but you will have to do some edits to the Django app to remove it.
+Let me know how you make out…
+Chris
+From: Dave Gleba
+Sent: Tuesday, January 12, 2016 5:10 PM
+To: Chris Strutton; chris@rodandfly.ca
+Subject: Docker
+Do you have a  Docker -  Python(django or Flask or ?) SQL (mysql or postgres) (any server - nginx/apache/lighttpd/i-don’t-care) setup I can try?
+Thanks,
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

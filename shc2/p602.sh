@@ -10,6 +10,14 @@ function Purpose() {
 
 # note:
 
+Generally all setup is done by scripts -  not by editing files in an editor.
+Sudoers files are the exception because visudo checks for invalid setup.
+See the bottom for the hell that one must go through to fix it if the syntax is wrong.
+You have to take the server down and mount the disk in recovery mode to fix it.
+Goodness gratious that's insane.
+This is why visudo is used to edit sudoers files.
+
+
 sudo service apache2 reload
 
 # i don't think nginx needs to reload, it is flask217 uwsgi upstart service that needs to restart.
@@ -124,6 +132,7 @@ sudo chmod ugo+x /usr/local/bin/webreload.sh
 # noneed.. mount -o remount,rw /dev/sda1 /mnt
 # noneed ..  mount -o remount,rw /dev/mapper/vamp206b--vg-root /mnt
 
+#works...
 # mount -o remount,rw /
 # rm /etc/sudoers.d/webreload2
 # rm /etc/sudoers.d/websreload2

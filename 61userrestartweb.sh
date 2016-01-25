@@ -29,10 +29,36 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+no... this is insane.
 # todo
 # better.. create the file in /tmp/dg/websreload , sudo chmod 0440 websreload , copy it into /etc/sudoers.d ...
 # http://www.peppertop.com/blog/?p=1015
 
+
+
+
+
+
+
+# Just use visudo and save us all alot of pain.
+
+# safest to do this...
+# sudo  visudo -f /etc/sudoers.d/websreload2
+
+
+
+
+
+
+
+
+
+
+
+
+
+# begin block comment =============================
+: <<'END'
 
 mkdir -p /tmp/dg
 sudo tee /tmp/websreload <<EOF
@@ -47,6 +73,11 @@ EOF
 sudo chmod 0440 /tmp/dg/websreload
 sudo cp /tmp/dg/websreload /etc/sudoers.d/websreload
 cat /etc/sudoers.d/websreload
+
+END
+# end block comment ===============================
+
+
 
 #
 date
