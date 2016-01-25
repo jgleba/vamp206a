@@ -33,7 +33,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 
 mkdir -p /tmp/dg
-sudo tee /tmp/websreload2 <<EOF
+sudo tee /tmp/dg/websreload2 <<EOF
 # www-data group on all machines can run this command...
 %www-data   ALL= NOPASSWD:  /usr/bin/service apache2 reload, /usr/bin/service apache2 restart
 # nginx uwsgi
