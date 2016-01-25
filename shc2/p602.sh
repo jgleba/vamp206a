@@ -34,13 +34,11 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 mkdir -p /tmp/dg
 sudo tee /tmp/dg/websreload2 <<EOF
+# safest to do this...
+# sudo  visudo -f /etc/sudoers.d/websreload2
+#
 # www-data group on all machines can run this command...
 %www-data   ALL= NOPASSWD:  /usr/bin/service apache2 reload, /usr/bin/service apache2 restart
-# nginx uwsgi
-%www-data    ALL=NOPASSWD:  /usr/bin/service nginx reload
-#http://askubuntu.com/questions/229809/allow-non-sudo-group-to-control-upstart-job
-# use...  sudo initctl stop flask217; sudo initctl start flask217
-%www-data ALL= (root) NOPASSWD: /sbin/initctl stop flask217, /sbin/initctl start flask217
 EOF
 sudo chmod 0440 /tmp/dg/websreload2
 sudo cp /tmp/dg/websreload2 /etc/sudoers.d/websreload2
@@ -65,6 +63,7 @@ function notes() {
 # begin block comment =============================
 : <<'END'
 
+sudo  visudo -f /etc/sudoers.d/websreload2
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
