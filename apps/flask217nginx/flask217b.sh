@@ -168,6 +168,10 @@ cd /srv/web/flask217b
 #uwsgi --socket 127.0.0.1:6000 --file /path/to/folder/run.py --callable app -  
 #i added callable to the usgi call
 
+# solved.
+
+# see below for further problems..
+
 
 deactivate
 
@@ -238,8 +242,7 @@ localhost:952
 I got error 2016-01-23_Sat_11.48-AM
 
 error 502 bad gateway
-
-uwsgi nginx flask socket file not created
+note that: uwsgi nginx flask socket file not created
 
 
 http://stackoverflow.com/questions/33586013/flask-app-on-uwsgi-nginx-unix-socket-file-is-not-created-on-booting

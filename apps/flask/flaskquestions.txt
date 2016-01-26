@@ -1,0 +1,25 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-25[Jan-Mon]21-52PM
+
+1.
+how to make list full width of screen
+
+2.
+how to deploy flask admin on nginx
+i get 502 bad gateway
+
+3.
+email button
+
+4.
+make one column wider, truncate at 200 char
+
+5.
+reflect a mysql view
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
