@@ -30,8 +30,8 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 mkdir -p /var/www/html/python/flask213f/apache
 
-mkdir -p /tmp/dg/fadm
-cd /tmp/dg/fadm
+mkdir -p /tmp/dg/
+cd /tmp/dg/
 git clone https://github.com/flask-admin/flask-admin.git flaskadm
 cd ./flaskadm/examples/sqla
 cp -a .  /var/www/html/python/flask213f

@@ -41,6 +41,7 @@ tbd
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+git pull https://github.com/dgleba/pdb218.git 
 
 # start dev server . visit localhost:5000
 python /var/www/html/python/pdb218/pdb218.py
