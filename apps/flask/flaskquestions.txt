@@ -5,11 +5,11 @@ Title:  .
 
 I have got flask-admin up and running. That is good.
 
-This script will install and deploy a flask-admin on apache.
+This script will install and deploy a flask-admin example (sqla) on apache.
     https://github.com/dgleba/vamp206a/blob/master/apps/flask213/flask213f.sh
 
 
-This app uses reflection to read the database tables.
+This app uses reflection to read database tables.
 It works, but I haven't yet figured out how to reflect mysql views.
     https://github.com/dgleba/pdb218/blob/master/pdb218.py
 
@@ -20,6 +20,21 @@ _____________
 1.
 
 how to make list view full width of screen (boostrap3)
+
+worked:
+I added -fluid...
+<div class="container-fluid">
+line 10
+C:\p2\xampp\htdocs\python\flask-admin-master\examples\layout_bootstrap3\templates\layout.html
+
+
+http://stackoverflow.com/questions/32861544/how-to-customize-flask-admin-templates
+https://gist.github.com/mrjoes/3714266
+http://stackoverflow.com/questions/15115052/bootstrap-how-to-set-up-fixed-width-for-td
+http://stackoverflow.com/questions/18449918/100-width-twitter-bootstrap-3-template
+
+C:\n\pythonn\flask-admin\examples\geo_alchemy\templates\admin\index.html
+
 
 
 2.
@@ -54,6 +69,9 @@ calculated column.
 example. quarter of the date.
 add a column quarter 1-4 
 it is the calculation of witch quarter the date column shows.
+
+http://stackoverflow.com/questions/26231570/flask-admin-and-custom-field-in-model?rq=1
+
 
 
 7.
