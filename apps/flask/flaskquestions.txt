@@ -3,21 +3,63 @@
 Title:  .
 -----------------------2016-01-25[Jan-Mon]21-52PM
 
+I have got flask-admin up and running. That is good.
+
+This script will install and deploy a flask-admin on apache.
+    https://github.com/dgleba/vamp206a/blob/master/apps/flask213/flask213f.sh
+
+
+This app uses reflection to read the database tables.
+It works, but I haven't yet figured out how to reflect mysql views.
+    https://github.com/dgleba/pdb218/blob/master/pdb218.py
+
+
+_____________
+
+
 1.
-how to make list full width of screen
+
+how to make list view full width of screen (boostrap3)
+
 
 2.
 how to deploy flask admin on nginx
 i get 502 bad gateway
 
+works: https://github.com/dgleba/vamp206a/blob/master/100/214nginx.sh
+works: apache.. https://github.com/dgleba/vamp206a/blob/master/apps/flask213/flask213f.sh
+
+not works: https://github.com/dgleba/vamp206a/blob/master/apps/flask217nginx/flask217b.sh
+
+
 3.
-email button
+
+email button on edit screen to mail one record.
+or
+email action in list. if more than one item is checkmarked in the list, it shows error and will not proceed.
 
 4.
-make one column wider, truncate at 200 char
+
+make one column in list view wider, truncate at 200 char. hit icon to show whole entry.
+
 
 5.
-reflect a mysql view
+
+reflect a mysql view (sqlalchemy)
+
+
+6.
+
+calculated column.
+example. quarter of the date.
+add a column quarter 1-4 
+it is the calculation of witch quarter the date column shows.
+
+
+7.
+
+custom sql for a 'table' entry in the admin
+
 
 
 
