@@ -1,11 +1,30 @@
 
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
 -----------------------2016-01-21[Jan-Thu]19-44PM
 
+ip release and renew
+
+sudo dhclient -r wlan0
+sudo dhclient wlan0
+
+sudo dhclient -r eth0
+sleep 2
+ifconfig
+sudo dhclient eth0
+ifconfig eth0
 
 
+seems to work:
 
+sudo ifdown eth0 && sudo ifup eth0
+
+
+hmm..
+no, this is wrong!!!!!!!!!!
+sudo ifconfig down
+sudo ifconfig up
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,3 +1,25 @@
+todo
+fix layout files at csd local.
+
+..David Gleba.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
@@ -17,25 +39,6 @@ It works, but I haven't yet figured out how to reflect mysql views.
 _____________
 
 
-1.
-
-how to make list view full width of screen (boostrap3)
-
-worked:
-I added -fluid...
-<div class="container-fluid">
-line 10
-C:\p2\xampp\htdocs\python\flask-admin-master\examples\layout_bootstrap3\templates\layout.html
-
-
-http://stackoverflow.com/questions/32861544/how-to-customize-flask-admin-templates
-https://gist.github.com/mrjoes/3714266
-http://stackoverflow.com/questions/15115052/bootstrap-how-to-set-up-fixed-width-for-td
-http://stackoverflow.com/questions/18449918/100-width-twitter-bootstrap-3-template
-
-C:\n\pythonn\flask-admin\examples\geo_alchemy\templates\admin\index.html
-
-
 
 2.
 how to deploy flask admin on nginx
@@ -49,26 +52,29 @@ not works: https://github.com/dgleba/vamp206a/blob/master/apps/flask217nginx/fla
 
 3.
 
-email button on edit screen to mail one record.
+how to? email button on edit screen to mail one record.
 or
 email action in list. if more than one item is checkmarked in the list, it shows error and will not proceed.
 
+
+
 4.
 
+how to..
 make one column in list view wider, truncate at 200 char. hit icon to show whole entry.
 
 
 5.
-
+how to 
 reflect a mysql view (sqlalchemy)
 
 
 6.
-
+how to
 calculated column.
 example. quarter of the date.
-add a column quarter 1-4 
-it is the calculation of witch quarter the date column shows.
+add a column quarter  which is the number between 1-4  it indicates q1 or q2 or q3 or q4.
+It is the calculation of which quarter the date column shows.
 
 http://stackoverflow.com/questions/26231570/flask-admin-and-custom-field-in-model?rq=1
 
@@ -77,6 +83,38 @@ http://stackoverflow.com/questions/26231570/flask-admin-and-custom-field-in-mode
 7.
 
 custom sql for a 'table' entry in the admin
+
+
+8.
+
+Maybe you could help me get oriented to python with flask and  sqlalachemy.
+
+how to dump array info to console
+how to debug
+how to inspect variables while debugging.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+answered:
+
+1.
+
+how to make list view full width of screen (boostrap3)
+
+worked:
+I added -fluid...
+<div class="container-fluid">
+line 10 of..
+C:\p2\xampp\htdocs\python\flask-admin-master\examples\layout_bootstrap3\templates\layout.html
+
+
+http://stackoverflow.com/questions/32861544/how-to-customize-flask-admin-templates
+https://gist.github.com/mrjoes/3714266
+http://stackoverflow.com/questions/15115052/bootstrap-how-to-set-up-fixed-width-for-td
+http://stackoverflow.com/questions/18449918/100-width-twitter-bootstrap-3-template
+
 
 
 
