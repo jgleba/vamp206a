@@ -29,9 +29,13 @@ if [ $dgmethod = "m1" ] ; then
  
         if ping -c 1 192.168.88.64 &> /dev/null
         then
-          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/htdocs.PMDS-DATA.latest.7z
+            cp /mnt/REDEK210/home/albe/Dropbox/csd/copyof/CI/backups/htdocs/htdocs.PMDS-DATA.latest.7z tmp01
         else
               read -t 33 -p "Oops, cannot ping redek210.  Press Enter." ; echo ;
+                try dropbox...
+                cd
+                wget -v https://www.dropbox.com/s/editme-editme-editme/htdocs.PMDS-DATA.latest.7z-editme-?dl=1 -O  tmp01/htdocs.PMDS-DATA.latest.7z
+
             #exit 8
         fi
         
