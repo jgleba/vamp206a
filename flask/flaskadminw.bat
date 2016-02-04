@@ -28,7 +28,7 @@ cd flask-admin
 set wpy=c:\p2\python27\python
 %wpy% examples\layout\app.py
 
-timeout 0
+timeout 80
 
 rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ std2
 

@@ -1,0 +1,15 @@
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-02-04[Feb-Thu]06-46AM
+
+try this
+
+https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/
+
+
+http://alexandersimoes.com/hints/2015/10/28/deploying-flask-with-nginx-gunicorn-supervisor-virtualenv-on-ubuntu.html
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -12,12 +12,13 @@ see...
 
 52vhost3     :917 920
 
-52-v folder  seperate file for each port
+52-v folder  separate file for each port
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+ 921 flask213f
+ 922 pdb218 flask  
 
- 922 pdb218 flask 
 
  951=nginx
 

@@ -1,14 +1,11 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 todo
 fix layout files at csd local.
 
 ..David Gleba.html
-
-
-
-
-
-
-
 
 
 
@@ -40,6 +37,32 @@ _____________
 
 
 
+
+1.
+
+how to make list view full width of screen (boostrap3)
+
+worked:
+I added -fluid...
+<div class="container-fluid">
+line 10 of..
+C:\p2\xampp\htdocs\python\flask-admin-master\examples\layout_bootstrap3\templates\layout.html
+
+
+Now I have to figure out how to combine that with my_master in the auth example.
+
+
+http://stackoverflow.com/questions/32861544/how-to-customize-flask-admin-templates
+https://gist.github.com/mrjoes/3714266
+http://stackoverflow.com/questions/15115052/bootstrap-how-to-set-up-fixed-width-for-td
+http://stackoverflow.com/questions/18449918/100-width-twitter-bootstrap-3-template
+
+
+
+
+
+
+
 2.
 how to deploy flask admin on nginx
 i get 502 bad gateway
@@ -61,7 +84,7 @@ email action in list. if more than one item is checkmarked in the list, it shows
 4.
 
 how to..
-make one column in list view wider, truncate at 200 char. hit icon to show whole entry.
+make one column in list view wider, truncate at 200 char. hit an icon to show whole entry.
 
 
 5.
@@ -73,10 +96,16 @@ reflect a mysql view (sqlalchemy)
 how to
 calculated column.
 example. quarter of the date.
-add a column quarter  which is the number between 1-4  it indicates q1 or q2 or q3 or q4.
+add a column called "quarter"  which is the number between 1-4  - it indicates q1 or q2 or q3 or q4.
 It is the calculation of which quarter the date column shows.
 
 http://stackoverflow.com/questions/26231570/flask-admin-and-custom-field-in-model?rq=1
+http://stackoverflow.com/questions/23514380/how-to-sort-by-calculated-field
+https://www.bountysource.com/issues/1482600-add-calculated-fields-to-response
+http://stackoverflow.com/questions/17326290/sqlalchemy-calculated-column
+
+http://stackoverflow.com/questions/14493942/sql-alchemy-derived-column-example
+
 
 
 
@@ -95,26 +124,6 @@ how to inspect variables while debugging.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-answered:
-
-1.
-
-how to make list view full width of screen (boostrap3)
-
-worked:
-I added -fluid...
-<div class="container-fluid">
-line 10 of..
-C:\p2\xampp\htdocs\python\flask-admin-master\examples\layout_bootstrap3\templates\layout.html
-
-
-http://stackoverflow.com/questions/32861544/how-to-customize-flask-admin-templates
-https://gist.github.com/mrjoes/3714266
-http://stackoverflow.com/questions/15115052/bootstrap-how-to-set-up-fixed-width-for-td
-http://stackoverflow.com/questions/18449918/100-width-twitter-bootstrap-3-template
-
 
 
 

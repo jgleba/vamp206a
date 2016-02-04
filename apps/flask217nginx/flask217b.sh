@@ -6,6 +6,19 @@ function Purpose() {
 
 #  Purpose:   nginx  uwsgi venv flask_admin auth example
 
+
+
+
+
+
+see error below bad gateway.
+
+
+
+
+
+
+
 -   localhost:952
 
 
