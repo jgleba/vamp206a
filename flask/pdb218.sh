@@ -93,6 +93,11 @@ listen 922
 EOF
 
 
+  sudo a2dissite vhost922.conf
+  sudo a2ensite vhost922.conf
+  #sudo service apache2 restart
+  sudo service apache2 reload
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -34,20 +34,20 @@ sudo pip install -r 'requirements.txt'
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-# htaccess
+# htaccess -- not working.
 #
 # redirect to 918 if "cif207/" is matched. so localhost/cif207/ redirects to: localhost:917
 #
 # logging: /etc/apache2/apache2.conf >  LogLevel alert rewrite:trace3  | tail -f /var/log/apache2/error.log|fgrep '[rewrite:'
 #
-cat <<EOF > /var/www/html/python/cif207/.htaccess
+#cat <<EOF > /var/www/html/python/cif207/.htaccess
 #
 # redirect to 920 if "cif207" is matched
-RewriteEngine on
-Options +FollowSymLinks
-#RewriteBase /
-RewriteRule ^(cif207)\/(.+)$ http://localhost/$2 [R=301]#
-EOF
+#RewriteEngine on
+#Options +FollowSymLinks
+##RewriteBase /
+#RewriteRule ^(cif207)\/(.+)$ http://localhost/$2 [R=301]#
+#EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
