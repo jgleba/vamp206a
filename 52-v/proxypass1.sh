@@ -8,9 +8,11 @@ function Purpose() {
 
 
 result:
-works, but flask then cuts off the /f232f and just makes it ip/admin.
-so then it doesn't work any more.
+        works, but flask then cuts off the /f232f and just makes it ip/admin.
+        so then it doesn't work any more.
 
+
+sudo shc/52-v/proxypass1.sh
 
 END
 # end block comment ===============================
