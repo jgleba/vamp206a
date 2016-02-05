@@ -8,19 +8,7 @@ function Purpose() {
 
 
 
-
-
-
-see error below bad gateway.
-
-
-
-
-
-
-
--   localhost:952
-
+-   localhost:953
 
 # caution:
     # this changes the default nginx port from 80 to 82.
@@ -29,8 +17,9 @@ see error below bad gateway.
 2fix.. cd;sudo ls; sudo shc/100/215nginxflaskad1.sh
 
 
-https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
-# not.. https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04
+https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/
+
+less so: http://alexandersimoes.com/hints/2015/10/28/deploying-flask-with-nginx-gunicorn-supervisor-virtualenv-on-ubuntu.html
 
 
 
@@ -45,8 +34,11 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 
 # sudo apt-get update
-sudo apt-get install python-pip python-dev nginx
+sudo apt-get -y install python-pip python-dev nginx
+sudo apt-get -y install ufw python-dev python-virtualenv python-pip git nginx supervisor
+sudo apt-get install -y python python-pip python-virtualenv nginx gunicorn  
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #change nginx default port to 82 so apache still works on 80..
@@ -79,12 +71,21 @@ sudo service nginx start
 sudo service apache2 restart
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#useradd deploy
+#     mkdir /home/deploy
+#     chown deploy:deploy /home/deploy
+#     usermod -a -G sudo deploy
+#     passwd deploy
+#     chsh -s /bin/bash deploy
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # make folder and change permissions...
 # my standard practice for shared web stuff...
 
-sudo mkdir -p /srv/web/flask217b
+sudo mkdir -p /srv/web/flask217c
 #
 sudo chgrp -hR www-data /srv/web # change group to www-data ( apache group. apache already was installed.)
 sudo chown -R root /srv/web 
@@ -94,17 +95,19 @@ sudo chmod -R o-rw /srv/web # not viewable for others..
 # make only folders +x so they can be cd into.
 sudo find /srv/web -type d -exec chmod g+x {} +
 #
-cd /srv/web/flask217b
+cd /srv/web/flask217c
 
-# create readme
-nowdg1=`date +'_%Y.%m.%d_%H.%M.%S'`
-tee /srv/web/00readme.txt <<EOF
-Purpose: for nginx served projects, and possibly other projects.
-This folder - /srv/web
-Made by David Gleba
-echo $nowdg1
-.
-EOF
+
+## create readme
+#nowdg1=`date +'_%Y.%m.%d_%H.%M.%S'`
+#tee /srv/web/00readme.txt <<EOF
+#Purpose: for nginx served projects, and possibly other projects.
+#This folder - /srv/web
+#Made by David Gleba
+#echo $nowdg1
+#.
+#EOF
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -115,150 +118,124 @@ cd /tmp/dg
 rm -rf /tmp/dg/flaskadm
 git clone https://github.com/flask-admin/flask-admin.git flaskadm
 cd ./flaskadm/examples/sqla
-cp -a .  /srv/web/flask217b
+cp -a .  /srv/web/flask217c
 
 
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#cd /srv/web
+#git clone https://github.com/alexandersimoes/flaskdeploy.git
 
-cd /srv/web/flask217b
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+cd /srv/web/flask217c
 
 sudo pip install virtualenv
 
-cd /srv/web/flask217b
-virtualenv flask217benv
+cd /srv/web/flask217c
+virtualenv flask217cenv
 
-cd /srv/web/flask217b
-source flask217benv/bin/activate
+cd /srv/web/flask217c
+source flask217cenv/bin/activate
 
-pip install uwsgi flask
+#pip install uwsgi flask
 pip install -r 'requirements.txt'
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# create app flask217b
+# create app flask217c
    
-cd /srv/web/flask217b
-mv app.py flask217b.py
+cd /srv/web/flask217c
+mv app.py flask217c.py
 rm app2.py
 
 # expose dev app on all ip's ...   application.run(host='0.0.0.0')
 
 # run in Dev..
 
-#  python flask217b.py
+  python flask217c.py
 
 #visit localhost:5000
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-cd /srv/web/flask217b
-source flask217benv/bin/activate
-
-#create flask217b.wsgi
-tee /srv/web/flask217b/flask217b.wsgi <<EOF
+#cd /srv/web/flask217c
+#source flask217cenv/bin/activate
 #
-from flask217b import app as application
-if __name__ == "__main__":
-    app.run()
+##create flask217c.wsgi
+#tee /srv/web/flask217c/flask217c.wsgi <<EOF
+##
+#from flask217c import app as application
+#if __name__ == "__main__":
+#    app.run()
+##
+#EOF
 #
-EOF
-
-#test uwsgi...
-cd /srv/web/flask217b
- uwsgi --socket 0.0.0.0:8000 --protocol=http  -w flask217b --callable app
-
-#visit localhost:8000 and use localip:8000 from another pc on the local network..
-
-#error:
-#unable to load app 0 (mountpoint='') (callable not found or import error)
-#*** no app loaded. going in full dynamic mode ***
-#*** uWSGI is running in multiple interpreter mode ***
-#spawned uWSGI worker 1 (and the only) (pid: 3917, cores: 1)
-#--- no python application found, check your startup logs for errors ---
-#ans.
-#http://stackoverflow.com/questions/12030809/flask-and-uwsgi-unable-to-load-app-0-mountpoint-callable-not-found-or-im
-#uwsgi --socket 127.0.0.1:6000 --file /path/to/folder/run.py --callable app -  
-#i added callable to the usgi call
-
-# solved.
-
-# see below for further problems..
-
 
 deactivate
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#create uwsgi ini file..
-tee /srv/web/flask217b/flask217b.ini <<EOF
-[uwsgi]
-module = flask217b
-mount = ws/flask217b.py
-callable = app
-master = true
-processes = 5
-socket = flask217b.sock
-chmod-socket = 660
-vacuum = true
-die-on-term = true
-EOF
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-sudo tee /etc/init/flask217b.conf <<EOF
-#
-description "uWSGI server instance configured to serve myproject"
-#
-start on runlevel [2345]
-stop on runlevel [!2345]
-#
-setuid www-data
-setgid www-data
-#
-env PATH=/srv/web/flask217b/flask217benv/bin
-chdir /srv/web/flask217b
-exec uwsgi --ini flask217b.ini
-#
-EOF
+# I escape the $host with \$host here...
 
-sudo start flask217b
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-sudo tee /etc/nginx/sites-available/flask217b <<EOF
+sudo tee /etc/nginx/sites-available/flask217c <<EOF
 #
 server {
-    listen 952;
-    #worked.. server_name v206b1;
-    server_name 127.0.0.1;
-    #server_name v206b2.local;
-
+    listen 953;
+    
     location / {
-        include uwsgi_params;
-        uwsgi_pass unix:/srv/web/flask217b/flask217b.sock;
+        proxy_pass http://localhost:8000;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
     }
+    #location /static {
+    #    alias  /srv/web/flask217c/static/;
+    #}
 }
 #
 EOF
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-sudo ln -s /etc/nginx/sites-available/flask217b /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/flask217c /etc/nginx/sites-enabled
 
-
-sudo service flask217b restart
 sudo service nginx restart
+
+cd /srv/web/flask217c
+gunicorn flask217c:app -b localhost:8000
+
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-localhost:952
+localhost:953
 
-I got error 2016-01-23_Sat_11.48-AM
-
-error 502 bad gateway
-note that:     uwsgi nginx flask socket file not created
+#works!
 
 
-http://stackoverflow.com/questions/33586013/flask-app-on-uwsgi-nginx-unix-socket-file-is-not-created-on-booting
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#sudo tee /etc/init/flask217b.conf <<EOF
+##
+#description "uWSGI server instance configured to serve myproject"
+##
+#start on runlevel [2345]
+#stop on runlevel [!2345]
+##
+#setuid www-data
+#setgid www-data
+##
+#env PATH=/srv/web/flask217b/flask217benv/bin
+#chdir /srv/web/flask217b
+#exec uwsgi --ini flask217b.ini
+##
+#EOF
+#
+#sudo start flask217b
+#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
