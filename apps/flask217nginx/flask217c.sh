@@ -14,7 +14,7 @@ function Purpose() {
     # this changes the default nginx port from 80 to 82.
 
 
-2fix.. cd;sudo ls; sudo shc/100/215nginxflaskad1.sh
+ cd;sudo ls; sudo   shc/apps/flask217nginx/flask217c.sh
 
 
 fabric deployment didn't work, do it manually...
@@ -221,7 +221,7 @@ localhost:953
 
 # supervisor
 
-sudo tee /etc/supervisor/conf.d/flask217c.conf
+sudo tee /etc/supervisor/conf.d/flask217c.conf <<EOF
 #
 [program:flask217c]
 command = gunicorn app:app -b localhost:8000
@@ -279,7 +279,7 @@ sudo find /home/file -type d -exec chmod g+x {} +
 cd /home/file
 mkdir -p /home/file/backup
 #
-tar -cvzf /home/file/backup/flask217b.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask217b/ --exclude={flask217benv,backup,Trash/files,*.tgz} 
+tar -cvzf /home/file/backup/flask217c.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask217c/ --exclude={flask217cenv,backup,Trash/files,*.tgz} 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
