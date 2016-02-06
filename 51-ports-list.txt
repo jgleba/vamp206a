@@ -22,9 +22,10 @@ see...
 
  951=nginx
 
- 951  214nginx.sh  :951
- 952   flask217b.sh
-
+ 951    214nginx.sh  :951
+ 952    flask217b.sh
+ 953    flask217c.sh
+954     flask-deploy222.txt was gnunicorn-flask.txt
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

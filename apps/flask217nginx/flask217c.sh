@@ -17,6 +17,8 @@ function Purpose() {
 2fix.. cd;sudo ls; sudo shc/100/215nginxflaskad1.sh
 
 
+fabric deployment didn't work, do it manually...
+
 https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/
 
 less so: http://alexandersimoes.com/hints/2015/10/28/deploying-flask-with-nginx-gunicorn-supervisor-virtualenv-on-ubuntu.html
@@ -213,6 +215,30 @@ localhost:953
 
 #works!
 
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# supervisor
+
+sudo tee /etc/supervisor/conf.d/flask217c.conf
+#
+[program:flask217c]
+command = gunicorn app:app -b localhost:8000
+directory = /srv/web/flask217c
+user = albe
+#
+EOF
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+sudo pkill gunicorn
+Start gunicorn with supervisor:
+
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl start flask217c
 
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

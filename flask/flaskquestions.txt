@@ -11,14 +11,8 @@ fix layout files at csd local.
 
 
 
-
-
-
-
-
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Title:  .
 -----------------------2016-01-25[Jan-Mon]21-52PM
 
@@ -123,10 +117,25 @@ how to debug
 how to inspect variables while debugging.
 
 
+9.
+
+slow performance on bootstrap  navbar collapse
+
+
+http://stackoverflow.com/questions/13119906/turning-off-twitter-bootstrap-navbar-transition-animation
+
+https://github.com/twbs/bootstrap/pull/10995
+
+
+
+10.
+
+
+
+
+
+
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
