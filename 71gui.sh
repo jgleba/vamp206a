@@ -123,8 +123,8 @@ tightvncserver :1
 
 # backup original file once...
 if [ ! -f /home/$userv/.vnc/xstartup.orig ] ; then  cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.orig ; fi
- cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
- cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.$(date +"%s").bak
+ cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+ cp /home/$userv/.vnc/xstartup /home/$userv/.vnc/xstartup.$(date +"%s").bk
 
 
 # Then stop VNC

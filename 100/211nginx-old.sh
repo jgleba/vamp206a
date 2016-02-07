@@ -50,8 +50,8 @@ sudo apt-get install python-pip python-dev nginx
 
 # backup..
 #oops forgot to backup, this fixes it.... sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo cp  /etc/nginx/sites-enabled/default  /etc/nginx/sites-enabled/default.$(date "+%Y-%m-%d_%s").bak
-sudo cp  /etc/nginx/sites-available/default  /etc/nginx/sites-available/default.$(date "+%Y-%m-%d_%s").bak
+sudo cp  /etc/nginx/sites-enabled/default  /etc/nginx/sites-enabled/default.$(date "+%Y-%m-%d_%s").bk
+sudo cp  /etc/nginx/sites-available/default  /etc/nginx/sites-available/default.$(date "+%Y-%m-%d_%s").bk
 # remove line containing  'vamp206b'  and replace the line completely with the new text...
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
 sudo sed -i "/.*listen 80 .*/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/nginx/sites-enabled/default # add marker above the change.
@@ -64,7 +64,7 @@ cat /etc/nginx/sites-enabled/default
 # move unneeded config out of the way...
 sudo mkdir /etc/nginx/offlinedg
 sudo mv  /etc/nginx/sites-available/default /etc/nginx/offlinedg/default
-sudo mv /etc/nginx/sites-enabled/*.bak /etc/nginx/offlinedg
+sudo mv /etc/nginx/sites-enabled/*.bk /etc/nginx/offlinedg
 
 sudo service nginx stop
 sleep 3

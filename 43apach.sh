@@ -9,7 +9,7 @@ source shc/21env.sh
 
 date
 set -x
-sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bak
+sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
 
 
 # install apache 2.5 and php 5.5
@@ -80,8 +80,8 @@ sudo apt-get -y install ssmtp
 #   sudo sed -i "s@mailhub=mail@mailhub=MESG01.stackpole.ca@g"  /etc/ssmtp/ssmtp.conf
 #
 # backup file before editing...
-sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.$(date +"%Y-%m-%d_%s").bak
+sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.$(date +"%Y-%m-%d_%s").bk
 
 # remove line containing  'mailhub'  and replace th line completely with the new text...
 # add marker line above my edits... 
@@ -107,7 +107,7 @@ cat /etc/ssmtp/ssmtp.conf
 
 # set mail name
 
-sudo cp /etc/mailname /etc/mailname.$(date "+%Y-%m-%d_%s").bak
+sudo cp /etc/mailname /etc/mailname.$(date "+%Y-%m-%d_%s").bk
 sudo echo $default_hostname.$default_domain | sudo tee /etc/mailname
 cat /etc/mailname
 
@@ -136,7 +136,7 @@ curl -s https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 
-sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bak
+sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

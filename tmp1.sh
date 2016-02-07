@@ -30,8 +30,8 @@ sudo mkdir -p /var/www/html
 
 #backup server config...
 mkdir ~/backup
-sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/samba/smb.conf    ~backup/smb.conf.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/samba/smb.conf    ~backup/smb.conf.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 
 sudo cat <<EOF >> /etc/samba/smb.conf

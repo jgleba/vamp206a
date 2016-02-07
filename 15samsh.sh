@@ -79,13 +79,13 @@ sudo apt-get -y install samba cifs-utils
 mkdir ~/backup
 # backup original file once...
 if [ ! -f /etc/samba/smb.conf.orig ] ; then  sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.orig ; fi
-sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.$(date +"%s").bak
-sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.$(date +"%Y-%m-%d_%s").bak
-sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.$(date +"%s").bk
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.$(date +"%Y-%m-%d_%s").bk
+sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 
-## one time fix... sudo cp /etc/samba/smb.conf.bak__2015-10-22_Thu_15.08.24-EDT /etc/samba/smb.conf.orig
+## one time fix... sudo cp /etc/samba/smb.conf.bk__2015-10-22_Thu_15.08.24-EDT /etc/samba/smb.conf.orig
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

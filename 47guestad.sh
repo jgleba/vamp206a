@@ -34,9 +34,9 @@ sleep 2
 
 # add shares to rc.local to start them at boot... grr. this is frustrating....
 #
-cp /etc/rc.local /etc/rc.local.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+cp /etc/rc.local /etc/rc.local.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 mkdir -p ~/backup
-cp /etc/rc.local ~/backup/rc.local.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+cp /etc/rc.local ~/backup/rc.local.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 #didn't seem to work with mount command.
 #this works. but then it didn't the next time :(
 #http://askubuntu.com/questions/252853/how-to-mount-a-virtualbox-shared-folder-at-startup
@@ -49,9 +49,9 @@ mkdir -p /home/$userv/share203
 mkdir -p /var/www/html
 
 #add shares to fstab
-cp /etc/fstab /etc/fstab.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+cp /etc/fstab /etc/fstab.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 mkdir -p ~/backup
-cp /etc/fstab ~/backup/fstab.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+cp /etc/fstab ~/backup/fstab.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 #not working yet...
 #echo "html      /var/www/html  vboxsf   defaults,noauto  0   0" >> /etc/fstab
 echo "share203  /home/$userv/share203  vboxsf   defaults,noauto  0   0" >> /etc/fstab

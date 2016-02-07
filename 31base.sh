@@ -47,8 +47,8 @@ apt-get -y install samba
 apt-get -y install cifs-utils 
 
 #backup ssh server config...
-cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-cp /etc/ssh/sshd_config /etc/ssh/sshd_config.$(date +"%Y.%m.%d_%k.%M.%S").bak
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.$(date +"%Y.%m.%d_%k.%M.%S").bk
 
 
 

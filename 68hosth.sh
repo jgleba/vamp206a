@@ -12,10 +12,10 @@ set -vx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-sudo cp /etc/hosts /etc/hosts.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/hosts /etc/hosts.$(date +"%s").bak
-sudo cp /etc/hosts /etc/hosts.$(date "+%Y-%m-%d_%s").bak
-sudo cp /etc/hostname /etc/hostname.bak.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/hosts /etc/hosts.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/hosts /etc/hosts.$(date +"%s").bk
+sudo cp /etc/hosts /etc/hosts.$(date "+%Y-%m-%d_%s").bk
+sudo cp /etc/hostname /etc/hostname.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 
 sudo echo redekv1 | sudo tee /etc/hostname
@@ -36,7 +36,7 @@ ff02::2 ip6-allrouters
 EOF
 
 
-sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.$(date +"%Y-%m-%d_%s").bak
+sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.$(date +"%Y-%m-%d_%s").bk
 
 #working on --  hostname=
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
