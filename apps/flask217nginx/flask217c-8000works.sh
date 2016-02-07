@@ -8,12 +8,7 @@ function Purpose() {
 
 
 
--   localhost:1212
-
-
-result:
-        works.
-        
+-   localhost:953
 
 # caution:
     # this changes the default nginx port from 80 to 82.
@@ -21,12 +16,6 @@ result:
 
  cd;sudo ls; sudo   shc/apps/flask217nginx/flask217c.sh
 
- 
- 
-(i got error using 956 for gnuicorn - it would not start:
-        2016-02-06 17:50:17 [8719] [ERROR] Can't connect to ('localhost', 956)
-
-        
 
 fabric deployment didn't work, do it manually...
 
@@ -34,8 +23,6 @@ https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deploy
 
 less so: http://alexandersimoes.com/hints/2015/10/28/deploying-flask-with-nginx-gunicorn-supervisor-virtualenv-on-ubuntu.html
 
-
-https://scottlinux.com/2014/04/03/how-to-host-multiple-django-or-python-apps-on-the-same-host-with-nginx-and-gunicorn/
 
 
 END
@@ -54,13 +41,6 @@ sudo apt-get -y install ufw python-dev python-virtualenv python-pip git nginx su
 sudo apt-get install -y python python-pip python-virtualenv nginx gunicorn  
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# stop it if it was already running...
-
-sudo pkill gunicorn
-sudo supervisorctl stop flask217c
-
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #change nginx default port to 82 so apache still works on 80..
@@ -88,7 +68,7 @@ sudo mv  /etc/nginx/sites-available/default /etc/nginx/offlinedg/default
 sudo mv /etc/nginx/sites-enabled/*.bak /etc/nginx/offlinedg
 
 sudo service nginx stop
-sleep 1
+sleep 3
 sudo service nginx start
 sudo service apache2 restart
 
@@ -204,10 +184,10 @@ deactivate
 sudo tee /etc/nginx/sites-available/flask217c <<EOF
 #
 server {
-    listen 1212;
+    listen 953;
     
     location / {
-        proxy_pass http://localhost:1213;
+        proxy_pass http://localhost:8000;
         proxy_set_header Host \$host;
         proxy_set_header X-Real-IP \$remote_addr;
     }
@@ -225,13 +205,13 @@ sudo ln -s /etc/nginx/sites-available/flask217c /etc/nginx/sites-enabled
 sudo service nginx restart
 
 cd /srv/web/flask217c
-gunicorn flask217c:app -b localhost:1213
+gunicorn flask217c:app -b localhost:8000
 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-localhost:1212
+localhost:953
 
 #works!
 
@@ -244,7 +224,7 @@ localhost:1212
 sudo tee /etc/supervisor/conf.d/flask217c.conf <<EOF
 #
 [program:flask217c]
-command = gunicorn flask217c:app -b localhost:1213
+command = gunicorn flask217c:app -b localhost:8000
 directory = /srv/web/flask217c
 user = albe
 #
@@ -259,9 +239,30 @@ sudo pkill gunicorn
 
 sudo supervisorctl reread
 sudo supervisorctl update
-sudo supervisorctl stop  flask217c
 sudo supervisorctl start flask217c
 
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#sudo tee /etc/init/flask217b.conf <<EOF
+##
+#description "uWSGI server instance configured to serve myproject"
+##
+#start on runlevel [2345]
+#stop on runlevel [!2345]
+##
+#setuid www-data
+#setgid www-data
+##
+#env PATH=/srv/web/flask217b/flask217benv/bin
+#chdir /srv/web/flask217b
+#exec uwsgi --ini flask217b.ini
+##
+#EOF
+#
+#sudo start flask217b
+#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
