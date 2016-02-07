@@ -8,13 +8,14 @@ function Purpose() {
                 deploy with nginx after apache.
 
 -   localhost:1214
+        gnuicorn 1215
 
 result:        works.
 
 # caution:     # this changes the default nginx port from 80 to 82.
 
- cd;sudo ls; sudo   shc/apps/flask217nginx/flask217c.sh
- 
+ cd;sudo ls; sudo   shc/apps/flask213/flask213fngx.sh
+
 https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/
 less so: http://alexandersimoes.com/hints/2015/10/28/deploying-flask-with-nginx-gunicorn-supervisor-virtualenv-on-ubuntu.html
 
@@ -76,108 +77,32 @@ sleep 1
 sudo service nginx start
 sudo service apache2 restart
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#useradd deploy
-#     mkdir /home/deploy
-#     chown deploy:deploy /home/deploy
-#     usermod -a -G sudo deploy
-#     passwd deploy
-#     chsh -s /bin/bash deploy
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# make folder and change permissions...
-# my standard practice for shared web stuff...
-
-sudo mkdir -p /srv/web/flask217c
-#
-sudo chgrp -hR www-data /srv/web # change group to www-data ( apache group. apache already was installed.)
-sudo chown -R root /srv/web 
-# include sticky on group to preserve group on new file creation..
-sudo chmod -R g+rws  /srv/web # writable for group
-sudo chmod -R o-rw /srv/web # not viewable for others..
-# make only folders +x so they can be cd into.
-sudo find /srv/web -type d -exec chmod g+x {} +
-#
-cd /srv/web/flask217c
-
-
-## create readme
-#nowdg1=`date +'_%Y.%m.%d_%H.%M.%S'`
-#tee /srv/web/00readme.txt <<EOF
-#Purpose: for nginx served projects, and possibly other projects.
-#This folder - /srv/web
-#Made by David Gleba
-#echo $nowdg1
-#.
-#EOF
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# copy example code
-
-mkdir -p /tmp/dg
-cd /tmp/dg
-#rm -rf /tmp/dg/flaskadm
-git clone https://github.com/flask-admin/flask-admin.git flaskadm
-cd ./flaskadm/examples/sqla
-cp -a .  /srv/web/flask217c
-
-
-#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#
-#cd /srv/web
-#git clone https://github.com/alexandersimoes/flaskdeploy.git
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-cd /srv/web/flask217c
+cd /var/www/html/python/flask213f
 
 sudo pip install virtualenv
 
-cd /srv/web/flask217c
-virtualenv flask217cenv
+cd /var/www/html/python/flask213f
+virtualenv flask213fenv
 
-cd /srv/web/flask217c
-source flask217cenv/bin/activate
+cd /var/www/html/python/flask213f
+source flask213fenv/bin/activate
 
-#pip install uwsgi flask
+
 pip install -r 'requirements.txt'
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# create app flask217c
+# create app flask213f
    
-cd /srv/web/flask217c
-mv app.py flask217c.py
-rm app2.py
-
-# expose dev app on all ip's ...   application.run(host='0.0.0.0')
-
-# run in Dev..
-
-  python flask217c.py
+  python flask213f.py
 
 #visit localhost:5000
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#cd /srv/web/flask217c
-#source flask217cenv/bin/activate
-#
-##create flask217c.wsgi
-#tee /srv/web/flask217c/flask217c.wsgi <<EOF
-##
-#from flask217c import app as application
-#if __name__ == "__main__":
-#    app.run()
-##
-#EOF
-#
 
 deactivate
 
@@ -185,18 +110,18 @@ deactivate
 
 # I escape the $host with \$host here...
 
-sudo tee /etc/nginx/sites-available/flask217c <<EOF
+sudo tee /etc/nginx/sites-available/flask213f <<EOF
 #
 server {
-    listen 1212;
+    listen 1214;
     
     location / {
-        proxy_pass http://localhost:1213;
+        proxy_pass http://localhost:1215;
         proxy_set_header Host \$host;
         proxy_set_header X-Real-IP \$remote_addr;
     }
     #location /static {
-    #    alias  /srv/web/flask217c/static/;
+    #    alias  /srv/web/flask213f/static/;
     #}
 }
 #
@@ -204,20 +129,20 @@ EOF
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-sudo ln -s /etc/nginx/sites-available/flask217c /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/flask213f /etc/nginx/sites-enabled
 
 sudo service nginx restart
 
-cd /srv/web/flask217c
-gunicorn flask217c:app -b localhost:1213
+cd /var/www/html/python/flask213f
+gunicorn flask213f:app -b localhost:1215
 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-localhost:1212
+localhost:1214
 
-#works!
+# ? works!
 
 
 
@@ -225,11 +150,11 @@ localhost:1212
 
 # supervisor
 
-sudo tee /etc/supervisor/conf.d/flask217c.conf <<EOF
+sudo tee /etc/supervisor/conf.d/flask213f.conf <<EOF
 #
-[program:flask217c]
-command = gunicorn flask217c:app -b localhost:1213
-directory = /srv/web/flask217c
+[program:flask213f]
+command = gunicorn flask213f:app -b localhost:1215
+directory = /var/www/html/python/flask213f
 user = albe
 #
 EOF
@@ -243,8 +168,8 @@ sudo pkill gunicorn
 
 sudo supervisorctl reread
 sudo supervisorctl update
-sudo supervisorctl stop  flask217c
-sudo supervisorctl start flask217c
+sudo supervisorctl stop  flask213f
+sudo supervisorctl start flask213f
 
 
 
@@ -263,7 +188,7 @@ sudo find /home/file -type d -exec chmod g+x {} +
 cd /home/file
 mkdir -p /home/file/backup
 #
-tar -cvzf /home/file/backup/flask217c.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask217c/ --exclude={flask217cenv,backup,Trash/files,*.tgz} 
+tar -cvzf /home/file/backup/flask213f.$(date +"%Y.%m.%d_%H.%M.%S").tgz  /srv/web/flask213f/ --exclude={flask213fenv,backup,Trash/files,*.tgz} 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

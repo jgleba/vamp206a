@@ -31,6 +31,10 @@ see...
 1212     flask217c.sh
 1213     "               for gnuicorn
 
+1214     apps\flask213\flask213fngx.sh
+1215     "               for gnuicorn
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
