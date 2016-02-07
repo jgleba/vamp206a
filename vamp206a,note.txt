@@ -1,4 +1,29 @@
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-02-06[Feb-Sat]22-14PM
+
+http://michal.karzynski.pl/blog/2013/10/29/serving-multiple-django-applications-with-nginx-gunicorn-supervisor/
+
+deploy script for nginx by willwade
+
+Avatar
+willwade • 2 years ago
+this may be useful - maybe not(!) i've taken this and built a shell script around the principles. (although I haven't taken into account the separate user/group for each supervisor as I have one user which is locked down).
+
+run like: vhostman-nginx.sh create somedomain.com appName
+
+and delete:
+
+vhostman-nginx.sh delete somedomain.com
+
+see here for the whole thing: https://gist.github.com/willwa...
+
+https://gist.github.com/willwade/9568199
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
