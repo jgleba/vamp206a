@@ -4,38 +4,20 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:   nginx  gnuicorn venv supervisor,  flask-admin auth example
+#  Purpose:   nginx  gnuicorn venv supervisor,  flask-admin sqla example
+                deploy with nginx after apache.
 
+-   localhost:1214
 
+result:        works.
 
--   localhost:1212
-
-
-result:
-        works.
-        
-
-# caution:
-    # this changes the default nginx port from 80 to 82.
-
+# caution:     # this changes the default nginx port from 80 to 82.
 
  cd;sudo ls; sudo   shc/apps/flask217nginx/flask217c.sh
-
  
- 
-(i got error using 956 for gnuicorn - it would not start:
-        2016-02-06 17:50:17 [8719] [ERROR] Can't connect to ('localhost', 956)
-
-        
-
-fabric deployment didn't work, do it manually...
-
 https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/
-
 less so: http://alexandersimoes.com/hints/2015/10/28/deploying-flask-with-nginx-gunicorn-supervisor-virtualenv-on-ubuntu.html
 
-
-https://scottlinux.com/2014/04/03/how-to-host-multiple-django-or-python-apps-on-the-same-host-with-nginx-and-gunicorn/
 
 
 END
@@ -46,6 +28,8 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 
 #main: 
+
+cd /var/www/html/python/flask213f
 
 
 # sudo apt-get update
@@ -58,7 +42,7 @@ sudo apt-get install -y python python-pip python-virtualenv nginx gunicorn
 # stop it if it was already running...
 
 sudo pkill gunicorn
-sudo supervisorctl stop flask217c
+sudo supervisorctl stop flask213f
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
