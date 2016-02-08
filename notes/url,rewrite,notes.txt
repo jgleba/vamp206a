@@ -37,6 +37,10 @@ ggl:   nginx rewrite path to port
 http://stackoverflow.com/questions/4449788/how-to-redirect-address-com-foo-bar-to-address-comport-bar-with-nginx
 
 
+nginx proxy_pass folder to port
+https://gist.github.com/soheilhy/8b94347ff8336d971ad0#step-3----configure-
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

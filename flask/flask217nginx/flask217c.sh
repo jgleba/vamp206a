@@ -4,12 +4,11 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:   nginx  gnuicorn venv supervisor,  flask-admin auth example
+#  Purpose:   nginx  gnuicorn  supervisor venv,  flask-admin sqla example
+                from /srv/web/flask217c
 
 
-
--   localhost:1212
-
+-   localhost:1212     
 
 result:
         works.

@@ -13,7 +13,7 @@ https://github.com/petrus-jvrensburg/flask-admin-examples
 http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux-even-on-the-raspberry-pi
 
 shc/apps/flask213/flask213f.sh
-\\192.168.88.65\
+
 
 END
 # end block comment ===============================

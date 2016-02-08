@@ -6,9 +6,10 @@ function Purpose() {
 
 #  Purpose:   nginx  gnuicorn venv supervisor,  flask-admin sqla example
                 deploy with nginx after apache.
+                from /var/www/html/python/flask213f
 
 -   localhost:1214
-        gnuicorn 1215
+        (gnuicorn 1215)
 
 result:        works.
 

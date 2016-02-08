@@ -130,9 +130,12 @@ https://github.com/twbs/bootstrap/pull/10995
 
 10.
 
+nginx proxy_pass folder to port
+https://gist.github.com/soheilhy/8b94347ff8336d971ad0#step-3----configure-
 
+ip/flask1  goes to ip:921
 
-
+i think this works with php, but with flask-admin it breaks when going to /admin
 
 
 
