@@ -22,7 +22,7 @@ This script will install and deploy a flask-admin example (sqla) on apache.
     https://github.com/dgleba/vamp206a/blob/master/apps/flask213/flask213f.sh
 
 
-This app uses reflection to read database tables.
+This app uses reflection to read the columns and create the model for the database tables.
 It works, but I haven't yet figured out how to reflect mysql views.
     https://github.com/dgleba/pdb218/blob/master/pdb218.py
 
@@ -31,40 +31,6 @@ _____________
 
 
 
-
-1.
-
-how to make list view full width of screen (boostrap3)
-
-worked:
-I added -fluid...
-<div class="container-fluid">
-line 10 of..
-C:\p2\xampp\htdocs\python\flask-admin-master\examples\layout_bootstrap3\templates\layout.html
-
-
-Now I have to figure out how to combine that with my_master in the auth example.
-
-
-http://stackoverflow.com/questions/32861544/how-to-customize-flask-admin-templates
-https://gist.github.com/mrjoes/3714266
-http://stackoverflow.com/questions/15115052/bootstrap-how-to-set-up-fixed-width-for-td
-http://stackoverflow.com/questions/18449918/100-width-twitter-bootstrap-3-template
-
-
-
-
-
-
-
-2.
-how to deploy flask admin on nginx
-i get 502 bad gateway
-
-works: https://github.com/dgleba/vamp206a/blob/master/100/214nginx.sh
-works: apache.. https://github.com/dgleba/vamp206a/blob/master/apps/flask213/flask213f.sh
-
-not works: https://github.com/dgleba/vamp206a/blob/master/apps/flask217nginx/flask217b.sh
 
 
 3.
@@ -139,6 +105,62 @@ i think this works with php, but with flask-admin it breaks when going to /admin
 
 
 
+11.
+
+how to 
+have a non-edit view in addition to an edit view. Call it
+browse view. it just shows the record with no edit capability. more compact
+easier to read. can even hide empty fields.
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+closed...
+_____________
+
+
+
+1.
+
+how to make list view full width of screen (boostrap3)
+
+worked:
+I added -fluid...
+<div class="container-fluid">
+line 10 of..
+C:\p2\xampp\htdocs\python\flask-admin-master\examples\layout_bootstrap3\templates\layout.html
+
+ans.
+see line 130 base_template='dgmaster.html',
+    in C:\n\Dropbox\csd\VCS-git\flaskplay\flplay.py
+
+
+ref.
+http://stackoverflow.com/questions/32861544/how-to-customize-flask-admin-templates
+https://gist.github.com/mrjoes/3714266
+http://stackoverflow.com/questions/15115052/bootstrap-how-to-set-up-fixed-width-for-td
+http://stackoverflow.com/questions/18449918/100-width-twitter-bootstrap-3-template
+
+
+_____________
+
+
+2.
+how to deploy flask admin on nginx
+i get 502 bad gateway
+
+
+ans.
+I used gnuicorn rather than uwsgi with a unix socket.
+
+works: https://github.com/dgleba/vamp206a/blob/master/100/214nginx.sh
+works: apache.. https://github.com/dgleba/vamp206a/blob/master/apps/flask213/flask213f.sh
+not works: https://github.com/dgleba/vamp206a/blob/master/apps/flask217nginx/flask217b.sh
+
+
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

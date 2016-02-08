@@ -35,11 +35,29 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# todo
+
+
+
+
+
+
+
+
+
+######  ******  Just visudo to create the file. it checks for errors and saves having to manually fix it with the server offline.
+
+sudo  visudo -f /etc/sudoers.d/websreload2
+
+
+
+
+
+
+
+
+
 # better.. create the file in /tmp/dg/websreload2 , sudo chmod 0440 websreload2 , copy it into /etc/sudoers.d ...
 # http://www.peppertop.com/blog/?p=1015
-
-
 mkdir -p /tmp/dg
 sudo tee /tmp/dg/websreload2 <<EOF
 # safest to do this...
