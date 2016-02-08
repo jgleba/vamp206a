@@ -13,7 +13,16 @@ set -vx
 
 cd /var/www/html/django/trakberry
 git pull origin master
+# or just 
+git pull
 service apache2 reload
+
+
+# if getting error: error: Your local changes to the following files would be overwritten by merge: ...  Please, commit your changes or stash them before you can merge.
+git stash save --keep-index
+#If you don't need them anymore, you now can drop that stash:
+git stash drop
+
 
 #http://stackoverflow.com/questions/15166722/use-own-username-password-with-git-and-bitbucket
 #dclark@pmdsdata3:/var/www/html/django/trakberry$ git remote -v
