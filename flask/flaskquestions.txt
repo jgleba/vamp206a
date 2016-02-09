@@ -3,11 +3,15 @@
 
 
 todo
+
+1.
 fix layout files at csd local.
 
 ..David Gleba.html
 
 
+2.
+https://github.com/syrusakbary/Flask-SuperAdmin
 
 
 
@@ -46,32 +50,27 @@ email action in list. if more than one item is checkmarked in the list, it shows
 how to..
 make one column in list view wider, truncate at 200 char. hit an icon to show whole entry.
 
+ggl..
+bootstrap table make one column wider
+
+http://stackoverflow.com/questions/20828224/change-column-width-bootstrap-tables
+
+css css flask-admin css example
+http://stackoverflow.com/questions/14296866/multiple-css-files-in-flask
+
+
+
 
 5.
 how to 
 reflect a mysql view (sqlalchemy)
 
 
-6.
-how to
-calculated column.
-example. quarter of the date.
-add a column called "quarter"  which is the number between 1-4  - it indicates q1 or q2 or q3 or q4.
-It is the calculation of which quarter the date column shows.
-
-http://stackoverflow.com/questions/26231570/flask-admin-and-custom-field-in-model?rq=1
-http://stackoverflow.com/questions/23514380/how-to-sort-by-calculated-field
-https://www.bountysource.com/issues/1482600-add-calculated-fields-to-response
-http://stackoverflow.com/questions/17326290/sqlalchemy-calculated-column
-
-http://stackoverflow.com/questions/14493942/sql-alchemy-derived-column-example
-
-
-
 
 7.
 
 custom sql for a 'table' entry in the admin
+
 
 
 8.
@@ -94,6 +93,7 @@ https://github.com/twbs/bootstrap/pull/10995
 
 
 
+
 10.
 
 nginx proxy_pass folder to port
@@ -105,14 +105,31 @@ i think this works with php, but with flask-admin it breaks when going to /admin
 
 
 
-11.
 
-how to 
-have a non-edit view in addition to an edit view. Call it
-browse view. it just shows the record with no edit capability. more compact
-easier to read. can even hide empty fields.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+12.
+
+hide pencil, just show eye icon.
+that way you can press edit tab from the details view..
+
+<span class="fa fa-pencil glyphicon glyphicon-pencil"></span>
 
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+13.
+
+add roles 
+
+readonly, editor, supervisor, admin
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -161,6 +178,49 @@ works: apache.. https://github.com/dgleba/vamp206a/blob/master/apps/flask213/fla
 not works: https://github.com/dgleba/vamp206a/blob/master/apps/flask217nginx/flask217b.sh
 
 
+_____________
 
 
+
+6.
+how to
+calculated column.
+example. quarter of the date.
+add a column called "quarter"  which is the number between 1-4  - it indicates q1 or q2 or q3 or q4.
+It is the calculation of which quarter the date column shows.
+
+ans.
+@hybrid-property and define column_list=
+
+
+http://stackoverflow.com/questions/26231570/flask-admin-and-custom-field-in-model?rq=1
+http://stackoverflow.com/questions/23514380/how-to-sort-by-calculated-field
+https://www.bountysource.com/issues/1482600-add-calculated-fields-to-response
+http://stackoverflow.com/questions/17326290/sqlalchemy-calculated-column
+http://stackoverflow.com/questions/14493942/sql-alchemy-derived-column-example
+
+
+
+
+_____________
+
+
+11.
+
+how to 
+have a non-edit view in addition to an edit view. Call it
+browse view. it just shows the record with no edit capability. more compact
+easier to read. can even hide empty fields.
+
+ans.
+
+https://flask-admin.readthedocs.org/en/latest/introduction/#customizing-built-in-views
+        An optional, read-only details view.
+
+
+_____________
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
