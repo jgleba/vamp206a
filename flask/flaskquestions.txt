@@ -44,6 +44,7 @@ or
 email action in list. if more than one item is checkmarked in the list, it shows error and will not proceed.
 
 
+_____________
 
 4.
 
@@ -61,9 +62,7 @@ http://stackoverflow.com/questions/14296866/multiple-css-files-in-flask
 
 
 
-5.
-how to 
-reflect a mysql view (sqlalchemy)
+_____________
 
 
 
@@ -72,6 +71,7 @@ reflect a mysql view (sqlalchemy)
 custom sql for a 'table' entry in the admin
 
 
+_____________
 
 8.
 
@@ -80,6 +80,8 @@ Maybe you could help me get oriented to python with flask and  sqlalachemy.
 how to dump array info to console
 how to debug
 how to inspect variables while debugging.
+
+_____________
 
 
 9.
@@ -92,6 +94,7 @@ http://stackoverflow.com/questions/13119906/turning-off-twitter-bootstrap-navbar
 https://github.com/twbs/bootstrap/pull/10995
 
 
+_____________
 
 
 10.
@@ -105,15 +108,6 @@ i think this works with php, but with flask-admin it breaks when going to /admin
 
 
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-12.
-
-hide pencil, just show eye icon.
-that way you can press edit tab from the details view..
-
-<span class="fa fa-pencil glyphicon glyphicon-pencil"></span>
 
 
 
@@ -181,6 +175,16 @@ not works: https://github.com/dgleba/vamp206a/blob/master/apps/flask217nginx/fla
 _____________
 
 
+5.
+how to 
+reflect a mysql view (sqlalchemy)
+
+done.. 
+see flpg6.py
+
+
+_____________
+
 
 6.
 how to
@@ -197,6 +201,7 @@ http://stackoverflow.com/questions/26231570/flask-admin-and-custom-field-in-mode
 http://stackoverflow.com/questions/23514380/how-to-sort-by-calculated-field
 https://www.bountysource.com/issues/1482600-add-calculated-fields-to-response
 http://stackoverflow.com/questions/17326290/sqlalchemy-calculated-column
+2016-02-09: good.
 http://stackoverflow.com/questions/14493942/sql-alchemy-derived-column-example
 
 
@@ -217,6 +222,19 @@ ans.
 https://flask-admin.readthedocs.org/en/latest/introduction/#customizing-built-in-views
         An optional, read-only details view.
 
+
+_____________
+
+
+12.
+
+hide pencil, just show eye icon.
+that way you can press edit tab from the details view..
+
+<span class="fa fa-pencil glyphicon glyphicon-pencil"></span>
+
+
+done.
 
 _____________
 
