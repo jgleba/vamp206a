@@ -12,7 +12,11 @@ see...
 
 52vhost3     :917 920
 
-52-v folder  separate file for each port
+
+
+52-v         folder  separate file for each port
+
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -34,7 +38,11 @@ see...
 1214     apps\flask213\flask213fngx.sh
 1215     "               for gnuicorn
 
+1216    dj224testg 
+
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
