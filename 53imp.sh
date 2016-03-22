@@ -12,7 +12,6 @@ set -x
 
 mysql -uroot -p$mysqlrootpassw -e "create database cilist"; 
 mysql -uroot -p$mysqlrootpassw -e "create database dgnote130"; 
-#mysql -uroot -p$mysqlrootpassw -e "create database enamesdb"; 
 mysql -uroot -p$mysqlrootpassw -e "create database leanmfg"; 
 mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb"; 
 mysql -uroot -p$mysqlrootpassw -e "create database shift_smsmeer"; 
@@ -28,7 +27,6 @@ mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv";
 #
 mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
 mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database enamesdb < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
 mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
 mysql -uroot -p$mysqlrootpassw --one-database prodrptdb < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
 mysql -uroot -p$mysqlrootpassw --one-database shift_smsmeer < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
@@ -45,7 +43,6 @@ mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'dg417'@'localhost' IDENTIFIED B
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'dg417'@'localhost' IDENTIFIED BY '$mysqluserpass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON dgnote130.* TO dg417@localhost ;"
-#mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON enamesdb.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON leanmfg.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shift_smsmeer.* TO dg417@localhost ;"
