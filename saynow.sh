@@ -12,6 +12,8 @@ echo $(date +"__%Y-%m-%d_%a_%H.%M.%S-%Z")
 #preferred backup format for date...
 date +"_%Y.%m.%d_%H.%M.%S.bk"
 
+echo $(date +"%Y.%m.%d_%H.%M.%S")>>~/now.log.dg.txt
+
 
 #gives error
 #shc/saynow.sh: line 12: syntax error near unexpected token `date'
