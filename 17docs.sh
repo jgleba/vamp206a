@@ -111,6 +111,8 @@ if [ $dgmethod = "ftp" ] ; then
     fi
 
 
+    # delete this .7z file if you want to get a new one...
+
     if [ ! -f htdocs.PMDS-DATA.latest.7z ] ; then
 
         if ping -c 1 192.168.88.94 &> /dev/null
@@ -131,6 +133,7 @@ if [ $dgmethod = "ftp" ] ; then
     
     fi
 
+    # delete this htdocs if you want to get new files...
     if  [ ! -d htdocs ] ; then
         cd /home/$userv/tmp01
         #sudo rm -rf htdocs
