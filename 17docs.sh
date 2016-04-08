@@ -130,8 +130,11 @@ if [ $dgmethod = "ftp" ] ; then
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
         #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.zip
         #wget -N ftp://vagrant:vagrant@10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
-    
+
+        cd /home/$userv/tmp01
+        sudo rm -rf htdocs
     fi
+
 
     # delete this htdocs if you want to get new files...
     if  [ ! -d htdocs ] ; then
