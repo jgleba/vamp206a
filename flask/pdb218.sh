@@ -105,7 +105,7 @@ EOF
 git pull https://github.com/dgleba/pdb218.git 
 
 # start dev server . visit localhost:5000
-python /var/www/html/python/pdb218/pdb218.py
+#python /var/www/html/python/pdb218/pdb218.py
 
 #show apache log..
 #sudo tail /var/log/apache2/error.log

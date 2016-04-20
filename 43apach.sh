@@ -38,10 +38,18 @@ sudo apt-get -y install php5-gd
 sudo apt-get -y install php5-mcrypt
 
 
+sudo apt-get -y install python-dev
+sudo apt-get -y install libmysqlclient-dev
+sudo apt-get -y install python3-dev python3-setuptools libjpeg-dev zlib1g-dev
+
+
 # Python Django software..
+# got error - use apt-get instead.......  sudo pip install mysql-python
+sudo apt-get  -y install python-mysqldb
+
 
 sudo apt-get -y install python-pip libapache2-mod-wsgi
-sudo pip install django==1.8.7
+sudo pip install django==1.8
 
 #sudo pip install django==1.8.7 # install will uninstall other versions.
 python -c "import django; print(django.get_version())"
@@ -49,9 +57,9 @@ python -c "import django; print(django.get_version())"
 
 sudo pip install django-admin-bootstrapped
 sudo pip install django-admin-generator
+sudo pip install virtualenv
+pip install MySQL-python
 
-# got error - use apt-get instead.......  sudo pip install mysql-python
-sudo apt-get  -y install python-mysqldb
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

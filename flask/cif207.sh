@@ -71,7 +71,7 @@ source ~/shc/52-v/52vh920.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # start dev server . visit localhost:5000
-python /var/www/html/python/cif207/cif207.py
+#python /var/www/html/python/cif207/cif207.py
 
 #show apache log..
 sudo tail /var/log/apache2/error.log
