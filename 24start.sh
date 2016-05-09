@@ -53,7 +53,7 @@ source shc/63bauth.sh
 cd
 source shc/65cron.sh
 cd
-#source shc/67hostn.sh
+source shc/67hostn.sh
 cd
 source shc/71gui.sh
 cd

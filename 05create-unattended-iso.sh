@@ -7,7 +7,11 @@
 # I sync ntmp with vagrant..
 mkdir -p /var/varvamp/files  # destination folder to store the final iso file
 ntmp="/var/varvamp/files"    # destination folder to store the final iso file
+
+
+# 2016-05-09 added date string to hostname. not yet tested.
 nhostname="vamp206b"
+hnow=$(date +"%Y%m%d%k%M%S")
 
 # also consider https://github.com/ryanwalder/ubuntu-unattended
 
@@ -169,7 +173,7 @@ pwhash=$(echo $password | mkpasswd -s -m sha-512)
 # so instead, I am using @
 sed -i "s@{{username}}@$username@g" $ntmp/iso_new/preseed/$seed_file
 sed -i "s@{{pwhash}}@$pwhash@g" $ntmp/iso_new/preseed/$seed_file
-sed -i "s@{{hostname}}@$nhostname@g" $ntmp/iso_new/preseed/$seed_file
+sed -i "s@{{hostname}}@$nhostname$hnow@g" $ntmp/iso_new/preseed/$seed_file
 sed -i "s@{{timezone}}@$timezone@g" $ntmp/iso_new/preseed/$seed_file
 
 #change grub timeout 

@@ -1,64 +1,57 @@
 #!/usr/bin/env bash
-
-cd
-set -vx
-source shc/21env.sh
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function Purpose() {
+# begin block comment =============================
+: <<'END'
 
-# backup hosts settings...
-#
-#sudo cp /etc/hosts /etc/hosts.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-#sudo cp /etc/hosts /etc/hosts.$(date +"%s").bk
-sudo cp /etc/hosts /etc/hosts.$(date "+%Y-%m-%d_%s").bk
-sudo cp /etc/hostname /etc/hostname.$(date "+%Y-%m-%d_%s").bk
+#  Purpose:   i want to make the hostname different on each boot so it won't conflict with another instance.
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#why do this stuff again ? Yes, do it.
-# I think it is a good idea to set the hostname. I may have used an older .iso file with an older hostname.
-#
-#try deleting the host lines and add new ones. http://stackoverflow.com/questions/5410757/delete-a-line-containing-a-specific-string-using-sed
-
-# set fqdn
-fqdn="$default_hostname.$default_domain"
-# update hostname
-#sudo echo "$default_hostname" > /etc/hostname
-sudo echo $default_hostname | sudo tee /etc/hostname
-cat /etc/hostname
-#_____________
-#this was problematic... see next stanza
-#sudo sed -i "s@ubuntu.ubuntu@$fqdn@g" /etc/hosts
-#sudo sed -i "s@vamp206b.vamp206b@$fqdn  @g" /etc/hosts
-#sudo sed -i "s@ubuntu@$default_hostname@g" /etc/hosts
-#sudo sed -i "s@vamp206b@ $default_hostname @g" /etc/hosts
-#hostname "$default_hostname"
-#_____________
-# remove line containing  'vamp206b'  and replace the line completely with the new text...
-# add marker line above my edits... # add a marker comment like: #David Gleba 2015-10-16... http://stackoverflow.com/questions/11694980/using-sed-insert-a-line-below-or-above-the-pattern
-# now replace the line... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
-nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
-sudo sed -i "/$orig_hostname/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/hosts
-#Use double quotes to make the shell expand variables while keeping whitespace:
-sudo sed -i "s/.*$orig_hostname.*/127.0.0.1 $default_hostname.$default_domain $default_hostname/g" /etc/hosts
-cat /etc/hosts
+https://acritiqueofplanetearth.wordpress.com/2013/11/14/6/
 
 
-# why does initial ubuntu  hosts file have "127.0.1.1 ubuntu"  ?
-# note the 1.1
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-function inforef()
-{
-exit 999
-=======
-function info()
-{
-exit 999
-
+END
+# end block comment ===============================
 }
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
+
+# Main: put code here...
+
+export hostv="v206x"
+export hnow=$(date +"%Y%m%d%k%M%S")
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudo mkdir -p /var/log/v206
+
+sudo cp /etc/hosts /var/log/v206/hosts.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/hostname /var/log/v206/hostname.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/ssmtp/ssmtp.conf /var/log/v206/ssmtp.conf.bk.$(date +"%__%Y-%m-%d_%a_%k.%M.%S-%Z")
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+sudo echo $hostv$hnow.local | sudo tee /etc/hostname
+cat /etc/hostname
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+sudo tee /etc/hosts <<EOF
+#
+127.0.0.1	localhost
+127.0.0.1	$hostv$hnow.local 	$hostv$hnow
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+#
+EOF
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#working on --  hostname=
+#nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+#sudo sed -i "/hostname=/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/ssmtp/ssmtp.conf
+sudo sed -i "s/.*hostname=.*/hostname=$hostv$hnow.local/g" /etc/ssmtp/ssmtp.conf
+
+set +vx ; echo " "; echo "  Hostname changed. Please reboot...  "

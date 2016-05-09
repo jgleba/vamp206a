@@ -17,7 +17,7 @@ set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
 
 :: to get random mac addr,  coment these out...
 :this will assign this ip address at csd..
-set macaddvamp=08002795526A
+:set macaddvamp=08002795526A
 :
 ::if redwe, then ...
 SET _prefix=%COMPUTERNAME:~0,5% 
@@ -89,7 +89,8 @@ SET _prefix=%COMPUTERNAME:~0,8%
 IF %_prefix%==PMDSDATA  %vboxm% modifyvm %vmname%  --nic1 bridged --nictype1 virtio --bridgeadapter1 "Microsoft Hyper-V Network Adapter"
 
 : set mac addr... This is problematic if two vm's ge the same address... be careful...
-%vboxm% modifyvm %vmname% --macaddress1=%macaddvamp%
+:%vboxm% modifyvm %vmname% --macaddress1=%macaddvamp%
+%vboxm% modifyvm %vmname% 
 
 ::not using NAT...
 :eg:

@@ -10,7 +10,8 @@ END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
+#cd ; 
+date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 
 # Main: put code here...
