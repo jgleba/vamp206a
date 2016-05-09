@@ -4,7 +4,9 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:  
+#  Purpose:  deploy drails237a
+
+i believe rails was installed in 353railshobo.sh
 
 
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-passenger-and-apache-on-ubuntu-14-04
