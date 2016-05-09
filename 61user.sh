@@ -4,7 +4,7 @@
 
 #  notes:
 
-# use nuser.sh to add a user...
+# use 61addnewuser.sh to add a user...
 
 # yes: use www-data group, don't:  add www group and a user
 
