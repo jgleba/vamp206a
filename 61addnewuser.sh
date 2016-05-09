@@ -2,7 +2,7 @@
 date
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # add new user. 
-echo Usage nuser.sh  username 
+echo Usage 61addnewuser.sh  username 
 echo
 
 if [ $# -eq 0 ]; then
