@@ -1,0 +1,517 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-05-09[May-Mon]11-47AM
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+notes-smbpas-notes () {
+
+notes...
+
+# http://stackoverflow.com/questions/12009/piping-password-to-smbpasswd
+
+
+http://unix.stackexchange.com/questions/204975/script-samba-password-but-securely
+pssword="pw"
+#IFS= read -r password </home/file.pw1
+sudo smbpasswd -a -s "u3" <<EOF
+$pssword
+$pssword
+EOF
+
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-02-06[Feb-Sat]22-14PM
+
+http://michal.karzynski.pl/blog/2013/10/29/serving-multiple-django-applications-with-nginx-gunicorn-supervisor/
+
+deploy script for nginx by willwade
+
+Avatar
+willwade • 2 years ago
+this may be useful - maybe not(!) i've taken this and built a shell script around the principles. (although I haven't taken into account the separate user/group for each supervisor as I have one user which is locked down).
+
+run like: vhostman-nginx.sh create somedomain.com appName
+
+and delete:
+
+vhostman-nginx.sh delete somedomain.com
+
+see here for the whole thing: https://gist.github.com/willwa...
+
+https://gist.github.com/willwade/9568199
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-21[Jan-Thu]19-44PM
+
+ip release and renew
+
+sudo dhclient -r wlan0
+sudo dhclient wlan0
+
+sudo dhclient -r eth0
+sleep 2
+ifconfig
+sudo dhclient eth0
+ifconfig eth0
+
+
+seems to work:
+
+sudo ifdown eth0 && sudo ifup eth0
+
+
+hmm..
+no, this is wrong!!!!!!!!!!
+sudo ifconfig down
+sudo ifconfig up
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-14[Jan-Thu]14-11PM
+
+prep for new server
+
+putty
+ide or software to grep search vamp206b project files on local disk
+
+10.4.1.224 pmdsdata3
+
+service apache2 reload
+
+C:\var\varvamp\files\ubuntu-14.04.3-server-amd64-unattended.iso
+C:\var\varvamp\files\htdocs.PMDS-DATA.latest.7z
+
+geany
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-18[Jan-Mon]08-29AM
+
+
+http://stackoverflow.com/questions/525672/is-there-a-way-to-start-restart-stop-apache-server-on-linux-as-non-root-user
+
+If you have sudo installed you can create a file: /etc/suduers.d/apache2reload with the following content:
+username    ALL=NOPASSWD:/usr/bin/service apache2 reload
+
+sudo tee /etc/sudoers.d/apache2reload <<EOF
+username    ALL=NOPASSWD:/usr/bin/service apache2 reload
+EOF
+
+_____________
+
+
+not...
+use visudo to edit...
+http://serverfault.com/questions/69847/linux-how-to-give-a-user-permission-to-restart-apache
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-16[Jan-Sat]15-55PM
+
+mkdir -p /var/www/html/python/
+cd       /var/www/html/python/
+cd flask213e
+sudo pip install -r 'examples/auth-flask-login/requirements.txt'
+# start dev server . visit localhost:5000
+python /var/www/html/python/flask213e/examples/auth-flask-login/app.py
+
+sudo pip install -r 'examples/auth/requirements.txt'
+# start dev server . visit localhost:5000
+python /var/www/html/python/flask213e/examples/auth/app.py
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-15[Jan-Fri]11-11AM
+
+https://24ways.org/2013/url-rewriting-for-the-fearful/
+
+url rewrite tutorial
+
+http://stackoverflow.com/questions/19389344/how-can-i-remove-this-directory-folder-from-url-with-htaccess-rewrite
+
+http://stackoverflow.com/questions/18271982/url-rewrites-removing-folders-htaccess
+
+http://stackoverflow.com/questions/12862809/mod-rewrite-remove-folder-name-from-url
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-15[Jan-Fri]09-58AM
+
+trying to get htaccess working...
+
+
+RewriteEngine on
+#
+# redirect to 918 if "flask213e/" is matched
+RewriteCond %{SERVER_PORT} !^918$
+RewriteRule    ^flask213e/(.*[^/])/?$ %{HTTP_HOST}:918/$1/ [R=301,L]
+#RewriteRule ^some-prefix/(.*[^/])/?$ http://%{HTTP_HOST}:8080/some-prefix/$1/ [R=301,L]
+#
+//Rewrite to www
+Options +FollowSymLinks
+RewriteCond %{HTTP_HOST} ^localhost:918[nc]
+RewriteRule ^(.*)$ http://www.localhost:918/$1 [r=301,nc]
+
+//301 Redirect Entire Directory
+RedirectMatch 301 /f1(.*) //$1
+
+
+RewriteCond %{REQUEST_URI} ^/(directory)
+RewriteRule ^(.*)$ http://domain.com:81/$1 [P,QSA,L]
+
+RewriteCond %{REQUEST_URI} ^/(directory)
+RewriteRule ^(.*)$ http://%{HTTP_HOST}:918/$1 [P,QSA,L]
+
+
+http://stackoverflow.com/questions/18973058/how-to-remove-folder-name-from-url-using-htaccess
+
+#
+RewriteRule ^flask213e/(.*)$ /$1 [L,NC,R]
+#
+
+
+   RewriteEngine on
+   RewriteRule ^flask213e(/.*|)$ $1 [L,NC]  
+
+
+RewriteRule ^(flask213e)\/(.+)$ %{HTTP_HOST}%{SERVER_PORT}/$2 [R=301]#
+
+
+http://stackoverflow.com/questions/9153262/tips-for-debugging-htaccess-rewrite-rules
+
+http://htaccess.madewithlove.be/
+
+
+tail -f /var/log/apache2/error.log|fgrep '[rewrite:'
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+http://v206redwe1:8985/django161c/admin/
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Title:  dgleba@gmail.com N5A 3L4 2016-01-10
+# 
+#  -----------------------2016-01-10[Jan-Sun]20-07PM
+#
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  . xrdp
+-----------------------2015-12-13[Dec-Sun]16-30PM
+
+sudo apt-get install xrdp
+
+sudo cat <<EOF >> /home/albe/.xsession
+#!/bin/sh
+# -------------------------------------------------------------------
+# David Gleba 
+lxsession -s LXDE -e LXDE
+#
+EOF
+
+xrdp-any
+password failed
+
+http://c-nergy.be/blog/?p=5357
+sudo service xrdp restart
+
+
+echo "dgleba:asas" | sudo chpasswd
+echo "albe:asas" | sudo chpasswd
+
+echo "albe:a" | sudo chpasswd
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-10[Jan-Sun]20-07PM
+
+
+was in 53imp.sh..
+
+# old... [chmod chgrp chown]
+#  sudo sudo chmod -R 755 /var/www/html 
+#  sudo sudo chmod -R 777 /var/www/html/django
+# make read for other group...
+#  sudo sudo chmod -R o+r /var/www/html 
+#  make only folders +x so they can be cd into.
+#  sudo sudo chmod -R o-x /var/www/html/
+#  not needed when using www-data group for access..   sudo find /var/www/html -type d -exec sudo chmod o+x {} +
+
+
+was in 17docs.sh
+# make read for other group...
+#sudo chmod -R o+r /var/www/html 
+# make only folders +x so they can be cd into.
+#sudo find /var/www/html -type d -exec chmod o+x {} +
+#sudo chmod -R ug+x /var/www/html/cilist/actions/*.sh
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-01-08[Jan-Fri]13-20PM
+
+\\v206csd2
+
+robocopy \\v206csd2\html\ciy207  \\PMDS-DATA\p2\xampp\htdocs\ciy207 /e
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+==
+
+==
+
+
+curl resume download...   -C continue, -L use new location on servier, -O use remote name
+
+curl -L -O -C - http://ftp.ussg.iu.edu/linux/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso
+
+curl -L -O -C - http://f
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#adduser asks questions and does more...
+sudo adduser dclark --gecos "pmds user,0,0,0" --disabled-password
+echo "dclark:dave" | sudo chpasswd
+#add user to group www
+sudo usermod -a -G www  dclark
+(echo $pw1; echo $pw1) | sudo smbpasswd -s -a dclark
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-11-05[Nov-Thu]09-10AM
+
+timings
+
+ubuntu 1404 64bit server
+pdata9t  .89  vbox on dgpc csd
+pdata3  1.3  hyperv 
+
+pdata   4.99 old hyperv win7
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+tree -ifpugDs $PWD |grep "data-all"
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  . find , chmod , list permissions.
+
+-----------------------2015-11-05[Nov-Thu]08-23AM
+
+list all files matching *.sh
+find $(pwd) -name \*.sh 
+
+permissions of all files recursively...
+tree -ifpugDs $PWD 
+
+find permissions of files using tree and grep on *.sh files - all scripts - *.sh
+tree -ifpugDs $PWD |grep "\.sh"
+
+
+http://chrisgilligan.com/wordpress/chmod-recursive-files-only-directories-type/
+
+Recursively chmod only directories
+find . -type d -exec chmod 755 {} \;
+
+Similarly, recursively set the execute bit on every directory
+chmod -R a+X *
+The +X flag sets the execute bit on directories only
+
+Recursively chmod only files
+find . -type f -exec chmod 644 {} \;
+
+Recursively chmod only PHP files (with extension .php)
+find . -type f -name '*.php' -exec chmod 644 {} \;
+
+#turn off excecute...
+find /var/www/html/vm -type f -name '*.sh' -exec chmod ug-x {} \;
+find /var/www/html/dokuwiki/ -type f -name '*.sh' -exec chmod ug-x {} \;
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-11-03[Nov-Tue]21-28PM
+
+http://www.techradar.com/us/news/computing/pc/how-to-verify-your-files-in-linux-with-md5-641436
+
+md5sum a.txt b.txt > md5sums.md5
+
+This line generates two MD5 hash values – one for a.txt and another for b.txt. 
+It then pipes these values (with filenames) to a plain text file named md5sums.md5. 
+To then validate that a.txt and b.txt haven't changed since you produced this checksum, 
+we type the following into a terminal:
+
+md5sum -c md5sums.md5
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-11-03[Nov-Tue]12-38PM
+
+reset mysql password.
+
+sudo dpkg-reconfigure mysql-server-5.5
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+tar -cvf dgleba-h1.tar /home/dgleba/
+tar -cvzf dgleba-h1.tgz /home/dgleba/
+
+
+#works:
+#sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "/home/$userv/tmp" \
+ --exclude "/home/$userv/backup"
+#works:
+#sudo tar -cvzf backup/$userv-home.$(date +"%Y-%m-%d_%s").tgz /home/$userv/ --exclude "tmp" \
+ --exclude "backup"
+#works...
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-30[Oct-Fri]23-41PM
+
+[10/30/2015 10:26:50 PM] -------------------------------------------------------------------------------
+[10/30/2015 10:26:50 PM] SlimFTPd 3.181, by WhitSoft Development (www.whitsoftdev.com)
+[10/30/2015 10:26:50 PM] SlimFTPd is starting.
+[10/30/2015 10:26:50 PM] Executing "SlimFTPd.conf"...
+[10/30/2015 10:26:50 PM] Configuration script parsed successfully.
+[10/30/2015 10:26:50 PM] Waiting for incoming connections...
+[10/30/2015 10:43:17 PM] [288] Incoming connection from PMDSDATA3:59125.
+[10/30/2015 10:43:17 PM] [288] User "dg" logged in.
+[10/30/2015 10:43:17 PM] [288] User "dg" logged out.
+[10/30/2015 10:43:17 PM] [288] Connection closed.
+[10/30/2015 10:43:22 PM] [468] Incoming connection from redwe:53260.
+[10/30/2015 10:43:22 PM] [468] User "dg" logged in.
+[10/30/2015 10:44:40 PM] [476] Incoming connection from PMDSDATA3:59127.
+[10/30/2015 10:44:40 PM] [476] User "dg" logged in.
+[10/30/2015 10:44:40 PM] [476] User "dg" began downloading "/var/varvamp/files/htdocs.PMDS-DATA.latest.7z".
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+curl -O -u dg:abc ftp://192.168.88.94//htdocs.PMDS-DATA.latest.7z
+curl -O -u dg:abc ftp://192.168.88.94//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-30[Oct-Fri]11-44AM
+
+windows command line ftp server idea...
+
+best free command line ftp server windows
+
+http://stahlworks.com/dev/?tool=ftpserv
+https://www.raymond.cc/blog/smallest-ftp-server-for-windows-that-runs-quietly-in-background-hidden-or-stealth/
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-27[Oct-Tue]13-48PM
+
+sudo chmod -R 777 /var/www/html/test/yii178b/web/assets
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-25[Oct-Sun]20-23PM
+
+test creation.
+
+use existing iso and unattenddiso..
+2015-Oct-25_Sun_08:22:00 PM  create vm
+2015-Oct-25_Sun_08:27:51 PM  login
+2015-Oct-25_Sun_08:28:16 PM  get, start.sh
+2015-Oct-25_Sun_08:29:09 PM  docs gettting htdocs
+2015-Oct-25_Sun_08:32:50 PM  importing data
+2015-Oct-25_Sun_08:33:27 PM  reboot
+2015-Oct-25_Sun_08:34:54 PM  works.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-15[Oct-Thu]07-00AM
+
+
+smbget Using workgroup WORKGROUP, user dg  Can't open : Permission denied
+smbget Using workgroup WORKGROUP, user   Can't open : Permission denied
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2015-10-10[Oct-Sat]20-57PM
+
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/bootstrap203.sh
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/import203.sh
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/django203.sh
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/start.sh
+#wget -N https://raw.githubusercontent.com/dgleba/vamp203/master/start.sh
+#blob is not correct.... https://github.com/dgleba/vamp203/blob/master/05create-unattended-iso.sh
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

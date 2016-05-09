@@ -19,6 +19,9 @@ smb() {
 source shc/root.sh
 source shc/21env.sh
 
+#copy the original file backup I made at the beginning so we get a fresh start..
+cp /etc/samba/smb.conf.orig /etc/samba/smb.conf
+
 sudo sudo service smbd restart
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -90,6 +93,20 @@ sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# cat /etc/samba/smb.conf |grep global
+
+# remove line containing  '[global]'  and replace th line completely with the new text...
+# add marker line above my edits... 
+# add a marker comment like: #David Gleba 2015-10-16... http://stackoverflow.com/questions/11694980/using-sed-insert-a-line-below-or-above-the-pattern
+# now replace the line... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo sed -i "/global]/i # \n# David Gleba kdg54 $nowdg1 invalid handle error see see vamp,samba,error,notes-2016-05-09.txt ...\n#"  /etc/samba/smb.conf 
+sudo sed -i 's/.*global].*/[global]\n\nunix extensions = no/g' /etc/samba/smb.conf 
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 sudo cat <<EOF >> /etc/samba/smb.conf 
 
@@ -103,7 +120,7 @@ writable = yes
 guest ok = no
 read only = no
 #was this, try without dgleba... valid users = $userv,dgleba,@www
-valid users = $userv,@www
+valid users = $userv,@www-data
 #
 [html]
 path = /var/www/html
@@ -111,15 +128,17 @@ browsable =yes
 writable = yes
 guest ok = no
 read only = no
-valid users = $userv,@www
+valid users = $userv,@www-data
 #
 [rt]
 path = /
+#due to invalid handle error.. see vamp,samba,error,notes-2016-05-09.txt
+wide links = yes
 browsable =yes
 writable = yes
 guest ok = no
 read only = no
-valid users = $userv,@www
+valid users = $userv,@www-data
 # sudo smbpasswd -a $userv
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
@@ -146,32 +165,6 @@ sudo sudo service smbd restart
 cd
 # create 15ran to mark that is has been run. Then don't run it again.
 touch /home/$userv/15ran
-
-}
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-notes-smbpas-notes () {
-
-notes...
-
-# http://stackoverflow.com/questions/12009/piping-password-to-smbpasswd
- echo -ne "p2\np2\n" | sudo smbpasswd -a -s u2
-#work...
- echo -ne "$predwe\n$predwe\n" | sudo smbpasswd -a -s $userv
- (echo $pw1; echo $pw1) | sudo smbpasswd -s -a $userv
-
-
-http://unix.stackexchange.com/questions/204975/script-samba-password-but-securely
-pssword="pw"
-#IFS= read -r password </home/file.pw1
-#smbpasswd -a -s "$LOGIN" <<EOF
-sudo smbpasswd -a -s "u3" <<EOF
-$pssword
-$pssword
-EOF
 
 }
 
