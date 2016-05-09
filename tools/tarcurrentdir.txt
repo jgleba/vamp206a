@@ -1,0 +1,7 @@
+###### tar current folder..
+base=$(basename $PWD)
+cd ..
+tar -czf $base$(date +"__%Y.%m.%d_%H.%M.%S").tgz  $base --exclude=$base/tmp
+cd $base
+
+

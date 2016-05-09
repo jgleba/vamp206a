@@ -75,6 +75,11 @@ echo "ftpup:ftp" | sudo chpasswd
 sudo mkdir /home/ftpup/upload
 sudo chmod 755 -R /home/ftpup/upload
 
+
+
+
+
+
 #--------
 #
 #  trying @www group for valid users. 2015-10-23_Fri_10.16-AM

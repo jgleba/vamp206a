@@ -36,7 +36,7 @@ sudo apt-get -y install php5-xsl
 sudo apt-get -y install php5-intl
 sudo apt-get -y install php5-gd
 sudo apt-get -y install php5-mcrypt
-
+sudo apt-get -y install php5-sqlite
 
 sudo apt-get -y install python-dev
 sudo apt-get -y install libmysqlclient-dev

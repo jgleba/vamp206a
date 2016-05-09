@@ -53,9 +53,14 @@ sudo  visudo -f /etc/sudoers.d/websreload2
 
 
 
+echo.. "do not run the rest. --- manually edit by visudo.."
+echo .
+read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
 
 
-
+function howto() {
+# begin block comment =============================
+: <<'END'
 # better.. create the file in /tmp/dg/websreload2 , sudo chmod 0440 websreload2 , copy it into /etc/sudoers.d ...
 # http://www.peppertop.com/blog/?p=1015
 mkdir -p /tmp/dg
@@ -69,6 +74,9 @@ EOF
 sudo chmod 0440 /tmp/dg/websreload2
 sudo cp /tmp/dg/websreload2 /etc/sudoers.d/websreload2
 cat /etc/sudoers.d/websreload2
+END
+# end block comment ===============================
+}
 
 #
 date
@@ -80,7 +88,10 @@ date
 
 
 
+
 ### notes....
+
+
 
 
 

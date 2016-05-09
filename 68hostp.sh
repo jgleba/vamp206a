@@ -21,7 +21,7 @@ export hostv="$1"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 sudo cp /etc/hosts /etc/hosts.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/hosts /etc/hosts.$(date +"%s").bk
+#sudo cp /etc/hosts /etc/hosts.$(date +"%s").bk
 sudo cp /etc/hosts /etc/hosts.$(date "+%Y-%m-%d_%s").bk
 sudo cp /etc/hostname /etc/hostname.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
