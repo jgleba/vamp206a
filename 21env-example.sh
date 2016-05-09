@@ -4,6 +4,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit these variables to match your system...
 #
+export HOSTNAME
 
 export userv="albe"
 #this stores root not the regular user.

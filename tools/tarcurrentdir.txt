@@ -1,3 +1,18 @@
+old
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ###### tar current folder..
 base=$(basename $PWD)
 cd ..
