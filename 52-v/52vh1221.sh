@@ -53,7 +53,22 @@ listen 1221
         Options -MultiViews
         Options FollowSymLinks
         Require all granted
-   </Directory>
+    </Directory>
+
+    #   sub dir app..
+    Alias /survsay "/var/www/html/rails/survsay/public"
+    <Location /survsay>
+        PassengerBaseURI /survsay
+        PassengerAppRoot "/var/www/html/rails/survsay"
+    </Location>
+    <Directory "/var/www/html/rails/survsay/public">
+        Allow from all
+        Options -MultiViews
+        Options FollowSymLinks
+        Require all granted
+    </Directory>
+
+
 </VirtualHost>
 #
 EOF
