@@ -34,8 +34,12 @@ exec $SHELL
 
 git clone https://github.com/rbenv/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 
-rbenv install 2.1.4
-rbenv global 2.1.4
+#rbenv install 2.1.4
+#rbenv global 2.1.4
+# 2016-05-10 i think 2.3.0 will be ok next time... 
+rbenv install 2.3.0
+rbenv global 2.3.0
+
 ruby -v
 
 gem install bundler
