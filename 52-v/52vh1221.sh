@@ -68,7 +68,6 @@ listen 1221
         Require all granted
     </Directory>
 
-
 </VirtualHost>
 #
 EOF
