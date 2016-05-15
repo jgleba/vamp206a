@@ -8,8 +8,6 @@ get1()
 {
 set -x
 cd
-#make user's bin folder so scripts can be run from there in the path
-mkdir -p bin
 
 userv11=$USER
 echo $userv11
@@ -28,6 +26,7 @@ sudo rm -rf shc
 
 read -t 0 -p "Hit ENTER or wait some seconds" ; echo ;
 
+mkdir -p bin
 mkdir -p tmp01
 sudo chmod -R 777 tmp01
 

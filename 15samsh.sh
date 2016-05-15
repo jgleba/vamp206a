@@ -11,6 +11,8 @@ cd
 # description:
 # set samba shares and some linux user settings like immediate history write...
 
+# put other things to run once here too.
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -47,12 +49,15 @@ function runsam() {
 
 #alias for ls -la
 #
+
+
 echo "alias lsl='ls -la'" >>   ~/.bash_aliases
 sudo chmod ugo+rw  ~/.bash_aliases
 echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
 cat ~/.bash_aliases
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 # write history immediately...
 #
@@ -69,7 +74,12 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 #
 EOF
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+mkdir -p bin
+echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
+chmod +x ~/bin/blank.sh
+cat ~/bin/blank.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

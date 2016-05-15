@@ -27,9 +27,23 @@ sudo chmod -R o-rw /srv/share
 # make only folders +x so they can be cd into.
 sudo find /usr/share -type d -exec chmod g+x {} +
 sudo usermod -a -G www-data  albe
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 groups
 groups albe
 id albe
 #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# make srv/web folder and change permissions...
+# my standard practice for web apps...
+#
+sudo mkdir -p /srv/web
+sudo chgrp -hR www-data /srv/web # change group to www-data ( apache group. apache already was installed.)
+sudo chown -R root /srv/web 
+sudo chmod -R g+rw  /srv/web # writable for group
+sudo chmod -R o-rw /srv/web # not viewable for others..
+# make only folders +x so they can be cd into.
+sudo find /srv/web -type d -exec chmod g+x {} +
+#also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+sudo chmod -R g+rws  /srv/web 
+#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -43,12 +43,12 @@ listen 1221
     </Directory>
 
     #   sub dir app..
-    Alias /select2 "/var/www/html/rails/select2/public"
-    <Location /select2>
-        PassengerBaseURI /select2
-        PassengerAppRoot "/var/www/html/rails/select2"
+    Alias /drail240a "/var/www/html/rails/drail240a/public"
+    <Location /drail240a>
+        PassengerBaseURI /drail240a
+        PassengerAppRoot "/var/www/html/rails/drail240a"
     </Location>
-    <Directory "/var/www/html/rails/select2/public">
+    <Directory "/var/www/html/rails/drail240a/public">
         Allow from all
         Options -MultiViews
         Options FollowSymLinks
@@ -56,12 +56,12 @@ listen 1221
     </Directory>
 
     #   sub dir app..
-    Alias /survsay "/var/www/html/rails/survsay/public"
-    <Location /survsay>
-        PassengerBaseURI /survsay
-        PassengerAppRoot "/var/www/html/rails/survsay"
+    Alias /cocoon238c "/var/www/html/rails/cocoon238c/public"
+    <Location /cocoon238c>
+        PassengerBaseURI /cocoon238c
+        PassengerAppRoot "/var/www/html/rails/cocoon238c"
     </Location>
-    <Directory "/var/www/html/rails/survsay/public">
+    <Directory "/var/www/html/rails/cocoon238c/public">
         Allow from all
         Options -MultiViews
         Options FollowSymLinks

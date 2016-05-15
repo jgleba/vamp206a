@@ -9,8 +9,10 @@ date +"%Y-%m-%d_%H-%M-%S"
 date +"%s"  # seconds since unix epoch
 echo $(date +"__%Y-%m-%d_%a_%H.%M.%S-%Z")
 
-#preferred backup format for date...
+#preferred format for backup of file with date...
 date +"_%Y.%m.%d_%H.%M.%S.bk"
+mkdir -p ~/tmp01/tmp
+cp  /etc/hosts  ~/tmp01/tmp/hosts$(date +"__%Y.%m.%d_%H.%M.%S").bk
 
 echo $(date +"%Y.%m.%d_%H.%M.%S")>>~/now.log.dg.txt
 
