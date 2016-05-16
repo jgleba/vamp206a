@@ -43,17 +43,17 @@ EOF
 
 
 cd /srv/web/drail240a
-mkdir -p /tmp/pids /tmp/log
+mkdir -p /srv/web/drail240a/tmp/pids /srv/web/drail240a/tmp/log
 
 set variables for tee. they wilnl be in the script as well.
-USER1="albe"
-APP_NAME="drail240a"
+# USER1="albe"
+# APP_NAME="drail240a"
 
  
 #backup..
 sudo cp  /etc/init.d/unicorn_drail240a2  /etc/init.d/unicorn_drail240a2$(date +"__%Y.%m.%d_%H.%M.%S").bk
 # copy file into place
-sudo cp  /home/albe/shc/apps/rails/drail240a2.unicorn.rb.txt  /etc/init.d/unicorn_drail240a2
+sudo cp  /home/albe/shc/apps/rails/drail240a2.initd.txt /etc/init.d/unicorn_drail240a2
 
 
 
@@ -74,6 +74,7 @@ sudo cp  /etc/nginx/sites-available/drail240a2.conf  /etc/nginx/sites-available/
 # copy file into place
 sudo cp  /home/albe/shc/apps/rails/drail240a2.nginx.txt  /etc/nginx/sites-available/drail240a2.conf
 
+sudo ln -nfs /etc/nginx/sites-available/drail240a2.conf /etc/nginx/sites-enabled/drail240a2.conf
 
 
 sudo service nginx restart
