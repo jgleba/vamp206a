@@ -7,6 +7,10 @@ function Purpose() {
 #  Purpose:  deploy drail240a
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-unicorn-and-nginx-on-ubuntu-14-04
 
+see error.txt
+
+
+
 END
 # end block comment ===============================
 }
@@ -46,6 +50,9 @@ EOF
 cd /srv/web/drail240a
 mkdir -p shared/pids shared/sockets shared/log
 
+set variables for tee. they will be in the script as well.
+USER1="albe"
+APP_NAME="drail240a"
 
 sudo tee /etc/init.d/unicorn_drail240a <<EOF
 #!/bin/sh
@@ -57,57 +64,58 @@ sudo tee /etc/init.d/unicorn_drail240a <<EOF
 # Default-Stop:      0 1 6
 # Short-Description: starts the unicorn app server
 # Description:       starts unicorn using start-stop-daemon
+#  /srv/web/drail240a/bundle install
 ### END INIT INFO
 set -e
-USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
+USAGE="Usage: \$0 <start|stop|restart|upgrade|rotate|force-stop>"
 # app settings
-USER="albe"
+USER1="albe"
 APP_NAME="drail240a"
-APP_ROOT="/srv/web/$USER/$APP_NAME"
+APP_ROOT="/srv/web/\$APP_NAME"
 ENV="development"
 # environment settings
-PATH="/home/$USER/.rbenv/shims:/home/$USER/.rbenv/bin:$PATH"
-CMD="cd $APP_ROOT && bundle exec unicorn -c config/unicorn.rb -E $ENV -D"
-PID="$APP_ROOT/shared/pids/unicorn.pid"
-OLD_PID="$PID.oldbin"
+PATH="/home/\$USER1/.rbenv/shims:/home/\$USER1/.rbenv/bin:\$PATH"
+CMD="cd \$APP_ROOT && \$APP_ROOT/bin/bundle exec unicorn -c config/unicorn.rb -E \$ENV -D"
+PID="\$APP_ROOT/shared/pids/unicorn.pid"
+OLD_PID="\$PID.oldbin"
 # make sure the app exists
-cd $APP_ROOT || exit 1
+cd \$APP_ROOT || exit 1
 #
 sig () {
-  test -s "$PID" && kill -$1 `cat $PID`
+  test -s "\$PID" && kill -$1 \`cat \$PID\`
 }
 #
 oldsig () {
-  test -s $OLD_PID && kill -$1 `cat $OLD_PID`
+  test -s \$OLD_PID && kill -\$1 \`cat \$OLD_PID\`
 }
 #
-case $1 in
+case \$1 in
   start)
     sig 0 && echo >&2 "Already running" && exit 0
-    echo "Starting $APP_NAME"
-    su - $USER -c "$CMD"
+    echo "Starting \$APP_NAME"
+    su - \$USER1 -c "\$CMD"
     ;;
   stop)
-    echo "Stopping $APP_NAME"
+    echo "Stopping \$APP_NAME"
     sig QUIT && exit 0
     echo >&2 "Not running"
     ;;
   force-stop)
-    echo "Force stopping $APP_NAME"
+    echo "Force stopping \$APP_NAME"
     sig TERM && exit 0
     echo >&2 "Not running"
     ;;
   restart|reload|upgrade)
-    sig USR2 && echo "reloaded $APP_NAME" && exit 0
-    echo >&2 "Couldn't reload, starting '$CMD' instead"
-    $CMD
+    sig USR2 && echo "reloaded \$APP_NAME" && exit 0
+    echo >&2 "Couldn't reload, starting '\$CMD' instead"
+    \$CMD
     ;;
   rotate)
     sig USR1 && echo rotated logs OK && exit 0
     echo >&2 "Couldn't rotate logs" && exit 1
     ;;
   *)
-    echo >&2 $USAGE
+    echo >&2 \$USAGE
     exit 1
     ;;
 esac
@@ -117,6 +125,8 @@ EOF
 #Update the script's permissions and enable Unicorn to start on boot:
 sudo chmod 755 /etc/init.d/unicorn_drail240a
 sudo update-rc.d unicorn_drail240a defaults
+
+sudo service unicorn_drail240a start
 
 sudo apt-get -y install nginx
 
@@ -139,8 +149,8 @@ server {
 
     location @app {
         proxy_pass http://app;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header Host \$http_host;
         proxy_redirect off;
     }
 
@@ -165,11 +175,14 @@ sudo cp  /etc/nginx/sites-enabled/default  /etc/nginx/sites-enabled/default.$(da
 sudo cp  /etc/nginx/sites-available/default  /etc/nginx/sites-available/default.$(date "+%Y-%m-%d_%s").bk
 # remove line containing  '?????'  and replace the line completely with the new text...
 nowdg1=`date +'__%Y-%m-%d_%a_%H.%M.%S-%Z'`
-sudo sed -i "/.*listen 80 .*/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/nginx/sites-enabled/default # add marker above the change.
+sudo sed -i "/.*listen 80 .*/i # \n# David Gleba kdg54 $nowdg1 ...\n#"  /etc/nginx/sites-available/default # add marker above the change.
 #Use double quotes to make the shell expand variables while keeping whitespace:
-sudo sed -i "s/.*listen 80 .*/       listen 82 default_server;/g" /etc/nginx/sites-enabled/default
-sudo sed -i "s/.*80 default_server.*/       listen [::]:82 default_server ipv6only=on;/g" /etc/nginx/sites-enabled/default
+sudo sed -i "s/.*listen 80 .*/       listen 82 default_server;/g" /etc/nginx/sites-available/default
+sudo sed -i "s/.*80 default_server.*/       listen [::]:82 default_server ipv6only=on;/g" /etc/nginx/sites-available/default
 # cat /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -nfs /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
 # move unneeded config out of the way...
 sudo mkdir /etc/nginx/offlinedg
 #sudo mv  /etc/nginx/sites-available/default /etc/nginx/offlinedg/default

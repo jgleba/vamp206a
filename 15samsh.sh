@@ -110,7 +110,7 @@ sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M
 # add a marker comment like: #David Gleba 2015-10-16... http://stackoverflow.com/questions/11694980/using-sed-insert-a-line-below-or-above-the-pattern
 # now replace the line... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
-sudo sed -i "/global]/i # \n# David Gleba kdg54 $nowdg1 invalid handle error see see vamp,samba,error,notes-2016-05-09.txt ...\n#"  /etc/samba/smb.conf 
+sudo sed -i "/global]/i # \n# David Gleba kdg54 $nowdg1 invalid handle error, add unixextensions=no. see see vamp,samba,error,notes-2016-05-09.txt ...\n#"  /etc/samba/smb.conf 
 sudo sed -i 's/.*global].*/[global]\n\nunix extensions = no/g' /etc/samba/smb.conf 
 
 
@@ -142,7 +142,7 @@ valid users = $userv,@www-data
 #
 [rt]
 path = /
-#due to invalid handle error.. see vamp,samba,error,notes-2016-05-09.txt
+#due to invalid handle error. add widelinks=yes. see vamp,samba,error,notes-2016-05-09.txt
 wide links = yes
 browsable =yes
 writable = yes
@@ -166,11 +166,19 @@ source shc/21env.sh
 
 
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#2016-05-15
+#http://unix.stackexchange.com/questions/214128/samba-specified-network-name-no-longer-available
+#Sometimes Samba fails to install or update it's dependencies correctly. Try running the following command to ensure all the dependencies are available, this is on Ubuntu, modify for your Linux flavour:
+sudo apt-get -y install --reinstall libsmbclient libsmbclient-dev libtevent0 libtalloc2
+#worked!
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 sudo sudo service smbd restart
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 cd
 # create 15ran to mark that is has been run. Then don't run it again.
@@ -178,7 +186,6 @@ touch /home/$userv/15ran
 
 }
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
