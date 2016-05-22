@@ -41,9 +41,16 @@ see...
 1216    dj224testg 
 1219    dj224b  django testingground
 1220    dj224c 
-1221    rails drails237a
+1221    rails drails237a passenger deploy, works but slow.
 
 1222    rails drail240a
+1223
+1224
+1225    drail241a on vm
+1226    drail210d manuel puma deployed ok
+1227    drail242b dg-manuel-pundit
+
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

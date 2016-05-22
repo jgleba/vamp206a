@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -x
 cd
+source shc/root.sh
+source shc/21env.sh
 
 #install virtual box guest additions.
 #http://virtualboxes.org/doc/installing-guest-additions-on-ubuntu/
@@ -20,8 +22,8 @@ sudo m-a prepare
 cd 
 mkdir -p mnt/tmp01
 cd /mnt
-wget -N http://download.virtualbox.org/virtualbox/5.0.2/VBoxGuestAdditions_5.0.2.iso
-sudo mount -o loop VBoxGuestAdditions_5.0.2.iso /mnt/tmp01
+wget -N http://download.virtualbox.org/virtualbox/5.0.20/VBoxGuestAdditions_5.0.20.iso
+sudo mount -o loop VBoxGuestAdditions_5.0.20.iso /mnt/tmp01
 cd /mnt/tmp01
 sudo ./VBoxLinuxAdditions.run
 
