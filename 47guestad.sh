@@ -54,9 +54,13 @@ mkdir -p /var/www/html
 cp /etc/fstab /etc/fstab.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 mkdir -p ~/backup
 cp /etc/fstab ~/backup/fstab.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-#not working yet...
-#echo "html      /var/www/html  vboxsf   defaults,noauto  0   0" >> /etc/fstab
-echo "share203  /home/$userv/share203  vboxsf   defaults,noauto  0   0" >> /etc/fstab
+
+echo "html      /var/www/html  vboxsf   defaults,noauto  0   0" >> /etc/fstab
+#this deoesn't expand the $albe variable.. echo "share203  /home/$userv/share203  vboxsf   defaults,noauto  0   0" >> /etc/fstab
+#add text share203, then 
+sudo sh -c 'echo "share203  /home/share203  vboxsf   defaults,noauto  0   0" >> /etc/fstab'
+#now replace line with this text with a whole new line. have to excape / in /home/...
+sudo sed -i "s/.*share203.*/share203  \/home\/$userv\/share203  vboxsf   defaults,noauto  0   0/g" /etc/fstab
 
 
 
@@ -106,6 +110,6 @@ if mount | grep /var/www/html > /dev/null; then
     echo "already mounted"
 else
     echo "now mount it"
-	sudo mount -t vboxsf  html /var/www/html
+	#sudo mount -t vboxsf  html /var/www/html
 fi
 
