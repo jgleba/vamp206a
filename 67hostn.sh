@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:   i want to make the hostname different on each boot so it won't conflict with another instance.
+#  Purpose:   create unique hostname
 
 https://acritiqueofplanetearth.wordpress.com/2013/11/14/6/
 
