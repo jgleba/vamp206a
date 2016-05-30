@@ -48,7 +48,10 @@ see...
 1224
 1225    drail241a on vm
 1226    drail210d manuel puma deployed ok
-1227    drail242b dg-manuel-pundit
+1227    tbd...  drail242b dg-manuel-pundit
+1228    drail237a
+1229    drail246b
+
 
 
 
