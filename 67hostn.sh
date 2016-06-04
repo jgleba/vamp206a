@@ -19,14 +19,14 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 # Main: put code here...
 
 export hostv="v206x"
-export hnow=$(date +"%Y%m%d%k%M%S")
+export hnow=$(date +"%Y%m%d%H%M%S")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 sudo mkdir -p /var/log/v206
 
-sudo cp /etc/hosts /var/log/v206/hosts.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/hostname /var/log/v206/hostname.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-sudo cp /etc/ssmtp/ssmtp.conf /var/log/v206/ssmtp.conf.bk.$(date +"%__%Y-%m-%d_%a_%k.%M.%S-%Z")
+sudo cp /etc/hosts /var/log/v206/hosts.bk.$(date +"__%Y-%m-%d_%a_%H.%M.%S-%Z")
+sudo cp /etc/hostname /var/log/v206/hostname.bk.$(date +"__%Y-%m-%d_%a_%H.%M.%S-%Z")
+sudo cp /etc/ssmtp/ssmtp.conf /var/log/v206/ssmtp.conf.bk.$(date +"%__%Y-%m-%d_%a_%H.%M.%S-%Z")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

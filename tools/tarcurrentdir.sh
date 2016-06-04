@@ -16,10 +16,11 @@ date ; set +vx  ; set -vx ; # echo off, then echo on
 
 # Main: put code here...
 
+mkdir -p tmp/dglog
 mv log/development.log tmp/dglog/development.log.$(date +"__%Y.%m.%d_%H.%M.%S").log
 ###### tar current folder..
 base=$(basename $PWD);export HOSTNAME;cd ..
-tar -czf $base-$HOSTNAME$(date +"__%Y.%m.%d_%H.%M.%S").tgz  $base --exclude=$base/tmp --exclude=$base/vendor/assets/javascripts;cd $base
+tar -czf $base-$HOSTNAME$(date +"__%Y.%m.%d_%H.%M.%S").tgz  $base --exclude={$base/tmp,$base/vendor/assets/javascripts,$base/shared,$base/nbproject};cd $base
 
 #
 date
