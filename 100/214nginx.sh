@@ -28,7 +28,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 #main: 
 
-# sudo apt-get update
+ sudo apt-get update
 sudo apt-get install python-pip python-dev nginx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
