@@ -6,6 +6,24 @@ function Purpose() {
 
 #  Purpose:  install ruby on rails 
 
+
+
+
+
+
+
+
+
+Do NOT run this scrpt as root!!!!!!!!
+
+
+
+
+
+
+
+
+
 END
 # end block comment ===============================
 }
@@ -21,6 +39,9 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 sudo apt-get update
 sudo apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+sudo apt-get install libmysqlclient-dev
+
+####   !!!!   The following must be done as non-root....
 
 cd
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
