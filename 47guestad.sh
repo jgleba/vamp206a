@@ -10,6 +10,8 @@ source shc/21env.sh
 #http://www.binarytides.com/vbox-guest-additions-ubuntu-14-04/
 #http://sharadchhetri.com/2014/10/07/ubuntu-14-04-install-virtualbox-guest-additions-also-create-videos/
 
+
+
 #sudo apt-get install build-essential module-assistant;
 #sudo m-a prepare
 #sudo rcvboxadd setup
@@ -32,6 +34,12 @@ lsmod | grep -io vboxguest
 sleep 2
 
 
+# info from mac osx setup..
+#
+# http://askubuntu.com/questions/456400/why-cant-i-access-a-shared-folder-from-within-my-virtualbox-machine
+# needed?? ... sudo chmod 777 /home/userName/Share
+# good: sudo usermod -aG vboxsf $(whoami)
+sudo usermod -aG vboxsf $(whoami)
 
 
 # add shares to rc.local to start them at boot... grr. this is frustrating....

@@ -40,6 +40,8 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 sudo apt-get update
 sudo apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
 sudo apt-get install libmysqlclient-dev
+sudo apt-get -y install nodejs
+
 
 ####   !!!!   The following must be done as non-root....
 
@@ -72,7 +74,6 @@ gem install rails
 
 gem install uglifier
 #http://stackoverflow.com/questions/34420554/there-was-an-error-while-trying-to-load-the-gem-uglifier-bundlergemrequire
-sudo apt-get -y install nodejs
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -5,7 +5,7 @@ set -vx
 source shc/21env.sh
 
 #remove then add # run 0901am everyday
-sudo crontab -u pmdsu -l
+sudo crontab -u pmdsu -l #list the crontab
 #remove
 sudo crontab -u pmdsu -l | grep -v '/excel2_script.sh'  | sudo crontab -u pmdsu -
 #add
