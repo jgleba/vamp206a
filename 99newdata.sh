@@ -26,7 +26,9 @@ rm tmp01/htdocs.PMDS-DATA.latest.7z
 cp /home/albe/share203/htdocs.PMDS-DATA.latest.7z tmp01
 
     # delete this htdocs if you want to get new files...
-    if  [ ! -d htdocs ] ; then
+cd
+cd tmp01 
+   if  [ ! -d htdocs ] ; then
         cd /home/$userv/tmp01
         #sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
@@ -41,13 +43,25 @@ cp /home/albe/share203/htdocs.PMDS-DATA.latest.7z tmp01
 
         source ~/shc/21env.sh
         sudo rsync -vrltgoD /home/$userv/tmp01/htdocs/  /var/www/html
+        cd
+        source shc/11get.sh
+        cd
+        source shc/53imp.sh
+
+        sudo chown -R root /var/www/html
+        sudo chgrp -hR www-data /var/www/html
+        # also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+        sudo chmod -R g+rws  /var/www/html
+        sudo chmod -R o-rw /var/www/html
+        # make only folders +x so they can be cd into.
+        sudo find /var/www/html -type d -exec chmod g+x {} +
+
+
+        echo Data imported !!!!
+        exit
     fi
 
 
-source shc/11get.sh
-cd
-source shc/53imp.sh
-cd
 #source shc/flask/cif207.sh
 #cd
 #source shc/flask/pdb218.sh
@@ -56,20 +70,11 @@ cd
 #cd
 #source shc/52-v/52vh923.sh
 
-
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # set access to html files here..  [chmod chown chgrp]
 # chown and chgrp the html files appropriately.. chgrp -hR www-data /var/www/html
-sudo chown -R root /var/www/html
-sudo chgrp -hR www-data /var/www/html
-# also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
-sudo chmod -R g+rws  /var/www/html
-sudo chmod -R o-rw /var/www/html
-# make only folders +x so they can be cd into.
-sudo find /var/www/html -type d -exec chmod g+x {} +
 
 
-#
-date
-#
+cd
+echo You must delete /home/albe/tmp01/hdtocs folder to get new data imported.. Data NOT imported.
+

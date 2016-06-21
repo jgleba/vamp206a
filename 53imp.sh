@@ -25,7 +25,7 @@ mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv";
 #
 #import one database at a time from the backup of all the mysql data.
 #
-mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
+#mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
 mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
 mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
 mysql -uroot -p$mysqlrootpassw --one-database prodrptdb < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
