@@ -46,17 +46,15 @@ cp /home/albe/share203/htdocs.PMDS-DATA.latest.7z tmp01
 
 source shc/11get.sh
 cd
-source shc/17docs.sh
-cd
 source shc/53imp.sh
 cd
-source shc/flask/cif207.sh
-cd
-source shc/flask/pdb218.sh
-cd
-source shc/52-v/52vh920.sh
-cd
-source shc/52-v/52vh923.sh
+#source shc/flask/cif207.sh
+#cd
+#source shc/flask/pdb218.sh
+#cd
+#source shc/52-v/52vh920.sh
+#cd
+#source shc/52-v/52vh923.sh
 
 
 
