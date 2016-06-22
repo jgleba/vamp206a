@@ -23,13 +23,26 @@ cp /home/$userv/bin/tarc /home/$userv/backup/tarc.$(date +"__%Y.%m.%d_%H.%M.%S")
 #
 cat <<EOF >> /home/$userv/bin/tarc
 ###### tar current folder..
-base1=$(basename $PWD);export HOSTNAME;cd ..
-tar -czf $base1-$HOSTNAME$(date +"__%Y.%m.%d_%H.%M.%S").tgz  $base1 --exclude=$base1/tmp --exclude=$base1/vendor/assets/javascripts;cd $base1
+mkdir -p tmp/dglog
+mv log/development.log tmp/dglog/development.log.$(date +"__%Y.%m.%d_%H.%M.%S").log
+###### tar current folder..
+base=$(basename $PWD);export HOSTNAME;cd ..
+tar -czf $base-$HOSTNAME$(date +"__%Y.%m.%d_%H.%M.%S").tgz  $base --exclude={$base/tmp,$base/vendor/assets/javascripts,$base/shared,$base/nbproject,$base/log};cd $base
+
 EOF
 #
 chmod +x /home/$userv/bin/tarc
 
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#
+cat <<EOF >> /home/$userv/bin/ifrs
+###### restart network eth0..
+sudo ifdown eth0 && sudo ifup eth0
+EOF
+#
+chmod +x /home/$userv/bin/ifrs
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
