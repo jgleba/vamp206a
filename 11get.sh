@@ -34,7 +34,7 @@ cd tmp01
 rm vamp206a-master.zip
 wget -N --output-document=vamp206a-mast.zip https://codeload.github.com/dgleba/vamp206a/zip/master 
 
-if [  -f "/home/$userv11/tmp01/vamp206a-master.zip" ]; then
+if [  -f "/home/$userv11/tmp01/vamp206a-mast.zip" ]; then
     # 21env.sh exists, so don't copy over top.
     echo
     echo "good, we got the new files.."

@@ -32,16 +32,16 @@ EOF
 chmod +x /home/$userv/bin/ifrs
 
 #
-cat <<EOF >> /root/bin/ifrs
+sudo cat <<EOF >> /root/bin/ifrs
 ###### restart network eth0..
 sudo ifdown eth0 && sudo ifup eth0
 EOF
 #
-chmod +x /root/bin/ifrs
+sudo chmod +x /root/bin/ifrs
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-cp -rf shc/bin/* /home/$userv/bin
+cp -rf shc/bin1/* /home/$userv/bin
 chmod +x /home/$userv/bin/*
 
 
