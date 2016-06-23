@@ -51,5 +51,66 @@ get new data:
         update this file with a new one yourself manually:  C:\var\share203\htdocs.PMDS-DATA.latest.7z
 in vm:
             sudo shc/99newdata.sh
-            
+
+visit in broswer:            
+http:localhost/test             
+http:localhost/menu             
+http://localhost:8986/trakberry/display/
+
+basic auth:
+A username and password are being requested by http://localhost. The site says: "  =====   Authbasic Whole Site2   ===== "
+
+user: albe   passw: powder
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2016-06-23[Jun-Thu]08-04AM
+
+Install 
+virtualbox win 5.0.22 win x64
+
+import to virtualbox  \\pmds-3hzgd42\video-udrive\web\vamp206b_621-dclark.ova
+import appliance
+    on import...
+    -reinitialize mac address
+
+in virtualbox screens..    
+    -network: change it to bridged  - Intel pro/1000 mt server
+
+start the vm
+    -if it says network card is in error
+    -stop vm and fix network card in virtualbox screen
+    
+user: albe passw: a
+
+win:
+    mkdir c:\var\share203
+    
+
+dclark = 10.4.15.105    
+    sudo shc/100/102staticip.sh    
+    
+
+windows explorer
+        \\10.4.15.105\
+        albe a
+        
+hook up any windows git client gui like sourcetree or smartgit to         
+    \\10.4.15.105\html\django\trakberry
+    
+ 
+in the vm:
+    sudo service apache2 restart 
+    
+get new data:
+        update this file with a new one yourself manually:  C:\var\share203\htdocs.PMDS-DATA.latest.7z
+in vm:
+            sudo shc/99newdata.sh
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             
