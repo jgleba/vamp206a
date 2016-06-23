@@ -16,7 +16,7 @@ date ; set +vx  ; set -vx ; # echo off, then echo on
 
 # Main: put code here...
 
-rails s -b 0.0.0.0
+rails s -b 0.0.0.0 -p 3001
 
 #
 date
