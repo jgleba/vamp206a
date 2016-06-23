@@ -31,9 +31,29 @@ mkdir -p tmp01
 sudo chmod -R 777 tmp01
 
 cd tmp01
+rm vamp206a-master.zip
 wget -N --output-document=vamp206a-mast.zip https://codeload.github.com/dgleba/vamp206a/zip/master 
-#unzip [ -j junk paths - all in one folder ] 
 
+if [  -f "/home/$userv11/tmp01/vamp206a-master.zip" ]; then
+    # 21env.sh exists, so don't copy over top.
+    echo
+    echo "good, we got the new files.."
+    echo userv11 = $userv11
+    echo
+    read -t  1 -p "Hit ENTER or wait about ten seconds" ; echo ;
+
+ else
+    echo
+    echo
+    echo "ERROR..  BAD..  COULD NOT GET NEW FILES FROM GIT REPO."
+    echo
+    echo
+    read -t  881 -p "Hit ENTER or wait about ten seconds" ; echo ;
+    exit
+ fi
+
+
+#unzip [ -j junk paths - all in one folder ] 
 # unzip one folder...  unzip  ~/share203/master vamp206a-master/hyperv/* -d ./sh
 # unzip to destination.. unzip ~/share203/master -d ./sh
 unzip -uo ./vamp206a-mast.zip
