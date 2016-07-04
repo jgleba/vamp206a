@@ -1,10 +1,15 @@
 
+Install 
 virtualbox win 5.0.22 win x64
 
-import  U:\vbox\vamp206b_160120b_24start-hostunaltered-vamp206b.ova
+import to virtualbox  \\pmds-3hzgd42\video-udrive\web\vamp206b_621-dclark.ova
+or
+  U:\vbox\vamp206b_160120b_24start-hostunaltered-vamp206b.ova
+import appliance
     on import...
     -reinitialize mac address
-    
+
+     
 in virtualbox screen..    
     -network: change it to bridged  - Intel pro/1000 mt server
 
@@ -13,6 +18,9 @@ start the vm
     -stop vm and fix network card in virtualbox screen
     
 
+win:
+    mkdir c:\var\share203
+    
 shc/11get.sh
 
 user: albe passw: a
@@ -64,10 +72,32 @@ user: albe   passw: powder
 
 
 
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+
+for dave clark
+
 -----------------------2016-06-23[Jun-Thu]08-04AM
+
+Add these instructions…
+
+
+visit in broswer:            
+http:localhost/test             
+http:localhost/menu             
+http://localhost:8986/trakberry/display/
+
+basic auth:
+A username and password are being requested by http://localhost. The site says: "  =====   Authbasic Whole Site2   ===== "
+
+user: albe   passw: powder
+
+
+
+From: Dave Gleba 
+Sent: Tuesday, June 21, 2016 1:33 PM
+To: Dave Clark
+Subject: virtual machine for DClark - vamp206b
 
 Install 
 virtualbox win 5.0.22 win x64
@@ -111,6 +141,7 @@ in vm:
             sudo shc/99newdata.sh
 
 
+            
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             
