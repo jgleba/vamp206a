@@ -1,4 +1,20 @@
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+
+Note:
+
+If using a premade vamp206 server.
+
+You must change:
+
+ipaddress ( if it's not dhcp )
+hostname
+mac address
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Install 
 virtualbox win 5.0.22 win x64
 

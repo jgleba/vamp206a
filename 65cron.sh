@@ -20,10 +20,27 @@ sudo crontab -u pmdsu -l
 sudo crontab -u albe -l
 # remove
 sudo crontab -u albe -l | grep -v 'albe/shc/53imp.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l  #list
-sudo crontab -u albe -l | { cat; echo "36 8 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l | { cat; echo "21 15 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l
+sudo crontab -u albe -l | grep -v 'albe/bin/mysqlbk1'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | grep -v 'albe/bin/htmlbk1'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | grep -v 'pmdsdata/html-bk2'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | grep -v 'pmdsdata/backup2.sh'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | grep -v 'cilist/actions/task_email1.sh'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | grep -v 'html/cilist/actions/'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | grep -v 'cilist/actions/email_originators_script.sh'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l  # list
+# add...
+sudo crontab -u albe -l | { cat; echo "22 09,15,23 * * 1-7 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
+#sudo crontab -u albe -l | { cat; echo "51 21 * * 1-7 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "35 15 * * 2 /var/www/html/cilist/actions/task_email1.sh >> /home/albe/log/taskemail1.log 2<&1"; } | sudo crontab -u albe -  #add
+
+sudo crontab -u albe -l | { cat; echo "01 7 * * 1-5 /var/www/html/cilist/actions/exceptionrpts.sh >> /home/albe/log/exceptionrpts1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l  # list
+
+# test...
+sudo crontab -u albe -l | { cat; echo "16 15 * * 2 /var/www/html/cilist/actions/email_owners_script.sh >> /home/albe/log/testowners_taskemail1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "22 15 * * 2 /var/www/html/cilist/actions/email_originators_script.sh >> /home/albe/log/testorigina_taskemail1.log 2<&1"; } | sudo crontab -u albe -  #add
+
+sudo crontab -u albe -l  # list
 
 #list cron logs 
 grep CRON /var/log/syslog | grep albe
@@ -79,6 +96,16 @@ http://stackoverflow.com/questions/878600/how-to-create-cronjob-using-bash
 /var/spool/cron/crontabs/albe
 
 #sudo crontab -u pmdsu -l | { cat; echo "*/2 * * * * cript.sh"; } | sudo crontab -u pmdsu -
+
+
+offline:
+
+
+#sudo crontab -u albe -l | { cat; echo "21 8 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
+#sudo crontab -u albe -l | { cat; echo "21 15 * * 1-6 /home/albe/shc/53imp.sh >> /home/albe/log/cronlog.log 2<&1"; } | sudo crontab -u albe -  #add
+#sudo crontab -u albe -l | { cat; echo "20 07,15,23 * * 1-7 /home/albe/bin/mysqlbk1.sh >> /home/albe/log/mysqlbk1.log 2<&1"; } | sudo crontab -u albe -  #add
+#sudo crontab -u albe -l | { cat; echo "25 07,15,23 * * 1-7 /home/albe/bin/htmlbk1.sh >> /home/albe/log/htmlbk1.log 2<&1"; } | sudo crontab -u albe -  #add
+
 
 END
 # end block comment ===============================

@@ -1,3 +1,5 @@
+# config/puma.rb
+
 # Change to match your CPU core count
 workers 2
 
@@ -8,7 +10,7 @@ app_dir = File.expand_path("../..", __FILE__)
 shared_dir = "#{app_dir}/shared"
 
 # Default to production
-rails_env = ENV['RAILS_ENV'] || "development"
+rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
 
 # Set up socket location

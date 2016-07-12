@@ -4,7 +4,9 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:  
+#  Purpose:  set ipaddress
+
+dclark: 10.4.15.105
 
 END
 # end block comment ===============================

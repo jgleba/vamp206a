@@ -20,6 +20,9 @@ source shc/21env.sh
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # set access to html files here..  [chmod chown chgrp]
+
+# also see 62srvweb.sh for permissions.
+
 # sudo groupadd www  # just use www-data group
 # sudo chgrp -hR www /var/www/html
 #
@@ -31,7 +34,6 @@ sudo chmod -R g+rws  /var/www/html
 sudo chmod -R o-rw /var/www/html
 # make only folders +x so they can be cd into.
 sudo find /var/www/html -type d -exec chmod g+x {} +
-
 
 sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo  $userv
 sudo usermod -a -G www-data  $userv

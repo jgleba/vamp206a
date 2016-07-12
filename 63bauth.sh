@@ -32,7 +32,7 @@ AddType application/x-httpd-php html
  <Directory /var/www/html>
     AllowOverride all
     AuthType Basic
-    AuthName "  =====   Authbasic Whole Site2   ===== "
+    AuthName "  =====   Authbasic PMDSDATA Whole Site Apache   ===== "
     AuthUserFile /etc/apache2/.htpasswd
     require valid-user
     # Prepend banner to top of every page..
@@ -79,6 +79,8 @@ apacheba2()
     #sudo htpasswd -c /etc/apache2/.htpasswd $userv
     #userv is albe...
     sudo htpasswd -b /etc/apache2/.htpasswd $userv $pw3
+    # for humidex app 248
+    sudo htpasswd -b /etc/apache2/.htpasswd sun replaceme-234rfsrw234wersdfxsewersf
 
   sudo a2dissite baseauthmain.conf
   sudo a2ensite baseauthmain.conf

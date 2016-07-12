@@ -25,12 +25,29 @@ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58
 
 sudo apt-get -y install docker-engine
 
+sudo apt-get install python-dev 
+
+sudo usermod -aG docker $(whoami)
+
 sudo service docker start
+sudo service docker restart
 
 sudo docker run hello-world
 
 sudo pip install docker-compose
 
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2016-07-10_00.00.34
+
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04
+
+#wget -qO- https://get.docker.com/ | sh
+
+#sudo usermod -aG docker $(whoami)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

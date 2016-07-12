@@ -18,6 +18,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 # Main: put code here...
 
+# include the date in the hostname to get a unique hostname
 export hostv="v206x"
 export hnow=$(date +"%Y%m%d%H%M%S")
 
@@ -29,6 +30,8 @@ sudo cp /etc/hostname /var/log/v206/hostname.bk.$(date +"__%Y-%m-%d_%a_%H.%M.%S-
 sudo cp /etc/ssmtp/ssmtp.conf /var/log/v206/ssmtp.conf.bk.$(date +"%__%Y-%m-%d_%a_%H.%M.%S-%Z")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# include the date in the hostname to get a unique hostname
 
 sudo echo $hostv$hnow.local | sudo tee /etc/hostname
 cat /etc/hostname

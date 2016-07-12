@@ -32,6 +32,12 @@ sudo chmod -R o-rw /srv/web # not viewable for others..
 sudo find /srv/web -type d -exec chmod g+x {} +
 #also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
 sudo chmod -R g+rws  /srv/web 
+
+# to be able to backup web config...
+sudo chmod -R o+r /etc/nginx # viewable for ..
+sudo chmod -R o+r /etc/apache2 # viewable for ..
+
+
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
