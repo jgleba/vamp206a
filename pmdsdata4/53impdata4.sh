@@ -25,15 +25,15 @@ mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv";
 #
 #import one database at a time from the backup of all the mysql data.
 #
-#mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database prodrptdb < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shift_smsmeer < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database prodrptdb < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database shift_smsmeer < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 
 
 # use here document to provide input...
@@ -51,15 +51,7 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2.* TO dg417
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1suprv.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2suprv.* TO dg417@localhost ;"
 
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '$mysqluserpass' ;"
-# I ran this on the commandlne...
-#              mysql -uroot -p  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '34asfviektighdiekjs' ;"
 
-
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'cilistu1'@'%' IDENTIFIED BY 'replaceme-er33k456k43ikdi3' ;"
-# ran at the command line...
-#  mysql -uroot -p  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'cilistu1'@'%' IDENTIFIED BY 'replaceme-er33k456k43ikdi3' ;"
- 
 
 #perms...
 

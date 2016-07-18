@@ -49,6 +49,9 @@ source shc/53imp.sh
 cd
 source shc/61user.sh
 cd
+source shc/62grpshare.sh
+source shc/62srvweb.sh
+cd
 source shc/63bauth.sh
 cd
 source shc/65cron.sh
