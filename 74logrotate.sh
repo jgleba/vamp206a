@@ -1,16 +1,48 @@
 #!/usr/bin/env bash
 
+# http://www.thegeekstuff.com/2010/07/logrotate-examples
+
+
 sudo tee /etc/logrotate.d/homealbelog <<EOF
 /home/albe/log/*.log {
-	daily
-	missingok
-	rotate 7
-	compress
-	delaycompress
-	notifempty
-	create 0640 www-data albe 
-	sharedscripts
+    daily
+    size 20K
+    missingok
+    rotate 30
+    compress
+    delaycompress
+    notifempty
 }
 EOF
 
-#
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function notes() {
+# begin block comment =============================
+: <<'END'
+
+#  notes:
+
+
+to run it..
+ sudo /usr/sbin/logrotate /etc/logrotate.conf
+
+
+/var/log/aptitude {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}  
+
+	create 0640 www-data albe 
+	sharedscripts
+
+
+END
+# end block comment ===============================
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

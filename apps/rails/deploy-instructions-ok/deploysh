@@ -29,6 +29,11 @@ sudo cp  /etc/nginx/sites-available/humidex248.conf  /etc/nginx/sites-available/
 sudo cp  deploy/humidex248.conf /etc/nginx/sites-available/humidex248.conf
 sudo ln -nfs /etc/nginx/sites-available/humidex248.conf /etc/nginx/sites-enabled/humidex248.conf
 
+
+#https://github.com/sferik/rails_admin/issues/2515 -- Gradient has outdated direction syntax. New syntax is like `to left` instead of `right` #2515
+bundle exec rake assets:precompile RAILS_ENV=production
+
+
 sudo start puma-manager
 sudo restart puma-manager
 sudo service nginx restart
