@@ -36,6 +36,10 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 # i think this has to be done after exec $shell
 
+ 
+echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
+echo 'gem: --no-document' >> ~/.gemrc
+
 git clone https://github.com/rbenv/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 
 #rbenv install 2.1.4
