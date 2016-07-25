@@ -2,13 +2,12 @@
 
 # http://www.thegeekstuff.com/2010/07/logrotate-examples
 
-
 sudo tee /etc/logrotate.d/homealbelog <<EOF
 /home/albe/log/*.log {
     daily
     size 20K
     missingok
-    rotate 30
+    rotate 32
     compress
     delaycompress
     notifempty
@@ -24,7 +23,8 @@ function notes() {
 #  notes:
 
 
-to run it..
+logrotate is usually in cron, but if you want to 
+to run it manually..
  sudo /usr/sbin/logrotate /etc/logrotate.conf
 
 

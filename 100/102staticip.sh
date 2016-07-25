@@ -39,7 +39,9 @@ iface eth0 inet static
    #network 10.253.0.0
    gateway 10.4.1.9
    #GOOGLE...
-   dns-nameservers 8.8.8.8
+   #dns-nameservers 8.8.8.8
+   dns-nameservers 10.4.1.200
+
 #
 EOF
 
