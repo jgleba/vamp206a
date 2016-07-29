@@ -26,7 +26,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-cd shc/rails
+
 
 source  shc/rails/railsinstall-1root.sh
 sleep 4
