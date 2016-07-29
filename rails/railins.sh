@@ -31,7 +31,9 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 source  shc/rails/railsinstall-1root.sh
 sleep 4
 source  shc/rails/railsinstall-2.sh
+source ~/.bashrc
 sleep 4
 source  shc/rails/railsinstall-3.sh
+source ~/.bashrc
 
 

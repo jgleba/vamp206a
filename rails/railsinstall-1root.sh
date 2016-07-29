@@ -23,8 +23,8 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #https://gorails.com/setup/ubuntu/14.04
 
 sudo apt-get update
-sudo apt-get install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
-sudo apt-get install libmysqlclient-dev
+sudo apt-get -y install -y git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+sudo apt-get -y install libmysqlclient-dev
 sudo apt-get -y install nodejs
 
 
