@@ -48,5 +48,5 @@ source ~/.bashrc
 sleep 4
 source  shc/rails/railsinstall-3.sh
 source exec $SHELL
-
+source ~/.bashrc
 
