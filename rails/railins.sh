@@ -17,7 +17,14 @@ notes:
 
 http://codereview.stackexchange.com/questions/129343/install-ruby-using-rbenv-in-bash-script
 
+https://github.com/fesplugas/rbenv-installer/blob/master/bin/rbenv-installer
 
+https://relativkreativ.at/articles/how-to-automate-rbenv-installations
+
+
+http://stackoverflow.com/questions/21589745/install-rbenv-using-ansible
+
+http://stackoverflow.com/questions/21589745/install-rbenv-using-ansible
 
 
 END
