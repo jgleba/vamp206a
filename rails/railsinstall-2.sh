@@ -40,15 +40,21 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 cd
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+# run this next time and..
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 #exec $SHELL
-source ~/.bashrc
+# and run it now..
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+# run this next time and..
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-exec $SHELL
-source ~/.bashrc
+# and run it now..
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #http://stackoverflow.com/questions/26595620/how-to-install-ruby-2-1-4-on-ubuntu-14-04

@@ -62,7 +62,6 @@ gem install uglifier
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-source ~/.bashrc
 
 #
 date
