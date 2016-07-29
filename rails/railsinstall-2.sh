@@ -47,7 +47,7 @@ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 # and run it now..
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-export RBENV_ROOT="$HOME/.rbenv"
+#export RBENV_ROOT="$HOME/.rbenv"
 
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
