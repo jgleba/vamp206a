@@ -5,7 +5,7 @@
 sudo tee /etc/logrotate.d/homealbelog <<EOF
 /home/albe/log/*.log {
     daily
-    size 5K
+    size 3K
     missingok
     rotate 32
     compress

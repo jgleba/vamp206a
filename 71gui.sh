@@ -63,14 +63,14 @@ sudo apt-get --purge autoremove tightvncserver
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-function vnci () {
+function vnci() {
 
 
 #
 #
 # note **************  to start vnc use:
 #
-# sudo service tightvncserver1 start
+# sudo service tvnc1 start
 #
 #
 
@@ -152,36 +152,52 @@ sudo chown -R albe .vnc
 
 #create upstart script for starting vnc...
 #this webpage for rc.local, but i used upstart... http://raspberrypi.stackexchange.com/questions/27676/auto-start-tightvncserver-on-raspberry-pi-2
-sudo tee /etc/init/tightvncserver1.conf <<EOF
+sudo tee /etc/init/tvnc1.conf <<EOF
+
 description "vnc start"
 author      "David Gleba"
 
-start on filesystem or runlevel [2345]
-stop on shutdown
+start on runlevel [2345]
+stop on runlevel [^2345]
+
+console log
+
+respawn
+respawn limit 20 5
 
 
 script
     #VNCUSER='albe'
-    sleep 3
+    sleep 2
+    # Start tightvncserver
+    #su  albe -c '/usr/bin/tightvncserver :1'
+end script
+
+post-start script
+    #VNCUSER='albe'
+    sleep 4
     # Start tightvncserver
     su  albe -c '/usr/bin/tightvncserver :1'
 end script
 
 pre-start script
-    echo "[`date`] tightvncserver1 start...." >> /var/log/tightvncserver1.log
+    echo "[Wed Jan 20 17:36:42 EST 2016] tightvncserver1 start...." >> /var/log/tightvncserver1.log
 end script
 
 pre-stop script
     rm /var/run/mountvshare.pid
-    echo "[`date`] .... stop tightvncserver1" >> /var/log/tightvncserver1.log
+    echo "[Wed Jan 20 17:36:42 EST 2016] .... stop tightvncserver1" >> /var/log/tightvncserver1.log
 end script
 #
 EOF
-init-checkconf /etc/init/tightvncserver1.conf
+
+init-checkconf /etc/init/tvnc1.conf
 
 #
 
-sudo service tightvncserver1 start
+sudo chown -R albe .vnc
+
+sudo service tvnc1 start
 ps -ef | grep vnc
 
 #reset password ..  vncpasswd   8 char max
@@ -199,7 +215,7 @@ exit 999
 
 I started it with "sudo tightvncserver :1" - that was a mistake. messed up the permissions. 2015-12-08_Tue_14.56-PM
 fix...
-sudo leafpad /etc/init/tightvncserver1.conf 
+sudo leafpad /etc/init/tvnc1.conf 
  change to.. su - albe -c '/usr/bin/tightvncserver :1'
 sudo chown -R albe .vnc 
 
@@ -207,11 +223,11 @@ _____________
 
 error
 upstart 
-sudo service tightvncserver1 start 
-start: Unknown job: tightvncserver1
+sudo service tvnc1 start 
+start: Unknown job: tvnc1
 
 checkit..
-init-checkconf /etc/init/tightvncserver1.conf
+init-checkconf /etc/init/tvnc1.conf
 
 
 }
@@ -220,6 +236,6 @@ init-checkconf /etc/init/tightvncserver1.conf
 
 gui1
 vnci
-sudo service tightvncserver1 start
+sudo service tvnc1 start
 
 #

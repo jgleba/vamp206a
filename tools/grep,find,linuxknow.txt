@@ -1,5 +1,18 @@
 
+ no: find .  -name *.sh | grep commit 
 
+ grep -ri collection .|grep html |grep -v sql |grep 1ror |grep -v workspace
+ grep -ri collection .|grep html  |grep 1ror 
+ grep -ri collection . |grep 1ror |grep -v sql
+
+ grep -ri select .|grep html |grep -v sql |grep 1ror |grep -v workspace
+ 
+
+ grep -ri commit .|grep sh|grep git|grep -v sql|grep 27
+
+ _____________
+ 
+ 
 grep '@example'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,.git} --exclude={*.sublime-workspace,*.geany,error_log,*.sqlit*}
 
   >~/0/gout.txt

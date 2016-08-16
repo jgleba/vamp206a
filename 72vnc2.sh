@@ -38,6 +38,7 @@ function vnc2() {
 
 # done by tightvnc setup...   x11vnc -storepasswd
 
+sudo apt-get install -y x11vnc
 
 #create upstart script for starting vnc...
 sudo tee /etc/init/x11vnc1.conf <<EOF
@@ -52,11 +53,13 @@ console log
 respawn
 respawn limit 20 5
 
-exec /usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/albe/.vnc/passwd -rfbport 5900 -shared
+exec /usr/bin/x11vnc  -noxdamage -repeat -rfbauth /home/albe/.vnc/passwd -rfbport 5900 -shared
 
 EOF
 
 init-checkconf /etc/init/x11vnc1.conf
+
+sudo chown -R albe .vnc
 
 sudo service x11vnc1 start
 ps -ef | grep vnc
@@ -91,6 +94,25 @@ send "n\r"
 expect eof
 exit
 EOF
+
+]-
+
+
+ --- x11vnc loop: waiting for: 4686
+
+07/08/016 13:43:56 passing arg to libvncserver: -rfbauth
+07/08/2016 13:43:56 passing arg to libvncserver: /home/albe/.vnc/passwd
+07/08/2016 13:43:56 passing arg to libvncserver: -rfbport
+07/08/2016 13:43:56 passing arg to libvncserver: 5900
+07/08/2016 13:43:56 x11vnc version: 0.9.13 lastmod: 2011-08-10  pid: 4686
+xauth:  unable to generate an authority file name
+07/08/2016 13:43:56 -auth guess: failed for display='unset'
+07/08/2016 13:43:56 -auth guess: since we are root, retrying with FD_XDM=1
+07/08/2016 13:43:56 -auth guess: failed for display='unset'
+
+ --- x11vnc loop: sleeping 2000 ms ---
+ 
+exec /usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/albe/.vnc/passwd -rfbport 5900 -shared
 
 
 }

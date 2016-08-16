@@ -139,8 +139,11 @@ locate -0  /media/sf_share4  | xargs -r0 ls -ald --time-style=long-iso |  awk {'
 find . /media/sf_share4 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | grep -v DS_Store| tail -n155 |grep 258c
 
 
+_____________
 
+for script at logoff of windows...
 
+find  /c/var/share203  -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n955 > /c/n/dropbox/csd/share203dir_$HOSTNAME.txt
 
 
 
