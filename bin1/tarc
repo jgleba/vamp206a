@@ -16,6 +16,7 @@ date ; set +vx  ; set -vx ; # echo off, then echo on
 
 mkdir -p tmp/dglog
 mv log/development.log tmp/dglog/development.log.$(date +"__%Y.%m.%d_%H.%M.%S").log
+
 ###### tar current folder..
 base=$(basename $PWD);export HOSTNAME;cd ..
 
@@ -26,10 +27,11 @@ git gc --aggressive # aggressively collect garbage; may take a lot of time on la
 # doesn't work on mac osx
 #tar -czf $base-$HOSTNAME$(date +"__%Y.%m.%d_%H.%M.%S").tgz  $base --exclude={$base/tmp,$base/vendor/assets/javascripts,$base/shared,$base/public/assets,$base/nbproject,$base/log};cd $base
 
-# OSX, have to have options first, then -f filename.tgz and source files 
-tar -cz --exclude={$base/tmp,$base/vendor/assets/javascripts,$base/shared,$base/public/assets,$base/nbproject,$base/log} -f $base-$HOSTNAME$(date +"__%Y.%m.%d_%H.%M.%S").tgz $base;cd $base
+# get the current path and replace / with _
+fnpath="${PWD////_}" ; echo $fnpath
 
-#
+# OSX, have to have options first, then -f filename.tgz and source files 
+tar -cz --exclude={$base/tmp,$base/vendor/assets/javascripts,$base/shared,$base/public/assets,$base/nbproject,$base/log,$base/templates_c} -f $base-$HOSTNAME$fnpath$(date +"__%Y.%m.%d_%H.%M.%S").tgz $base;cd $base
 
 #
 date
