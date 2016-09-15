@@ -24,13 +24,11 @@ sudo crontab -u albe -l | grep -v 'albe/bin/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'html/cilist/actions/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'shiftcsd2sup/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/'  | sudo crontab -u albe - #remove
-#sudo crontab -u albe -l | grep -v 'albe/bin/htmlbk1'  | sudo crontab -u albe - #remove
-#sudo crontab -u albe -l | grep -v 'pmdsdata/html-bk2'  | sudo crontab -u albe - #remove
-#sudo crontab -u albe -l | grep -v 'pmdsdata/backup2.sh'  | sudo crontab -u albe - #remove
-#sudo crontab -u albe -l | grep -v 'cilist/actions/task_email1.sh'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/archivedata1.sh'  | sudo crontab -u albe - #remove
 #sudo crontab -u albe -l | grep -v 'cilist/actions/email_originators_script.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l  # list
 # add...
+sudo crontab -u albe -l | { cat; echo "35 10 * * 0-6 /var/www/html/0docs-pmdsdata/archivedata1.sh >> /home/albe/log/archive1.log 2<&1"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l | { cat; echo "22 07,15 * * 0-6 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l | { cat; echo "30 10 * * 5   /var/www/html/cilist/actions/task_email1.sh >> /home/albe/log/taskemail1.log 2<&1"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l | { cat; echo "01 7 * * 1-5  /var/www/html/cilist/actions/exceptionrpts.sh >> /home/albe/log/exceptionrpts1.log 2<&1"; } | sudo crontab -u albe -  #add

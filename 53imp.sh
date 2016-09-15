@@ -19,6 +19,7 @@ mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1";
 mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1suprv"; 
 mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2"; 
 mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv"; 
+mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb_archive"; 
 
 #not a good idea to import 'mysql' database.
 #mysql --user=root --password=xx < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
@@ -50,6 +51,7 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1.* TO dg417
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1suprv.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2suprv.* TO dg417@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb_archive.* TO dg417@localhost ;"
 
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '$mysqluserpass' ;"
 # I ran this on the commandlne...

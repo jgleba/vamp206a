@@ -14,14 +14,24 @@ sudo tee /etc/logrotate.d/homealbelog <<EOF
 }
 EOF
 
+sudo tee /etc/logrotate.d/homefilebackup <<EOF
+/home/file/backup/mysql/*.sql {
+    daily
+    size 3K
+    missingok
+    rotate 32
+    compress
+    notifempty
+}
+EOF
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function notes() {
+function my_notes() {
 # begin block comment =============================
 : <<'END'
 
 #  notes:
-
 
 logrotate is usually in cron, but if you want to 
 to run it manually..
@@ -38,7 +48,6 @@ to run it manually..
 
 	create 0640 www-data albe 
 	sharedscripts
-
 
 END
 # end block comment ===============================

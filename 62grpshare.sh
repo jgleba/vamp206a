@@ -95,3 +95,23 @@ sudo find *.sh /home/file  -exec chmod g+x {} +
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# set access to /var/www/html/test2/Codiad files here..  [chmod chown chgrp]
+
+folder1="/var/www/html/test2/Codiad"
+#
+# chown and chgrp the html files appropriately.. chgrp -hR www-data /var/www/html
+sudo chown -R root $folder1
+sudo chgrp -hR www-data $folder1
+# also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+sudo chmod -R g+rws  $folder1
+sudo chmod -R o-rw $folder1
+# make only folders +x so they can be cd into.
+sudo find $folder1 -type d -exec chmod g+x {} +
+# make  *.sh files executable
+sudo find *.sh $folder1 -exec chmod g+x {} +
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
