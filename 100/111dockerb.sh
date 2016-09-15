@@ -9,7 +9,7 @@ set -vx
 # docker install...
 
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates
+sudo apt-get -y install apt-transport-https ca-certificates
 
 sudo sh -c 'echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >>/etc/apt/sources.list.d/docker.list'
 
@@ -21,7 +21,7 @@ sudo apt-get purge lxc-docker
 sudo apt-cache policy docker-engine
 
 #sudo apt-get -y install linux-image-extra-$(uname -r)
-sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+sudo apt-get -y install linux-image-extra-$(uname -r) linux-image-extra-virtual
 
 sudo apt-get update
 
@@ -29,7 +29,7 @@ sudo apt-get update
 
 sudo apt-get -y install docker-engine
 
-sudo apt-get install python-dev 
+sudo apt-get -y install python-dev 
 
 sudo usermod -aG docker $(whoami)
 
@@ -41,17 +41,12 @@ sudo docker run hello-world
 sudo pip install docker-compose
 
 
+# https://github.com/docker/docker/issues/17645
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
+sudo service docker restart
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-2016-07-10_00.00.34
-
-# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04
-
-#wget -qO- https://get.docker.com/ | sh
-
-#sudo usermod -aG docker $(whoami)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,6 +60,17 @@ exit 999
 
 #get repo..
 cd /var/www/html
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2016-07-10_00.00.34
+
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04
+
+#wget -qO- https://get.docker.com/ | sh
+
+#sudo usermod -aG docker $(whoami)
+
 
 
 END
