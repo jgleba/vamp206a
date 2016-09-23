@@ -1,6 +1,21 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2016-09-21[Sep-Wed]13-35PM
+
+sudo tar -cvf $HOME/tmp/mysqltarthefiles.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /var/lib/mysql --exclude={tmpzz} 
+
+cd
+mkdir mysql921a
+cd    mysql921a
+sudo tar -xvf /home/file/mysqltarthefiles.2016.09.21_13.38.36.tgz 
+
+\\10.4.1.224\home\albe\tmp\mysqltarthefiles.2016.09.21_13.38.36.tgz
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2016-05-09[May-Mon]11-47AM
 
 

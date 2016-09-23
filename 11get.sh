@@ -68,10 +68,9 @@ cd shc
 # make files executable recursively
 #find . -type f -exec chmod +x {} \;
 #2015-10-27_Tue_09.58-AM.. sudo chown -R albe /home/albe/shc
-sudo chmod -R 777 .
-sudo chmod -R  +x .
-#sudo updatedb
+sudo chmod -R 700 .
 cd
+sudo chmod -R 500 shc-orginal-setup
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -6,6 +6,35 @@ set +vx
 set -vx
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function offline()
+{
+exit 999
+
+# begin block comment =============================
+: <<'END'
+
+#get repo..
+cd /var/www/html
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2016-07-10_00.00.34
+
+# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04
+
+#wget -qO- https://get.docker.com/ | sh
+
+#sudo usermod -aG docker $(whoami)
+
+
+END
+# end block comment ===============================
+
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 # docker install...
 
 sudo apt-get update
@@ -47,38 +76,11 @@ sudo gpasswd -a ${USER} docker
 sudo service docker restart
 
 
+# https://docs.docker.com/machine/install-machine/
+# curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > $HOME/tmp01/docker-machine && \
+# sudo cp $HOME/tmp01/docker-machine /usr/local/bin/docker-machine && \
+# sudo chmod +x /usr/local/bin/docker-machine
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-function offline()
-{
-exit 999
-
-# begin block comment =============================
-: <<'END'
-
-#get repo..
-cd /var/www/html
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-2016-07-10_00.00.34
-
-# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04
-
-#wget -qO- https://get.docker.com/ | sh
-
-#sudo usermod -aG docker $(whoami)
-
-
-
-END
-# end block comment ===============================
-
-}
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #
 date
