@@ -1,6 +1,8 @@
 
  no: find .  -name *.sh | grep commit 
 
+grep -ri 6L_output /var/www/html/django/trakberry 
+
  grep -ri collection .|grep html |grep -v sql |grep 1ror |grep -v workspace
  grep -ri collection .|grep html  |grep 1ror 
  grep -ri collection . |grep 1ror |grep -v sql

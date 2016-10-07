@@ -11,14 +11,11 @@ END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 cd
 source shc/21env.sh
-
 date
 #echo requested commands...
 set -x
-
 
 mysql -uroot -p$mysqlrootpassw -e "create database cilist"; 
 mysql -uroot -p$mysqlrootpassw -e "create database dgnote130"; 
@@ -50,6 +47,7 @@ mysql -uroot -p$mysqlrootpassw -e "create database hrdb";
 #mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 
 #preferred..
+#commented to prevent accidentally wiping out production data.
 #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
 #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
 
@@ -60,6 +58,8 @@ mysql -uroot -p$mysqlrootpassw -e "create database hrdb";
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'dg417'@'localhost' IDENTIFIED BY '$mysqluserpass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'dg417'@'localhost' IDENTIFIED BY '$mysqluserpass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO dg417@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON cilist.* TO dg417@localhost ;"
+
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON dgnote130.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON leanmfg.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.* TO dg417@localhost ;"
@@ -85,10 +85,11 @@ mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'lukup'@'localhost' IDENTIFIED B
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON lukup.* TO dg417@localhost ;"
 
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass';"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON lukup.* TO hruser@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@localhost ;"
 
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO ciuser@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO hruser@localhost ;"
 
 
 
