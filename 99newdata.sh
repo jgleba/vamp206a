@@ -28,12 +28,12 @@ cp /home/albe/share203/htdocs.pmdsdata3.latest.7z tmp01
     # delete this htdocs if you want to get new files...
 cd
 cd tmp01 
-   if  [ ! -d htdocs ] ; then
+   if  [ ! -d html ] ; then
         cd /home/$userv/tmp01
         #sudo rm -rf htdocs
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
         cd /home/$userv/tmp01
-        7z x /home/$userv/tmp01/htdocs.PMDS-DATA.latest.7z
+        7z x /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z
 
         # this problem is gone now...
         #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp01/htdocs.PMDS-DATA.latest.7z
