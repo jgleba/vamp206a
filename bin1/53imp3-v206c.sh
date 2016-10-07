@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function Purpose() {
-# begin block comment =============================
-: <<'END'
 
-#  Purpose:  
-        import mysql data...
-
-END
-# end block comment ===============================
-}
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# import mysql data...
 
 cd
 source shc/21env.sh
@@ -20,38 +10,43 @@ date
 set -x
 
 
-mysql -uroot -p$mysqlrootpassw -e "create database cilist"; 
-mysql -uroot -p$mysqlrootpassw -e "create database dgnote130"; 
-mysql -uroot -p$mysqlrootpassw -e "create database leanmfg"; 
-mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shift_smsmeer"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1suprv"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv"; 
-mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb_archive"; 
-mysql -uroot -p$mysqlrootpassw -e "create database lukup"; 
-mysql -uroot -p$mysqlrootpassw -e "create database hrdb"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database cilist"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database dgnote130"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database leanmfg"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database shift_smsmeer"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1suprv"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2"; 
+# mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv"; 
+
+
+# note....... 
+
+mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
+
+mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
+
 
 #not a good idea to import 'mysql' database.
 #mysql --user=root --password=xx < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
 #
 #import one database at a time from the backup of all the mysql data.
-# i think this randomly causes a second empty database created. This has wiped out the mysql database and other system databases.
 #
-#mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database prodrptdb < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shift_smsmeer < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
-#mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 
-#preferred..
-#mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
-#mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
+# mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-mysql-mysql.sql
+# mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-phpmyadmin-mysql.sql
+
+# mysql -uroot -p$mysqlrootpassw --one-database mysql < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+
+# mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+# mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+# mysql -uroot -p$mysqlrootpassw --one-database prodrptdb < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+# mysql -uroot -p$mysqlrootpassw --one-database shift_smsmeer < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+# mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+# mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+# mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+# mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 
 
 # use here document to provide input...
@@ -68,29 +63,16 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1.* TO dg417
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1suprv.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2suprv.* TO dg417@localhost ;"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb_archive.* TO dg417@localhost ;"
 
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '$mysqluserpass' ;"
 # I ran this on the commandlne...
 #              mysql -uroot -p  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '34asfviektighdiekjs' ;"
 
 
-mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass';"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'ciuser'@'%' IDENTIFIED BY '$mysql_ciuser_ppass' ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'cilistu1'@'%' IDENTIFIED BY 'replaceme-er33k456k43ikdi3' ;"
 # ran at the command line...
 #  mysql -uroot -p  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'cilistu1'@'%' IDENTIFIED BY 'replaceme-er33k456k43ikdi3' ;"
  
-mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'lukup'@'localhost' IDENTIFIED BY '$mysql_lukup_pass';"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON lukup.* TO dg417@localhost ;"
-
-mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass';"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON lukup.* TO hruser@localhost ;"
-
-mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO dg417@localhost ;"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO ciuser@localhost ;"
-
-
 
 #perms...
 
@@ -146,26 +128,4 @@ sudo chmod -R 777  /var/www/html/shiftsmsmeer/user_config
 
 date
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function notes() {
-# begin block comment =============================
-: <<'END'
-
-Mysql users
-
-read1       read data
-dg417       write typical data
-lukup       write lookup info like names, parts, etc
-ciuser    write ci data
-hruser     write safety incident data
-
-dg417,cilistu1,etc       select on lukup
-
-note:
-write means read and write.
-
-END
-# end block comment ===============================
-}
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+#

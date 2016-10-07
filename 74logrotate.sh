@@ -25,6 +25,37 @@ sudo tee /etc/logrotate.d/homefilebackup <<EOF
 }
 EOF
 
+sudo tee /etc/logrotate.d/raillog_shiftcsd1p272 <<EOF
+# Rotate Rails application logs based on file size
+# Rotate log if file greater than ..
+/srv/web/shiftcsd1p272/log/*.log {
+    size=15k
+    daily
+    missingok
+    rotate 62
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+}
+EOF
+
+
+sudo tee /etc/logrotate.d/raillog_humidex248 <<EOF
+# Rotate Rails application logs based on file size
+# Rotate log if file greater than ..
+/srv/web/humidex248/log/*.log {
+    size=15k
+    daily
+    missingok
+    rotate 62
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+}
+EOF
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function my_notes() {

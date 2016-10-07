@@ -4,7 +4,7 @@ Title:  .
 
 Note:
 
-If using a premade vamp206 server.
+If using a premade vamp206 server ova file...
 
 You must change:
 
@@ -18,8 +18,13 @@ mac address
 Install 
 virtualbox win 5.0.22 win x64
 
+pre-setup for dclark only..
 import to virtualbox  \\pmds-3hzgd42\video-udrive\web\vamp206b_621-dclark.ova
+
+
 or
+all of the following...
+
   U:\vbox\vamp206b_160120b_24start-hostunaltered-vamp206b.ova
 import appliance
     on import...
@@ -31,7 +36,7 @@ in virtualbox screen..
 
 start the vm
     -if it says network card is in error
-    -stop vm and fix network card in virtualbox screen
+    -stop vm and fix network card in virtualbox screens
     
 
 win:
@@ -41,6 +46,7 @@ shc/11get.sh
 
 user: albe passw: a
 
+hostname:
 sudo shc/67hostn.sh
 
 win:
@@ -56,11 +62,13 @@ open terminal in /var/www/html/trackberry
     git pull
     
 
+Static ip:
+
 dclark = 10.4.15.105    
     sudo shc/100/102staticip.sh    
     
 
-windows explorer
+in: windows explorer:
         \\10.4.15.105\
         albe a
         
@@ -87,6 +95,13 @@ A username and password are being requested by http://localhost. The site says: 
 user: albe   passw: powder
 
 
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+old log ...
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .

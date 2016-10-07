@@ -20,10 +20,10 @@ source shc/21env.sh
 
 # have it copy new data from c:\var\share203
 cd
-rm tmp01/htdocs.PMDS-DATA.latest.7z
+rm tmp01/htdocs.pmdsdata3.latest.7z
 
 #copy 
-cp /home/albe/share203/htdocs.PMDS-DATA.latest.7z tmp01
+cp /home/albe/share203/htdocs.pmdsdata3.latest.7z tmp01
 
     # delete this htdocs if you want to get new files...
 cd
@@ -42,7 +42,7 @@ cd tmp01
         #
 
         source ~/shc/21env.sh
-        sudo rsync -vrltgoD /home/$userv/tmp01/htdocs/  /var/www/html
+        sudo rsync -vrltgoD /home/$userv/tmp01/html/  /var/www/html
         cd
         source shc/11get.sh
         cd
