@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:  
+#  Purpose:
 
 END
 # end block comment ===============================
@@ -20,14 +20,15 @@ source shc/21env.sh
 
 # have it copy new data from c:\var\share203
 cd
-rm tmp01/htdocs.pmdsdata3.latest.7z
+#rm tmp01/htdocs.pmdsdata3.latest.7z
 
-#copy 
+#copy
 cp /home/albe/share203/htdocs.pmdsdata3.latest.7z tmp01
+cp /media/sf_share4/htdocs.pmdsdata3.latest.7z tmp01
 
     # delete this htdocs if you want to get new files...
 cd
-cd tmp01 
+cd tmp01
    if  [ ! -d html ] ; then
         cd /home/$userv/tmp01
         #sudo rm -rf htdocs
@@ -50,7 +51,7 @@ cd tmp01
 
         sudo chown -R root /var/www/html
         sudo chgrp -hR www-data /var/www/html
-        # also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+        # also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43
         sudo chmod -R g+rws  /var/www/html
         sudo chmod -R o-rw /var/www/html
         # make only folders +x so they can be cd into.
@@ -76,5 +77,5 @@ cd tmp01
 
 
 cd
-echo You must delete /home/albe/tmp01/hdtocs folder to get new data imported.. Data NOT imported.
+echo You must delete /home/albe/tmp01/html folder to get new data imported.. Data NOT imported.
 

@@ -4,7 +4,7 @@ function Purpose() {
 # begin block comment =============================
 : <<'END'
 
-#  Purpose:  
+#  Purpose:
         import mysql data...
 
 END
@@ -17,18 +17,18 @@ date
 #echo requested commands...
 set -x
 
-mysql -uroot -p$mysqlrootpassw -e "create database cilist"; 
-mysql -uroot -p$mysqlrootpassw -e "create database dgnote130"; 
-mysql -uroot -p$mysqlrootpassw -e "create database leanmfg"; 
-mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shift_smsmeer"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1suprv"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2"; 
-mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv"; 
-mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb_archive"; 
-mysql -uroot -p$mysqlrootpassw -e "create database lukup"; 
-mysql -uroot -p$mysqlrootpassw -e "create database hrdb"; 
+mysql -uroot -p$mysqlrootpassw -e "create database cilist";
+mysql -uroot -p$mysqlrootpassw -e "create database dgnote130";
+mysql -uroot -p$mysqlrootpassw -e "create database leanmfg";
+mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb";
+mysql -uroot -p$mysqlrootpassw -e "create database shift_smsmeer";
+mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1";
+mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1suprv";
+mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2";
+mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv";
+mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb_archive";
+mysql -uroot -p$mysqlrootpassw -e "create database lukup";
+mysql -uroot -p$mysqlrootpassw -e "create database hrdb";
 
 #not a good idea to import 'mysql' database.
 #mysql --user=root --password=xx < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
@@ -77,18 +77,23 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtr
 
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'ciuser'@'%' IDENTIFIED BY '$mysql_ciuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass' ;"
 # ran at the command line...
 #  mysql -uroot -p  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'cilistu1'@'%' IDENTIFIED BY 'replaceme-er33k456k43ikdi3' ;"
- 
+
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'lukup'@'localhost' IDENTIFIED BY '$mysql_lukup_pass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON lukup.* TO lukup@localhost ;"
 
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass';"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'%' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@localhost IDENTIFIED BY '$mysql_hruser_pass';"
 
-mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO dg417@localhost ;"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO ciuser@localhost ;"
+# i had to change definer on views looking at lukup database. Got error: View 'cilist.vw_enterprise_all' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
+# see C:\n\Dropbox\csd\serve\vboxyard\vamp206a\mysql-user-change\viewdefiner-2016-10-11-mysqlknow-changeuser.txt
+mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO dg417@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO ciuser@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO hruser@localhost ;"
 
 
