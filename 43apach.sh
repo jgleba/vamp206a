@@ -19,7 +19,7 @@ sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
 # install mysql and give password to installer
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassw"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysqlrootpassw"
-sudo apt-get -y install mysql-server
+sudo apt-get -y install mysql-server-5.6
 
 #should this have a -y???
 sudo apt-get install -y php5-mysql
