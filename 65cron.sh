@@ -44,7 +44,7 @@ sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime.sh'  | sudo crontab 
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime2.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime3.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime_cron.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l | { cat; echo "09 7,19,21 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "09 7,19 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l  # list
 
 #list cron logs 
