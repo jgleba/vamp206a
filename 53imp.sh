@@ -29,6 +29,7 @@ mysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv";
 mysql -uroot -p$mysqlrootpassw -e "create database prodrptdb_archive";
 mysql -uroot -p$mysqlrootpassw -e "create database lukup";
 mysql -uroot -p$mysqlrootpassw -e "create database hrdb";
+mysql -uroot -p$mysqlrootpassw -e "create database greygold";
 
 #not a good idea to import 'mysql' database.
 #mysql --user=root --password=xx < /var/www/html/backup/mysql/pmdsdata-all-mysql.sql
@@ -36,6 +37,7 @@ mysql -uroot -p$mysqlrootpassw -e "create database hrdb";
 #import one database at a time from the backup of all the mysql data.
 # i think this randomly causes a second empty database created. This has wiped out the mysql database and other system databases.
 #
+#mysql -uroot -p$mysqlrootpassw --one-database greygold < /home/albe/share203/pmdsdata-all-mysql-706.sql
 #mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql

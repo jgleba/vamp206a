@@ -157,6 +157,7 @@ grep -Po '^sudo.+:\K.*$' /etc/group
 noworky... usermod -R "group" "user name"
     usermod -R sudo dgleba
 
+sudo usermod -a -G www-data,sudo  nina
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

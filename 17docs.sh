@@ -103,7 +103,7 @@ if [ $dgmethod = "ftp" ] ; then
 
         # copy env.sh to profile.d so it runs at login for global variables...
         # may not be needed...
-        sudo cp /home/$userv/shc/21env.sh /etc/profile.d
+        #turn this off. 2016-10-14_Fri_14.10-PM.. sudo cp /home/$userv/shc/21env.sh /etc/profile.d
 
     else
             read  -p "Oops, ftp server may not be present. Press Enter." ; echo ; 	

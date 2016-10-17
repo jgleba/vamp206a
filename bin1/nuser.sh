@@ -18,12 +18,14 @@ echo $pwnu1
 sudo adduser $nuser --gecos "$nuser,..,..,.." --disabled-password
 echo "$nuser:$pwnu1" | sudo chpasswd
 #add user to group www
-sudo usermod -a -G www  $nuser
+sudo usermod -a -G www,www-data,sambashare  $nuser
 (echo "$pwnu1"; echo "$pwnu1") | sudo smbpasswd -s -a $nuser
 sudo mkdir /home/$nuser/bin
 sudo chown  $nuser:$nuser /home/$nuser/bin
 echo groups:
 groups $nuser
+# show smb users..
+sudo pdbedit -L -v
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 date

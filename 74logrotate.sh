@@ -57,6 +57,36 @@ sudo tee /etc/logrotate.d/raillog_humidex248 <<EOF
 EOF
 
 
+sudo tee /etc/logrotate.d/var_www_tempfiles_xls <<EOF
+# Rotate Rails application logs based on file size # Rotate log if file greater than ..
+/var/www/tempfilesdg/*.xls {
+    size=1k
+    weekly
+    missingok
+    rotate 8
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+}
+EOF
+
+sudo tee /etc/logrotate.d/var_www_tempfiles <<EOF
+# Rotate Rails application logs based on file size # Rotate log if file greater than ..
+/var/www/tempfilesdg/*.txt {
+    size=1k
+    monthly
+    missingok
+    rotate 8
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+}
+EOF
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function my_notes() {
 # begin block comment =============================
@@ -73,6 +103,7 @@ to run it manually..
   rotate 12
   monthly
   compress
+    delaycompress
   missingok
   notifempty
 }  
