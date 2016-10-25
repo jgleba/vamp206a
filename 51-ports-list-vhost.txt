@@ -30,7 +30,7 @@ see...
  952    flask217b.sh
  953    was, flask217c.sh
 
-954     flask-deploy222.txt was gnunicorn-flask.txt
+ 954     flask-deploy222.txt was gnunicorn-flask.txt
 
 1212     flask217c.sh
 1213     "               for gnuicorn
@@ -55,9 +55,18 @@ see...
 1231    humidex248
 1232    rail260 rental records sigpad feature prototype
 1233    shiftcsd1p272  2016-08-25
-1234
+1234    incident295
+1235    carlson training records app
+1236    rail263
 
 
+ 
+
+dev mode...
+
+3012    incident295a
+3013    x
+3014    rail263
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

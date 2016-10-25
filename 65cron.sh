@@ -22,30 +22,36 @@ sudo crontab -u albe -l
 sudo crontab -u albe -l | grep -v 'albe/shc/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'albe/bin/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'html/cilist/actions/'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | grep -v 'html/lukup/actions/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'html/prodrpt/actions/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'shiftcsd2sup/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/archivedata1.sh'  | sudo crontab -u albe - #remove
 #sudo crontab -u albe -l | grep -v 'cilist/actions/email_originators_script.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l  # list
-# add...
-sudo crontab -u albe -l | { cat; echo "35 10 * * 0-6 /var/www/html/0docs-pmdsdata/archivedata1.sh >> /home/albe/log/archive1.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l | { cat; echo "22 07,15 * * 0-6 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l | { cat; echo "30 10 * * 5   /var/www/html/cilist/actions/task_email1.sh >> /home/albe/log/taskemail1.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l | { cat; echo "01 7 * * 1-5  /var/www/html/cilist/actions/exceptionrpts.sh >> /home/albe/log/exceptionrpts1.log 2<&1"; } | sudo crontab -u albe -  #add
-#sudo crontab -u albe -l | { cat; echo "05 7 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime.sh >> /home/albe/log/sendrecentdowntime.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l | { cat; echo "31 11 * * 4   /var/www/html/shiftcsd2sup/actions/email_tnopen_script.sh >> /home/albe/log/emailtnopen1.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l | { cat; echo "49 15 * * 1-5 /var/www/html/cilist/actions/import-csv-mysql-ceridian-enterprise.sh >> /home/albe/log/importcerenterp1.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l  # list
-
-
-#testing...
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime2.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime3.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime_cron.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l | { cat; echo "09 7,19 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l  # list
+# add...
+sudo crontab -u albe -l | { cat; echo "35 10 * * 0-6 /var/www/html/0docs-pmdsdata/archivedata1.sh >> /home/albe/log/archive1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "22 07,15 * * 0-6 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
+
+sudo crontab -u albe -l | { cat; echo "30 10 * * 5   /var/www/html/cilist/actions/task_email1.sh >> /home/albe/log/taskemail1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "01 7 * * 1-5  /var/www/html/cilist/actions/exceptionrpts.sh >> /home/albe/log/exceptionrpts1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "31 11 * * 4   /var/www/html/shiftcsd2sup/actions/email_tnopen_script.sh >> /home/albe/log/emailtnopen1.log 2<&1"; } | sudo crontab -u albe -  #add
+
+sudo crontab -u albe -l | { cat; echo "49 15 * * 1-5 /var/www/html/cilist/actions/import-csv-mysql-ceridian-enterprise.sh >> /home/albe/log/importcerenterp1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "53 15 * * 1-5 /var/www/html/lukup/actions/imp-lukup.sh >> /home/albe/log/lukupimp.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "09 7,19 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1"; } | sudo crontab -u albe -  #add
+
+sudo crontab -u albe -l  # list
+
+
+
+#testing...
+sudo crontab -u albe -l  # list
+
 
 #list cron logs 
 grep CRON /var/log/syslog | grep albe

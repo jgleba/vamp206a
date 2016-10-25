@@ -1,4 +1,8 @@
 
+grep -ir --include="*.rb" path
+
+no: find -iname "*.rb" | grep -i  path
+
  no: find .  -name *.sh | grep commit 
 
 grep -ri 6L_output /var/www/html/django/trakberry 
@@ -45,6 +49,9 @@ grep "8985" -B1 -C1 -r -i -a shc/
 
 
 =
+sudo find .  -name *.rb | grep _path
+
+
 sudo find /  -name *ci* | grep list | grep xls
 
 sudo find .  -name *themerc* 

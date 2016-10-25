@@ -36,7 +36,7 @@ sudo chmod -R g+rws  /srv/web
 # to be able to backup web config...
 sudo chmod -R o+r /etc/nginx # viewable for ..
 sudo chmod -R o+r /etc/apache2 # viewable for ..
-
+cd
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
