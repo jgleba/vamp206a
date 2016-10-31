@@ -64,6 +64,7 @@ sudo mkdir -p /var/www/html
 #
 sudo mkdir -p /tmp01/tempfiles
 sudo chmod -R 700 /tmp01/tempfiles
+sudo chown -R albe  tmp01 
 
 sudo mkdir -p /var/www/tempfilesdg
 sudo chmod -R 777 /var/www/tempfilesdg
