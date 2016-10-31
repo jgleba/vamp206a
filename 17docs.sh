@@ -31,16 +31,16 @@ function nowebfiles()
 {
 #if you want to proceed with no web data, run this...
 cd
-touch tmp01/htdocs.PMDS-DATA.latest.7z
-mkdir -p tmp01/htdocs
+touch tmp01/htdocs.pmdsdata3.latest.7z
+mkdir -p tmp01/html
 #
 }
 
-# ask if you want to put htdocs there manually with 16putht.bat from windows..
+# ask if you want to put html there manually with 16putht.bat from windows..
 set +vx
 echo
 date  +"__%Y-%m-%d_%a_%k.%M.%S-%Z"
-echo "Do you want to put htdocs there manually with 15putht.bat from windows?"
+echo "Do you want to put html there manually with 15putht.bat from windows?"
 #read -t 999 -p "Hit ENTER or wait about 999 seconds" ; echo ;
 echo
 set -vx
@@ -113,47 +113,47 @@ if [ $dgmethod = "ftp" ] ; then
 
     # delete this .7z file if you want to get a new one...
 
-    if [ ! -f htdocs.PMDS-DATA.latest.7z ] ; then
+    if [ ! -f htdocs.pmdsdata3.latest.7z ] ; then
 
         if ping -c 1 192.168.88.94 &> /dev/null
         then
-          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/htdocs.PMDS-DATA.latest.7z
+          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/htdocs.pmdsdata3.latest.7z
           curl -O -u dg:fruit ftp://192.168.88.94:2141//files/nomachine_5.0.53_1_amd64.deb
           curl -O -u dg:fruit ftp://192.168.88.94:2141//files/lxdehome.tgz
           curl -O -u dg:fruit ftp://192.168.88.94:2141//files/mullvadconfig.zip
         else
-          curl -O -u dg:fruit ftp://10.4.10.225:2141//files/htdocs.PMDS-DATA.latest.7z
+          curl -O -u dg:fruit ftp://10.4.10.225:2141//files/htdocs.pmdsdata3.latest.7z
         fi
         
-        #curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
-        #curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.zip
-        #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
-        #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.zip
-        #wget -N ftp://vagrant:vagrant@10.4.11.15//var/varvamp/files/htdocs.PMDS-DATA.latest.7z
+        #curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/htdocs.pmdsdata3.latest.7z
+        #curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.pmdsdata3.latest.zip
+        #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.pmdsdata3.latest.7z
+        #curl -O -u vagrant:vagrant ftp://10.4.11.15//var/varvamp/files/htdocs.pmdsdata3.latest.zip
+        #wget -N ftp://vagrant:vagrant@10.4.11.15//var/varvamp/files/htdocs.pmdsdata3.latest.7z
 
         cd /home/$userv/tmp01
-        sudo rm -rf htdocs
+        sudo rm -rf html
     fi
 
 
-    # delete this htdocs if you want to get new files...
-    if  [ ! -d htdocs ] ; then
+    # delete this html if you want to get new files...
+    if  [ ! -d html ] ; then
         cd /home/$userv/tmp01
-        #sudo rm -rf htdocs
+        #sudo rm -rf html
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
         source ~/shc/21env.sh
         cd /home/$userv/tmp01
-        7z x /home/$userv/tmp01/htdocs.PMDS-DATA.latest.7z
-        sudo mv html htdocs
+        7z x /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z
+        ###sudo mv html htdocs
 
         # this problem is gone now...
-        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp01/htdocs.PMDS-DATA.latest.7z
+        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp01/htdocs.pmdsdata3.latest.7z
         #Error: Can not open file as archive
-        #htdocs.PMDS-DATA.latest.7z
+        #htdocs.pmdsdata3.latest.7z
         #
 
         source ~/shc/21env.sh
-        sudo rsync -vrltgoD /home/$userv/tmp01/htdocs/  /var/www/html
+        sudo rsync -vrltgoD /home/$userv/tmp01/html/  /var/www/html
     fi
 
 fi
@@ -197,18 +197,18 @@ if [ $dgmethod = "bitbucket" ] ; then
             exit 8
     fi
 
-    if [ ! -f htdocs.PMDS-DATA.latest.zip ]; then
-        #curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.PMDS-DATA.latest.7z
-        curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.PMDS-DATA.latest.zip
+    if [ ! -f htdocs.pmdsdata3.latest.zip ]; then
+        #curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.pmdsdata3.latest.7z
+        curl -O --user dgleba  https://bitbucket.org/dgleba/htdocs/raw/master/htdocs.pmdsdata3.latest.zip
                                 
         cd /home/$userv/tmp01
 
-        sudo rm -rf htdocs
+        sudo rm -rf html
         read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
-        7z x htdocs.PMDS-DATA.latest.zip
+        7z x htdocs.pmdsdata3.latest.zip
 
         source ~/shc/21env.sh
-        sudo rsync -vrltgoD /home/$userv/tmp01/htdocs/  /var/www/html
+        sudo rsync -vrltgoD /home/$userv/tmp01/html/  /var/www/html
     fi
 fi
 cd
@@ -223,6 +223,6 @@ function offline()
 exit 999
 
 cd 
-  curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.PMDS-DATA.latest.7z
+  curl -O -u dg ftp://108.168.7.195:46237//home/dg/www/Dropbox/csd/serve/vboxyard/htdocs/htdocs.pmdsdata3.latest.7z
 
 }

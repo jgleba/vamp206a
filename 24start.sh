@@ -62,6 +62,11 @@ source shc/73lxset.sh
 cd
 source shc/67hostn.sh
 cd
+source shc/rails/railins.sh
+cd
+source shc/100/321lxdeborderresize.sh
+cd
+
 
 #read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
 
