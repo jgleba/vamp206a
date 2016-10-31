@@ -16,6 +16,7 @@ source shc/21env.sh
 # Main: put code here...
 
 
+#manually put a fresh vne.sh in home/albe/tmp01
 
 
 # have it copy new data from c:\var\share203

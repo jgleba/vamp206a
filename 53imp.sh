@@ -17,6 +17,48 @@ date
 #echo requested commands...
 set -x
 
+#test:
+# \\10.4.1.227\home\albe\0\dump-adhoc.sql
+#   mysql -uroot -p$mysqlrootpassw   <  ~/0/dump-adhoc.sql
+
+# test importing the scrap data 2016-10-29 ...
+#
+# Comment out drop table..
+sed -i -e 's/DROP TABLE/-- #DROP TABLE/' /home/file/import1/dump.sql
+#grep -ri  -b2 'drop table' /home/file/import1/dump.sql
+# next line will turn on drop table if it was commented out...
+# sed -i -e 's/DROP TABLE/\nDROP TABLE/' /home/file/import1/dump.sql
+#grep -ri 'drop table' /home/file/import1/dump.sql
+#
+# make it create table if not exists..
+sed -i -e 's/CREATE TABLE/CREATE TABLE if not exists/' /home/file/import1/dump.sql
+#grep -ri 'create table' /home/file/import1/dump.sql
+# make it insert ignore..
+sed -i -e 's/INSERT INTO/INSERT ignore INTO/' /home/file/import1/dump.sql
+# comment out autocommit=1...
+sed -i -e 's/SET autocommit=1/-- #SET autoco.../' /home/file/import1/dump.sql
+#
+# insert at beginning..  sed -i '1s/^/<added text> /' file
+sed -i -e '1s/^/SET autocommit=0;\nSET unique_checks=1;\nSET foreign_key_checks=0;\n/' /home/file/import1/dump.sql
+sed -i -e '$aCOMMIT;\nSET autocommit=1;\nSET unique_checks=1;\nSET foreign_key_checks=1;\n' /home/file/import1/dump.sql
+#
+#fix my error
+#sed -i -e 's/INSERT ingore INTO/INSERT ignore INTO/' /home/file/import1/dump.sql
+#sed -i -e 's/INSERT INTO/INSERT ingore INTO/' ./dump.sql
+#
+# mysql -uroot -p$mysqlrootpassw   < /home/file/import1/dump.sql
+
+# speed things up by setting some things off for the import..
+#   ref: http://dba.stackexchange.com/questions/98814/mysql-dump-import-incredibly-slow-on-my-developers-machine
+sed -i -e '1s/^/SET autocommit=0;\nSET unique_checks=0;\nSET foreign_key_checks=0;\n/' /home/file/import1/dumpMaster.sql
+sed -i -e '$aCOMMIT;\nSET autocommit=1;\nSET unique_checks=1;\nSET foreign_key_checks=1;\n' /home/file/import1/dumpMaster.sql
+# mysql -uroot -p$mysqlrootpassw   < /home/file/import1/dumpMaster.sql
+
+date
+
+
+# Main..
+
 mysql -uroot -p$mysqlrootpassw -e "create database cilist";
 mysql -uroot -p$mysqlrootpassw -e "create database dgnote130";
 mysql -uroot -p$mysqlrootpassw -e "create database leanmfg";
@@ -37,7 +79,10 @@ mysql -uroot -p$mysqlrootpassw -e "create database greygold";
 #import one database at a time from the backup of all the mysql data.
 # i think this randomly causes a second empty database created. This has wiped out the mysql database and other system databases.
 #
+
 #mysql -uroot -p$mysqlrootpassw --one-database greygold < /home/albe/share203/pmdsdata-all-mysql-706.sql
+#mysql -uroot -p$mysqlrootpassw   <  /var/www/html/backup/mysql/pmdsdata3t-greygold2-mysql.sql
+#
 #mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
@@ -71,6 +116,7 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2.* TO dg417
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1suprv.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2suprv.* TO dg417@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb_archive.* TO dg417@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO dg417@localhost ;"
 
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '$mysqluserpass' ;"
 # I ran this on the commandlne...
@@ -100,6 +146,22 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO dg417@
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO ciuser@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO hruser@localhost ;"
 
+
+mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'stuser'@'localhost' IDENTIFIED BY '$mysqluserpass';"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stuser'@'localhost' IDENTIFIED BY '$mysql_stuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stuser'@'%' IDENTIFIED BY '$mysql_stuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO stuser@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO stuser@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO 'stuser'@'%' ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON prodrptdb.* TO stuser@localhost ;"
+#
+mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'stread'@'localhost' IDENTIFIED BY '$mysqluserpass';"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'localhost' IDENTIFIED BY '$mysql_stread_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'%' IDENTIFIED BY '$mysql_stread_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO stread@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO stread@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO 'stread'@'%' ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON prodrptdb.* TO stread@localhost ;"
 
 
 #perms...

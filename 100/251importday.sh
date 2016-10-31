@@ -14,14 +14,14 @@ cd
 source shc/21env.sh
 
 # make directories. # html
-sudo chmod -R 777 tmp01
+sudo chmod -R 700 tmp01
 sudo mkdir -p /var/www/html
 
 #
 # make tempfiles folder writable. This is used with cilist, tnlist and others to write excel files and mail them..
 #
 sudo mkdir -p /tmp01/tempfiles
-sudo chmod -R 777 /tmp01/tempfiles
+sudo chmod -R 700 /tmp01/tempfiles
  
 
 if [ $dgmethod = "m1" ] ; then

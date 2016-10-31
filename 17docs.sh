@@ -55,7 +55,7 @@ source shc/21env.sh
 
 # make directories.
 # html
-sudo chmod -R 777 tmp01
+sudo chmod -R 700 tmp01
 sudo mkdir -p /var/www/html
 
 
@@ -63,7 +63,7 @@ sudo mkdir -p /var/www/html
 # make tempfiles folder writable. This is used with cilist, tnlist and others to write excel files and mail them..
 #
 sudo mkdir -p /tmp01/tempfiles
-sudo chmod -R 777 /tmp01/tempfiles
+sudo chmod -R 700 /tmp01/tempfiles
 
 sudo mkdir -p /var/www/tempfilesdg
 sudo chmod -R 777 /var/www/tempfilesdg
@@ -99,7 +99,7 @@ if [ $dgmethod = "ftp" ] ; then
     
     if [ -f vne.sh ]; then
         sudo cat /home/$userv/tmp01/vne.sh > /home/$userv/shc/21env.sh
-        sudo chmod -R 777 /home/$userv/shc/21env.sh
+        sudo chmod -R 700 /home/$userv/shc/21env.sh
 
         # copy env.sh to profile.d so it runs at login for global variables...
         # may not be needed...
@@ -186,7 +186,7 @@ if [ $dgmethod = "bitbucket" ] ; then
 
     if [ -f vne.sh ]; then
         sudo cat vne.sh > /home/$userv/shc/21env.sh
-        sudo chmod -R 777 /home/$userv/shc/21env.sh
+        sudo chmod -R 700 /home/$userv/shc/21env.sh
 
         # copy env.sh to profile.d so it runs a login for global variables...
         # may not be needed...

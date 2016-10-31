@@ -28,7 +28,7 @@ read -t 0 -p "Hit ENTER or wait some seconds" ; echo ;
 
 mkdir -p bin
 mkdir -p tmp01
-sudo chmod -R 777 tmp01
+sudo chmod -R 700 tmp01
 
 cd tmp01
 rm vamp206a-master.zip
