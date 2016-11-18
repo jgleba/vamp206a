@@ -17,7 +17,7 @@ END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-date ; set +vx  ; set -vx ; # echo off, then echo on
+ date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 
 
@@ -36,6 +36,7 @@ sudo chmod -R o-rw .
 sudo find .  -type d -exec chmod g+x {} +
 # make  *.sh files executable
 sudo find *.sh .  -exec chmod g+x {} +
+# make files  with no extension executable
 sudo find . -type f ! -name "*.*"  -exec chmod g+x {} +
 
 #

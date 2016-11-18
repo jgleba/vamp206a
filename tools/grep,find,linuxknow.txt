@@ -1,4 +1,10 @@
 
+
+
+grep -rin --color=always  rail2 .  |    grep -vi -e deploy -e tmp -e .git -e log -e /offline -e readme -e docs -e mtime -e offlin
+
+  
+ 
 grep -ir --include="*.rb" path
 
 no: find -iname "*.rb" | grep -i  path
