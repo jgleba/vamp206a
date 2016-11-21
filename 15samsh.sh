@@ -11,18 +11,18 @@ cd
 # description:
 # set samba shares and some linux user settings like immediate history write...
 
-# put other things to run once here too.
+# put other things to run once here too..  see onetime1()
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-smb() {
-
 source shc/root.sh
 source shc/21env.sh
 
 #copy the original file backup I made at the beginning so we get a fresh start..
 cp /etc/samba/smb.conf.orig /etc/samba/smb.conf
+
+
+smb() {
 
 sudo sudo service smbd restart
 
@@ -38,50 +38,14 @@ if [ -f /home/$userv/15ran ]; then
  else
     echo "run it... 15samsh.sh "
     runsam
+    onetime1
  fi
 
 }
 
 function runsam() {
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#alias for ls -la
-#
-
-
-echo "alias lsl='ls -la'" >>   ~/.bash_aliases
-sudo chmod ugo+rw  ~/.bash_aliases
-echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
-cat ~/.bash_aliases
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-# write history immediately...
-#
-# back ticks evaluate date when run...
-# http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
-nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
-sudo cat <<EOF >> /home/$userv/.bashrc
-# -------------------------------------------------------------------
-# David Gleba $nowdg1
-#write history immediately...
-#http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
-shopt -s histappend
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-#
-EOF
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-mkdir -p bin
-echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
-chmod +x ~/bin/blank.sh
-cat ~/bin/blank.sh
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudo apt-get update
 
 
 sudo mkdir -p /var/www/html
@@ -96,10 +60,7 @@ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M.
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.$(date +"%s").bk
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.$(date +"%Y-%m-%d_%s").bk
 sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
-
-
 ## one time fix... sudo cp /etc/samba/smb.conf.bk__2015-10-22_Thu_15.08.24-EDT /etc/samba/smb.conf.orig
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -112,7 +73,6 @@ sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
 sudo sed -i "/global]/i # \n# David Gleba kdg54 $nowdg1 invalid handle error, add unixextensions=no. see see vamp,samba,error,notes-2016-05-09.txt ...\n#"  /etc/samba/smb.conf 
 sudo sed -i 's/.*global].*/[global]\n\nunix extensions = no/g' /etc/samba/smb.conf 
-
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -139,6 +99,11 @@ writable = yes
 guest ok = no
 read only = no
 valid users = $userv,@www-data
+force user
+force group
+# create mask = 6770   http://permissions-calculator.org/  7770 is setuid, setgid, stickybit, rwxrwx--- 
+create mask = 7770
+directory mask = 6771
 #
 [rt]
 path = /
@@ -149,6 +114,11 @@ writable = yes
 guest ok = no
 read only = no
 valid users = $userv,@www-data
+force user
+force group
+# create mask = 6770   http://permissions-calculator.org/  7770 is setuid, setgid, stickybit, rwxrwx--- 
+create mask = 7770
+directory mask = 6771
 # sudo smbpasswd -a $userv
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
@@ -187,6 +157,45 @@ touch /home/$userv/15ran
 }
 
 
+
+function onetime1() {
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#alias for ls -la
+#
+echo "alias lsl='ls -la'" >>   ~/.bash_aliases
+sudo chmod ugo+rw  ~/.bash_aliases
+echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
+cat ~/.bash_aliases
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# write history immediately...
+#
+# back ticks evaluate date when run...
+# http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo cat <<EOF >> /home/$userv/.bashrc
+# -------------------------------------------------------------------
+# David Gleba $nowdg1
+#write history immediately...
+#http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+#
+EOF
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+mkdir -p bin
+echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
+chmod +x ~/bin/blank.sh
+cat ~/bin/blank.sh
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+}
 
 
 set -x

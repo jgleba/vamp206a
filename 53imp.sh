@@ -46,13 +46,13 @@ sed -i -e '$aCOMMIT;\nSET autocommit=1;\nSET unique_checks=1;\nSET foreign_key_c
 #sed -i -e 's/INSERT ingore INTO/INSERT ignore INTO/' /home/file/import1/dump.sql
 #sed -i -e 's/INSERT INTO/INSERT ingore INTO/' ./dump.sql
 #
-# mysql -uroot -p$mysqlrootpassw   < /home/file/import1/dump.sql
+ mysql -uroot -p$mysqlrootpassw   < /home/file/import1/dump.sql
 
 # speed things up by setting some things off for the import..
 #   ref: http://dba.stackexchange.com/questions/98814/mysql-dump-import-incredibly-slow-on-my-developers-machine
 sed -i -e '1s/^/SET autocommit=0;\nSET unique_checks=0;\nSET foreign_key_checks=0;\n/' /home/file/import1/dumpMaster.sql
 sed -i -e '$aCOMMIT;\nSET autocommit=1;\nSET unique_checks=1;\nSET foreign_key_checks=1;\n' /home/file/import1/dumpMaster.sql
-# mysql -uroot -p$mysqlrootpassw   < /home/file/import1/dumpMaster.sql
+ mysql -uroot -p$mysqlrootpassw   < /home/file/import1/dumpMaster.sql
 
 date
 
@@ -95,6 +95,15 @@ mysql -uroot -p$mysqlrootpassw -e "create database greygold";
 
 #preferred..
 #commented to prevent accidentally wiping out production data.
+if [ $HOSTNAME = "pmdsdata3" ] ; then
+    sleep 18
+    echo 'pmdsdata3 - will not import.'
+else
+    echo 'not pmdsdata3 we will import data'
+    #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
+    #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
+fi
+
 #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
 #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
 

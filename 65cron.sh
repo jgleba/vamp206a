@@ -47,6 +47,8 @@ sudo crontab -u albe -l | { cat; echo "55 6,18 * * 1-7  /var/www/html/prodrpt/ac
 
 sudo crontab -u albe -l  # list
 
+# pmdsdata4:
+sudo crontab -u albe -l | { cat; echo "10 07,12 * * 1-5  /var/www/html/0docs-pmdsdata/4html-bk4.sh >> /home/albe/log/bkdata4.log 2<&1"; } | sudo crontab -u albe -  #add
 
 
 #testing...

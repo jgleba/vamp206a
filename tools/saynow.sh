@@ -10,17 +10,13 @@ date +"%s"  # seconds since unix epoch
 echo $(date +"__%Y-%m-%d_%a_%H.%M.%S-%Z")
 
 #preferred format for backup of file with date...
-date +"_%Y.%m.%d_%H.%M.%S.bk"
+date +"_%Y.%m.%d_%H.%M.%S.bak.txt"
 mkdir -p ~/tmp01/tmp
-cp  /etc/hosts  ~/tmp01/tmp/hosts$(date +"__%Y.%m.%d_%H.%M.%S").bk
+cp  /etc/hosts  ~/tmp01/tmp/hosts$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
 
 echo $(date +"%Y.%m.%d_%H.%M.%S")>>~/now.log.dg.txt
 
 
-#gives error
-#shc/saynow.sh: line 12: syntax error near unexpected token `date'
-#shc/saynow.sh: line 12: `echo (date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")'
-#echo (date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

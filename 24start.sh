@@ -41,7 +41,7 @@ source shc/34samm.sh
 cd
 source shc/43apach.sh
 cd
-#source shc/47guestad.sh
+source shc/47guestad.sh
 cd
 source shc/51dj.sh
 cd
