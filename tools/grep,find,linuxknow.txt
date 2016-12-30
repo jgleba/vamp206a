@@ -7,9 +7,12 @@ grep -rin --color=always  rail2 .  |    grep -vi -e deploy -e tmp -e .git -e log
  
 grep -ir --include="*.rb" path
 
-no: find -iname "*.rb" | grep -i  path
+# find crea*.rb containing v and w 
+  find .  -iname *crea*\.rb | grep v |grep w
+ 
+find -iname "*\.rb" | grep -i  create
 
- no: find .  -name *.sh | grep commit 
+ find .  -iname *\.sh | grep deploy 
 
 grep -ri 6L_output /var/www/html/django/trakberry 
 
