@@ -15,9 +15,11 @@ sudo crontab -u pmdsu -l | { cat; echo "37 15 1 10 * /var/www/html/cilist/action
 sudo crontab -u pmdsu -l
 
 
-# import all data daily...
+# Cron jobs, including import all data daily...
+
 #  list, remove, list, add, list...
 sudo crontab -u albe -l
+
 # remove
 sudo crontab -u albe -l | grep -v 'albe/shc/'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'albe/bin/'  | sudo crontab -u albe - #remove
@@ -33,9 +35,19 @@ sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime2.sh'  | sudo crontab
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime3.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | grep -v 'sendemail_recentdowntime_cron.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l  # list
+
 # add...
 sudo crontab -u albe -l | { cat; echo "35 10 * * 0-6 /var/www/html/0docs-pmdsdata/archivedata1.sh >> /home/albe/log/archive1.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l | { cat; echo "22 07,15 * * 0-6 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
+
+sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/scrapimport.sh'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | { cat; echo "26 8 * * 0-6 /var/www/html/0docs-pmdsdata/scrapimport.sh >> /home/albe/log/scrapimport1.log 2<&1"; } | sudo crontab -u albe -  #add
+
+
+sudo crontab -u albe -l | grep -v 'greygold/actions/email_scrap1_script'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | { cat; echo "52 8 * * 0-6 /var/www/html/greygold/actions/email_scrap1_script.sh >> /home/albe/log/scrap1email.log 2<&1"; } | sudo crontab -u albe -  #add
+
+
+sudo crontab -u albe -l | { cat; echo "22 15 * * 0-6 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
 
 sudo crontab -u albe -l | { cat; echo "30 10 * * 5   /var/www/html/cilist/actions/task_email1.sh >> /home/albe/log/taskemail1.log 2<&1"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l | { cat; echo "01 7 * * 1-5  /var/www/html/cilist/actions/exceptionrpts.sh >> /home/albe/log/exceptionrpts1.log 2<&1"; } | sudo crontab -u albe -  #add
@@ -46,6 +58,8 @@ sudo crontab -u albe -l | { cat; echo "53 15 * * 1-5 /var/www/html/lukup/actions
 sudo crontab -u albe -l | { cat; echo "55 6,18 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1"; } | sudo crontab -u albe -  #add
 
 sudo crontab -u albe -l  # list
+
+
 
 # pmdsdata4:
 sudo crontab -u albe -l | { cat; echo "10 07,12 * * 1-5  /var/www/html/0docs-pmdsdata/4html-bk4.sh >> /home/albe/log/bkdata4.log 2<&1"; } | sudo crontab -u albe -  #add

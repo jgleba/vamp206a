@@ -27,38 +27,38 @@ function scrap_pre1() {
 # test importing the scrap data 2016-10-29 ...
 #
 # Comment out drop table..
-sed -i -e 's/DROP TABLE/-- #DROP TABLE/' /home/file/import1/dump.sql
-#grep -ri  -b2 'drop table' /home/file/import1/dump.sql
+sed -i -e 's/DROP TABLE/-- #DROP TABLE/' /home/file/import1/scrapdumpDetail.sql
+#grep -ri  -b2 'drop table' /home/file/import1/scrapdumpDetail.sql
 # next line will turn on drop table if it was commented out...
-# sed -i -e 's/DROP TABLE/\nDROP TABLE/' /home/file/import1/dump.sql
-#grep -ri 'drop table' /home/file/import1/dump.sql
+# sed -i -e 's/DROP TABLE/\nDROP TABLE/' /home/file/import1/scrapdumpDetail.sql
+#grep -ri 'drop table' /home/file/import1/scrapdumpDetail.sql
 #
 # make it create table if not exists..
-sed -i -e 's/CREATE TABLE/CREATE TABLE if not exists/' /home/file/import1/dump.sql
-#grep -ri 'create table' /home/file/import1/dump.sql
+sed -i -e 's/CREATE TABLE/CREATE TABLE if not exists/' /home/file/import1/scrapdumpDetail.sql
+#grep -ri 'create table' /home/file/import1/scrapdumpDetail.sql
 # make it insert ignore..
-sed -i -e 's/INSERT INTO/INSERT ignore INTO/' /home/file/import1/dump.sql
+sed -i -e 's/INSERT INTO/INSERT ignore INTO/' /home/file/import1/scrapdumpDetail.sql
 # comment out autocommit=1...
-sed -i -e 's/SET autocommit=1/-- #SET autoco.../' /home/file/import1/dump.sql
+sed -i -e 's/SET autocommit=1/-- #SET autoco.../' /home/file/import1/scrapdumpDetail.sql
 #
 # insert at beginning..  sed -i '1s/^/<added text> /' file
-sed -i -e '1s/^/SET autocommit=0;\nSET unique_checks=1;\nSET foreign_key_checks=0;\n/' /home/file/import1/dump.sql
-sed -i -e '$aCOMMIT;\nSET autocommit=1;\nSET unique_checks=1;\nSET foreign_key_checks=1;\n' /home/file/import1/dump.sql
+sed -i -e '1s/^/SET autocommit=0;\nSET unique_checks=1;\nSET foreign_key_checks=0;\n/' /home/file/import1/scrapdumpDetail.sql
+sed -i -e '$aCOMMIT;\nSET autocommit=1;\nSET unique_checks=1;\nSET foreign_key_checks=1;\n' /home/file/import1/scrapdumpDetail.sql
 #
 #fix my error
-#sed -i -e 's/INSERT ingore INTO/INSERT ignore INTO/' /home/file/import1/dump.sql
-#sed -i -e 's/INSERT INTO/INSERT ingore INTO/' ./dump.sql
+#sed -i -e 's/INSERT ingore INTO/INSERT ignore INTO/' /home/file/import1/scrapdumpDetail.sql
+#sed -i -e 's/INSERT INTO/INSERT ingore INTO/' ./scrapdumpDetail.sql
 #
 
 # speed things up by setting some things off for the import..
 #   ref: http://dba.stackexchange.com/questions/98814/mysql-dump-import-incredibly-slow-on-my-developers-machine
-sed -i -e '1s/^/SET autocommit=0;\nSET unique_checks=0;\nSET foreign_key_checks=0;\n/' /home/file/import1/dumpMaster.sql
-sed -i -e '$aCOMMIT;\nSET autocommit=1;\nSET unique_checks=1;\nSET foreign_key_checks=1;\n' /home/file/import1/dumpMaster.sql
+sed -i -e '1s/^/SET autocommit=0;\nSET unique_checks=0;\nSET foreign_key_checks=0;\n/' /home/file/import1/scrapdumpMaster.sql
+sed -i -e '$aCOMMIT;\nSET autocommit=1;\nSET unique_checks=1;\nSET foreign_key_checks=1;\n' /home/file/import1/scrapdumpMaster.sql
 
 }
 
- mysql -uroot -p$mysqlrootpassw   < /home/file/import1/dump.sql
- mysql -uroot -p$mysqlrootpassw   < /home/file/import1/dumpMaster.sql
+ mysql -uroot -p$mysqlrootpassw   < /home/file/import1/scrapdumpDetail.sql
+ mysql -uroot -p$mysqlrootpassw   < /home/file/import1/scrapdumpMaster.sql
 
 
 
@@ -104,10 +104,13 @@ mysql -uroot -p$mysqlrootpassw -e "create database greygold";
 #preferred..
 #commented to prevent accidentally wiping out production data.
 if [ $HOSTNAME = "pmdsdata3" ] ; then
-    sleep 18
-    echo 'pmdsdata3 - will not import.'
+    sleep 1
+    date1=$(date +"__%Y.%m.%d_%H.%M.%S")
+    echo $date1
+    timeout1=15 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+    echo 'pmdsdata3 - will NOT import.'
 else
-    echo 'not pmdsdata3 we will import data'
+    echo 'this is not pmdsdata3 we WILL import data'
     #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
     #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
 fi
