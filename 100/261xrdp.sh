@@ -18,8 +18,8 @@ older...
 http://askubuntu.com/questions/449785/ubuntu-14-04-xrdp-grey
 
 sudo apt-get install xrdp
-sudo apt-add-repository ppa:ubuntu-mate-dev/ppa
-sudo apt-add-repository ppa:ubuntu-mate-dev/trusty-mate
+sudo apt-add-repository ppa:ubuntu-mate-dev/ppa -y
+sudo apt-add-repository ppa:ubuntu-mate-dev/trusty-mate -y
 sudo apt-get update 
 #sudo apt-get upgrade
 #sudo apt-get install ubuntu-mate-core ubuntu-mate-desktop
