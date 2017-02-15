@@ -30,6 +30,7 @@ https://www.google.com/url?q=http://askubuntu.com/questions/797973/error-problem
 _____________
 
 
+Not needed:
 for mint 18.1 xfce I did:
     Now the second file we need to edit is the startup file for xRDP, so it will start xfce4 service on startup.
     “sudo nano /etc/xrdp/startwm.sh”
@@ -77,7 +78,7 @@ sudo apt-get -y install  xrdp
 #http://askubuntu.com/questions/133343/how-do-i-set-up-xrdp-session-that-reuses-an-existing-session
 # reconnect to 5910 or change it to 5911
 #replace only the first occurrence  --  sed -i -e '0,/foo/s/foo/bar/' filename -  http://stackoverflow.com/questions/148451/how-to-use-sed-to-replace-only-the-first-occurrence-in-a-file
-sudo sed -i -e '0,/port=-1/s/port=-1/port=ask-5910/'  /etc/xrdp/xrdp.ini
+sudo sed -i -e '0,/port=-1/s/port=-1/port=ask5910/'  /etc/xrdp/xrdp.ini
 
 sudo apt-get -y install libglib2.0-bin
 gsettings set org.gnome.Vino require-encryption false

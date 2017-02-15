@@ -7,6 +7,8 @@ function Purpose() {
 #  Purpose:  set ipaddress
 
 dclark: 10.4.15.105
+kashmiri-vm: 10.4.15.106
+
 
 END
 # end block comment ===============================
@@ -33,7 +35,7 @@ iface lo inet loopback
 # The primary network interface
 auto eth0
 iface eth0 inet static
-   address 10.4.15.105
+   address 10.4.15.106
    #stackpole specfic settings
    netmask 255.255.192.0
    #network 10.253.0.0

@@ -175,13 +175,20 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO stuser
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO 'stuser'@'%' ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON prodrptdb.* TO stuser@localhost ;"
 #
-mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'stread'@'localhost' IDENTIFIED BY '$mysqluserpass';"
+mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'stread'@'localhost' IDENTIFIED BY '$mysql_stread_pass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'localhost' IDENTIFIED BY '$mysql_stread_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'%' IDENTIFIED BY '$mysql_stread_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO stread@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO stread@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO 'stread'@'%' ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON prodrptdb.* TO stread@localhost ;"
+
+mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'sthistorian'@'localhost' IDENTIFIED BY '$mysql_sthistorian_pass';"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sthistorian'@'localhost' IDENTIFIED BY '$mysql_sthistorian_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sthistorian'@'%' IDENTIFIED BY '$mysql_sthistorian_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON ignition.* TO sthistorian@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON ignition.* TO 'sthistorian'@'%' ;"
+#
 
 
 #perms...
