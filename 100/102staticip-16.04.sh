@@ -33,8 +33,8 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
-auto eth0
-iface eth0 inet static
+auto enp0s3
+iface enp0s3 inet static
    address 10.4.15.106
    #stackpole specfic settings
    netmask 255.255.192.0
@@ -46,6 +46,11 @@ iface eth0 inet static
 
 #
 EOF
+
+sudo ip addr flush enp0s3 && sudo systemctl restart networking
+ip add
+ping -c 3 google.com
+
 
 #
 date
