@@ -40,3 +40,20 @@ cd
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# make srv/web folder and change permissions...
+# my standard practice for web apps...
+#
+sudo mkdir -p /srv/file
+sudo chgrp -hR www-data /srv/file # change group to www-data ( apache group. apache already was installed.)
+sudo chown -R root /srv/file 
+sudo chmod -R g+rw  /srv/file # writable for group
+sudo chmod -R o-rw /srv/file # not viewable for others..
+# make only folders +x so they can be cd into.
+sudo find /srv/file -type d -exec chmod g+x {} +
+#also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+sudo chmod -R g+rws  /srv/file 
+#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
