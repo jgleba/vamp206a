@@ -9,6 +9,8 @@ sudo apt-add-repository ppa:x2go/stable -y
 sudo apt-get update
 sudo apt-get install -y x2goserver x2goserver-xsession
 #sudo apt-get install -y x2golxdebindings  # if you use LXDE/lubuntu
+sudo apt install x2gomatebindings
+
 
 _____________ 
 
