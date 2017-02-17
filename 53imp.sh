@@ -20,6 +20,7 @@ set -x
 #test:
 # \\10.4.1.227\home\albe\0\dump-adhoc.sql
 #   mysql -uroot -p$mysqlrootpassw   <  ~/0/dump-adhoc.sql
+ mysql -uroot -p$mysqlrootpassw   < /home/file/tmp/out2.sql
 
 
 function scrap_pre1() {
