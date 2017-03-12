@@ -11,7 +11,7 @@ backup1()
 {
 mkdir -p ~/tmp01
 file1="$HOME/tmp01/hello"
-echo "hello" >$file1
+echo "hello" >$file1 ; echo "foo bar">>$file1
 # backup original file once..
 if [ ! -f $file1.orig ] ; then sudo cp $file1 $file1.orig ; fi
 # add line1's after line matching pattern1

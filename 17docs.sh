@@ -108,7 +108,14 @@ if [ $dgmethod = "ftp" ] ; then
 
     else
             read  -p "Oops, ftp server may not be present. Press Enter." ; echo ; 	
-            exit 8
+            # exit 8
+            set +vx
+            echo
+            echo  Press enter to keep going anyway...
+            echo
+            read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
+            set -vx
+
     fi
 
 

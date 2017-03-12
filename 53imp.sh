@@ -20,7 +20,7 @@ set -x
 #test:
 # \\10.4.1.227\home\albe\0\dump-adhoc.sql
 #   mysql -uroot -p$mysqlrootpassw   <  ~/0/dump-adhoc.sql
- mysql -uroot -p$mysqlrootpassw   < /home/file/tmp/out2.sql
+# mysql -uroot -p$mysqlrootpassw   < /home/file/tmp/out2.sql
 
 
 function scrap_pre1() {
@@ -189,6 +189,11 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sthistorian'@'localho
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sthistorian'@'%' IDENTIFIED BY '$mysql_sthistorian_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON ignition.* TO sthistorian@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON ignition.* TO 'sthistorian'@'%' ;"
+#
+
+mysql -uroot -p$mysqlrootpassw -e "create database cmmdb";
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO sthistorian@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO 'sthistorian'@'%' ;"
 #
 
 

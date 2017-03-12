@@ -86,6 +86,18 @@ sudo tee /etc/logrotate.d/var_www_tempfiles <<EOF
 EOF
 
 
+sudo tee /etc/logrotate.d/home_file_cmm_archive <<EOF
+# packup cmm data merge files. delete after 2 years...
+/home/file/cmm_archive  {
+    rotate 104
+    weekly
+    missingok
+    compress
+}
+EOF
+
+
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function my_notes() {

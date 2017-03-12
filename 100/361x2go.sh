@@ -64,5 +64,5 @@ _____________
 
 
 
-
+sudo service x2goserver restart
 

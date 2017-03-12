@@ -54,7 +54,11 @@ sudo crontab -u albe -l | { cat; echo "01 7 * * 1-5  /var/www/html/cilist/action
 sudo crontab -u albe -l | { cat; echo "31 11 * * 4   /var/www/html/shiftcsd2sup/actions/email_tnopen_script.sh >> /home/albe/log/emailtnopen1.log 2<&1"; } | sudo crontab -u albe -  #add
 
 sudo crontab -u albe -l | { cat; echo "49 15 * * 1-5 /var/www/html/cilist/actions/import-csv-mysql-ceridian-enterprise.sh >> /home/albe/log/importcerenterp1.log 2<&1"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l | { cat; echo "53 15 * * 1-5 /var/www/html/lukup/actions/imp-lukup.sh >> /home/albe/log/lukupimp.log 2<&1"; } | sudo crontab -u albe -  #add
+
+# lukup...
+sudo crontab -u albe -l | grep -v 'lukup/actions/imp-lukup.sh'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | { cat; echo "23,53 8-15 * * 1-5 /var/www/html/lukup/actions/imp-lukup.sh >> /home/albe/log/lukupimp.log 2<&1"; } | sudo crontab -u albe -  #add
+
 sudo crontab -u albe -l | { cat; echo "55 6,18 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1"; } | sudo crontab -u albe -  #add
 
 sudo crontab -u albe -l  # list
@@ -73,12 +77,44 @@ sudo crontab -u albe -l  # list
 grep CRON /var/log/syslog | grep albe
 
 
+# ===================================================
 
-#remove from pmdsu... better to run as albe, the env variables are already present...
+# be careful to get the env you need, or call everything exactly and don't rely on env. it is different for cron.
+
+#remove from pmdsu... better to run as albe, the env variables are already present... or not....
 #  list, remove, list, add, list...
 sudo crontab -u pmdsu -l
 sudo crontab -u pmdsu -l | grep -v 'albe/shc/53imp.sh'  | sudo crontab -u pmdsu - #remove
 sudo crontab -u pmdsu -l  #list
+
+
+# http://stackoverflow.com/questions/15962573/usr-bin-env-ruby-is-not-found-in-cron
+#
+# troubleshoot env..
+# * * * * * /usr/bin/env > /path/to/your/home/directory/env.txt
+# 0 6 * * * /usr/bin/env >  /home/albe/log/env.txt.log
+#  sudo crontab -u albe -l | { cat; echo "  0 6 * * * /usr/bin/env >  /home/albe/log/env.txt.log"; } | sudo crontab -u albe -  #add
+#  sudo crontab -u albe -l | grep -v '/home/albe/log/env.txt.log'  | sudo crontab -u albe - #remove
+#  sudo crontab -u albe -l | { cat; echo "  0 6 * * * . $HOME/.profile ; /usr/bin/env >  /home/albe/log/envmy.txt.log"; } | sudo crontab -u albe -  #add
+
+# put this in line 1 of crontab -e for albe user..
+#       SHELL=/bin/bash
+#
+if  sudo crontab -u albe -l |  grep -q 'SHELL=/bin/bash' ; then
+  echo "Shell call is FOUND"
+  # test sudo crontab -u albe -l | sed '1 i\SHELL=/bin/bash-dg' | sudo crontab -u albe -
+  #  sudo crontab -u albe -l | grep -v 'bash-dg'  | sudo crontab -u albe - #remove
+else 
+  echo "NOT FOUND"
+  # hmm, can't do this.. sed -i '1 i\anything' file
+  # edit cron with sed ..  http://askubuntu.com/questions/58575/add-lines-to-cron-from-script
+  sudo crontab -u albe -l | sed '1 i\SHELL=/bin/bash' | sudo crontab -u albe -
+fi
+sudo crontab -u albe -l  # list
+
+
+# ===================================================
+
 
 
 
