@@ -31,6 +31,7 @@ sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm pass
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $mysqlrootpassw"
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $mysqlrootpassw"
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
+sudo debconf-set-selections <<< "phpmyadmin  phpmyadmin/remote/port  3306"
 sudo apt-get -y install phpmyadmin
 sudo apt-get -y install php5-xsl
 sudo apt-get -y install php5-intl

@@ -125,12 +125,12 @@ if [ $dgmethod = "ftp" ] ; then
 
         if ping -c 1 192.168.88.94 &> /dev/null
         then
-          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/htdocs.pmdsdata3.latest.7z
-          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/nomachine_5.0.53_1_amd64.deb
-          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/lxdehome.tgz
-          curl -O -u dg:fruit ftp://192.168.88.94:2141//files/mullvadconfig.zip
+          curl -O --connect-timeout 15 -u dg:fruit ftp://192.168.88.94:2141//files/htdocs.pmdsdata3.latest.7z
+          curl -O --connect-timeout 15 -u dg:fruit ftp://192.168.88.94:2141//files/nomachine_5.0.53_1_amd64.deb
+          curl -O --connect-timeout 15 -u dg:fruit ftp://192.168.88.94:2141//files/lxdehome.tgz
+          curl -O --connect-timeout 15 -u dg:fruit ftp://192.168.88.94:2141//files/mullvadconfig.zip
         else
-          curl -O -u dg:fruit ftp://10.4.10.225:2141//files/htdocs.pmdsdata3.latest.7z
+          curl -O --connect-timeout 15 -u dg:fruit ftp://10.4.10.225:2141//files/htdocs.pmdsdata3.latest.7z
         fi
         
         #curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/htdocs.pmdsdata3.latest.7z

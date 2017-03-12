@@ -17,8 +17,22 @@ echo $pwnu1
 #adduser asks questions and does more...
 sudo adduser $nuser --gecos "$nuser,..,..,.." --disabled-password
 echo "$nuser:$pwnu1" | sudo chpasswd
+
+
 #add user to group www
-sudo usermod -a -G www,www-data,sambashare  $nuser
+sudo usermod -a -G sambashare  $nuser
+
+while true; do
+    read -p "Do you wish to add this user to www-data group?" yn
+    case $yn in
+        [Yy]* ) sudo usermod -a -G www,www-data $nuser; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+
+
 (echo "$pwnu1"; echo "$pwnu1") | sudo smbpasswd -s -a $nuser
 sudo mkdir /home/$nuser/bin
 sudo chown  $nuser:$nuser /home/$nuser/bin
@@ -26,6 +40,9 @@ echo groups:
 groups $nuser
 # show smb users..
 sudo pdbedit -L -v
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# remove user from a group
+#       sudo gpasswd -d username group
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 date
