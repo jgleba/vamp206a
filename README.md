@@ -57,6 +57,12 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - I used 02startftp.bat to start an ftp server on a windows machine to serve up the web code, some settings, etc... Sorry, it has hardcoded paths in it. You can use those paths as is, edit the file to suit your system or just manually do what the script does yourself.
 - Starting around line 90 in 17docs.sh edit the ip address which is now 192.168.88.94 to your local windows host ip address. This is where it will get the data from by ftp using slimftp.
 
+## Alternative Preparation
+
+- Things are always changing due to advancements and of course my learning.
+- rather than using FTP to get some setup files, I have been using an alternate approach..
+- I since have employed ssh (putty, mremoteNG, git bash, windows command prompt, etc) and filezilla to interact with the server, especially at the early stages.
+- Use filezilla to put `vne.sh` `htdocs.pmds-data.latest.7z` in /home/albe/tmp01
 
 
 ## Example addresses of code I served up.

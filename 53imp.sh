@@ -87,7 +87,7 @@ mysql -uroot -p$mysqlrootpassw -e "create database greygold";
 #
 #import one database at a time from the backup of all the mysql data.
 # i think this randomly causes a second empty database created. This has wiped out the mysql database and other system databases.
-#
+#  don't do this anymore...
 
 #mysql -uroot -p$mysqlrootpassw --one-database greygold < /home/albe/share203/pmdsdata-all-mysql-706.sql
 #mysql -uroot -p$mysqlrootpassw   <  /var/www/html/backup/mysql/pmdsdata3t-greygold2-mysql.sql
@@ -102,6 +102,8 @@ mysql -uroot -p$mysqlrootpassw -e "create database greygold";
 #mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database shiftcsd2suprv < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 
+
+
 #preferred..
 #commented to prevent accidentally wiping out production data.
 if [ $HOSTNAME = "pmdsdata3" ] ; then
@@ -112,8 +114,12 @@ if [ $HOSTNAME = "pmdsdata3" ] ; then
     echo 'pmdsdata3 - will NOT import.'
 else
     echo 'this is not pmdsdata3 we WILL import data'
-    #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
-    #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
+
+    #   ****** to import or not to import, that is the question...
+
+    mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
+    mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
+
 fi
 
 #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
@@ -268,6 +274,20 @@ dg417,cilistu1,etc       select on lukup
 
 note:
 write means read and write.
+
+_____________ 
+2017-03-13 
+ubu 16.04
+
++ mysql -uroot -px -e 'create database cilist'
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+
+
+
+_____________ 
+
+
 
 END
 # end block comment ===============================

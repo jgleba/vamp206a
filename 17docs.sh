@@ -36,6 +36,14 @@ mkdir -p tmp01/html
 #
 }
 
+
+#  nowebfiles
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 # ask if you want to put html there manually with 16putht.bat from windows..
 set +vx
 echo
@@ -77,7 +85,7 @@ if [ $dgmethod = "ftp" ] ; then
 
     # I setup vsftp on a vagrant ubuntu machine, vamp198e, that has shares to c: drive to get the files...
     cd /home/$userv/tmp01
-    rm -f /home/$userv/vne.sh
+    #    rm -f /home/$userv/vne.sh
     pwd
     ls
     read -t 10 -p "Press ENTER or wait about ten seconds" ; echo ;
@@ -90,9 +98,9 @@ if [ $dgmethod = "ftp" ] ; then
 
     if ping -c 1 192.168.88.94 &> /dev/null
     then
-      curl -O -u dg:fruit ftp://192.168.88.94:2141//files/vne.sh
+      curl -O --connect-timeout 30  -u dg:fruit ftp://192.168.88.94:2141//files/vne.sh
     else
-      curl -O -u dg:fruit ftp://10.4.10.225:2141//files/vne.sh
+      curl -O --connect-timeout 30  -u dg:fruit ftp://10.4.10.225:2141//files/vne.sh
     fi
     #curl -O -u dg:fruit ftp://192.168.88.94:2141//var/varvamp/files/vne.sh
     #curl -O --user dgleba  https://bitbucket.org/dgleba/vamp206env/raw/master/vne.sh 

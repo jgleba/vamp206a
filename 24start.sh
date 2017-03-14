@@ -43,15 +43,16 @@ source shc/43apach.sh
 cd
 source shc/47guestad.sh
 cd
+source shc/62grpshare.sh
+source shc/62srvweb.sh
+cd
 source shc/51dj.sh
 cd
 source shc/53imp.sh
 cd
 source shc/61user.sh
 cd
-source shc/62grpshare.sh
-source shc/62srvweb.sh
-cd
+
 source shc/63bauth.sh
 cd
 source shc/65cron.sh
@@ -60,16 +61,19 @@ source shc/71gui.sh
 cd
 source shc/73lxset.sh
 cd
-source shc/67hostn.sh
-cd
-source shc/rails/railins.sh
-cd
 source shc/100/321lxdeborderresize.sh
+cd
+#source shc/67hostn.sh
 cd
 
 
 #read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
 
-
-echo " DONE; Please reboot...  "
+echo "DONE...  "
+echo "  run this without sudo...  "
+echo "     shc/rails/railins.sh  "
+echo "  Then this with sudo...  "
+echo "     sudo shc/67hostn.sh  "
+echo " "
+echo "Please reboot after that to get new hostname etc....  "
 #reboot

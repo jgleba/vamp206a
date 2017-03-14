@@ -19,7 +19,10 @@ sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
 # install mysql and give password to installer
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassw"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysqlrootpassw"
-sudo apt-get -y install mysql-server-5.6
+
+#sudo apt-get -y install mysql-server-5.6
+# changed for ubuntu 16.04..
+sudo apt-get -y install mysql-server
 
 #should this have a -y???
 sudo apt-get install -y php5-mysql
@@ -136,7 +139,7 @@ sudo sed -i "s@;sendmail_path =@sendmail_path = /usr/sbin/sendmail -t@g"  /etc/p
 sudo a2enmod rewrite
 
 # restart apache
-service apache2 restart
+sudo service apache2 restart
 
 # install git
 sudo apt-get -y install git
@@ -147,6 +150,10 @@ mv composer.phar /usr/local/bin/composer
 
 
 sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
+
+# for ubuntu 16.04...
+sudo systemctl mysql restart
+sudo systemctl apache2 restart
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
