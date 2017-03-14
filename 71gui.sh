@@ -22,6 +22,8 @@ sudo apt-get -y install expect
 sudo apt-get -y install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 sudo apt-get -y install iceweasel
 
+# logout dialog was not appearing...
+apt-get install -y --reinstall lxsession-logout
 
 }
 

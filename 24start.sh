@@ -57,11 +57,14 @@ source shc/63bauth.sh
 cd
 source shc/65cron.sh
 cd
-source shc/71gui.sh
+
+# see 70gui-notes.sh  - use xfce4
+
+# source shc/71gui.sh
 cd
-source shc/73lxset.sh
+# source shc/73lxset.sh
 cd
-source shc/100/321lxdeborderresize.sh
+# source shc/100/321lxdeborderresize.sh
 cd
 #source shc/67hostn.sh
 cd
