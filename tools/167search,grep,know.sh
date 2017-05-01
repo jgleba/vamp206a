@@ -143,7 +143,39 @@ http://stackoverflow.com/questions/5566310/how-to-recursively-find-and-list-the-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+find . -type f \! -name "*.js"  -print0 | xargs -0 grep -i content
+
+
+#works..
+find . -type f \! -name "*.js"  \! -name "*mdb.min.css"  ! -path "./tmp/*" ! -path "./.git/*" ! -path "./log/*"   -print0 | xargs -0 grep -i content
 
 
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+list files recursively by size..
+
+du -ah . | grep -v "/$" | sort -rh > ~/t1.txt
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+grep -ri --exclude-dir={tmp,log,vendor} post *  | grep -vi postgres
+
+
+eg:
+grep -rli --exclude-dir={proc,boot,root,sys} hello /
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Find *.txt file but ignore hidden .txt file such as .vimrc or .data.txt file:
+
+$ find . -type f \( -iname "*.txt" ! -iname ".*" \)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

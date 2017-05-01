@@ -64,6 +64,10 @@ sudo chgrp -hR www-data /var/www/html/*
 sudo chmod -R g+rws  /var/www/html/*
 sudo chmod -R o-w /var/www/html/*
 sudo chmod -R o+r /var/www/html/*
+
+# remove read permissions from a list of files - files with secrets.
+ sudo chmod -R o-r  `cat shc/62grpshareperm.txt`
+
 # make only folders +x so they can be cd into.
 sudo find /var/www/html -type d -exec chmod g+x {} +
 # make  *.sh files executable
@@ -116,3 +120,41 @@ sudo find *.sh $folder1 -exec chmod g+x {} +
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function Purpose() {
+# begin block comment =============================
+: <<'END'
+
+_____________ 
+
+
+files to revoke read permissions from..
+
+https://superuser.com/questions/543306/how-can-i-chmod-chown-a-specific-list-of-files
+
+see 62grpshareperm.txt
+*.ini
+*.dbc
+*.py
+*.rb
+*.yml
+*.env
+*.env
+*.conf
+*.sql
+*.csv
+*.txt
+
+_____________ 
+
+
+
+END
+# end block comment ===============================
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+

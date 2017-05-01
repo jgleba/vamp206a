@@ -174,7 +174,7 @@ script
     sleep 2
     # Start tightvncserver
     #su  albe -c '/usr/bin/tightvncserver :1'
-end script
+*end script
 
 post-start script
     #VNCUSER='albe'
@@ -245,6 +245,7 @@ Edit:
 I forgot to mention how to start the GUI, Its as simple as starting the service 
                 sudo systemctl start lightdm.service
 
+sudo systemctl enable lightdm.service
 
 sudo apt install xinit  # for startx
 
