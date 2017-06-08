@@ -190,6 +190,7 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO stread@localho
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO 'stread'@'%' ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON prodrptdb.* TO stread@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON cmmdb.* TO stread@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON cmmdb.* TO stread@'%' ;"
 mysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from stread@localhost ;"
 
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'sthistorian'@'localhost' IDENTIFIED BY '$mysql_sthistorian_pass';"

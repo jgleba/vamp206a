@@ -67,7 +67,7 @@ sudo crontab -u albe -l | { cat; echo "31 11 * * 4   /var/www/html/shiftcsd2sup/
 
 sudo crontab -u albe -l | { cat; echo "22 15 * * 0-6 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
 
-# lukup...
+# lukup... eam assets...
 sudo crontab -u albe -l | grep -v 'lukup/actions/imp-lukup.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | { cat; echo "43 15 * * 1-5 /var/www/html/lukup/actions/imp-lukup.sh >> /home/albe/log/lukupimp.log 2<&1"; } | sudo crontab -u albe -  #add
 
@@ -161,13 +161,28 @@ exit 999
 # begin block comment =============================
 : <<'END'
 
+_____________
 
-Print sorted by hour and minute...
+Print out cron listing  sorted by hour and minute...
+
 ...\bash-take-nth-column-in-a-text-file,know.txt
 
 sudo crontab -u albe -l | grep -v SHELL > /tmp/cronl
 awk '{printf "%s ~ %s ~ %s\n", $2,$1,$0}' < /tmp/cronl | sort
 #
+
+sample output...
+
+albe@pmdsdata3:/srv/web/shiftcsd1p272$ sudo crontab -u albe -l | grep -v SHELL > /tmp/cronl
+albe@pmdsdata3:/srv/web/shiftcsd1p272$ awk '{printf "%s ~ %s ~ %s\n", $2,$1,$0}' < /tmp/cronl | sort
+11 ~ 31 ~ 31 11 * * 4   /var/www/html/shiftcsd2sup/actions/email_tnopen_script.sh >> /home/albe/log/emailtnopen1.log 2<&1
+15 ~ 22 ~ 22 15 * * 0-6 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1
+15 ~ 43 ~ 43 15 * * 1-5 /var/www/html/lukup/actions/imp-lukup.sh >> /home/albe/log/lukupimp.log 2<&1
+15 ~ 49 ~ 49 15 * * 1-5 /var/www/html/cilist/actions/import-csv-mysql-ceridian-enterprise.sh >> /home/albe/log/importcerenterp1.log 2<&1
+6,18 ~ 55 ~ 55 6,18 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1
+
+
+
 
 _____________
 
