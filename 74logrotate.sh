@@ -19,7 +19,7 @@ sudo tee /etc/logrotate.d/homefilebackup <<EOF
     daily
     size 3K
     missingok
-    rotate 15
+    rotate 5
     compress
     notifempty
 }

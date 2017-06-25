@@ -25,7 +25,6 @@ END
 date
 #
 
-
 #main...
 
 #works...
@@ -177,5 +176,126 @@ $ find . -type f \( -iname "*.txt" ! -iname ".*" \)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
+GREP grep >>
+
+
+grep -rin --color=always  rail2 .  |    grep -vi -e deploy -e tmp -e .git -e log -e /offline -e readme -e docs -e mtime -e offlin
+ 
+grep -ir --include="*.rb" path
+
+grep -ir --include="*.txt" variab .
+grep -ir --include="*.sql" variab .
+ grep -ir --include="*.sql" -l declare .
+
+ grep -ir --include="*.sql" -l set.*@ .
+ 
+ 
+
+# find crea*.rb containing v and w 
+  find .  -iname *crea*\.rb | grep v |grep w
+ 
+find -iname "*\.rb" | grep -i  create
+
+grep -ri 6L_output /var/www/html/django/trakberry 
+
+ grep -ri collection .|grep html |grep -v sql |grep 1ror |grep -v workspace
+ grep -ri select .|grep html |grep -v sql |grep 1ror |grep -v workspace
+
+ grep -ri commit .|grep sh|grep git|grep -v sql|grep 27
+ _____________
+ 
+ 
+grep '@example'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,.git} --exclude={*.sublime-workspace,*.geany,error_log,*.sqlit*}
+
+  >~/0/gout.txt
+
+grep 'devise'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,.git} --exclude={*.sublime-workspace,*.geany,error_log}
+
+grep 'pundit'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
+
+grep 'tempera'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
+
+
+grep 'ude pun'  -ria  --exclude-dir=tmp
+
+grep nt.sqlite3 -ria
+
+grep cif207 -B1 -C1 -r -i -a /etc/apache2
+
+=
+sudo find .  -name *.rb | grep _path
+
+sudo find .  -name *themerc* 
+
+=
+list lines that end in a  az-09 charater
+cat /home/dg/tmp/ij,2009-01-26-1233001792 |grep '[a-zA-Z0-9]'$
+
+= 
+
+>.find
+
+sudo find / -mount -name *phpMyAdmin*
+
+find /mnt/GLEBAD7/c/d  -name *who*.xls
+doesn't work on mail.com: gotmail -u glebadavid@iname.com -p ashley -d mail.com -f gleba@sympatico.ca
+
+find /etc -name *version*  ; what distribution of linux am I running?
+head /etc/*version*  ; what distribution/version of linux am I running?
+and/or
+head /etc/*release*  ; what distribution/version of linux am I running?
+find /etc -name *version*  ;  head /etc/*version*  ; head /etc/*release*  ;
+another: cat /proc/version
+
+find / -type f -iname '????\.??' | xargs grep -i 'word' /dev/null ,  will do a case insensitive file match for all files with 4 chars followed by a literal '.' followed by 2 chars then do a case insensitive search for 'word' on those files. Adding /dev/null below so that grep outputs the filename(s) it found the pattern match in.  Without it, grep will only print out the line containing the match.
+
+find / -mount -name konqueror
+find /mydata/mnt/GLEBAD7/c/d  -name *who*.xls
+
+find /amn/redet/c/d/1/  -iname *nuvex*
+find /mnt/hdb2/b2/bkjr -iname *.dat*
+find /amn/reddq/c/d/  -iname *dnote*  |grep we
+find /amn/glebad7/c/  -iname *pcw*
+find /amn/glebad7/c/d/  -iname *grub* |grep cd
+
+
+>.grep
+
+grep "nuvexp" -B1 -C1 -r -i -a /amn/redet/c/d/1/linuxcommand/1
+grep "du" -B3 -C3 -r -i -a /amn/redet/c/d/1/linuxcommand/1
+
+grep "ftp" -B3 -C3 -r -i -a /amn/redet/c/d/1/linuxcommand/1
+
+grep "klik" -B0 -C0 -r -i -a /amn/glebad7/c/d/1/0favorites
+grep "rani" -B0 -C0 -r -i -a /amn/glebad8/m/3/a*.txt
+grep "pcoc" -B3 -C3 -r -i -a /amn/glebad7/c/d/d |grep -B4 -C4 -i xp
+grep -B3 -C3 -r 'depend' /opt/kde/share/doc/HTML/en/kpackage
+grep -a = binary files are like text.
+grep "nmbd" -B0 -C0 -r -i /etc
+
+=
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-06-13[Jun-Tue]20-19PM
+
+ grep -ir --include="*.sql" -l declare .
+
+ grep -ir --include="*.sql" -l set.*@ .
+ 
+' 
+
+_____________
+
+# Just show lines matching, no name.
+find . -type f -name "database.yml" | xargs grep ENV
+ 
+# Just show names matching.. 
+find . -iname 'database.yml' -type f -exec grep -l ENV '{}' \; 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
