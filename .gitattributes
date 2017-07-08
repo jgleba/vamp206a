@@ -7,6 +7,8 @@
 *.pmdsdata3.latest.7z.7z binary
 *.latest.7z.7z binary
 *.7z.7z binary
+htdocs-sample-example-small1_mv_to__htdocs.pmdsdata3.latest.7z.7z binary
+htdocs-sample-example-small1_mv_to_htdocs.pmdsdata3.latest.7z.7z binary
 
 # Force the following filetypes to have unix eols, so Windows does not break them
 *.* text eol=lf
