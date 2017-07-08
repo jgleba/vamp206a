@@ -1,6 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
+*.7z   binary
+*.zip  binary
+
 # Force the following filetypes to have unix eols, so Windows does not break them
 *.* text eol=lf
 
