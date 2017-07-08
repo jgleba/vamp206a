@@ -45,6 +45,8 @@ sudo crontab -u albe -l | { cat; echo "55 6,18 * * 1-7  /var/www/html/prodrpt/ac
 
 sudo crontab -u albe -l | { cat; echo "01 7 * * 1-5  /var/www/html/cilist/actions/exceptionrpts.sh >> /home/albe/log/exceptionrpts1.log 2<&1"; } | sudo crontab -u albe -  #add
 
+sudo crontab -u albe -l | { cat; echo "45 6 * * 1-7  /var/www/html/cmmdb/actions/email_rows_imported.sh >> /home/albe/log/cmmdb.reports.log 2<&1"; } | sudo crontab -u albe -  #add
+
 sudo crontab -u albe -l  # list
 sudo crontab -u albe -l | grep -v 'import-csv-mysql-cmm.sh'  | sudo crontab -u albe - #remove
 #sudo crontab -u albe -l | { cat; echo "15 7,15,23 * * 0-6 /var/www/html/cmmdb/actions/import-csv-mysql-cmm.sh >> /home/albe/log/import-csv-mysql-cmm1.log 2<&1"; } | sudo crontab -u albe -  #add

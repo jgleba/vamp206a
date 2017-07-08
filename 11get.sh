@@ -107,7 +107,9 @@ get1
 set +vx
 echo "edit variables like username and passwords..  nano shc/21env.sh"
 echo "ctrl-o to write the file,  ctrl-x to exit editor."
-echo "now run:   sudo shc/24start.sh "
+echo "  If you want to proceed with only a little web data, touch an empty file or copy a file in place that has some "
+echo "  document root data like htdocs-sample-data\.. htdocs.pmdsdata3.latest.7z. See 17docs.sh...."
+echo "     now run:   sudo shc/24start.sh "
 
 #source sudo will not work. cannot use an excecutable. must be source shc/24start.sh. run sudo ./11get.sh
 #source shc/24start.sh

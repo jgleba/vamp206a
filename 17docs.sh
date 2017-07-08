@@ -29,11 +29,11 @@ dgmethod="ftp"
 
 function nowebfiles() 
 {
-#if you want to proceed with no web data, run this...
-cd
-touch tmp01/htdocs.pmdsdata3.latest.7z
-mkdir -p tmp01/html
-#
+  # 17docs.sh.. if you want to proceed with no web data, run this or copy a file in place that has some document root data like C:\n\Dropbox\csd\serve\vboxyard\htdocs-sample\htdocs-sample-example.7z ...
+  cd
+  touch tmp01/htdocs.pmdsdata3.latest.7z
+  mkdir -p tmp01/html
+  #
 }
 
 

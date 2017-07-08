@@ -31,7 +31,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
       See instructions for unattended iso maker below...   
 	    vagrant share...   config.vm.synced_folder "/var/varvamp", "/var/varvamp"
       I used `04prep-iso.sh`  
-      I used username albe, it may need some work to use another username. albe is intentionally a unique name so it could be replaced en mass.
+      I used username albe, it may involve some work to use another username. albe is intentionally a unique name - it's just a name I use for the master user.
 - create the virtual box  ( I did this from windows)  
   `07createvbox.bat`  
    This will also do an unattended install of the resulting Ubuntu 14.04 64bit server iso in vbox.    
@@ -59,10 +59,10 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 
 ## Alternative Preparation
 
-- Things are always changing due to advancements and of course my learning.
-- rather than using FTP to get some setup files, I have been using an alternate approach..
+- Things are always changing due to advancements and of course I learn more as I go forward.
+- Rather than using FTP locally to get some setup files, I have been using an alternate approach..
 - I since have employed ssh (putty, mremoteNG, git bash, windows command prompt, etc) and filezilla to interact with the server, especially at the early stages.
-- Use filezilla to put `vne.sh` `htdocs.pmds-data.latest.7z` in /home/albe/tmp01
+- Use filezilla (over ssh / sftp) to put  `vne.sh`  `htdocs.pmds-data.latest.7z` in `/home/albe/tmp01` and `11get.sh`  in `~ `
 
 
 ## Example addresses of code I served up.
