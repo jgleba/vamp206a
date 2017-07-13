@@ -68,7 +68,7 @@ echo "html      /var/www/html  vboxsf   defaults,noauto  0   0" >> /etc/fstab
 #add text share203, then 
 sudo sh -c 'echo "share203  /home/share203  vboxsf   defaults,noauto  0   0" >> /etc/fstab'
 #now replace line with this text with a whole new line. have to excape / in /home/...
-sudo sed -i "s/.*share203.*/share203  \/home\/$userv\/share203  vboxsf   defaults,noauto  0   0/g" /etc/fstab
+sudo sed -i "s/.*share203.*/share203  \/home\/$userv\/share203  vboxsf   defaults,noauto,_netdev  0   0/g" /etc/fstab
 
 
 
