@@ -29,10 +29,6 @@ sudo sed -i.$(date +"_%Y%m%d_%H%M%S").sedbak.txt "/$pattern1/a $line1" $file1
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function offline21() {
-
-echo tmp1
-exit 999
-
 : <<'BLOCKCOMMENT'
 
   Purpose:   

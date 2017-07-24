@@ -217,6 +217,7 @@ grep 'pundit'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.s
 
 grep 'tempera'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
 
+grep 'mcmaster'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,templates_c,backup,test,test2} --exclude={*.sublime-workspace,*.geany,error_log,*.sql,*.msg} .
 
 grep 'ude pun'  -ria  --exclude-dir=tmp
 
@@ -291,11 +292,40 @@ Title:  .
 
 _____________
 
+# find folders with this file..
+
+
 # Just show lines matching, no name.
 find . -type f -name "database.yml" | xargs grep ENV
  
 # Just show names matching.. 
 find . -iname 'database.yml' -type f -exec grep -l ENV '{}' \; 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-07-14[Jul-Fri]23-39PM
+
+
+find folders named...
+
+find . -maxdepth 2 -type d -name lpa34*
+
+find . -type d -name .git -exec dirname {} \;
+
+
+
+find .  \( ! -name tmp -prune \) -o \( ! -name root -prune \)  -name "*.pl" -print
+
+
+find .  \( ! -name tmp -prune \)   -name lpa346 -print
+
+
+
+find . -type d -not \( -name tmp -prune \) -iname lpa346
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
