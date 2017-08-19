@@ -141,7 +141,6 @@ see 62grpshareperm.txt
 *.rb
 *.yml
 *.env
-*.env
 *.conf
 *.sql
 *.csv

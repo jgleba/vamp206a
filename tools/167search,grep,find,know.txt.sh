@@ -37,7 +37,10 @@ sudo apt-get install  gnome-search-tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+11.  locate..
+
 only files..
+
 locate -b0 drail246 | xargs -r0 ls -aldtr
 
 dirs too..
@@ -82,8 +85,7 @@ cat ~/0/lcout99.txt | sort -n | tail -n722 | grep  249
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-find new files
+21. find new files...
 
 find . -type f | xargs stat --format '%Y :%y %n' | sort -nr | cut -d: -f2- | head
 
@@ -142,6 +144,8 @@ http://stackoverflow.com/questions/5566310/how-to-recursively-find-and-list-the-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+31.
+
 find . -type f \! -name "*.js"  -print0 | xargs -0 grep -i content
 
 
@@ -153,6 +157,7 @@ find . -type f \! -name "*.js"  \! -name "*mdb.min.css"  ! -path "./tmp/*" ! -pa
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+41.
 
 list files recursively by size..
 
@@ -160,6 +165,7 @@ du -ah . | grep -v "/$" | sort -rh > ~/t1.txt
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+51. grep..
 
 grep -ri --exclude-dir={tmp,log,vendor} post *  | grep -vi postgres
 
@@ -170,6 +176,7 @@ grep -rli --exclude-dir={proc,boot,root,sys} hello /
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+61. 
 Find *.txt file but ignore hidden .txt file such as .vimrc or .data.txt file:
 
 $ find . -type f \( -iname "*.txt" ! -iname ".*" \)
@@ -177,8 +184,7 @@ $ find . -type f \( -iname "*.txt" ! -iname ".*" \)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
-GREP grep >>
+71. GREP grep >>
 
 
 grep -rin --color=always  rail2 .  |    grep -vi -e deploy -e tmp -e .git -e log -e /offline -e readme -e docs -e mtime -e offlin
@@ -219,6 +225,8 @@ grep 'tempera'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.
 
 grep 'mcmaster'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,templates_c,backup,test,test2} --exclude={*.sublime-workspace,*.geany,error_log,*.sql,*.msg} .
 
+grep 'segeren'  -ria --include={*.php,*.txt} --exclude-dir={tmp,bin,shared,log,nbproject,templates_c,backup,test,test2} --exclude={*.sublime-workspace,*.geany,error_log,*.sql,*.msg}  . 
+
 grep 'ude pun'  -ria  --exclude-dir=tmp
 
 grep nt.sqlite3 -ria
@@ -236,12 +244,14 @@ cat /home/dg/tmp/ij,2009-01-26-1233001792 |grep '[a-zA-Z0-9]'$
 
 = 
 
+81. find..
+
 >.find
 
 sudo find / -mount -name *phpMyAdmin*
 
 find /mnt/GLEBAD7/c/d  -name *who*.xls
-doesn't work on mail.com: gotmail -u glebadavid@iname.com -p ashley -d mail.com -f gleba@sympatico.ca
+doesnt work on mail.com: gotmail -u glebadavid@iname.com -p ashley -d mail.com -f gleba@sympatico.ca
 
 find /etc -name *version*  ; what distribution of linux am I running?
 head /etc/*version*  ; what distribution/version of linux am I running?
@@ -261,6 +271,8 @@ find /amn/reddq/c/d/  -iname *dnote*  |grep we
 find /amn/glebad7/c/  -iname *pcw*
 find /amn/glebad7/c/d/  -iname *grub* |grep cd
 
+
+91. grep..
 
 >.grep
 
@@ -284,15 +296,17 @@ grep "nmbd" -B0 -C0 -r -i /etc
 Title:  .
 -----------------------2017-06-13[Jun-Tue]20-19PM
 
+101. grep..
+
  grep -ir --include="*.sql" -l declare .
 
  grep -ir --include="*.sql" -l set.*@ .
  
-' 
+
 
 _____________
 
-# find folders with this file..
+111. # find folders with this file..
 
 
 # Just show lines matching, no name.
@@ -308,7 +322,8 @@ Title:  .
 -----------------------2017-07-14[Jul-Fri]23-39PM
 
 
-find folders named...
+121. find folders named...
+
 
 find . -maxdepth 2 -type d -name lpa34*
 

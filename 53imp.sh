@@ -170,7 +170,11 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@loc
 
 # i had to change definer on views looking at lukup database. Got error: View 'cilist.vw_enterprise_all' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
 # see C:\n\Dropbox\csd\serve\vboxyard\vamp206a\mysql-user-change\viewdefiner-2016-10-11-mysqlknow-changeuser.txt
-mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO dg417@localhost ;"
+
+#mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO dg417@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from dg417@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from dg417@'%' ;"
+
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO ciuser@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO hruser@localhost ;"
 
@@ -192,6 +196,8 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO 'stread'@'%' ;
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON prodrptdb.* TO stread@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON cmmdb.* TO stread@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON cmmdb.* TO stread@'%' ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON qualitydb.* TO stread@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON qualitydb.* TO stread@'%' ;"
 mysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from stread@localhost ;"
 
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'sthistorian'@'localhost' IDENTIFIED BY '$mysql_sthistorian_pass';"

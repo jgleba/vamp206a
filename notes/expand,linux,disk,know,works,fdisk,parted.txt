@@ -1,0 +1,95 @@
+
+ubuntu 14 expand lvm
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-08-08[Aug-Tue]12-02PM
+
+worked.
+
+http://www.geoffstratton.com/expand-hard-disk-ubuntu-lvm
+
+   92  df -h
+   94  fdisk -l
+   95  fdisk -l /dev/sda
+
+parted
+  print free
+
+  97  cfdisk
+        create logical partition  [ type 8e - linux LVM type ]  - sda6  89gb.
+
+root@pmdsdata3:/home/albe# 
+  pvcreate /dev/sda6
+  Physical volume "/dev/sda6" successfully created
+        
+pvdisplay        
+        
+vgextend "csd-8g0njm1-vg" /dev/sda6
+
+root@pmdsdata3:/home/albe# vgextend "csd-8g0njm1-vg" /dev/sda6
+  Volume group "csd-8g0njm1-vg" successfully extended
+root@pmdsdata3:/home/albe#
+
+
+lvdisplay
+
+
+lvextend -l+100%FREE  /dev/csd-8g0njm1-vg/root
+
+
+
+root@pmdsdata3:/home/albe# df -h
+Filesystem                         Size  Used Avail Use% Mounted on
+/dev/mapper/csd--8g0njm1--vg-root   38G   34G  2.0G  95% /
+none                               4.0K     0  4.0K   0% /sys/fs/cgroup
+udev                               2.9G   12K  2.9G   1% /dev
+tmpfs                              597M  588K  596M   1% /run
+none                               5.0M     0  5.0M   0% /run/lock
+none                               3.0G  132K  3.0G   1% /run/shm
+none                               100M     0  100M   0% /run/user
+/dev/sda1                          236M  129M   95M  58% /boot
+root@pmdsdata3:/home/albe#
+
+resize2fs /dev/mapper/csd--8g0njm1--vg-root
+   
+worked.
+   
+   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+not for lvm..
+
+https://askubuntu.com/questions/116351/increase-partition-size-on-which-ubuntu-is-installed/116367
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+==
+
+/dev/mapper/csd--8g0njm1--vg-root
+
+==
+
+ref..
+
+                                                      2017-08-08
+
+http://www.geoffstratton.com/expand-hard-disk-ubuntu-lvm
+
+ubuntu 14 server running on microsoft  hyper v command line expand sda
+
+http://www.altaro.com/hyper-v/ubuntu-linux-server-hyper-v-guest/
+http://www.altaro.com/hyper-v/ubuntu-linux-server-hyper-v-guest/
+
+http://www.joomlaworks.net/blog/item/168-resizing-the-disk-space-on-ubuntu-server-vms-running-on-vmware-esxi-5
+
+https://www.rootusers.com/how-to-increase-the-size-of-a-linux-lvm-by-expanding-the-virtual-machine-disk/
+
+microsoft hyper-v ubuntu 14 server disk free space not recognized
+
+https://social.technet.microsoft.com/Forums/windows/en-US/1df59078-ee0a-4226-b112-74e4873cee1d/how-to-expand-disk-space-of-a-virtual-disk-running-ubuntu-in-hyper-v?forum=winserverhyperv
+
+
+==
+

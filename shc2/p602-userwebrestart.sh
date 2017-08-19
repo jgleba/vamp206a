@@ -109,6 +109,13 @@ sudo  visudo -f /etc/sudoers.d/websreload2
 # http://stackoverflow.com/questions/525672/is-there-a-way-to-start-restart-stop-apache-server-on-linux-as-non-root-user
 # http://www.softpanorama.org/Access_control/Sudo/sudoer_file_examples.shtml
 
+
+#http://askubuntu.com/questions/229809/allow-non-sudo-group-to-control-upstart-job
+# use...  sudo initctl stop flask217; sudo initctl start flask217
+
+
+C:\n\Dropbox\csd\serve\vboxyard\vamp206a\older\61userrestartweb,nonsudogroup,sudo-onecommand--old.sh
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # clean up my junk...
