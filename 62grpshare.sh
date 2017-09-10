@@ -25,7 +25,7 @@ sudo chown -R www-data  /srv/share
 sudo chmod -R g+rws  /srv/share 
 sudo chmod -R o-rw /srv/share
 # make only folders +x so they can be cd into.
-sudo find /usr/share -type d -exec chmod g+x {} +
+sudo find /srv/share -type d -exec chmod g+x {} +
 sudo usermod -a -G www-data  $userv
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 groups
@@ -58,6 +58,8 @@ sudo chmod -R g+rws  /media/sf_share
 # sudo chgrp -hR www /var/www/html
 #
 # chown and chgrp the html files appropriately.. chgrp -hR www-data /var/www/html
+
+sudo mkdir -p /var/www/html
 sudo chown -R root /var/www/html
 sudo chgrp -hR www-data /var/www/html/*
 # also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
@@ -87,6 +89,7 @@ sudo usermod -a -G www-data  $userv
 # sudo chgrp -hR www /var/www/html
 #
 # chown and chgrp the html files appropriately.. chgrp -hR www-data /var/www/html
+sudo mkdir -p  /home/file
 sudo chown -R root /home/file
 sudo chgrp -hR www-data /home/file
 # also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
