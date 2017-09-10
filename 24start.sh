@@ -33,7 +33,12 @@ source shc/root.sh
 cd
 source shc/15samsh.sh
 cd
-source shc/17docs.sh
+# use this to get specific data file..
+# source shc/17docs.sh
+
+# use this for sample data in the repo..
+  source shc/17docs_sample.sh
+
 cd
 source shc/31base.sh
 cd
