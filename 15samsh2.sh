@@ -65,7 +65,7 @@ force directory mode = 02771
 #  directory security mask = 2771
 #  force directory security mask = 2771
 
-#was this, try without dgleba... valid users = albe,dgleba,@www
+#was this, try without dgleba... valid users = ubuntuUser,dgleba,@www
 valid users = ftpup
 #
 #

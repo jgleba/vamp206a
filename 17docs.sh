@@ -74,7 +74,7 @@ sudo mkdir -p /var/www/html
 #
 sudo mkdir -p /tmp01/tempfiles
 sudo chmod -R 700 /tmp01/tempfiles
-sudo chown -R albe  tmp01 
+sudo chown -R $userv  tmp01 
 
 sudo mkdir -p /var/www/tempfilesdg
 sudo chmod -R 777 /var/www/tempfilesdg
@@ -167,7 +167,7 @@ if [ $dgmethod = "ftp" ] ; then
         ###sudo mv html htdocs
 
         # this problem is gone now...
-        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp01/htdocs.pmdsdata3.latest.7z
+        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/ubuntuUser/tmp01/htdocs.pmdsdata3.latest.7z
         #Error: Can not open file as archive
         #htdocs.pmdsdata3.latest.7z
         #

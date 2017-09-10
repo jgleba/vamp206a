@@ -10,13 +10,13 @@ END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 source shc/21env.sh
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 # Main: put code here...
 
 
-#manually put a fresh vne.sh in home/albe/tmp01
+#manually put a fresh vne.sh in home/$userv/tmp01
 
 
 # have it copy new data from c:\var\share203
@@ -24,7 +24,7 @@ cd
 #rm tmp01/htdocs.pmdsdata3.latest.7z
 
 #copy
-cp /home/albe/share203/htdocs.pmdsdata3.latest.7z tmp01
+cp /home/$userv/share203/htdocs.pmdsdata3.latest.7z tmp01
 cp /media/sf_share4/htdocs.pmdsdata3.latest.7z tmp01
 
     # delete this htdocs if you want to get new files...
@@ -38,7 +38,7 @@ cd tmp01
         7z x /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z
 
         # this problem is gone now...
-        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/albe/tmp01/htdocs.PMDS-DATA.latest.7z
+        #7-Zip [64] 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18 p7zip Version 9.20 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,2 CPUs) Processing archive: /home/$userv/tmp01/htdocs.PMDS-DATA.latest.7z
         #Error: Can not open file as archive
         #htdocs.PMDS-DATA.latest.7z
         #
@@ -78,5 +78,5 @@ cd tmp01
 
 
 cd
-echo You must delete /home/albe/tmp01/html folder to get new data imported.. Data NOT imported.
+echo You must delete /home/$userv/tmp01/html folder to get new data imported.. Data NOT imported.
 

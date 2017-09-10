@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# edit below username if needed - I used albe.
+# set  username in 21env.sh
 #
 
 get1()
@@ -67,7 +67,7 @@ cd shc
 #chmod -R +x *.sh
 # make files executable recursively
 #find . -type f -exec chmod +x {} \;
-#2015-10-27_Tue_09.58-AM.. sudo chown -R albe /home/albe/shc
+#2015-10-27_Tue_09.58-AM.. sudo chown -R ubuntuUser /home/ubuntuUser/shc
 sudo chmod -R 700 .
 cd
 sudo chmod -R 500 shc-orginal-setup

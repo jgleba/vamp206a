@@ -64,7 +64,7 @@ mkdir -p ~/backup
 cp /etc/fstab ~/backup/fstab.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 
 echo "html      /var/www/html  vboxsf   defaults,noauto  0   0" >> /etc/fstab
-#this deoesn't expand the $albe variable.. echo "share203  /home/$userv/share203  vboxsf   defaults,noauto  0   0" >> /etc/fstab
+#this deoesn't expand the $ubuntuUser variable.. echo "share203  /home/$userv/share203  vboxsf   defaults,noauto  0   0" >> /etc/fstab
 #add text share203, then 
 sudo sh -c 'echo "share203  /home/share203  vboxsf   defaults,noauto  0   0" >> /etc/fstab'
 #now replace line with this text with a whole new line. have to excape / in /home/...

@@ -17,7 +17,7 @@ sudo tar -cvzf backup/$userv-lxdeset2.$(date +"%Y.%m.%d_%k.%M.%S").tgz  /home/$u
 # this seems to take just the files in the home folder without any directories and then add folder like .config, bin, Desktop.
 #  http://unix.stackexchange.com/questions/24870/tar-files-only-no-directories
 cd
-find . -maxdepth 1 -type f -print0 | tar cvzf backup/lxdeset3albehome.$(date +"%Y.%m.%d_%k.%M.%S").tgz .config bin Desktop --exclude={15ran,11get.sh} --null -T -
+find . -maxdepth 1 -type f -print0 | tar cvzf backup/lxdeset3_$userv_home.$(date +"%Y.%m.%d_%k.%M.%S").tgz .config bin Desktop --exclude={15ran,11get.sh} --null -T -
 
 
 
@@ -52,7 +52,7 @@ function offline()
 exit 999
 
 #create home backup for unpacking with lxset.sh...
-# need .config desktop some .files in home/albe...
+# need .config desktop some .files in home/ubuntuUser...
 #tar -cvzf lxdehome.tgz .
 
 

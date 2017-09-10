@@ -64,7 +64,7 @@ sudo apt-get -y install apache2-utils
     sudo mkdir -p /var/www/html/authbasic
     # add a user ( create a new file with "-c" => only add "-c" at the first time. Do not add it 2nd time to add users. )
     #sudo htpasswd -c /etc/apache2/.htpasswd $userv
-    #userv is albe...
+    #userv is set in 21env.sh...
     sudo htpasswd -b -c /etc/apache2/.htpasswd $userv $pw1
 
   sudo a2dissite baseauth1.conf
@@ -77,7 +77,6 @@ apacheba2()
 {
     # add a user ( create a new file with "-c" => only add "-c" at the first time. Do not add it 2nd time to add users. )
     #sudo htpasswd -c /etc/apache2/.htpasswd $userv
-    #userv is albe...
     sudo htpasswd -b /etc/apache2/.htpasswd $userv $pw3
     # for humidex app 248
     sudo htpasswd -b /etc/apache2/.htpasswd sun replaceme-234rfsrw234wersdfxsewersf

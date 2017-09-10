@@ -16,8 +16,8 @@ source shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 groups
-groups albe
-id albe
+groups $userv
+id $userv
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # make srv/web folder and change permissions...

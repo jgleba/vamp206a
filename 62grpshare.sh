@@ -26,11 +26,11 @@ sudo chmod -R g+rws  /srv/share
 sudo chmod -R o-rw /srv/share
 # make only folders +x so they can be cd into.
 sudo find /usr/share -type d -exec chmod g+x {} +
-sudo usermod -a -G www-data  albe
+sudo usermod -a -G www-data  $userv
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 groups
-groups albe
-id albe
+groups $userv
+id $userv
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

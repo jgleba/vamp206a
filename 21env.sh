@@ -50,8 +50,8 @@ export ubuntu_versionb="$(lsb_release -sd)"
 
 function offline() {
 exit 9
-albe@vamp206b:~$ #sudo echo $HOME
-/home/albe
-albe@vamp206b:~$ 
+alb@vamp206b:~$ #sudo echo $HOME
+/home/alb
+alb@vamp206b:~$ 
 }
 

@@ -11,7 +11,7 @@ Purpose.. Set permistions of current folder...
 old..
 Purpose: create a folder to work in.
 #sudo mkdir -p /files
-#sudo chown albe /files
+#sudo chown ubuntuUser /files
 
 END
 # end block comment ===============================

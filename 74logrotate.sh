@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+source shc/21env.sh
+
 # http://www.thegeekstuff.com/2010/07/logrotate-examples
 
-sudo tee /etc/logrotate.d/homealbelog <<EOF
-/home/albe/log/*.log {
+sudo tee /etc/logrotate.d/home$uservlog <<EOF
+/home/$userv/log/*.log {
     daily
     size 3K
     missingok
@@ -120,7 +122,7 @@ to run it manually..
   notifempty
 }  
 
-	create 0640 www-data albe 
+	create 0640 www-data $userv 
 	sharedscripts
 
 END

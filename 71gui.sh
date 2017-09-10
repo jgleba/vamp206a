@@ -146,7 +146,7 @@ echo "#this noworky... vncconfig -nowin -iconic &"  >> /home/$userv/.vnc/xstartu
 echo "lxterminal &"  >> /home/$userv/.vnc/xstartup
 echo "/usr/bin/lxsession -s LXDE &"  >> /home/$userv/.vnc/xstartup
 cat /home/$userv/.vnc/xstartup
-sudo chown -R albe .vnc 
+sudo chown -R $userv .vnc 
 
 
 # Restart VNC
@@ -170,17 +170,17 @@ respawn limit 20 5
 
 
 script
-    #VNCUSER='albe'
+    #VNCUSER="$userv"
     sleep 2
     # Start tightvncserver
-    #su  albe -c '/usr/bin/tightvncserver :1'
+    #su  $userv -c '/usr/bin/tightvncserver :1'
 *end script
 
 post-start script
-    #VNCUSER='albe'
+    #VNCUSER="$userv"
     sleep 4
     # Start tightvncserver
-    su  albe -c '/usr/bin/tightvncserver :1'
+    su  $userv -c '/usr/bin/tightvncserver :1'
 end script
 
 pre-start script
@@ -198,7 +198,7 @@ init-checkconf /etc/init/tvnc1.conf
 
 #
 
-sudo chown -R albe .vnc
+sudo chown -R $userv .vnc
 
 sudo service tvnc1 start
 ps -ef | grep vnc
@@ -219,8 +219,8 @@ exit 999
 I started it with "sudo tightvncserver :1" - that was a mistake. messed up the permissions. 2015-12-08_Tue_14.56-PM
 fix...
 sudo leafpad /etc/init/tvnc1.conf 
- change to.. su - albe -c '/usr/bin/tightvncserver :1'
-sudo chown -R albe .vnc 
+ change to.. su - $userv -c '/usr/bin/tightvncserver :1'
+sudo chown -R $userv .vnc 
 
 _____________
 

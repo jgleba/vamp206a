@@ -125,7 +125,7 @@ net use \\pmdsdata3 * /user:dgleba
 
 http://superuser.com/questions/123833/how-do-i-change-the-user-i-am-logged-in-with-on-a-network-share
 net use \\SERVER * /user:username
-net use \\pmdsdata3 * /user:albe
+net use \\pmdsdata3 * /user:ubuntuUser
 ***  error..........     System error 1219 has occurred.
 
 worked:

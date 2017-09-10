@@ -18,7 +18,7 @@ date
 set -x
 
 #test:
-# \\10.4.1.227\home\albe\0\dump-adhoc.sql
+# \\10.4.1.227\home\ubuntuUser\0\dump-adhoc.sql
 #   mysql -uroot -p$mysqlrootpassw   <  ~/0/dump-adhoc.sql
 # mysql -uroot -p$mysqlrootpassw   < /home/file/tmp/out2.sql
 
@@ -89,7 +89,7 @@ mysql -uroot -p$mysqlrootpassw -e "create database greygold";
 # i think this randomly causes a second empty database created. This has wiped out the mysql database and other system databases.
 #  don't do this anymore...
 
-#mysql -uroot -p$mysqlrootpassw --one-database greygold < /home/albe/share203/pmdsdata-all-mysql-706.sql
+#mysql -uroot -p$mysqlrootpassw --one-database greygold < /home/ubuntuUser/share203/pmdsdata-all-mysql-706.sql
 #mysql -uroot -p$mysqlrootpassw   <  /var/www/html/backup/mysql/pmdsdata3t-greygold2-mysql.sql
 #
 #mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql

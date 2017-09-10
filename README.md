@@ -62,7 +62,7 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - Things are always changing due to advancements and of course I learn more as I go forward.
 - Rather than using FTP locally to get some setup files, I have been using an alternate approach..
 - I since have employed ssh (putty, mremoteNG, git bash, windows command prompt, etc) and filezilla to interact with the server, especially at the early stages.
-- Use filezilla (over ssh / sftp) to put  `vne.sh`  `htdocs.pmds-data.latest.7z` in `/home/albe/tmp01` and `11get.sh`  in `~ `
+- Use filezilla (over ssh / sftp) to put  `vne.sh`  `htdocs.pmdsdata3.latest.7z` in `/home/albe/tmp01` and `11get.sh`  in `~ `
 
 
 ## Example addresses of code I served up.

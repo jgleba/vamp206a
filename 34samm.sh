@@ -97,7 +97,7 @@ smbclient -L redex164
 smbclient -L -v 10.4.10.243  -A=.smbcredc
 smbclient -L PMDS-3HZGD42  -A=smbcredc
 
-albe@pmdsdata3:~$ smbclient -L 10.4.10.243  -A=smbcredc
+ubuntuUser@pmdsdata3:~$ smbclient -L 10.4.10.243  -A=smbcredc
 session setup failed: NT_STATUS_LOGON_FAILURE
 
 
@@ -201,14 +201,14 @@ Title:  .
 it was mounted, doing it again...
 .. yet it got an error...
 
-+ sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs -o credentials=/home/albe/.smbc
++ sudo mount -v -t cifs //PMDS-3HZGD42/htdocs /mnt/3hz/htdocs -o credentials=/home/ubuntuUser/.smbc
 domain=stackpole
 mount.cifs kernel mount options: ip=10.4.10.243,unc=\\PMDS-3HZGD42\htdocs,user=dlgeba,,domain=stackpole,pass=********
 mount error(13): Permission denied
 Refer to the mount.cifs(8) manual page (e.g. man mount.cifs)
 + date
 Fri Oct 30 11:06:39 EDT 2015
-albe@pmdsdata3:~$ df
+ubuntuUser@pmdsdata3:~$ df
 Filesystem                    1K-blocks      Used Available Use% Mounted on
 /dev/mapper/vamp206b--vg-root   9165896   2804876   5872368  33% /
 none                                  4         0         4   0% /sys/fs/cgroup
@@ -219,7 +219,7 @@ none                             379440         0    379440   0% /run/shm
 none                             102400         4    102396   1% /run/user
 /dev/sda1                        240972     38812    189719  17% /boot
 //PMDS-3HZGD42/htdocs         112690172 111846588    843584 100% /mnt/3hz/htdocs
-albe@pmdsdata3:~$ 
+ubuntuUser@pmdsdata3:~$ 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
@@ -275,14 +275,14 @@ worked:
 
 sudo leafpad /etc/fstab
 
-//192.168.88.64/home /mnt/REDEK210/home cifs credentials=/home/albe/.smbcredentials,iocharset=utf8,sec=ntlm 0 0 
+//192.168.88.64/home /mnt/REDEK210/home cifs credentials=/home/ubuntuUser/.smbcredentials,iocharset=utf8,sec=ntlm 0 0 
 #
 
 sudo mkdir -p /mnt/REDEK210/home
 sudo chmod 755 /mnt/REDEK210/home
 
 leafpad ~./smbcredentials
-username=albe
+username=ubuntuUser
 password=
 
 chmod 600 ~/.smbcredentials
@@ -294,7 +294,7 @@ try:
 
 sudo cat <<EOF >> /etc/fstab
 # David Gleba 
-//192.168.88.64/home /mnt/REDEK210/home cifs credentials=/home/albe/.smbcredredek210,iocharset=utf8,sec=ntlm 0 0 
+//192.168.88.64/home /mnt/REDEK210/home cifs credentials=/home/ubuntuUser/.smbcredredek210,iocharset=utf8,sec=ntlm 0 0 
 #
 EOF
 #
@@ -302,7 +302,7 @@ sudo mkdir -p /mnt/REDEK210/home
 sudo chmod 755 /mnt/REDEK210/home
 #
 tee ~./smbcredredek210 <<EOF
-username=albe
+username=ubuntuUser
 password=agoodpassword
 EOF
 chmod 600 ~/.smbcredentials
