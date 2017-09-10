@@ -139,7 +139,7 @@ sudo chmod -R ug+x /var/www/html/shiftcsd2sup/actions/*.sh
 find /var/www/html/dokuwiki/ -type f -name '*.sh' -exec chmod ug-x {} \;
 
 #find permissions of files using tree and grep on *.sh files - all scripts - *.sh
-sudo apt-get install tree
+sudo apt-get -y install tree
 cd /var/www/html
 tree -ifpugDs $PWD |grep "\.sh"
 

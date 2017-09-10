@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-set -x
 cd
+source shc/21env.sh
+set -x
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -13,7 +15,6 @@ cd
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit the variables in 21env.sh to match your system...
 #
-source shc/21env.sh
 
 
 set +vx

@@ -19,6 +19,8 @@ source shc/21env.sh
 #sudo apt-get install dkms gcc 
 sudo apt-get -y install dkms
 sudo apt-get -y install build-essential module-assistant
+
+# this seemed to need the answer y on cloud9, 2017-09-10.
 sudo m-a prepare
 
 cd 
