@@ -20,6 +20,26 @@ The unattended iso has a timeout of about 20 seconds on boot, then it goes ahead
 It is unattended! You have been warned!
 
 
+## Alternative Preparation
+
+- Things are always changing due to advancements and of course I learn more as I go forward.
+- Rather than using FTP locally to get some setup files, I have been using an alternate approach..
+- I since have employed ssh (putty, mremoteNG, git bash, windows command prompt, etc) and filezilla to interact with the server, especially at the early stages.
+- Use filezilla (over ssh / sftp) to put  `vne.sh`  `htdocs.pmdsdata3.latest.7z` in `/home/albe/tmp01` and `11get.sh`  in `~ `
+
+## Preparation
+
+- create basic folders.  `c:\var\varvamp\files`,  Possible optional `c:\var\share203`,  
+- put iso here, C:\var\varvamp\files\ubuntu-14.04.3-server-amd64.iso, or let it download it for you.
+- I put a copy of my served web root files in `C:\var\varvamp\files\htdocs.pmds-data.latest.7z`  
+    say for example it contains `htdocs\menu\index.html` in the 7z file.  
+	Ask me for a sample website and data. 
+- I put an edited 21env.sh in 	`C:\var\varvamp\files\vne.sh` It was used rather than the one in the repo.
+- I ran `vboxmanage list bridgedifs`  to get a list of adapter names to use in  `--bridgeadapter1 `  --  see `09createvbox.bat`.  
+- I used 02startftp.bat to start an ftp server on a windows machine to serve up the web code, some settings, etc... Sorry, it has hardcoded paths in it. You can use those paths as is, edit the file to suit your system or just manually do what the script does yourself.
+- Starting around line 90 in 17docs.sh edit the ip address which is now 192.168.88.94 to your local windows host ip address. This is where it will get the data from by ftp using slimftp.
+
+
 ## Usage - This is how I used it.
 
 I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running in windows to create the iso).
@@ -45,24 +65,6 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - visit in your browser: `[ip-address]/menu` or any other address that leads to the web content you placed in `C:\var\varvamp\files\htdocs.pmds-data.latest.7z`  
   - type `ifconfig` in the server console to get the ip of the machine.
 
-## Preparation
-
-- create basic folders.  `c:\var\varvamp\files`,  Possible optional `c:\var\share203`,  
-- put iso here, C:\var\varvamp\files\ubuntu-14.04.3-server-amd64.iso, or let it download it for you.
-- I put a copy of my served web root files in `C:\var\varvamp\files\htdocs.pmds-data.latest.7z`  
-    say for example it contains `htdocs\menu\index.html` in the 7z file.  
-	Ask me for a sample website and data. 
-- I put an edited 21env.sh in 	`C:\var\varvamp\files\vne.sh` It was used rather than the one in the repo.
-- I ran `vboxmanage list bridgedifs`  to get a list of adapter names to use in  `--bridgeadapter1 `  --  see `09createvbox.bat`.  
-- I used 02startftp.bat to start an ftp server on a windows machine to serve up the web code, some settings, etc... Sorry, it has hardcoded paths in it. You can use those paths as is, edit the file to suit your system or just manually do what the script does yourself.
-- Starting around line 90 in 17docs.sh edit the ip address which is now 192.168.88.94 to your local windows host ip address. This is where it will get the data from by ftp using slimftp.
-
-## Alternative Preparation
-
-- Things are always changing due to advancements and of course I learn more as I go forward.
-- Rather than using FTP locally to get some setup files, I have been using an alternate approach..
-- I since have employed ssh (putty, mremoteNG, git bash, windows command prompt, etc) and filezilla to interact with the server, especially at the early stages.
-- Use filezilla (over ssh / sftp) to put  `vne.sh`  `htdocs.pmdsdata3.latest.7z` in `/home/albe/tmp01` and `11get.sh`  in `~ `
 
 
 ## Example addresses of code I served up.

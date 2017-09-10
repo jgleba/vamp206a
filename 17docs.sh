@@ -2,6 +2,9 @@
 
 echo starting 17docs.sh
 
+cd
+source shc/21env.sh
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 #get webroot code 
@@ -61,7 +64,6 @@ set -vx
 
 set -x
 cd
-source shc/21env.sh
 
 # make directories.
 # html
