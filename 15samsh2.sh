@@ -121,6 +121,7 @@ groups ftpup
 # add acl
 sudo setfacl -R -m group:ftp:rwx /home/file/import1
 sudo setfacl -R -m group:ftp:rwx /home/file/cmm
+sudo setfacl -R -m group:ftp:rwx /home/file/cmmtmp
 sudo setfacl -m group:ftp:rx /home/file
 getfacl /home/file/import1
 

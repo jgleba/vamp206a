@@ -37,6 +37,8 @@ function nowebfiles()
 }
 
 
+# uncomment this to skip getting web files...
+#
 #  nowebfiles
 
 

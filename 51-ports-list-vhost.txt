@@ -90,6 +90,9 @@ see...
 
 
 
+2012    metabase  --   export MB_JETTY_PORT=2012 ; java -jar metabase.jar
+
+
 
 dev mode...
 

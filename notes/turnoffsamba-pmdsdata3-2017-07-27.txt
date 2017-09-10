@@ -1,6 +1,0 @@
-
-sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z").bak.txt
-sudo mv /etc/samba/smb.conf  /etc/samba/smb.conf.pre727.txt
-sudo cp /etc/samba/smb.conf2 /etc/samba/smb.conf 
-sudo sudo service smbd restart
-

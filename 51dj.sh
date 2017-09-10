@@ -174,13 +174,6 @@ EOF
 }
 
 
-djangosoft()
-{
-  sleep 1
-  # 
-  
-}
-
 
 apache1()
 {
@@ -197,7 +190,7 @@ apache1()
 set -x
 date
 
-djangosoft
+
 vhost8985
 apache1
 updatedb
