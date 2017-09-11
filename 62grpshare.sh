@@ -61,11 +61,11 @@ sudo chmod -R g+rws  /media/sf_share
 
 sudo mkdir -p /var/www/html
 sudo chown -R root /var/www/html
-sudo chgrp -hR www-data /var/www/html/*
+sudo chgrp -hR www-data /var/www/html
 # also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
-sudo chmod -R g+rws  /var/www/html/*
-sudo chmod -R o-w /var/www/html/*
-sudo chmod -R o+r /var/www/html/*
+sudo chmod -R g+rws  /var/www/html
+sudo chmod -R o-w /var/www/html
+sudo chmod -R o+r /var/www/html
 
 # remove read permissions from a list of files - files with secrets.
  sudo chmod -R o-r  `cat shc/62grpshareperm.txt`
