@@ -50,6 +50,8 @@ apt-get -y install cifs-utils
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.$(date +"%Y.%m.%d_%k.%M.%S").bk
 
+cd
+cp shc/bin1/* bin
 
 
 function temp22() {

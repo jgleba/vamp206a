@@ -69,6 +69,8 @@ cd shc
 #find . -type f -exec chmod +x {} \;
 #2015-10-27_Tue_09.58-AM.. sudo chown -R ubuntuUser /home/ubuntuUser/shc
 sudo chmod -R 700 .
+sudo chmod -R ug+x .
+
 cd
 sudo chmod -R 500 shc-orginal-setup
 

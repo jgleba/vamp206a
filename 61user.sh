@@ -82,6 +82,9 @@ groups $userv
 id $userv
 
 
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users
@@ -102,6 +105,11 @@ id $userv
 #or
 #   cut -d: -f1 /etc/passwd
 
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 offline()
 {

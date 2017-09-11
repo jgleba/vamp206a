@@ -202,6 +202,9 @@ EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 mkdir -p bin
+sudo chown $userv bin
+sudo chgrp $userv bin
+
 echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
 chmod +x ~/bin/blank.sh
 cat ~/bin/blank.sh

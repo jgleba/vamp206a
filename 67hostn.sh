@@ -15,6 +15,9 @@ END
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
+cd
+source shc/root.sh
+
 
 # Main: put code here...
 

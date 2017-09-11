@@ -33,12 +33,14 @@ cd
 source shc/root.sh
 cd
 source shc/15samsh.sh
+
+
 cd
 # use this to get specific data file..
 # source shc/17docs.sh
-
+#
 # use this for sample data in the repo..
-  source shc/17docs_sample.sh
+source shc/17docs_sample.sh
 
 cd
 source shc/31base.sh
@@ -77,6 +79,13 @@ cd
 
 
 #read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
+
+# set all files owner and group in home to $userv  
+cd
+sudo chown -R $userv:$userv .
+
+
+set +vx
 
 echo "DONE...  "
 echo "  run this without sudo...  "
