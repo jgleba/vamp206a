@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
+echo ~----------~----------Starting 17docs_sample.sh
 
 cd
 source shc/21env.sh
