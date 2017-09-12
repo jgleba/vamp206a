@@ -32,39 +32,39 @@ export v206setupfile="/home/$userv/vamp206_setup.log"
 #exit 0
 
 cd
-source shc/root.sh >>$v206setupfile 2<&1
+source shc/root.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/15samsh.sh >>$v206setupfile 2<&1
+source shc/15samsh.sh 2>&1 | tee -a $v206setupfile
 
 cd
 # use this to get specific data file..
 # source shc/17docs.sh
 #
 # use this for sample data in the repo..
-source shc/17docs_sample.sh >>$v206setupfile 2<&1
+source shc/17docs_sample.sh 2>&1 | tee -a $v206setupfile
 
 cd
-source shc/31base.sh >>$v206setupfile 2<&1
+source shc/31base.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/34samm.sh >>$v206setupfile 2<&1
+source shc/34samm.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/43apach.sh >>$v206setupfile 2<&1
+source shc/43apach.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/47guestad.sh >>$v206setupfile 2<&1
+source shc/47guestad.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/62grpshare.sh >>$v206setupfile 2<&1
-source shc/62srvweb.sh >>$v206setupfile 2<&1
+source shc/62grpshare.sh 2>&1 | tee -a $v206setupfile
+source shc/62srvweb.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/51dj.sh >>$v206setupfile 2<&1
+source shc/51dj.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/53imp.sh >>$v206setupfile 2<&1
+source shc/53imp.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/61user.sh >>$v206setupfile 2<&1
+source shc/61user.sh 2>&1 | tee -a $v206setupfile
 cd
 
-source shc/63bauth.sh >>$v206setupfile 2<&1
+source shc/63bauth.sh 2>&1 | tee -a $v206setupfile
 cd
-source shc/65cron.sh >>$v206setupfile 2<&1
+source shc/65cron.sh 2>&1 | tee -a $v206setupfile
 cd
 
 # see 70gui-notes.sh  - use xfce4
@@ -83,7 +83,7 @@ cd
 
 # set all files owner and group in home to $userv  
 cd
-sudo chown -R $userv:$userv . >>$v206setupfile 2<&1
+sudo chown -R $userv:$userv . 2>&1 | tee -a $v206setupfile
 
 
 set +vx
