@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
 
+cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
+#
 cd
+set +x
 source shc/21env.sh
 set -x
 
@@ -32,7 +35,7 @@ export v206setupfile="/home/$userv/vamp206_setup.log"
 #exit 0
 
 cd
-source shc/root.sh 2>&1 | tee -a $v206setupfile
+source shc/root.sh
 cd
 source shc/15samsh.sh 2>&1 | tee -a $v206setupfile
 
