@@ -18,11 +18,15 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 groups
 groups $userv
 id $userv
-#
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # make srv/web folder and change permissions...
 # my standard practice for web apps...
 #
@@ -41,10 +45,12 @@ sudo chmod -R o+r /etc/nginx # viewable for ..
 sudo chmod -R o+r /etc/apache2 # viewable for ..
 cd
 #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # make srv/web folder and change permissions...
 # my standard practice for web apps...
 #
@@ -58,5 +64,6 @@ sudo find /srv/file -type d -exec chmod g+x {} +
 #also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
 sudo chmod -R g+rws  /srv/file 
 #
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

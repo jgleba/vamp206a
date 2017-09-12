@@ -4,6 +4,8 @@
 # set  username in 21env.sh
 #
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 get1()
 {
 set -x
@@ -21,14 +23,18 @@ sudo apt-get -y install mc
 sudo apt-get -y install locate
 #sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # get zip of repo from github
 sudo rm -rf shc
 
-read -t 0 -p "Hit ENTER or wait some seconds" ; echo ;
 
 mkdir -p bin
 mkdir -p tmp01
 sudo chmod -R 770 tmp01
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 cd tmp01
 rm vamp206a-master.zip
@@ -52,7 +58,6 @@ if [  -f "/home/$userv11/tmp01/vamp206a-mast.zip" ]; then
     exit
  fi
 
-
 #unzip [ -j junk paths - all in one folder ] 
 # unzip one folder...  unzip  ~/share203/master vamp206a-master/hyperv/* -d ./sh
 # unzip to destination.. unzip ~/share203/master -d ./sh
@@ -71,8 +76,12 @@ cd shc
 sudo chmod -R 770 .
 sudo chmod -R ug+x .
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 cd
 sudo chmod -R 500 shc-orginal-setup
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -99,10 +108,11 @@ cp tmp01/vne.sh shc/21env.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 }
 
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #get the repo and call the script that calls all others
 get1

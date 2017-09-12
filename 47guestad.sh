@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 cd
 source shc/21env.sh
 set -x
 source shc/root.sh
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 #install virtual box guest additions.
 #http://virtualboxes.org/doc/installing-guest-additions-on-ubuntu/
@@ -46,6 +51,9 @@ sleep 2
 sudo usermod -aG vboxsf $(whoami)
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 # add shares to rc.local to start them at boot... grr. this is frustrating....
 #
 cp /etc/rc.local /etc/rc.local.bk$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z")
@@ -75,6 +83,8 @@ sudo sh -c 'echo "share203  /home/share203  vboxsf   defaults,noauto  0   0" >> 
 # add _netdev to allow time for the system be ready to mount the share 2017-07-13 ...
 sudo sed -i "s/.*share203.*/share203  \/home\/$userv\/share203  vboxsf   defaults,noauto,_netdev  0   0/g" /etc/fstab
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #create upstart script for mounting shared folders...
@@ -106,6 +116,8 @@ EOF
 sudo service mountvshare start
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 # mount vbox shares...
 #
@@ -126,3 +138,5 @@ else
 	#sudo mount -t vboxsf  html /var/www/html
 fi
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

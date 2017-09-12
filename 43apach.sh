@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 cd
 source shc/21env.sh
 
@@ -10,6 +12,10 @@ source shc/21env.sh
 
 date
 set -x
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
 
 
@@ -47,6 +53,9 @@ sudo apt-get -y install python-dev
 sudo apt-get -y install libmysqlclient-dev
 sudo apt-get -y install python3-dev python3-setuptools libjpeg-dev zlib1g-dev
 sudo apt-get -y install php5-ldap
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 # Python Django software..

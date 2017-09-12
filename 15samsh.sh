@@ -31,6 +31,9 @@ sudo apt-get -y install locate
 #sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 smb() {
 
 sudo sudo service smbd restart
@@ -52,15 +55,16 @@ if [ -f /home/$userv/15ran ]; then
 
 }
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 function runsam() {
 
 sudo apt-get update
 
-
 sudo mkdir -p /var/www/html
 
 sudo apt-get -y install samba cifs-utils
-
 
 #backup server config...
 mkdir ~/backup
@@ -94,7 +98,7 @@ sudo sed -i 's/.*global].*/[global]\n\nunix extensions = no/g' /etc/samba/smb.co
 
 sudo cat <<EOF >> /etc/samba/smb.conf 
 
-# -------------------------------------------------------------------
+# -------------------------------------------
 # shares
 #
 [home]
@@ -164,7 +168,9 @@ source shc/21env.sh
 #http://unix.stackexchange.com/questions/214128/samba-specified-network-name-no-longer-available
 #Sometimes Samba fails to install or update it's dependencies correctly. Try running the following command to ensure all the dependencies are available, this is on Ubuntu, modify for your Linux flavour:
 sudo apt-get -y install --reinstall libsmbclient libsmbclient-dev libtevent0 libtalloc2
+
 #worked!
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -179,10 +185,11 @@ touch /home/$userv/15ran
 }
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 function onetime1() {
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #alias for ls -la
 #
@@ -190,6 +197,7 @@ echo "alias lsl='ls -la'" >>   ~/.bash_aliases
 sudo chmod ugo+rw  ~/.bash_aliases
 echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
 cat ~/.bash_aliases
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -221,8 +229,10 @@ sudo echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
 sudo chmod +x ~/bin/blank.sh
 cat ~/bin/blank.sh
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 set -x

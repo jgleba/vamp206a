@@ -12,9 +12,12 @@ END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 source shc/21env.sh
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -29,13 +32,20 @@ sudo chmod -R o-rw /srv/share
 # make only folders +x so they can be cd into.
 sudo find /srv/share -type d -exec chmod g+x {} +
 sudo usermod -a -G www-data  $userv
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 groups
 groups $userv
 id $userv
+
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # make xx folder and change permissions...
 #
 sudo mkdir -p /media/sf_share
@@ -48,6 +58,7 @@ sudo find /media/sf_share -type d -exec chmod g+x {} +
 #also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
 sudo chmod -R g+rws  /media/sf_share 
 #
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,7 +115,7 @@ sudo find *.sh /home/file  -exec chmod g+x {} +
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # set access to /var/www/html/test2/Codiad files here..  [chmod chown chgrp]
@@ -124,6 +135,7 @@ sudo find *.sh $folder1 -exec chmod g+x {} +
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -159,6 +171,4 @@ END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 
