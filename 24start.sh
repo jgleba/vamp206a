@@ -114,9 +114,19 @@ cd
 
 #read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 # set all files owner and group in home to $userv  
 cd
 sudo chown -R $userv:$userv . 2>&1 | tee -a $v206setupfile
+sudo chmod -R +x bin
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 set +vx
