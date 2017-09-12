@@ -6,7 +6,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 source shc/root.sh
 set +x
 source shc/21env.sh
-set -x
+set -vx
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

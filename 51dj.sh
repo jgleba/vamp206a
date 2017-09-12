@@ -6,7 +6,7 @@ echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%
 source shc/21env.sh
 
 cd
-set -x
+set -vx
 date
 
 vhost8985()

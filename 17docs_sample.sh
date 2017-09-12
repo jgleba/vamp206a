@@ -4,7 +4,7 @@ echo ~----------~----------Starting 17docs_sample.sh
 
 cd
 source shc/21env.sh
-set -x
+set -vx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

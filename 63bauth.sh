@@ -3,7 +3,7 @@ echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%
 
 cd
 source shc/21env.sh
-set -x
+set -vx
 date
 
 basauth1()

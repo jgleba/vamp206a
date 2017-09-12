@@ -13,6 +13,7 @@ END
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+cd
 source shc/21env.sh
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #

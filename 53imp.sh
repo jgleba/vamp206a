@@ -17,7 +17,7 @@ cd
 source shc/21env.sh
 date
 #echo requested commands...
-set -x
+set -vx
 
 #test:
 # \\10.4.1.227\home\ubuntuUser\0\dump-adhoc.sql

@@ -5,6 +5,7 @@ echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%
 
 cd
 source shc/21env.sh
+set -vx
 
 # purpose: mount windows shares on linux machine...
 # good luck, you will need it...

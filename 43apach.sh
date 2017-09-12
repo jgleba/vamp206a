@@ -5,13 +5,13 @@ echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%
 
 cd
 source shc/21env.sh
+set -vx 
 
 #Note: vbox shares are not available till it reboots after start.sh script runs.
 #
 #David Gleba 2015-10-01 03:15PM
 
 date
-set -x
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
