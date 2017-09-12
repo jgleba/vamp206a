@@ -45,7 +45,6 @@ if [ -f $v206setupfile ]; then
     echo "logfile doesn't exist, so continue"
  fi
 
-}
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
