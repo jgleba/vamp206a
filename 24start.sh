@@ -26,45 +26,45 @@ echo 24start.sh will commence...
 echo
 read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
 set -vx
-export setuplogfile1="/home/$userv/vamp206_setup.log"
+export v206setupfile="/home/$userv/vamp206_setup.log"
 
 #comment this out for full auto run...
 #exit 0
 
 cd
-source shc/root.sh >>$setuplogfile12<&1
+source shc/root.sh >>$v206setupfile 2<&1
 cd
-source shc/15samsh.sh >>$setuplogfile12<&1
+source shc/15samsh.sh >>$v206setupfile 2<&1
 
 cd
 # use this to get specific data file..
 # source shc/17docs.sh
 #
 # use this for sample data in the repo..
-source shc/17docs_sample.sh >>$setuplogfile12<&1
+source shc/17docs_sample.sh >>$v206setupfile 2<&1
 
 cd
-source shc/31base.sh >>$setuplogfile12<&1
+source shc/31base.sh >>$v206setupfile 2<&1
 cd
-source shc/34samm.sh >>$setuplogfile12<&1
+source shc/34samm.sh >>$v206setupfile 2<&1
 cd
-source shc/43apach.sh >>$setuplogfile12<&1
+source shc/43apach.sh >>$v206setupfile 2<&1
 cd
-source shc/47guestad.sh >>$setuplogfile12<&1
+source shc/47guestad.sh >>$v206setupfile 2<&1
 cd
-source shc/62grpshare.sh >>$setuplogfile12<&1
-source shc/62srvweb.sh >>$setuplogfile12<&1
+source shc/62grpshare.sh >>$v206setupfile 2<&1
+source shc/62srvweb.sh >>$v206setupfile 2<&1
 cd
-source shc/51dj.sh >>$setuplogfile12<&1
+source shc/51dj.sh >>$v206setupfile 2<&1
 cd
-source shc/53imp.sh >>$setuplogfile12<&1
+source shc/53imp.sh >>$v206setupfile 2<&1
 cd
-source shc/61user.sh >>$setuplogfile12<&1
+source shc/61user.sh >>$v206setupfile 2<&1
 cd
 
-source shc/63bauth.sh >>$setuplogfile12<&1
+source shc/63bauth.sh >>$v206setupfile 2<&1
 cd
-source shc/65cron.sh >>$setuplogfile12<&1
+source shc/65cron.sh >>$v206setupfile 2<&1
 cd
 
 # see 70gui-notes.sh  - use xfce4
@@ -83,7 +83,7 @@ cd
 
 # set all files owner and group in home to $userv  
 cd
-sudo chown -R $userv:$userv . >>$setuplogfile12<&1
+sudo chown -R $userv:$userv . >>$v206setupfile 2<&1
 
 
 set +vx
