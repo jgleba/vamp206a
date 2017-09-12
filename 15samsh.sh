@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
+
 cd
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,10 +91,9 @@ sudo cat <<EOF >> /etc/samba/smb.conf
 [home]
 path = /home
 browsable =yes
-writable = yes
+writable = no
 guest ok = no
 read only = no
-#was this, try without dgleba... valid users = $userv,dgleba,@www
 valid users = $userv,@www-data
 #
 [homefile]
@@ -101,36 +102,36 @@ browsable =yes
 writable = yes
 guest ok = no
 read only = no
-#was this, try without dgleba... valid users = $userv,dgleba,@www
 valid users = ftpup
 #
-[html]
-path = /var/www/html
-browsable =yes
-writable = yes
-guest ok = no
-read only = no
-valid users = $userv,@www-data
-force user
-force group
-# create mask = 6770   http://permissions-calculator.org/  7770 is setuid, setgid, stickybit, rwxrwx--- 
-create mask = 7770
-directory mask = 6771
+#[html]
+#path = /var/www/html
+#browsable =yes
+#writable = yes
+#guest ok = no
+#read only = no
+#valid users = $userv,@www-data
+#force user
+#force group
+## create mask = 6770   http://permissions-calculator.org/  7770 is setuid, setgid, stickybit, rwxrwx--- 
+#create mask = 7770
+#directory mask = 6771
+##
+#[rt]
+#path = /
+##due to invalid handle error. add widelinks=yes. see vamp,samba,error,notes-2016-05-09.txt
+#wide links = yes
+#browsable =yes
+#writable = yes
+#guest ok = no
+#read only = no
+#valid users = $userv,@www-data
+#force user
+#force group
+## create mask = 6770   http://permissions-calculator.org/  7770 is setuid, setgid, stickybit, rwxrwx--- 
+#create mask = 7770
+#directory mask = 6771
 #
-[rt]
-path = /
-#due to invalid handle error. add widelinks=yes. see vamp,samba,error,notes-2016-05-09.txt
-wide links = yes
-browsable =yes
-writable = yes
-guest ok = no
-read only = no
-valid users = $userv,@www-data
-force user
-force group
-# create mask = 6770   http://permissions-calculator.org/  7770 is setuid, setgid, stickybit, rwxrwx--- 
-create mask = 7770
-directory mask = 6771
 # sudo smbpasswd -a $userv
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.howtoforge.com/samba-server-ubuntu-14.04-lts
@@ -204,9 +205,11 @@ EOF
 mkdir -p bin
 sudo chown $userv bin
 sudo chgrp $userv bin
+cd
+sudo cp shc/bin1/* bin
 
-echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
-chmod +x ~/bin/blank.sh
+sudo echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
+sudo chmod +x ~/bin/blank.sh
 cat ~/bin/blank.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

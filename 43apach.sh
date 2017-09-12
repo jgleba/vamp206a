@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
 
 cd
 source shc/21env.sh

@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
 
 cd
 source shc/21env.sh
 set -vx
+date
 
 #remove then add # run 0901am everyday
 sudo crontab -u pmdsu -l #list the crontab
@@ -55,9 +57,10 @@ sudo crontab -u albe -l | { cat; echo "39 3,10,20 * * 0-6  /var/www/html/cmmdb/a
 sudo crontab -u albe -l  # list
 
 sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/scrapimport.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l | { cat; echo "56 10 * * 0-6 /var/www/html/0docs-pmdsdata/scrapimport.sh >> /home/albe/log/scrapimport1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "56 9 * * 0-6 /var/www/html/0docs-pmdsdata/scrapimport.sh >> /home/albe/log/scrapimport1.log 2<&1"; } | sudo crontab -u albe -  #add
 
-sudo crontab -u albe -l | { cat; echo "35 8 * * 0-6 /var/www/html/0docs-pmdsdata/archivedata1.sh >> /home/albe/log/archive1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/archivedata1.sh'  | sudo crontab -u albe - #remove
+sudo crontab -u albe -l | { cat; echo "35 2 * * 0-6 /var/www/html/0docs-pmdsdata/archivedata1.sh >> /home/albe/log/archive1.log 2<&1"; } | sudo crontab -u albe -  #add
 
 sudo crontab -u albe -l | grep -v 'greygold/actions/email_scrap1_script'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | { cat; echo "50 8 * * 0-6 /var/www/html/greygold/actions/email_scrap1_script.sh >> /home/albe/log/scrap1email.log 2<&1"; } | sudo crontab -u albe -  #add
@@ -257,3 +260,4 @@ END
 
 }
 #
+date

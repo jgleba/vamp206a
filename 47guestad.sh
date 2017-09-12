@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-set -x
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
+
 cd
-source shc/root.sh
 source shc/21env.sh
+set -x
+source shc/root.sh
 
 #install virtual box guest additions.
 #http://virtualboxes.org/doc/installing-guest-additions-on-ubuntu/

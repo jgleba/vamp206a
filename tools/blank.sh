@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+echo ~----------~----------Startinga `dirname "$0"`/`basename "$0"`
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
+# echo $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) # ref. https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
+echo ~----------~----------Startingc  $(readlink -f $0) 
 
 saynow()
 {

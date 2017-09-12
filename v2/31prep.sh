@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
 
 #
 # set  username in 21env.sh
@@ -28,7 +29,7 @@ read -t 0 -p "Hit ENTER or wait some seconds" ; echo ;
 
 mkdir -p bin
 mkdir -p tmp01
-sudo chmod -R 770 tmp01
+sudo chmod -R 700 tmp01
 
 cd tmp01
 rm vamp206a-master.zip
@@ -68,7 +69,7 @@ cd shc
 # make files executable recursively
 #find . -type f -exec chmod +x {} \;
 #2015-10-27_Tue_09.58-AM.. sudo chown -R ubuntuUser /home/ubuntuUser/shc
-sudo chmod -R 770 .
+sudo chmod -R 700 .
 sudo chmod -R ug+x .
 
 cd
@@ -115,3 +116,6 @@ echo "     now run:   sudo shc/24start.sh "
 
 #source sudo will not work. cannot use an excecutable. must be source shc/24start.sh. run sudo ./11get.sh
 #source shc/24start.sh
+#
+date
+#

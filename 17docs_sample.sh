@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
 
 cd
 source shc/21env.sh
-
+set -x
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -41,7 +42,7 @@ if  [ ! -d html ] ; then
   read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
   #source ~/shc/21env.sh
   cd /home/$userv/tmp01
-  7z x /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z
+  sudo 7z x /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z
   sudo rsync -vrltgoD /home/$userv/tmp01/html/  /var/www/html
 
   sudo chmod -R 700 html
