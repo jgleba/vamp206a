@@ -29,14 +29,45 @@ echo 24start.sh will commence...
 echo
 read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
 set -vx
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 export v206setupfile="/home/$userv/vamp206_setup.log"
+
+if [ -f $v206setupfile ]; then
+    # logfile exists, so rename it..
+    echo
+    echo "$v206setupfile exits, rename it.."
+    echo
+    timeout1=9 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+    mv $v206setupfile $v206setupfile$(date +"__%Y.%m.%d_%H.%M.%S").txt
+ else
+    echo "logfile doesn't exist, so continue"
+ fi
+
+}
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 #comment this out for full auto run...
 #exit 0
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# if root, continue, else exit and end.
+
 cd
 source shc/root.sh
 cd
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 source shc/15samsh.sh 2>&1 | tee -a $v206setupfile
 
 cd
