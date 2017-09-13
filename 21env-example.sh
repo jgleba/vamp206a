@@ -1,5 +1,5 @@
 #
-#set -x
+set -vx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit these variables to match your system...

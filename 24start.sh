@@ -4,9 +4,9 @@ echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 cd
-set +x
+set +vx
 source shc/21env.sh
-set -x
+set -vx
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,14 +35,13 @@ set -vx
 export v206setupfile="/home/$userv/vamp206_setup.log"
 
 if [ -f $v206setupfile ]; then
-    # logfile exists, so rename it..
     echo
     echo "$v206setupfile exits, rename it.."
     echo
     timeout1=9 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
     mv $v206setupfile $v206setupfile$(date +"__%Y.%m.%d_%H.%M.%S").txt
  else
-    echo "logfile doesn't exist, so continue"
+    echo "logfile doesn't exist yet, so continue"
  fi
 
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
+#https://stackoverflow.com/questions/38978650/run-a-script-in-the-same-directory-as-the-current-script
+echo "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}"
 
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #

@@ -70,19 +70,8 @@ cd tmp01
     fi
 
 
-#source shc/flask/cif207.sh
-#cd
-#source shc/flask/pdb218.sh
-#cd
-#source shc/52-v/52vh920.sh
-#cd
-#source shc/52-v/52vh923.sh
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# set access to html files here..  [chmod chown chgrp]
-# chown and chgrp the html files appropriately.. chgrp -hR www-data /var/www/html
 
 
 cd
