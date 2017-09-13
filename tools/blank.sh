@@ -2,9 +2,12 @@
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 set +vx
 echo ~----------~----------Startinga `dirname "$0"`/`basename "$0"`
-echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
-# echo $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) # ref. https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
-echo ~----------~----------Startingc  $(readlink -f $0) 
+echo ~----------~----------Startingc  `$(readlink -f $0)` 
+echo ~----------~----------Startingd $HOSTNAME, pwd: `pwd`, "$0", "${BASH_SOURCE[0]}", $(date +"%Y-%m-%d_%H.%M.%S")
+# https://stackoverflow.com/questions/8911724/how-to-find-out-name-of-script-called-sourced-by-another-script-in-bash
+echo "from file.... ${BASH_SOURCE[0]}"
+echo "${BASH_SOURCE[@]}"  # echo full bashsource array
+
 
 saynow()
 {
