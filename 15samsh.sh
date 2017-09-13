@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
-#https://stackoverflow.com/questions/38978650/run-a-script-in-the-same-directory-as-the-current-script
-echo "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}"
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "${BASH_SOURCE[0]}" $(date +" %Y-%m-%d_%H.%M.%S")
+echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 source shc/root.sh
-set +x
+set +vx
 source shc/21env.sh
 set -vx
 

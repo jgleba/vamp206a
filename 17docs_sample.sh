@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "$0" $(date +"__%Y-%m-%d_%H.%M.%S")
 echo ~----------~----------Starting 17docs_sample.sh
+echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "${BASH_SOURCE[0]}" $(date +" %Y-%m-%d_%H.%M.%S")
+echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 cd
 source shc/21env.sh
