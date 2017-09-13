@@ -58,7 +58,7 @@ sudo crontab -u albe -l | { cat; echo "39 3,10,20 * * 0-6  /var/www/html/cmmdb/a
 sudo crontab -u albe -l  # list
 
 sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/scrapimport.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l | { cat; echo "56 9 * * 0-6 /var/www/html/0docs-pmdsdata/scrapimport.sh >> /home/albe/log/scrapimport1.log 2<&1"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "40 7 * * 0-6 /var/www/html/0docs-pmdsdata/scrapimport.sh >> /home/albe/log/scrapimport1.log 2<&1"; } | sudo crontab -u albe -  #add
 
 sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/archivedata1.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | { cat; echo "35 2 * * 0-6 /var/www/html/0docs-pmdsdata/archivedata1.sh >> /home/albe/log/archive1.log 2<&1"; } | sudo crontab -u albe -  #add
