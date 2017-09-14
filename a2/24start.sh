@@ -31,28 +31,6 @@ echo
 read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
 set -vx
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-export v206setupfile="/home/$userv/vamp206_setup.log"
-
-if [ -f $v206setupfile ]; then
-    echo
-    echo "$v206setupfile exits, rename it.."
-    echo
-    timeout1=9 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
-    mv $v206setupfile $v206setupfile$(date +"__%Y.%m.%d_%H.%M.%S").txt
- else
-    echo "logfile doesn't exist yet, so continue"
- fi
-
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-#comment this out for full auto run...
-#exit 0
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -67,37 +45,37 @@ cd
 
 
 
-source shc/a2/15samsh.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/15samsh.sh 
 
 cd
 # use this to get specific data file..
 # source shc/a2/17docs.sh
 #
 # use this for sample data in the repo..
-source shc/a2/17docs_sample.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/17docs_sample.sh 
 
 cd
-source shc/a2/31base.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/31base.sh 
 cd
-source shc/a2/34samm.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/34samm.sh 
 cd
-source shc/a2/43apach.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/43apach.sh 
 cd
-source shc/a2/47guestad.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/47guestad.sh 
 cd
-source shc/a2/62grpshare.sh 2>&1 | tee -a $v206setupfile
-source shc/a2/62srvweb.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/62grpshare.sh 
+source shc/a2/62srvweb.sh 
 cd
-source shc/a2/51dj.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/51dj.sh 
 cd
-source shc/a2/53imp.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/53imp.sh 
 cd
-source shc/a2/61user.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/61user.sh 
 cd
 
-source shc/a2/63bauth.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/63bauth.sh 
 cd
-source shc/a2/65cron.sh 2>&1 | tee -a $v206setupfile
+source shc/a2/65cron.sh 
 cd
 
 # see 70gui-notes.sh  - use xfce4
@@ -121,7 +99,7 @@ cd
 
 # set all files owner and group in home to $userv  
 cd
-sudo chown -R $userv:$userv . 2>&1 | tee -a $v206setupfile
+sudo chown -R $userv:$userv . 
 sudo chmod -R +x bin
 
 
