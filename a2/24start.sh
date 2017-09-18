@@ -57,11 +57,11 @@ source shc/a2/17docs_sample.sh
 cd
 source shc/a2/31base.sh 
 cd
-source shc/a2/34samm.sh 
+# source shc/a2/34samm.sh 
 cd
 source shc/a2/43apach.sh 
 cd
-source shc/a2/47guestad.sh 
+# source shc/a2/47guestad.sh 
 cd
 source shc/a2/62grpshare.sh 
 source shc/a2/62srvweb.sh 
@@ -75,7 +75,7 @@ cd
 
 source shc/a2/63bauth.sh 
 cd
-source shc/a2/65cron.sh 
+# source shc/a2/65cron.sh 
 cd
 
 # see 70gui-notes.sh  - use xfce4
