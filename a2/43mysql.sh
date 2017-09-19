@@ -5,7 +5,7 @@ echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 cd
-source shc/21env.sh
+source shc/a2/21env.sh
 set -vx 
 date
 

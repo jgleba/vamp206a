@@ -4,7 +4,7 @@ echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "${BASH_SOURCE[0]}" 
 echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 cd
-source shc/21env.sh
+source shc/a2/21env.sh
 set -vx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,7 +42,7 @@ if  [ ! -d html ] ; then
   cd /home/$userv/tmp01
   #sudo rm -rf html
   read -t 10 -p "Hit ENTER or wait about ten seconds" ; echo ;
-  #source ~/shc/21env.sh
+  #source ~/shc/a2/21env.sh
   cd /home/$userv/tmp01
   sudo 7z x /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z
   sudo rsync -vrltgoD /home/$userv/tmp01/html/  /var/www/html

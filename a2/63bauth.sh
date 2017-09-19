@@ -3,7 +3,7 @@ echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "${BASH_SOURCE[0]}" 
 echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 cd
-source shc/21env.sh
+source shc/a2/21env.sh
 set -vx
 date
 
@@ -66,7 +66,7 @@ sudo apt-get -y install apache2-utils
     sudo mkdir -p /var/www/html/authbasic
     # add a user ( create a new file with "-c" => only add "-c" at the first time. Do not add it 2nd time to add users. )
     #sudo htpasswd -c /etc/apache2/.htpasswd $userv
-    #userv is set in 21env.sh...
+    #userv is set in a2/21env.sh...
     sudo htpasswd -b -c /etc/apache2/.htpasswd $userv $pw1
 
   sudo a2dissite baseauth1.conf

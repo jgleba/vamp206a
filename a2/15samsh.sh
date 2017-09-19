@@ -6,7 +6,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 source shc/root.sh
 set +vx
-source shc/21env.sh
+source shc/a2/21env.sh
 set -vx
 
 
@@ -159,7 +159,7 @@ EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-source shc/21env.sh
+source shc/a2/21env.sh
 #sudo smbpasswd -a $userv 
 # set password silently - answers supplied by script..
 (echo $pw1; echo $pw1) | sudo smbpasswd -s -a $userv

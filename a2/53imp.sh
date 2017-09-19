@@ -15,7 +15,7 @@ END
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cd
-source shc/21env.sh
+source shc/a2/21env.sh
 date
 #echo requested commands...
 set -vx

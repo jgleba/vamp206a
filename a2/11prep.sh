@@ -27,6 +27,7 @@ git clone https://github.com/dgleba/vamp206a.git shc
 #  - install sw  
 #  - create data folders and perms  
 #  - import data  
+#
 cd ; cd shc ; git pull
 cd ; chmod -R +x shc/ ; sudo shc/a2/24start.sh 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
