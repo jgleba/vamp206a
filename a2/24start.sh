@@ -70,9 +70,9 @@ cd
 source shc/a2/62grpshare.sh 
 source shc/a2/62srvweb.sh 
 cd
-source shc/a2/51dj.sh 
+# source shc/a2/51dj.sh 
 cd
-source shc/a2/53imp.sh 
+# source shc/a2/53imp.sh 
 cd
 source shc/a2/61user.sh 
 cd
