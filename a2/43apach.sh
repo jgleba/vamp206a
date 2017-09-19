@@ -14,6 +14,10 @@ date
 
 sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
 
+# install apache 2.5 and php 5.5
+sudo apt-get install -y apache2
+sudo apt-get install -y php5
+
 sudo apt-get -y install php5-xsl
 sudo apt-get -y install php5-intl
 sudo apt-get -y install php5-gd
@@ -108,6 +112,15 @@ mv composer.phar /usr/local/bin/composer
 
 
 sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+# for ubuntu 16.04...
+sudo systemctl  restart mysql
+sudo systemctl restart apache2 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
