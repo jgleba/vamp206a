@@ -32,9 +32,8 @@ pip install MySQL-python
 
 # for ubuntu 16.04...
 
-sudo systemctl mysql restart
-sudo systemctl apache2 restart
-
+sudo systemctl  restart mysql
+sudo systemctl restart apache2 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

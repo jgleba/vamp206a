@@ -2,7 +2,7 @@
 
 
 #  paste this into the command prompt on the new server..
-#    use putty or some ssh terminal that you can paste into..
+#    use putty or some ssh client that you can paste text into..
 
 #    use filezilla - connection over ssh to put files on the server
 #      to edit files on the server right click on a file and select edit.
@@ -27,6 +27,7 @@ git clone https://github.com/dgleba/vamp206a.git shc
 #  - install sw  
 #  - create data folders and perms  
 #  - import data  
+cd ; cd shc ; git pull
 cd ; chmod -R +x shc/ ; sudo shc/a2/24start.sh 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 

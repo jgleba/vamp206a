@@ -14,6 +14,8 @@ date
 
 sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
 
+sudo apt-get -y install php libapache2-mod-php php-mcrypt
+
 # install apache 2.5 and php 5.5
 sudo apt-get install -y apache2
 sudo apt-get install -y php5
