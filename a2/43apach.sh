@@ -7,11 +7,6 @@ echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 cd
 source shc/21env.sh
 set -vx 
-
-#Note: vbox shares are not available till it reboots after start.sh script runs.
-#
-#David Gleba 2015-10-01 03:15PM
-
 date
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -19,31 +14,6 @@ date
 
 sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
 
-
-# install apache 2.5 and php 5.5
-#sudo apt-get install -y apache2
-#sudo apt-get install -y php5
-
-# install mysql and give password to installer
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassw"
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysqlrootpassw"
-
-#sudo apt-get -y install mysql-server-5.6
-# changed for ubuntu 16.04..
-sudo apt-get -y install mysql-server
-
-#should this have a -y???
-sudo apt-get install -y php5-mysql
-
-# install phpmyadmin and give password(s) to installer
-# for simplicity I'm using the same password for mysql and phpmyadmin
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password $mysqlrootpassw"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $mysqlrootpassw"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $mysqlrootpassw"
-sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
-sudo debconf-set-selections <<< "phpmyadmin  phpmyadmin/remote/port  3306"
-sudo apt-get -y install phpmyadmin
 sudo apt-get -y install php5-xsl
 sudo apt-get -y install php5-intl
 sudo apt-get -y install php5-gd
@@ -58,27 +28,6 @@ sudo apt-get -y install php5-ldap
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-# Python Django software..
-# got error - use apt-get instead.......  sudo pip install mysql-python
-sudo apt-get  -y install python-mysqldb
-
-
-sudo apt-get -y install python-pip libapache2-mod-wsgi
-sudo pip install django==1.8
-
-#sudo pip install django==1.8.7 # install will uninstall other versions.
-python -c "import django; print(django.get_version())"
-
-
-sudo pip install django-admin-bootstrapped
-sudo pip install django-admin-generator
-sudo pip install virtualenv
-pip install MySQL-python
-
-
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 # install ftp server...
@@ -152,8 +101,6 @@ sudo a2enmod rewrite
 # restart apache
 sudo service apache2 restart
 
-# install git
-sudo apt-get -y install git
 
 # install Composer
 curl -s https://getcomposer.org/installer | php
@@ -161,10 +108,6 @@ mv composer.phar /usr/local/bin/composer
 
 
 sudo cp /var/www/html/index.html /var/www/html/index.html.$(date +"%s").bk
-
-# for ubuntu 16.04...
-sudo systemctl mysql restart
-sudo systemctl apache2 restart
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

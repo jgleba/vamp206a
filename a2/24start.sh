@@ -61,6 +61,10 @@ cd
 cd
 source shc/a2/43apach.sh 
 cd
+#source shc/a2/43mysql.sh 
+cd
+#source shc/a2/44django.sh 
+cd
 # source shc/a2/47guestad.sh 
 cd
 source shc/a2/62grpshare.sh 
