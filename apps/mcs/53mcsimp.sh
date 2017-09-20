@@ -20,6 +20,19 @@ date
 #echo requested commands...
 set -vx
 
+# this is prevented from working..
+source ~/.bashrc
+
+# Expand aliases defined in the shell ~/.bashrc
+shopt -s expand_aliases
+
+
+alias mcsmysql='/usr/local/mariadb/columnstore/mysql/bin/mysql --defaults-extra-file=/usr/local/mariadb/columnstore/mysql/my.cnf -u root'
+
+# . /usr/local/mariadb/columnstore/bin/columnstoreAlias
+cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias
+#cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
+
 
 set root password..
 
@@ -32,6 +45,8 @@ set root password..
 #  FLUSH PRIVILEGES;
 
 
+ 
+ 
 # Main..
 
 mcsmysql -uroot -p$mysqlrootpassw -e "create database cilist";
@@ -80,6 +95,7 @@ mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON cilist.* from dg
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON dgnote130.* TO dg417@localhost ;"
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON leanmfg.* TO dg417@localhost ;"
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.* TO dg417@localhost ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.* TO dg417@'%' ;"
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shift_smsmeer.* TO dg417@localhost ;"
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd1.* TO dg417@localhost ;"
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON shiftcsd2.* TO dg417@localhost ;"
@@ -155,6 +171,11 @@ mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO sthist
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO 'sthistorian'@'%' ;"
 #
 
+mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'dg417'@'localhost';"
+mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'dg417'@'%';"
+mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
+
+
 
 #perms...
 
@@ -207,10 +228,7 @@ sudo chmod -R 777  /var/www/html/shiftcsd2sup/user_config
 sudo chmod -R 777  /var/www/html/shiftsmsmeer/user_config
 
 
-grant ALL on infinidb_vtable.* to 'dg417'@'localhost'; 
-flush privileges;
- 
- 
+
 
 date
 
