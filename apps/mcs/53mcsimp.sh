@@ -249,23 +249,27 @@ source shc/a2/21env.sh
   mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO dg417@'%' ;"
   mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
 
+# rsync from pmdsdata3 to vm..
+#  rsync -av  /home/albe/backup/mysqldumps/pmdsdata3-cmmdb-mysql.sql  10.4.11.104:/var/www/html/backup/mysql/
+
+
 # import cmmdata..   
-  mcsmysql -uroot -p$mysqlrootpassw  -e "use cmmdb;"
+  # no... mcsmysql -uroot -p$mysqlrootpassw  -e "use cmmdb;"
   mcsmysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-cmmdb-mysql.sql
 
-error, no database selected.. hmmm.. exported it just like any other db..
-
+# error, no database selected.. hmmm.. i forgot the --databases before the db name. ouch
 head /var/www/html/backup/mysql/pmdsdata3-cmmdb-mysql.sql -n 22
-
 #
 # add line after match...  sed -i '/CLIENTSCRIPT="foo"/a CLIENTSCRIPT2="hello"' file
 # i think 0, is a range.
 #
 pattern1='debian-linux-gnu'
 line1='  use cmmdb;\n'
-file1='/var/www/html/backup/mysql/pmdsdata3-cmmdb-mysql.sql'
+#file1='/var/www/html/backup/mysql/pmdsdata3-cmmdb-mysql.sql'
+file1='./pmdsdata3-cmmdb-mysql.sql'
 sed  -i "0,/$pattern1/a $line1" $file1
 
+# out of disk space..
 
 2017-09-20_Wed_09.40-AM
 An error has occurred during virtual machine execution! The error details are shown below. You may try to correct the error and resume the virtual machine execution.
@@ -278,6 +282,7 @@ An error has occurred during virtual machine execution! The error details are sh
 Host system reported disk full. VM execution is suspended. You can resume after freeing some space.
 Error ID: DevAHCI_DISKFULL
 Severity: Non-Fatal Error
+
 
 
 
