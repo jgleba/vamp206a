@@ -1,5 +1,25 @@
 #!/usr/bin/env bash
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#!/usr/bin/env bash
+
+set +vx
+echo
+echo this is not finished to run as a script. Just copy paste from this file..
+echo
+echo exiting...
+echo
+timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+exit 99
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 saynow()
 {
 date1=$(date +"__%Y.%m.%d_%H.%M.%S")
@@ -20,6 +40,11 @@ exit 999
             2017-02-16_Thu_13.54-PM
 
 
+            
+            see also
+            C:\n\Dropbox\csd\2017a\kashmiri_machineprocessdatacollection\setup-kashmiri\*
+            
+            
 BLOCKCOMMENT
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
