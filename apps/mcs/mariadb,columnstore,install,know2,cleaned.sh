@@ -116,6 +116,17 @@ sudo ./postConfigure
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+alias mcsmysql='/usr/local/mariadb/columnstore/mysql/bin/mysql --defaults-extra-file=/usr/local/mariadb/columnstore/mysql/my.cnf -u root'
+
+. /usr/local/mariadb/columnstore/bin/columnstoreAlias
+cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias
+#cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
+
+
+# set root password..
+
+
+mcsmysql 
 
  SET PASSWORD FOR 'root'@'localhost' = PASSWORD('a');
  SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('a');
@@ -125,11 +136,11 @@ sudo ./postConfigure
   
   
   
-# run
+# run this to setup db's and users...
   
 apps/mcs/53mcsimp.sh
   
-  https://github.com/dgleba/vamp206a/blob/master/apps/mcs/53mcsimp.sh
+  #  from  https://github.com/dgleba/vamp206a/blob/master/apps/mcs/53mcsimp.sh
   
   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

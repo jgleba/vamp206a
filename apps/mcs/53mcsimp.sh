@@ -34,7 +34,7 @@ cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias
 #cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
 
 
-set root password..
+# set root password..
 
 # mcsmysql -uroot
 # then...
