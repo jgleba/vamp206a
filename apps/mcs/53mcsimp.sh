@@ -84,6 +84,7 @@ fi
 
 
 
+
 # use here document to provide input...
 #  https://ignaciopp.wordpress.com/2011/08/08/heredoc-tip-execute-mysql-commands-from-shell-with-multiline-scripts-or-queries/
 #    heredoc not working just do one line at a time.
@@ -237,6 +238,50 @@ function notes() {
 # begin block comment =============================
 : <<'END'
 
+
+_____________
+
+# 2017-09-20
+
+cd
+source shc/a2/21env.sh
+  mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO dg417@'%' ;"
+  mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO dg417@'%' ;"
+  mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
+
+# import cmmdata..   
+  mcsmysql -uroot -p$mysqlrootpassw  -e "use cmmdb;"
+  mcsmysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-cmmdb-mysql.sql
+
+error, no database selected.. hmmm.. exported it just like any other db..
+
+head /var/www/html/backup/mysql/pmdsdata3-cmmdb-mysql.sql -n 22
+
+#
+# add line after match...  sed -i '/CLIENTSCRIPT="foo"/a CLIENTSCRIPT2="hello"' file
+# i think 0, is a range.
+#
+pattern1='debian-linux-gnu'
+line1='  use cmmdb;\n'
+file1='/var/www/html/backup/mysql/pmdsdata3-cmmdb-mysql.sql'
+sed  -i "0,/$pattern1/a $line1" $file1
+
+
+2017-09-20_Wed_09.40-AM
+An error has occurred during virtual machine execution! The error details are shown below. You may try to correct the error and resume the virtual machine execution.
+The I/O cache encountered an error while updating data in medium &quot;ahci-0-0&quot; (rc=VERR_DISK_FULL). Make sure there is enough free space on the disk and that the disk is working properly. Operation can be resumed afterwards.
+Error ID: BLKCACHE_IOERR
+Severity: Non-Fatal Error
+--
+2017-09-20_Wed_09.40-AM
+An error has occurred during virtual machine execution! The error details are shown below. You may try to correct the error and resume the virtual machine execution.
+Host system reported disk full. VM execution is suspended. You can resume after freeing some space.
+Error ID: DevAHCI_DISKFULL
+Severity: Non-Fatal Error
+
+
+
+_____________
 
 
 
