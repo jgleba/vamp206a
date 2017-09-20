@@ -2,8 +2,24 @@
 
 [https://github.com/dgleba/vamp206a](https://github.com/dgleba/vamp206a)
 
-also see https://github.com/dgleba/vamp203
+---
 
+#
+The instructions below refer to making a server from just the scripts. 
+It downloads the ubuntu iso file and creates an unattended install ISO file and install all the software and data.
+That code is in the `a1` folder now.
+
+I have been recently doing it in steps. 
+See `a2\11prep.sh`
+
+When using `17docs-sample.sh` it just uses a sample web root and data set to get things started. Then I use `a2\99newdata.sh` to get new data.
+
+---
+
+
+# Version `A1`
+
+  
 ## Overview
 
 - Create Unattended Ubuntu Iso.
@@ -75,6 +91,9 @@ I am doing this on a Windows machine. (I used a Vagrant Ubuntu machine running i
 - http://10.4.10.249/menu/
 - http://10.4.10.249/test2/strap179/
 
+# Older info
+
+also see https://github.com/dgleba/vamp203
 
 
 _____________
