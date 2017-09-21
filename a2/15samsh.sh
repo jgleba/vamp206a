@@ -4,6 +4,11 @@ echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
+
+# copy home 21env.sh over. IT is where I edit it for my personal settings...
+cp ./21env.sh shc/a2/21env.sh
+
+
 source shc/root.sh
 set +vx
 source shc/a2/21env.sh
@@ -12,11 +17,9 @@ set -vx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-file1="a2/21env.sh"
-# backup original file once..
-#back it up with a unique name using a timestamp..
-sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
-sudo cp $file1 $file1.bak.txt
+file1="shc/a2/21env.sh"
+# back it up with a unique name using a timestamp..
+cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
