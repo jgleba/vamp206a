@@ -26,7 +26,7 @@ echo "hello" >$file1 ; echo "foo bar">>$file1
 # backup original file once..
 if [ ! -f $file1.orig ] ; then sudo cp $file1 $file1.orig ; fi
 #back it up with a unique name using a timestamp..
-sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").latestbak.txt
+sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
 sudo cp $file1 $file1.bak.txt
 # add line1's after line matching pattern1
 pattern1='^hello'

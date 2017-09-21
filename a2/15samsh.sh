@@ -12,6 +12,15 @@ set -vx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+file1="a2/21env.sh"
+# backup original file once..
+#back it up with a unique name using a timestamp..
+sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
+sudo cp $file1 $file1.bak.txt
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #note...
 #    if this is run more than once, it will duplicate entries...
 #

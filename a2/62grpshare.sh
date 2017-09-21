@@ -20,6 +20,30 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 source shc/a2/21env.sh
 set -vx
 
+
+# 2017-09-20
+#allow export to this folder due to..
+#   mysqldump: Got error: 1290: The MySQL server is running with the --secure-file-priv option so it cannot execute this statement when executing 'SELECT INTO OUTFILE'
+#    mysqldump: Got error: 1: Can't create/write to file '/var/lib/mysql-files/leanmfg/dataface__failed_logins.txt' (Errcode: 13) when executing 'SELECT INTO OUTFILE'
+
+#https://serverfault.com/questions/349145/can-i-override-my-umask-using-acls-to-make-all-files-created-in-a-given-director
+
+# Title:  . find line with pattern, then edit another part of the line.
+#  /ipsum/ selects lines containing "ipsum" and only on these lines the command(s) that follow are executed. You can use braces to run more commands
+#   /ipsum/{s/#//g;s/@/-at-/g;}
+file22=/etc/fstab
+sudo cp $file22 $file22.bk.$(date +"__%Y-%m-%d_%a_%k.%M.%S-%Z").txt
+sudo cp $file22 $file22.bk.txt
+sudo sed -i '/\ \/\ /{s/errors=remount-ro/errors=remount-ro,acl/g;}' $file22
+
+sudo setfacl -R -m group:www-data:rwx /var/lib/mysql-files/
+sudo getfacl /var/lib/mysql-files/
+sudo usermod -a -G mysql  albe
+# this didn't work, so I just did ...
+# did this temporaily to get by... sudo chmod -R 777  /var/lib/mysql-files
+sudo chmod -R g+rws  /var/lib/mysql-files
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # make a shared folder and allow www-data group to write to it...

@@ -10,9 +10,9 @@
 #         copy it over after editing, or just use sudo sed etc to edit the files.
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+cd
 sudo apt-get update
-sudo apt-get -y install git
+sudo apt-get -y install git mc
 git clone https://github.com/dgleba/vamp206a.git shc   
   
 #---

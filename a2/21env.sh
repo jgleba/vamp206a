@@ -1,8 +1,10 @@
 echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "${BASH_SOURCE[0]}" $(date +" %Y-%m-%d_%H.%M.%S")
 echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
+date ; set +vx  ; set -vx ; # echo off, then echo on
 set +vx
 
+#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # edit these variables to match your system...
 #
@@ -34,7 +36,10 @@ export p3hz="h"
 
 export pw1="a"
 export pw2="a"
+
+# for basic auth..
 export pw3="a"
+
 export pw4="a"
 
 mkdir -p tmp01
