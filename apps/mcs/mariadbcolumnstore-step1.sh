@@ -3,6 +3,10 @@
 # Install mariadb columnstore on ubuntu 16.04
 
 
+# usage:   sudo  shc/apps/mcs/marmariadbcolumnstore-step1.sh
+
+
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -31,7 +35,7 @@ echo
 echo exiting...
 echo
 timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
-exit 99
+# exit 99
 
 
 
@@ -98,7 +102,8 @@ cd sw1
   sudo updatedb
    
 
-
+sudo dpkg -l *mariadb-col*
+sudo apt-get remove --purge *mariadb-col\*
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -114,6 +119,27 @@ sudo ./postConfigure
 
 
 
+#Running the MariaDB ColumnStore setup scripts
+#post-mysqld-install Successfully Completed
+#ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock' (2 "No such file or directory")
+#Error running post-mysql-install, /tmp/post-mysql-install.log
+#Exiting...
+#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$
+
+#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$ mcsmysql
+#ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock' (2 "No such file or directory")
+#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$
+
+# checking for engine columnstore columnstore doesn't exist
+
+
+file1="/etc/php/7.0/apache2/php.ini"
+# back it up with a unique name using a timestamp..
+sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
+# now replace the line when pattern is found... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
+sudo sed -i 's/.*mysqli.default_socket.*/mysqli.default_socket = \/usr\/local\/mariadb\/columnstore\/mysql\/lib\/mysql\/mysql.sock/g' $file1
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 alias mcsmysql='/usr/local/mariadb/columnstore/mysql/bin/mysql --defaults-extra-file=/usr/local/mariadb/columnstore/mysql/my.cnf -u root'
@@ -123,40 +149,19 @@ cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias
 #cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
 
 
-# set root password..
 
 
-mcsmysql 
-
- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('a');
- SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('a');
- SET PASSWORD FOR 'root'@'::1'       = PASSWORD('a');
- SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD('a');
-  FLUSH PRIVILEGES;
-  
-  
-  
-# run this to setup db's and users...
-  
-apps/mcs/53mcsimp.sh
-  
-  #  from  https://github.com/dgleba/vamp206a/blob/master/apps/mcs/53mcsimp.sh
-  
-  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # phpmyadmin..
 
 
-sudo apt-get install php-mysql
+sudo apt-get -y install php-mysql
 sudo phpenmod mysqli
-
 
 sudo apt-get -y install phpmyadmin php-mbstring php-gettext
 
 sudo systemctl restart apache2
-
-
 
 sudo ufw allow 22
 sudo ufw allow 3306
@@ -183,50 +188,22 @@ sudo ufw allow 3306
 # mysqli.default_socket = /usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock
 
 
-
-# now replace the line when pattern is found... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
-sudo sed -i 's/.*mysqli.default_socket.*/mysqli.default_socket = /usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock/g' \
-  /etc/php/7.0/ php.ini
-
-
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-export tsv
-
-
-mysqldump -u <username> -p<password> -T <output_directory> --no-create-info <database_name>
-cd
-mkdir -p dump
-mysqldump -uroot -pa -T ~/dump --no-create-info dgnote130
-
-# just structure only...
-mysqldump --user=root --password=$mysqlrootpassw  -d --databases  cilist leanmfg shift_smsmeer shiftcsd1 shiftcsd2 shiftcsd1suprv shiftcsd2suprv dgnote130 hrdb lukup --complete-insert  --quote-names --add-drop-database --allow-keywords | grep -v 'SQL SECURITY DEFINER' > pmdsdata3-some-structure-mysql.sql
-
-
-sudo ls -la /var/lib/mysql-files/leanmfg/
-sudo chmod -R 777  /var/lib/mysql-files
-
-
-see a2/62grpshare.sh
-
-# 2017-09-20
-#allow export to this folder due to..
-#   mysqldump: Got error: 1290: The MySQL server is running with the --secure-file-priv option so it cannot execute this statement when executing 'SELECT INTO OUTFILE'
-#    mysqldump: Got error: 1: Can't create/write to file '/var/lib/mysql-files/leanmfg/dataface__failed_logins.txt' (Errcode: 13) when executing 'SELECT INTO OUTFILE'
-sudo setfacl -R -m group:www-data:rwx /var/lib/mysql-files/
-sudo getfacl /var/lib/mysql-files/
-sudo usermod -a -G mysql  albe
-# this didn't work, so I just did ...
-sudo chmod -R 777  /var/lib/mysql-files
-sudo chmod -R g+rws  /var/lib/mysql-files
+#file1="/etc/php/7.0/ php.ini"
+## back it up with a unique name using a timestamp..
+#cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
+## now replace the line when pattern is found... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
+#sudo sed -i 's/.*mysqli.default_socket.*/mysqli.default_socket = /usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock/g' $file1
+#
 
 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+exit 0
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 

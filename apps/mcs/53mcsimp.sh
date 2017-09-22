@@ -14,8 +14,10 @@ END
 # end block comment ===============================
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 cd
 source shc/a2/21env.sh
+source tmp01/21env.sh
 date
 #echo requested commands...
 set -vx
@@ -49,18 +51,18 @@ cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias
  
 # Main..
 
-mcsmysql -uroot -p$mysqlrootpassw -e "create database cilist";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database cilist";
 mcsmysql -uroot -p$mysqlrootpassw -e "create database dgnote130";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database leanmfg";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database leanmfg";
 mcsmysql -uroot -p$mysqlrootpassw -e "create database prodrptdb";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database shift_smsmeer";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1suprv";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database prodrptdb_archive";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database lukup";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database hrdb";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database shift_smsmeer";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1suprv";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database prodrptdb_archive";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database lukup";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database hrdb";
 mcsmysql -uroot -p$mysqlrootpassw -e "create database greygold";
 
 
@@ -244,7 +246,7 @@ _____________
 # 2017-09-20
 
 cd
-source shc/a2/21env.sh
+source tmp01/21env.sh
   mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO dg417@'%' ;"
   mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO dg417@'%' ;"
   mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"

@@ -15,7 +15,7 @@ END
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 cd
-source shc/a2/21env.sh
+source tmp01/21env.sh
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 

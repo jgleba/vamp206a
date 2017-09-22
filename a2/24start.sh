@@ -6,7 +6,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 cd
 set +vx
-source shc/a2/21env.sh
+source tmp01/21env.sh
 set -vx
 
 
@@ -37,7 +37,7 @@ set -vx
 # if root, continue, else exit and end.
 
 cd
-source shc/a2/root.sh
+source shc/root.sh
 cd
 
 

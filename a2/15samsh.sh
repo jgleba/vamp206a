@@ -5,13 +5,24 @@ echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 
-# copy home 21env.sh over. IT is where I edit it for my personal settings...
-cp ./21env.sh shc/a2/21env.sh
+# copy vne.sh over. IT is where I edit 21env.sh for my personal settings...
+mkdir -p tmp01
+
+sudo mkdir -p /tmp01/tempfiles
+sudo chmod -R 700 tmp01
+sudo chmod -R 700 /tmp01/tempfiles
+sudo chown -R $userv  tmp01 
+
+#copy env supplied with package first..
+cp shc/a2/21env.sh tmp01/21env.sh
+
+# then overwrite it with mine. Which won't happen if it's not there.
+cp tmp01/vne.sh tmp01/21env.sh
 
 
 source shc/root.sh
 set +vx
-source shc/a2/21env.sh
+source tmp01/21env.sh
 set -vx
 
 
@@ -171,7 +182,7 @@ EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-source shc/a2/21env.sh
+source tmp01/21env.sh
 #sudo smbpasswd -a $userv 
 # set password silently - answers supplied by script..
 (echo $pw1; echo $pw1) | sudo smbpasswd -s -a $userv

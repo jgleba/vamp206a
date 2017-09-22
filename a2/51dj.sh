@@ -4,7 +4,7 @@ echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 # setup django and django apps...
 
-source shc/a2/21env.sh
+source tmp01/21env.sh
 
 cd
 set -vx
