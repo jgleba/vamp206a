@@ -81,6 +81,11 @@ else
 
     mcsmysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
     mcsmysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
+    mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
+    mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-dgnote130-struc-mysql.sql
+    mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-dgnote130-mysql.sql
+    
+    #   https://mariadb.com/kb/en/library/columnstore-data-types/
 
 fi
 
@@ -289,6 +294,15 @@ Severity: Non-Fatal Error
 
 
 _____________
+
+
+
+albe@ubuntu1604a0311:~$     mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-dgnote130-struc-mysql.sql
+ERROR 1178 (42000) at line 560: The storage engine for the table doesn't support The syntax or the data type(s) is not supported by Columnstore. Please check the Columnstore syntax guide for supported syntax or data types.
+albe@ubuntu1604a0311:~$
+
+
+_____________ 
 
 
 
