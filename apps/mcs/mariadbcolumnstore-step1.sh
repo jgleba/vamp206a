@@ -81,7 +81,7 @@ cd
 mkdir sw1
 cd sw1
 
-wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.0.11/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.0.11-1-xenial.x86_64.deb.tar.gz
+wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.1.0/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.1.0-1-xenial.x86_64.deb.tar.gz
 
 # tar zxvf mariadb-columnstore-1.0.11-1-xenial.x86_64.deb.tar.gz
   # mariadb-columnstore-1.0.11-1-x86_64-xenial-client.deb

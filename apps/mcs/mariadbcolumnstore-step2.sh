@@ -52,6 +52,9 @@ exit 0
 notes..
 
 
+https://mariadb.com/kb/en/library/mariadb-columnstore-software-upgrade-1011-to-110-beta/
+
+
 export tsv
 
 mysqldump -u <username> -p<password> -T <output_directory> --no-create-info <database_name>
