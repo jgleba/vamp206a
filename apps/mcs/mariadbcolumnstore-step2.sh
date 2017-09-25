@@ -40,6 +40,26 @@ shc/apps/mcs/53mcsimp.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+    cd /var/www/html/backup/mysql
+
+#    create columnstores...
+
+    mcsmysql -uroot -pa  < cmmdata-mcs.sql
+    mcsmysql -uroot -pa  < cmmlist-mcs.sql
+
+    mcsmysql -uroot -pa  < pmdsdata3-cmmdb-regulr_no-maindata-mysql.sql
+
+    #cpimport dbName tblName [loadFile]
+
+    cd /var/www/html/backup/mysql
+    cpimport cmmdb cmmdata cmmdata.txt -s '\t'
+
+    cd /var/www/html/backup/mysql
+    cpimport cmmdb cmmdata cmmdata-1m.txt -s '\t'
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 

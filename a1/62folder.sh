@@ -9,12 +9,13 @@ function Purpose() {
 
 Purpose.. Set permistions of current folder...
 
+usage:  
+
+chmod +x /home/albe/shc/a1/62folder.sh
+ sudo /home/albe/shc/a1/62folder.sh
 
 
-old..
-Purpose: create a folder to work in.
-#sudo mkdir -p /files
-#sudo chown ubuntuUser /files
+
 
 END
 # end block comment ===============================

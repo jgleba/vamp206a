@@ -10,6 +10,10 @@ function Purpose() {
 #  Purpose:
         import mariadb columnstore data...
 
+
+            shc/apps/mcs/53mcsimp.sh
+
+
 END
 # end block comment ===============================
 }
@@ -33,7 +37,7 @@ alias mcsmysql='/usr/local/mariadb/columnstore/mysql/bin/mysql --defaults-extra-
 
 # . /usr/local/mariadb/columnstore/bin/columnstoreAlias
 cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias
-#cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
+cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
 
 
 # set root password..
@@ -83,8 +87,10 @@ else
     mcsmysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
     mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
     mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-dgnote130-struc-mysql.sql
-    mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-dgnote130-mysql.sql
-    
+    mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-dgnote130-regulr-mysql.sql
+
+
+
     #   https://mariadb.com/kb/en/library/columnstore-data-types/
 
 fi
@@ -240,6 +246,9 @@ sudo chmod -R 777  /var/www/html/shiftsmsmeer/user_config
 
 date
 
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function notes() {
 # begin block comment =============================
@@ -305,6 +314,15 @@ albe@ubuntu1604a0311:~$
 _____________ 
 
 
+# set root password..
+
+# mcsmysql -uroot
+# then...
+ SET PASSWORD FOR 'root'@'localhost' = PASSWORD('a');
+ SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('a');
+ SET PASSWORD FOR 'root'@'::1'       = PASSWORD('a');
+ SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD('a');
+  FLUSH PRIVILEGES;
 
 
 

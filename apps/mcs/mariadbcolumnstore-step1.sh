@@ -7,7 +7,6 @@
 
 
 
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -20,9 +19,6 @@
 # http://mysqlentomologist.blogspot.ca/2017/06/my-first-steps-with-mariadb-columnstore.html
 
  
-
-
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -96,14 +92,14 @@ wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.1.
 
 cd
 cd sw1
-  tar zxvf mariadb-columnstore-1.0.11-1-xenial.x86_64.deb.tar.gz
+  tar zxvf mariadb-columnstore*.deb.tar.gz
   sudo dpkg -i mariadb-columnstore*.deb
   cd
   sudo updatedb
    
 
-sudo dpkg -l *mariadb-col*
-sudo apt-get remove --purge *mariadb-col\*
+#sudo dpkg -l *mariadb-col*
+#sudo apt-get remove --purge *mariadb-col\*
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -153,6 +149,9 @@ cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # phpmyadmin..
 
 
@@ -166,6 +165,45 @@ sudo systemctl restart apache2
 sudo ufw allow 22
 sudo ufw allow 3306
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# set permission to use cpimport as non root.
+
+
+cd /usr/local/mariadb/columnstore
+
+chmod +x /home/albe/shc/a1/62folder.sh
+ sudo /home/albe/shc/a1/62folder.sh
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+exit 0
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# notes...
 
 
 # error trying to login to phpmyadmin.
@@ -194,17 +232,5 @@ sudo ufw allow 3306
 ## now replace the line when pattern is found... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
 #sudo sed -i 's/.*mysqli.default_socket.*/mysqli.default_socket = /usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock/g' $file1
 #
-
-
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-exit 0
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
 
  
