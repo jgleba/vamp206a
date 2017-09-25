@@ -43,7 +43,10 @@ cd
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+columnstore()
+{
 
+# for maria columnstore..
 
 source shc/a2/15samsh.sh 
 
@@ -53,52 +56,58 @@ cd
 #
 # use this for sample data in the repo..
 source shc/a2/17docs_sample.sh 
+cd; source shc/a2/31base.sh 
+cd; source shc/a2/62grpshare.sh 
+cd; source shc/a2/62srvweb.sh 
+cd; source shc/a2/61user.sh 
+cd; source shc/a2/63bauth.sh 
+cd;
 
-cd
-source shc/a2/31base.sh 
-cd
-# source shc/a2/34samm.sh 
-cd
-#source shc/a2/43apach.sh 
-cd
-#source shc/a2/43mysql.sh 
-cd
-#source shc/a2/44django.sh 
-cd
-# source shc/a2/47guestad.sh 
-cd
-source shc/a2/62grpshare.sh 
-source shc/a2/62srvweb.sh 
-cd
-# source shc/a2/51dj.sh 
-cd
-# source shc/a2/53imp.sh 
-cd
-source shc/a2/61user.sh 
-cd
-
-source shc/a2/63bauth.sh 
-cd
-# source shc/a2/65cron.sh 
-cd
-
-# see 70gui-notes.sh  - use xfce4
-
-# source shc/a2/71gui.sh
-cd
-# source shc/a2/73lxset.sh
-cd
-# source shc/100/321lxdeborderresize.sh
-cd
-#source shc/a2/67hostn.sh
-cd
-
-
-#read -t  99 -p "Hit ENTER or wait about 99 seconds" ; echo ;
+}
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+regularmysqlserver()
+{
+
+# For my regular mysql server..
+
+cd; source shc/a2/15samsh.sh 
+
+cd
+# use this to get specific data file..
+# source shc/a2/17docs.sh
+#
+# use this for sample data in the repo..
+source shc/a2/17docs_sample.sh 
+
+cd; source shc/a2/31base.sh 
+cd; #source shc/a2/34samm.sh 
+cd; source shc/a2/43apach.sh 
+cd; source shc/a2/43mysql.sh 
+cd; source shc/a2/44django.sh 
+cd; # source shc/a2/47guestad.sh 
+cd; source shc/a2/62grpshare.sh 
+cd; source shc/a2/62srvweb.sh 
+cd; source shc/a2/51dj.sh 
+cd; source shc/a2/53imp.sh 
+cd; source shc/a2/61user.sh 
+cd; source shc/a2/63bauth.sh 
+cd; source shc/a2/65cron.sh 
+cd; # see 70gui-notes.sh  - use xfce4
+    # source shc/a2/71gui.sh
+cd; # source shc/a2/73lxset.sh
+cd; # source shc/100/321lxdeborderresize.sh
+cd; #source shc/a2/67hostn.sh
+cd;
+
+}
+
+# regularmysqlserver
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 # set all files owner and group in home to $userv  

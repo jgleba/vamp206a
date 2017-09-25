@@ -129,21 +129,6 @@ sudo ./postConfigure
 
 
 
-#Running the MariaDB ColumnStore setup scripts
-#post-mysqld-install Successfully Completed
-#ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock' (2 "No such file or directory")
-#Error running post-mysql-install, /tmp/post-mysql-install.log
-#Exiting...
-#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$
-
-#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$ mcsmysql
-#ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock' (2 "No such file or directory")
-#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$
-
-# checking for engine columnstore columnstore doesn't exist
-
-
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -174,6 +159,16 @@ sudo usermod -a -G mysql $userv
 sudo usermod -a -G root $userv
 
 
+dir1='/usr/local/mariadb/columnstore'
+sudo setfacl -R -m group:www-data:rwx $dir1
+sudo getfacl $dir1
+sudo usermod -a -G mysql  albe
+# this didn't work, so I just did ...
+sudo chmod -R 775  $dir1
+sudo chmod -R g+rws  $dir1
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -187,7 +182,6 @@ sudo phpenmod mysqli
 sudo apt-get -y install phpmyadmin php-mbstring php-gettext
 
 sudo apt-get install -y apache2
-
 
 sudo systemctl restart apache2
 
@@ -257,5 +251,23 @@ exit 0
 ## now replace the line when pattern is found... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
 #sudo sed -i 's/.*mysqli.default_socket.*/mysqli.default_socket = /usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock/g' $file1
 #
+
+
+#_____________
+
+
+#Running the MariaDB ColumnStore setup scripts
+#post-mysqld-install Successfully Completed
+#ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock' (2 "No such file or directory")
+#Error running post-mysql-install, /tmp/post-mysql-install.log
+#Exiting...
+#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$
+
+#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$ mcsmysql
+#ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/usr/local/mariadb/columnstore/mysql/lib/mysql/mysql.sock' (2 "No such file or directory")
+#albe@ubuntu1604a0311:/usr/local/mariadb/columnstore/bin$
+
+# checking for engine columnstore columnstore doesn't exist
+
 
  

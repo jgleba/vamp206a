@@ -45,10 +45,10 @@ shc/apps/mcs/53mcsimp.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    cd /var/www/html/backup/mysql
 
 #    create columnstores...
 
+    cd /var/www/html/backup/mysql
     mcsmysql -uroot -pa  < cmmdata-mcs.sql
     mcsmysql -uroot -pa  < cmmlist-mcs.sql
 
