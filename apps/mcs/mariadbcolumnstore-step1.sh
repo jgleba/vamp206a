@@ -44,6 +44,11 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+cd
+set +vx
+source safe/21env.sh
+set -vx
+
 
  sudo localedef -i en_US -f UTF-8 en_US.UTF-8
  sudo apt-get update
@@ -116,7 +121,7 @@ cd sw1
 cd /usr/local/mariadb/columnstore/bin
 sudo ./postConfigure
 
-# defaults taken..
+# defaults taken. except choose single, not multi.
 # single
 # columnstore-1
 # internal
@@ -138,11 +143,6 @@ sudo ./postConfigure
 # checking for engine columnstore columnstore doesn't exist
 
 
-file1="/etc/php/7.0/apache2/php.ini"
-# back it up with a unique name using a timestamp..
-sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
-# now replace the line when pattern is found... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
-sudo sed -i 's/.*mysqli.default_socket.*/mysqli.default_socket = \/usr\/local\/mariadb\/columnstore\/mysql\/lib\/mysql\/mysql.sock/g' $file1
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -161,6 +161,21 @@ cat ~/.bashrc
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+# set permission to use cpimport as non root.
+
+
+cd /usr/local/mariadb/columnstore
+
+# bad idea..
+# chmod +x /home/albe/shc/a1/62folder.sh
+# sudo /home/albe/shc/a1/62folder.sh
+
+sudo usermod -a -G mysql $userv
+sudo usermod -a -G root $userv
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # phpmyadmin..
@@ -171,26 +186,33 @@ sudo phpenmod mysqli
 
 sudo apt-get -y install phpmyadmin php-mbstring php-gettext
 
+sudo apt-get install -y apache2
+
+
 sudo systemctl restart apache2
 
 sudo ufw allow 22
 sudo ufw allow 3306
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-# set permission to use cpimport as non root.
-
-
-cd /usr/local/mariadb/columnstore
-
-chmod +x /home/albe/shc/a1/62folder.sh
- sudo /home/albe/shc/a1/62folder.sh
 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+source shc/a2/43apach.sh
+
+file1="/etc/php/7.0/apache2/php.ini"
+# back it up with a unique name using a timestamp..
+sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
+# now replace the line when pattern is found... http://stackoverflow.com/questions/16440377/sed-replace-whole-line-when-match-found
+sudo sed -i 's/.*mysqli.default_socket.*/mysqli.default_socket = \/usr\/local\/mariadb\/columnstore\/mysql\/lib\/mysql\/mysql.sock/g' $file1
+
+sudo systemctl restart apache2
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 

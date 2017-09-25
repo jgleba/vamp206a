@@ -28,6 +28,11 @@ mcsmysql
 
 # run this to setup db's and users...
   
+cd
+set +vx
+source safe/21env.sh
+set -vx
+
 shc/apps/mcs/53mcsimp.sh
   
   #  from  https://github.com/dgleba/vamp206a/blob/master/apps/mcs/53mcsimp.sh
