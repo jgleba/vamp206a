@@ -4,10 +4,13 @@
 
 usage()
 {
+
 # usage:   
 
            cd ; sudo chmod -R +x shc/ ; 
            sudo  shc/apps/mcs/mariadbcolumnstore-step1.sh 2>&1 | tee -a v206_mcs-setup-log$(date +"__%Y-%m-%d_%H.%M.%S").log
+
+
 }
 
 
@@ -30,9 +33,9 @@ usage()
 
 set +vx
 echo
-echo this is not finished to run as a script. Just copy paste from this file..
+# echo this is not finished to run as a script. Just copy paste from this file..
 echo
-echo exiting...
+# echo exiting...
 echo
 timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
 # exit 99
@@ -65,10 +68,10 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
  sudo apt-get -f install 
  
  echo ~/.bashrc
-     cat ~/.bashrc
+ cat ~/.bashrc
 
-  sudo chmod 777 /tmp
-  sudo chmod 777 /dev/shm
+sudo chmod 777 /tmp
+sudo chmod 777 /dev/shm
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -148,7 +151,9 @@ alias mcsmysql='/usr/local/mariadb/columnstore/mysql/bin/mysql --defaults-extra-
 
 . /usr/local/mariadb/columnstore/bin/columnstoreAlias
 cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias
-#cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
+cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
+cat ~/.bashrc
+. ~/.bashrc
 
 
 
@@ -184,14 +189,6 @@ chmod +x /home/albe/shc/a1/62folder.sh
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-
-
-
-
 
 
 
