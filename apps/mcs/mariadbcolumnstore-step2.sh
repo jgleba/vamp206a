@@ -59,6 +59,15 @@ shc/apps/mcs/53mcsimp.sh
     cd /var/www/html/backup/mysql
     cpimport cmmdb cmmdata cmmdata.txt -s '\t'
 
+dir1='/usr/local/mariadb/columnstore'
+sudo setfacl -R -m group:www-data:rwx $dir1
+sudo getfacl $dir1
+sudo usermod -a -G mysql  albe
+# this didn't work, so I just did ...
+sudo chmod -R 775  $dir1
+sudo chmod -R g+rws  $dir1
+
+
     cd /var/www/html/backup/mysql
     cpimport cmmdb cmmdata cmmdata-1m.txt -s '\t'
 
