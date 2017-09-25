@@ -3,7 +3,8 @@
 # Install mariadb columnstore on ubuntu 16.04
 
 
-# usage:   sudo  shc/apps/mcs/marmariadbcolumnstore-step1.sh
+# usage:   
+           cd ; sudo chmod -R +x shc/ ; shc/apps/mcs/mariadbcolumnstore-step1.sh 2>&1 | tee -a v206_mcs-setup_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 
 
@@ -77,7 +78,9 @@ cd
 mkdir sw1
 cd sw1
 
-wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.1.0/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.1.0-1-xenial.x86_64.deb.tar.gz
+#2017-09-25_Mon_12.27-PM troubles in virtualbox, database crashes, vbox errors, etc... wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.1.0/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.1.0-1-xenial.x86_64.deb.tar.gz
+#
+wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.0.11/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.0.11-1-xenial.x86_64.deb.tar.gz
 
 # tar zxvf mariadb-columnstore-1.0.11-1-xenial.x86_64.deb.tar.gz
   # mariadb-columnstore-1.0.11-1-x86_64-xenial-client.deb

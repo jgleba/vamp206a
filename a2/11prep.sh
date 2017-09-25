@@ -11,11 +11,21 @@
 
   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Step 1
+
+
 cd
 sudo apt-get update
 sudo apt-get -y install git mc
-git clone https://github.com/dgleba/vamp206a.git shc   
+#
+cd ; git clone https://github.com/dgleba/vamp206a.git shc   
+
+
+
+# Step 2
   
+
 #---
 
 # edit or put env file in safe/vne.sh 
@@ -23,12 +33,19 @@ git clone https://github.com/dgleba/vamp206a.git shc
 
 #---
     
+
+# Step 3
+
+
 #run setup.. 
 #  it will..
 #  - install sw  
 #  - create data folders and permissions  
 #  - import sample data  
 #
+
+
+
 cd ; cd shc ; git pull
 cd ; chmod -R +x shc/ ; sudo shc/a2/24start.sh 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
