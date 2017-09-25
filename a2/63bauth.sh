@@ -3,7 +3,7 @@ echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "${BASH_SOURCE[0]}" 
 echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 cd
-source tmp01/21env.sh
+source safe/21env.sh
 set -vx
 date
 

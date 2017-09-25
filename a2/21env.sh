@@ -23,8 +23,8 @@ export orig_hostname="vamp206b"
 export default_hostname="pmdsdata9"
 export default_domain="local"
 
-export mysqlrootpassw="x"
-export mysqluserpass="x"
+export mysqlrootpassw="a"
+export mysqluserpass="a"
 
 #windows machine red5a settings.
 export uredwe="dg"
@@ -34,13 +34,15 @@ export predwe="h"
 export u3hz="dgleba"
 export p3hz="h"
 
+
 export pw1="a"
 export pw2="a"
-
+#
 # for basic auth..
 export pw3="a"
-
+#
 export pw4="a"
+
 
 mkdir -p tmp01
 tmp01="/home/$userv/tmp01"

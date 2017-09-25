@@ -6,7 +6,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 cd
 set +vx
-source tmp01/21env.sh
+source safe/21env.sh
 set -vx
 
 
@@ -59,7 +59,7 @@ source shc/a2/31base.sh
 cd
 # source shc/a2/34samm.sh 
 cd
-source shc/a2/43apach.sh 
+#source shc/a2/43apach.sh 
 cd
 #source shc/a2/43mysql.sh 
 cd

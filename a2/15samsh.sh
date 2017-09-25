@@ -14,15 +14,15 @@ sudo chmod -R 700 /tmp01/tempfiles
 sudo chown -R $userv  tmp01 
 
 #copy env supplied with package first..
-cp shc/a2/21env.sh tmp01/21env.sh
+cp shc/a2/21env.sh safe/21env.sh
 
 # then overwrite it with mine. Which won't happen if it's not there.
-cp tmp01/vne.sh tmp01/21env.sh
+cp safe/vne.sh safe/21env.sh
 
 
 source shc/root.sh
 set +vx
-source tmp01/21env.sh
+source safe/21env.sh
 set -vx
 
 
@@ -182,7 +182,7 @@ EOF
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-source tmp01/21env.sh
+source safe/21env.sh
 #sudo smbpasswd -a $userv 
 # set password silently - answers supplied by script..
 (echo $pw1; echo $pw1) | sudo smbpasswd -s -a $userv

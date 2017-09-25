@@ -4,7 +4,7 @@ echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-source tmp01/21env.sh
+source safe/21env.sh
 set -vx
 cd
 

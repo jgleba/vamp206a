@@ -15,7 +15,7 @@ END
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cd
-source tmp01/21env.sh
+source safe/21env.sh
 date
 #echo requested commands...
 set -vx

@@ -26,12 +26,11 @@ date
 #echo requested commands...
 set -vx
 
-# this is prevented from working..
+# this is prevented from working on purpose..
 source ~/.bashrc
 
 # Expand aliases defined in the shell ~/.bashrc
 shopt -s expand_aliases
-
 
 alias mcsmysql='/usr/local/mariadb/columnstore/mysql/bin/mysql --defaults-extra-file=/usr/local/mariadb/columnstore/mysql/my.cnf -u root'
 
@@ -55,19 +54,19 @@ cat  /usr/local/mariadb/columnstore/bin/columnstoreAlias >> ~/.bashrc
  
 # Main..
 
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database cilist";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database dgnote130";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database leanmfg";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database prodrptdb";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database shift_smsmeer";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd1suprv";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database shiftcsd2suprv";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database prodrptdb_archive";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database lukup";
-#mcsmysql -uroot -p$mysqlrootpassw -e "create database hrdb";
-mcsmysql -uroot -p$mysqlrootpassw -e "create database greygold";
+mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists dgnote130";
+mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists cmmdb";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists leanmfg";
+mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists prodrptdb";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists shift_smsmeer";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists shiftcsd1";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists shiftcsd1suprv";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists shiftcsd2";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists shiftcsd2suprv";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists prodrptdb_archive";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists lukup";
+#mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists hrdb";
+mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists greygold";
 
 
 #preferred..
@@ -90,17 +89,12 @@ else
     mcsmysql -uroot -pa  < /var/www/html/backup/mysql/pmdsdata3-dgnote130-regulr-mysql.sql
 
 
-
     #   https://mariadb.com/kb/en/library/columnstore-data-types/
 
 fi
 
 
 
-
-# use here document to provide input...
-#  https://ignaciopp.wordpress.com/2011/08/08/heredoc-tip-execute-mysql-commands-from-shell-with-multiline-scripts-or-queries/
-#    heredoc not working just do one line at a time.
 mcsmysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'dg417'@'localhost' IDENTIFIED BY '$mysqluserpass';"
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'dg417'@'localhost' IDENTIFIED BY '$mysqluserpass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 #mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO dg417@localhost ;"
@@ -124,22 +118,22 @@ mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_pro
 #              mcsmysql -uroot -p  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '34asfviektighdiekjs' ;"
 
 
-mcsmysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass';"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'ciuser'@'%' IDENTIFIED BY '$mysql_ciuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass' ;"
-# ran at the command line...
+# mcsmysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass';"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'ciuser'@'%' IDENTIFIED BY '$mysql_ciuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass' ;"
+# # ran at the command line...
 #  mcsmysql -uroot -p  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'cilistu1'@'%' IDENTIFIED BY 'replaceme-er33k456k43ikdi3' ;"
 
-mcsmysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'lukup'@'localhost' IDENTIFIED BY '$mysql_lukup_pass';"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON lukup.* TO lukup@localhost ;"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'lukup'@'localhost' IDENTIFIED BY '$mysql_lukup_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'lukup'@'%' IDENTIFIED BY '$mysql_lukup_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'lukup'@'localhost' IDENTIFIED BY '$mysql_lukup_pass';"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON lukup.* TO lukup@localhost ;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'lukup'@'localhost' IDENTIFIED BY '$mysql_lukup_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'lukup'@'%' IDENTIFIED BY '$mysql_lukup_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 
-mcsmysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass';"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'%' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@localhost IDENTIFIED BY '$mysql_hruser_pass';"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass';"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'%' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@localhost IDENTIFIED BY '$mysql_hruser_pass';"
 
 # i had to change definer on views looking at lukup database. Got error: View 'cilist.vw_enterprise_all' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
 # see C:\n\Dropbox\csd\serve\vboxyard\vamp206a\mysql-user-change\viewdefiner-2016-10-11-mysqlknow-changeuser.txt
@@ -148,8 +142,8 @@ mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@
 mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from dg417@localhost ;"
 mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from dg417@'%' ;"
 
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO ciuser@localhost ;"
-mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO hruser@localhost ;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO ciuser@localhost ;"
+# mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO hruser@localhost ;"
 
 
 mcsmysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'stuser'@'localhost' IDENTIFIED BY '$mysqluserpass';"
@@ -180,7 +174,7 @@ mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON ignition.* TO sth
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON ignition.* TO 'sthistorian'@'%' ;"
 #
 
-mcsmysql -uroot -p$mysqlrootpassw -e "create database cmmdb";
+mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists if not exists cmmdb";
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO sthistorian@localhost ;"
 mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO 'sthistorian'@'%' ;"
 #

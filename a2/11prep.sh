@@ -9,6 +9,7 @@
 #      if you need to edit files as root, copy it to writable folder and then   
 #         copy it over after editing, or just use sudo sed etc to edit the files.
 
+  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 cd
 sudo apt-get update
@@ -17,16 +18,16 @@ git clone https://github.com/dgleba/vamp206a.git shc
   
 #---
 
-#edit or put env file   
-#put sample data  
+# edit or put env file in safe/vne.sh 
+# put sample data in /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z if you don't want to use the supplied sample data.
 
 #---
     
 #run setup.. 
-#
+#  it will..
 #  - install sw  
-#  - create data folders and perms  
-#  - import data  
+#  - create data folders and permissions  
+#  - import sample data  
 #
 cd ; cd shc ; git pull
 cd ; chmod -R +x shc/ ; sudo shc/a2/24start.sh 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
