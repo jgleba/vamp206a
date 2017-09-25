@@ -53,11 +53,13 @@ shc/apps/mcs/53mcsimp.sh
     mcsmysql -uroot -pa  < cmmlist-mcs.sql
 
     mcsmysql -uroot -pa  < pmdsdata3-cmmdb-regulr_no-maindata-mysql.sql
+   
+
+
+#ERROR 1178 (42000) at line 30: The storage engine for the table doesn't support IDB-2029: Lock table command is currently not supported in Columnstore.
+#mcsmysql -uroot -pa  < pmdsdata3-cmmdb-spectables-mysql.sql
 
     #cpimport dbName tblName [loadFile]
-
-    cd /var/www/html/backup/mysql
-    cpimport cmmdb cmmdata cmmdata.txt -s '\t'
 
 dir1='/usr/local/mariadb/columnstore'
 sudo setfacl -R -m group:www-data:rwx $dir1
@@ -67,9 +69,16 @@ sudo usermod -a -G mysql  albe
 sudo chmod -R 775  $dir1
 sudo chmod -R g+rws  $dir1
 
+    cd /var/www/html/backup/mysql
+    cpimport cmmdb cmmdata cmmdata.txt -s '\t'
+    cpimport cmmdb cmmlist cmmlist.txt -s '\t'
+
 
     cd /var/www/html/backup/mysql
     cpimport cmmdb cmmdata cmmdata-1m.txt -s '\t'
+
+    cd /var/www/html/backup/mysql
+    cpimport cmmdb cmmdata cmmdata-5m.txt -s '\t'
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
