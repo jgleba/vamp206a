@@ -2,10 +2,13 @@
 
 # Install mariadb columnstore on ubuntu 16.04
 
-
+usage()
+{
 # usage:   
-           cd ; sudo chmod -R +x shc/ ; shc/apps/mcs/mariadbcolumnstore-step1.sh 2>&1 | tee -a v206_mcs-setup_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
+           cd ; sudo chmod -R +x shc/ ; 
+           sudo  shc/apps/mcs/mariadbcolumnstore-step1.sh 2>&1 | tee -a v206_mcs-setup-log$(date +"__%Y-%m-%d_%H.%M.%S").log
+}
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
