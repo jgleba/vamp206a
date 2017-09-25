@@ -31,7 +31,7 @@ set -vx
 
 file1="shc/a2/21env.sh"
 # back it up with a unique name using a timestamp..
-cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
+cp -a $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
