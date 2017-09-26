@@ -183,6 +183,9 @@ mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'dg417'
 mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'dg417'@'%';"
 mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
 
+mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'stread'@'localhost';"
+mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'stread'@'%';"
+mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
 
 
 #perms...
