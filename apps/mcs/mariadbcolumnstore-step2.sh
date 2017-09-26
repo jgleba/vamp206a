@@ -23,10 +23,10 @@ set -vx
 
 mcsmysql 
 
- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$mysqlrootpassw');
- SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('$mysqlrootpassw');
- SET PASSWORD FOR 'root'@'::1'       = PASSWORD('$mysqlrootpassw');
- SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD('$mysqlrootpassw');
+ SET PASSWORD FOR 'root'@'localhost' = PASSWORD("$mysqlrootpassw");
+ SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD("$mysqlrootpassw");
+ SET PASSWORD FOR 'root'@'::1'       = PASSWORD("$mysqlrootpassw");
+ SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD("$mysqlrootpassw");
   FLUSH PRIVILEGES;
   
 # mcsmysql -uroot
@@ -41,6 +41,8 @@ mcsmysql
 # run this to setup db's and users...
   
 cd
+cd; source safe/21env.sh
+set -vx
 shc/apps/mcs/53mcsimp.sh
   
   #  from  https://github.com/dgleba/vamp206a/blob/master/apps/mcs/53mcsimp.sh
@@ -88,6 +90,11 @@ sudo chmod -R g+rws  $dir1
 
     cd /var/www/html/backup/mysql
     cpimport cmmdb cmmdata cmmdata-5m.txt -s '\t'
+
+    cd /var/www/html/backup/mysql
+    cpimport cmmdb cmmdata cmmdata-16.36m.txt -s '\t'
+    #  rsync -avv  /var/lib/mysql-files/cmmdb/cmmdata-16.36m.txt   10.4.1.245:/var/www/html/backup/mysql/
+    tail /var/lib/mysql-files/cmmdb/cmmdata-16.36m.txt
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
