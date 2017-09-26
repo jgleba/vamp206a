@@ -196,7 +196,7 @@ sudo phpenmod mysqli
 
 sudo apt-get -y install phpmyadmin php-mbstring php-gettext
 
-sudo apt-get -t install  apache2
+sudo apt-get -y install  apache2
 
 sudo systemctl restart apache2
 
