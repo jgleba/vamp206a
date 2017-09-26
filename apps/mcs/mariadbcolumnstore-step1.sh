@@ -50,30 +50,30 @@ source safe/21env.sh
 set -vx
 
 
- sudo localedef -i en_US -f UTF-8 en_US.UTF-8
- sudo apt-get update
+sudo localedef -i en_US -f UTF-8 en_US.UTF-8
+sudo apt-get update
 
- # sudo apt-get -y install expect  -- i moved this up to here becuase I got unmet dependencies. -f install would simply abort after pressing y - for yes.
- # I have found it is better to install fewer packages in one command.
- sudo apt-get -y install expect 
+# sudo apt-get -y install expect  -- i moved this up to here becuase I got unmet dependencies. -f install would simply abort after pressing y - for yes.
+# I have found it is better to install fewer packages in one command.
+sudo apt-get -y install expect 
 
- sudo apt-get -y install libboost-all-dev
- sudo apt-get -f install 
- 
- # spread this into more lines.. fewer packages per line...
- # sudo apt-get -y install tzdata libtcl8.6 expect perl openssl file sudo libdbi-perl libboost-all-dev libreadline-dev rsync libsnappy1v5 net-tools libdbd-mysql-perl
- 
- sudo apt-get -y install tzdata libtcl8.6 
- sudo apt-get -y install perl openssl file sudo 
- sudo apt-get -y install libdbi-perl libboost-all-dev 
- sudo apt-get -y install  libreadline-dev rsync 
- sudo apt-get -y install  libsnappy1v5 net-tools 
- sudo apt-get -y install  libdbd-mysql-perl
+sudo apt-get -y install libboost-all-dev
+sudo apt-get -f install 
 
- sudo apt-get -f install 
- 
- echo ~/.bashrc
- cat ~/.bashrc
+# spread this into more lines.. fewer packages per line...
+# sudo apt-get -y install tzdata libtcl8.6 expect perl openssl file sudo libdbi-perl libboost-all-dev libreadline-dev rsync libsnappy1v5 net-tools libdbd-mysql-perl
+
+sudo apt-get -y install tzdata libtcl8.6 
+sudo apt-get -y install perl openssl file sudo 
+sudo apt-get -y install libdbi-perl libboost-all-dev 
+sudo apt-get -y install  libreadline-dev rsync 
+sudo apt-get -y install  libsnappy1v5 net-tools 
+sudo apt-get -y install  libdbd-mysql-perl
+
+sudo apt-get -f install 
+
+echo ~/.bashrc
+cat ~/.bashrc
 
 sudo chmod 777 /tmp
 sudo chmod 777 /dev/shm

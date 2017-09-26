@@ -5,7 +5,11 @@
 
 
 # don't use sudo..
-#   usage:    shc/apps/mcs/marmariadbcolumnstore-step2.sh
+
+
+#   usage:    
+
+#         Just paste items from this file to the console.. shc/apps/mcs/marmariadbcolumnstore-step2.sh
 
 
 
@@ -45,8 +49,7 @@ cd; source safe/21env.sh
 set -vx
 shc/apps/mcs/53mcsimp.sh
   
-  #  from  https://github.com/dgleba/vamp206a/blob/master/apps/mcs/53mcsimp.sh
-  
+
   
 
 
@@ -58,19 +61,19 @@ shc/apps/mcs/53mcsimp.sh
 
 #    create columnstores...
 
-    cd; source safe/21env.sh
-    cd /var/www/html/backup/mysql
-    mcsmysql -uroot -p$mysqlrootpassw  < cmmdata-mcs.sql
-    mcsmysql -uroot -p$mysqlrootpassw  < cmmlist-mcs.sql
+cd; source safe/21env.sh
+cd /var/www/html/backup/mysql
+mcsmysql -uroot -p$mysqlrootpassw  < cmmdata-mcs.sql
+mcsmysql -uroot -p$mysqlrootpassw  < cmmlist-mcs.sql
 
-    mcsmysql -uroot -p$mysqlrootpassw  < pmdsdata3-cmmdb-regulr_no-maindata-mysql.sql
-   
+mcsmysql -uroot -p$mysqlrootpassw  < pmdsdata3-cmmdb-regulr_no-maindata-mysql.sql
+
 
 
 #ERROR 1178 (42000) at line 30: The storage engine for the table doesn't support IDB-2029: Lock table command is currently not supported in Columnstore.
 #mcsmysql -uroot -pa  < pmdsdata3-cmmdb-spectables-mysql.sql
 
-    #cpimport dbName tblName [loadFile]
+#cpimport dbName tblName [loadFile]
 
 dir1='/usr/local/mariadb/columnstore'
 sudo setfacl -R -m group:www-data:rwx $dir1
@@ -80,27 +83,36 @@ sudo usermod -a -G mysql  albe
 sudo chmod -R 775  $dir1
 sudo chmod -R g+rws  $dir1
 
-    cd /var/www/html/backup/mysql
-    cpimport cmmdb cmmdata cmmdata.txt -s '\t'
-    cpimport cmmdb cmmlist cmmlist.txt -s '\t'
+cd /var/www/html/backup/mysql
+cpimport cmmdb cmmdata cmmdata.txt -s '\t'
+cpimport cmmdb cmmlist cmmlist.txt -s '\t'
 
 
-    cd /var/www/html/backup/mysql
-    cpimport cmmdb cmmdata cmmdata-1m.txt -s '\t'
+cd /var/www/html/backup/mysql
+cpimport cmmdb cmmdata cmmdata-1m.txt -s '\t'
 
-    cd /var/www/html/backup/mysql
-    cpimport cmmdb cmmdata cmmdata-5m.txt -s '\t'
+cd /var/www/html/backup/mysql
+cpimport cmmdb cmmdata cmmdata-5m.txt -s '\t'
 
-    cd /var/www/html/backup/mysql
-    cpimport cmmdb cmmdata cmmdata-16.36m.txt -s '\t'
-    #  rsync -avv  /var/lib/mysql-files/cmmdb/cmmdata-16.36m.txt   10.4.1.245:/var/www/html/backup/mysql/
-    tail /var/lib/mysql-files/cmmdb/cmmdata-16.36m.txt
+cd /var/www/html/backup/mysql
+cpimport cmmdb cmmdata cmmdata-16.36m.txt -s '\t'
+#  rsync -avv  /var/lib/mysql-files/cmmdb/cmmdata-16.36m.txt   10.4.1.245:/var/www/html/backup/mysql/
+tail /var/lib/mysql-files/cmmdb/cmmdata-16.36m.txt
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
+
+
+
+
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 exit 0
 

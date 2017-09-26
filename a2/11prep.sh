@@ -14,6 +14,7 @@
 
 # Step 1
 
+# edit a2/24start.sh. use the mariadb columnstore stanza or the regularmysqlserver stanza. Or edit as you wish.
 
 cd
 sudo apt-get update
@@ -42,12 +43,28 @@ cd ; git clone https://github.com/dgleba/vamp206a.git shc
 #  - install sw  
 #  - create data folders and permissions  
 #  - import sample data  
-#
 
 
 
 cd ; cd shc ; git pull
 cd ; sudo chmod -R +x shc/ ; sudo shc/a2/24start.sh 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+
+
+
+# Step 4
+
+
+# run apps/mcs/mariadbcolumnstore-step1.sh per the usasge info at the top of the file..
+
+
+# Step 5
+
+
+# paste commands from  apps/mcs/mariadbcolumnstore-step2.sh
+
+
+
+# done
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
