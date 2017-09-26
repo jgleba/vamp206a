@@ -12,6 +12,7 @@ set -vx
 # make directories.
 # html
 sudo mkdir -p /var/www/html
+sudo mkdir -p /var/www/html/backup/mysql
 
 #
 # make tempfiles folder writable. This is used with cilist, tnlist and others to write excel files and mail them..

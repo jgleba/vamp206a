@@ -16,23 +16,31 @@
 
 # set root password..
 
+cd
+set +vx
+cd; source safe/21env.sh
+set -vx
+
 mcsmysql 
 
- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('a');
- SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('a');
- SET PASSWORD FOR 'root'@'::1'       = PASSWORD('a');
- SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD('a');
+ SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$mysqlrootpassw');
+ SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('$mysqlrootpassw');
+ SET PASSWORD FOR 'root'@'::1'       = PASSWORD('$mysqlrootpassw');
+ SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD('$mysqlrootpassw');
   FLUSH PRIVILEGES;
   
+# mcsmysql -uroot
+# then...
+# SET PASSWORD FOR 'root'@'localhost' = PASSWORD('a');
+# SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('a');
+# SET PASSWORD FOR 'root'@'::1'       = PASSWORD('a');
+# SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD('a');
+#  FLUSH PRIVILEGES;
   
 
 # run this to setup db's and users...
   
 cd
-set +vx
-source safe/21env.sh
-set -vx
-
 shc/apps/mcs/53mcsimp.sh
   
   #  from  https://github.com/dgleba/vamp206a/blob/master/apps/mcs/53mcsimp.sh
@@ -48,11 +56,12 @@ shc/apps/mcs/53mcsimp.sh
 
 #    create columnstores...
 
+    cd; source safe/21env.sh
     cd /var/www/html/backup/mysql
-    mcsmysql -uroot -pa  < cmmdata-mcs.sql
-    mcsmysql -uroot -pa  < cmmlist-mcs.sql
+    mcsmysql -uroot -p$mysqlrootpassw  < cmmdata-mcs.sql
+    mcsmysql -uroot -p$mysqlrootpassw  < cmmlist-mcs.sql
 
-    mcsmysql -uroot -pa  < pmdsdata3-cmmdb-regulr_no-maindata-mysql.sql
+    mcsmysql -uroot -p$mysqlrootpassw  < pmdsdata3-cmmdb-regulr_no-maindata-mysql.sql
    
 
 

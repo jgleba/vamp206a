@@ -196,7 +196,7 @@ sudo phpenmod mysqli
 
 sudo apt-get -y install phpmyadmin php-mbstring php-gettext
 
-sudo apt-get install -y apache2
+sudo apt-get -t install  apache2
 
 sudo systemctl restart apache2
 
@@ -208,7 +208,7 @@ sudo ufw allow 3306
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+cd
 source shc/a2/43apach.sh
 
 file1="/etc/php/7.0/apache2/php.ini"
