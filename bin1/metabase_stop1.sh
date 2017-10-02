@@ -3,3 +3,6 @@
 
 pid=`ps aux | grep metabase.jar | awk '{print $2}'`
 kill -9 $pid
+echo
+echo Completed running metabase_stop1.sh.
+echo

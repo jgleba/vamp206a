@@ -1,8 +1,19 @@
 #!/bin/bash
 
+cd
+source shc/21env.sh
+date
+
 cd /srv/web/metabase
 
 export MB_JETTY_PORT=2012
+
+export MB_DB_TYPE=mysql
+export MB_DB_DBNAME=metabasedb
+export MB_DB_PORT=3306
+export MB_DB_USER=sysuser
+export MB_DB_PASS=$mysql_lukup_pass
+export MB_DB_HOST=localhost
 
 exec java -jar metabase.jar  >> /home/albe/log/metabasebi.log 2<&1 &
 

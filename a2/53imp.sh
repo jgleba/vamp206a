@@ -154,8 +154,9 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtr
 # I ran this on the commandlne...
 #              mysql -uroot -p  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '34asfviektighdiekjs' ;"
 
-mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'sysuser'@'localhost' IDENTIFIED BY '$mysqluserpass';"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sysuser'@'localhost' IDENTIFIED BY '$mysqluserpass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw -e "create database metabasedb";
+mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'sysuser'@'localhost' IDENTIFIED BY '$mysql_lukup_pass';"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sysuser'@'localhost' IDENTIFIED BY '$mysql_lukup_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON metabasedb.* TO sysuser@localhost ;"
 
 
