@@ -53,8 +53,9 @@ cd ; sudo chmod -R +x shc/ ; sudo shc/a2/24start.sh 2>&1 | tee -a v206_start_log
 
 # Step 4
 
+# If you have not used the  regularmysqlserver stanza in a2/24start.sh then you can install mariadb columnstore...
 
-# run apps/mcs/mariadbcolumnstore-step1.sh per the usasge info at the top of the file..
+# run apps/mcs/mariadbcolumnstore-step1.sh per the usage info at the top of that file..
 
 
 # Step 5

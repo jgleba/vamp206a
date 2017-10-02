@@ -123,6 +123,13 @@ exit 0
 notes..
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-09-27[Sep-Wed]21-33PM
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 https://mariadb.com/kb/en/library/mariadb-columnstore-software-upgrade-1011-to-110-beta/
 
 
