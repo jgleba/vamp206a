@@ -97,6 +97,8 @@ mysql -uroot -p$mysqlrootpassw -e "create database greygold";
 #
 #mysql -uroot -p$mysqlrootpassw --one-database cilist < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database dgnote130 < /var/www/html/backup/mysql/pmdsdata3-dgnote130-regulr-mysql.sql
+mysql -uroot -p$mysqlrootpassw --one-database shiftcsd1 < /var/www/html/backup/mysql/pmdsdata3-shiftcsd1-regulr-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database leanmfg < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database prodrptdb < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql
 #mysql -uroot -p$mysqlrootpassw --one-database shift_smsmeer < /var/www/html/backup/mysql/pmdsdata3-all-mysql.sql

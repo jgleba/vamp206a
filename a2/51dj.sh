@@ -71,7 +71,7 @@ listen 8986
 #
 ############
 # http://pmds-data.stackpole.ca:8987/mysite/admin/
-# http://192.168.88.34:8987/mysite/admin/
+# http://192.168.88.33:8987/mysite/admin/
 listen 8987
 <VirtualHost *:8987>
     DocumentRoot /var/www/html/django/mysite

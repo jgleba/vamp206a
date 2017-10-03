@@ -66,7 +66,7 @@ cd;
 
 }
 
-columnstore
+#columnstore
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -107,7 +107,7 @@ cd;
 
 }
 
-# regularmysqlserver
+ regularmysqlserver
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
