@@ -28,7 +28,7 @@ sudo usermod -a -G sambashare  $nuser
 while true; do
     read -p "Do you wish to add this user to www-data group?" yn
     case $yn in
-        [Yy]* ) sudo usermod -a -G www,www-data $nuser; break;;
+        [Yy]* ) sudo usermod -a -G www-data $nuser; break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac

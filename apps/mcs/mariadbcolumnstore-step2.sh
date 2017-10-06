@@ -112,15 +112,83 @@ tail /var/lib/mysql-files/cmmdb/cmmdata-16.36m.txt
 
 
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 exit 0
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+notes..
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-notes..
+
+sudo nano /usr/local/mariadb/columnstore/etc/Columnstore.xml
+
+https://mariadb.com/kb/en/library/configuring-columnstore-cross-engine-joins/
+
+
+from..
+
+	<CrossEngineSupport>
+		<Host>unassigned</Host>
+		<Port>3306</Port>
+		<User>unassigned</User>
+		<Password/>
+	</CrossEngineSupport>
+
+to.. 
+
+    <CrossEngineSupport>
+        <Host>127.0.0.1</Host>
+        <Port>3306</Port>
+        <User>root</User>
+        <Password>pwd</Password>
+    </CrossEngineSupport>
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ldap
+
+http://discourse.metabase.com/t/need-some-ldap-help/1885/3
+
+DC=STACKPOLE,DC=CA
+User search base does not exist or is unreadable
+
+
+(&(|(sAMAccountName={login})(userPrincipalName={login}))(memberOf:1.2.840.113556.1.4.1941:=cn=Metabase,ou=Services,dc=stackpole,dc=ca))
+
+(&(|(sAMAccountName={login})(userPrincipalName={login}))(memberOf:1.2.840.113556.1.4.1941:=ou=Users,dc=stackpole,dc=ca))
+
+(&(|(sAMAccountName={login})(userPrincipalName={login})) )
+
+(&(|(sAMAccountName={login}) ) )
+
+http://discourse.metabase.com/t/cant-login-with-ldap-user/1872/3
+
+
+refer 
+
+ftp://albe@pmdsdata3/srv/web/lpa346/config/ldap.yml
+
+ftp://albe@pmdsdata3/srv/web/utilities-rails/ldapsearchrb/ldap-dept-list3.rb
+
+/var/www/html/test2/ldapquery/ldap-test-4-search-works.php
+
+ftp://albe@pmdsdata3/var/www/html/shiftcsd1sup/conf.ini
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

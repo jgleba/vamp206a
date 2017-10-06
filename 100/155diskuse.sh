@@ -22,6 +22,11 @@ gunzip xdiskusage.gz
 cp xdiskusage ~/bin
 chmod +x ~/bin/xdiskusage
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2017-10-03_Tue_09.36-AM
+
+ncdu  linux console disk usage analyzer
 
 
 
