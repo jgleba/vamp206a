@@ -188,6 +188,28 @@ mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'stread
 mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
 
 
+mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON argostat.* TO sthistorian@localhost ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON argostat.* TO 'sthistorian'@'%' ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'localhost' IDENTIFIED BY '$mysql_stread_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'%' IDENTIFIED BY '$mysql_stread_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT select ON argostat.* TO stread@localhost ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "GRANT select ON argostat.* TO stread@'%' ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'sthistorian'@'localhost';"
+mcsmysql -uroot -p$mysqlrootpassw  -e "grant ALL on infinidb_vtable.* to 'sthistorian'@'%';"
+mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
+
+
+mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from stread@localhost ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON hrdb.* from stread@localhost ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from dg417@localhost ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from dg417@'%' ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON hrdb.* from dg417@localhost ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON hrdb.* from dg417@'%' ;"
+mcsmysql -uroot -p$mysqlrootpassw  -e "flush privileges;"
+
+
+
 #perms...
 
 sudo sudo mkdir -p /var/www/html
