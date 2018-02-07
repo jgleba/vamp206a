@@ -8,6 +8,7 @@ function Purpose() {
 
 dclark: 10.4.15.105
 kashmiri-vm: 10.4.15.106
+restore of pmdsdata3 2018-02-07: 10.4.15.250
 
 
 END
@@ -35,7 +36,7 @@ iface lo inet loopback
 # The primary network interface
 auto eth0
 iface eth0 inet static
-   address 10.4.15.106
+   address 10.4.15.250
    #stackpole specfic settings
    netmask 255.255.192.0
    #network 10.253.0.0

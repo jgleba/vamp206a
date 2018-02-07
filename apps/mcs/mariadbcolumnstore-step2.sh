@@ -233,3 +233,7 @@ sudo chmod -R g+rws  /var/lib/mysql-files
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  
+see sftp://albe@10.4.1.245/var/www/html/0docs/cmmimportdata-pd6.sh
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

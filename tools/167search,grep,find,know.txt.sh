@@ -196,6 +196,9 @@ grep -ir --include="*.sql" variab .
  grep -ir --include="*.sql" -l declare .
 
  grep -ir --include="*.sql" -l set.*@ .
+ grep -ir --include="*.sh"  most_columns_2excel *
+ grep -ir --include="*.ini"  datagrid *
+ 
  
  
 
@@ -222,6 +225,10 @@ grep 'devise'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,.git} --exclude
 grep 'pundit'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
 
 grep 'tempera'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
+
+grep 'DROP Procedure'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
+
+
 
 grep 'mcmaster'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,templates_c,backup,test,test2} --exclude={*.sublime-workspace,*.geany,error_log,*.sql,*.msg} .
 
@@ -344,3 +351,20 @@ find . -type d -not \( -name tmp -prune \) -iname lpa346
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2018-01-02[Jan-Tue]11-45AM
+
+exclude the two lines that have this part_no..
+
+grep -v  '795907' /srv/file/argostat/datatest/in/3/imp_argo_tosql_3_2018.01.01_22.34.02.txt >  imp_argo_tosql_3_2018.01.01_22.34.02-reworked-dg.txt
+
+grep -va --text  '795907' /srv/file/argostat/datatest/in/3/imp_argo_tosql_3_2018.01.01_22.34.02.txt >  imp_argo_tosql_3_2018.01.01_22.34.02-reworked-dg.txt
+
+
+split --bytes=260M /srv/file/argostat/datatest/in/3/imp_argo_tosql_3_2018.01.01_22.34.02-reworked-dg.txt  split_imp_argo_tosql_3_2018.01.01__
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -14,6 +14,8 @@ saynow()
 date1=$(date +"__%Y.%m.%d_%H.%M.%S")
 echo $date1
 timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+# I think with lib.trap.sh the read prompt doesn't show. so..   timeout1=111 ; echo "Press ENTER or wait ${timeout1} seconds...." ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+  
 }
 
 backup1()

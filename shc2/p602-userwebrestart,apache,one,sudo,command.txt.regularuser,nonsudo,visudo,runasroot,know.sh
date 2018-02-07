@@ -39,15 +39,9 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 
 
-
-
-
-
-
 ######  ******  Just visudo to create the file. it checks for errors and saves having to manually fix it with the server offline.
 
 sudo  visudo -f /etc/sudoers.d/websreload2
-
 
 
 
@@ -59,6 +53,8 @@ read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
 
 
 function howto() {
+
+
 # begin block comment =============================
 : <<'END'
 # better.. create the file in /tmp/dg/websreload2 , sudo chmod 0440 websreload2 , copy it into /etc/sudoers.d ...
@@ -75,21 +71,51 @@ sudo chmod 0440 /tmp/dg/websreload2
 sudo cp /tmp/dg/websreload2 /etc/sudoers.d/websreload2
 cat /etc/sudoers.d/websreload2
 END
+
 # end block comment ===============================
 }
 
-#
-date
-#
 
+
+for metabase restart..
+
+# sudo visudo
+
+%www-data   ALL= NOPASSWD:  /user/binjava
+
+%www-data ALL= NOPASSWD: /etc/init.d/metabase1
+
+%www-data   ALL= NOPASSWD:  /home/albe/bin/metabase_stopstart.sh
+%www-data   ALL= NOPASSWD:  /home/albe/bin/metabase_start.sh
+%www-data   ALL= NOPASSWD:  /home/albe/bin/metabase_stop.sh
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+for mcs...
+
+
+# sudo visudo
+#resolve no tty cron error.. cpimport cron sudo: no tty present and no askpass program specified
+# albe ALL=(ALL) NOPASSWD: ALL
+works..
+albe   ALL= NOPASSWD:  /usr/local/mariadb/columnstore/bin/cpimport
+
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
 
 
-
 ### notes....
+
+
 
 
 

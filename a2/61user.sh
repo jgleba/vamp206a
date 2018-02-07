@@ -57,7 +57,7 @@ echo "ftpup:ftp" | sudo chpasswd
 sudo mkdir /home/ftpup/upload
 sudo chmod 755 -R /home/ftpup/upload
 
-sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo  $userv
+sudo usermod -a -G adm,dialout,plugdev,sambashare,sudo,ftpup  $userv
 sudo usermod -a -G www-data  $userv
 
 

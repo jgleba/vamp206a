@@ -8,6 +8,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 # copy vne.sh over. IT is where I edit 21env.sh for my personal settings...
 mkdir -p tmp01
 mkdir -p safe
+chmod -R 700 safe/ 
 
 sudo mkdir -p /tmp01/tempfiles
 sudo chmod -R 700 tmp01
