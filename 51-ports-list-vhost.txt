@@ -92,6 +92,9 @@ see...
 ..
 1345
 
+1346    prod364 api for inspection cell bypass Chris Strutton 2018-02-09
+..
+1349
 
 
 
@@ -107,6 +110,7 @@ dev mode...
 3016    carlsona
 3017    brail351d
 3018
+3019    brail347a22
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
