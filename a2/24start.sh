@@ -64,12 +64,17 @@ cd; source shc/a2/61user.sh
 cd; source shc/a2/63bauth.sh 
 cd;
 
+# mariadb columnstore -- then look at apps/mcs/*
+
+
 }
 
-#columnstore
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 
 regularmysqlserver()
 {
@@ -107,21 +112,28 @@ cd;
 
 }
 
- regularmysqlserver
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+
+
+
+# Main...
+
+#  uncomment one function or the other, regular or columnstore...
+
+ regularmysqlserver
+#columnstore
+
+
+ 
 # set all files owner and group in home to $userv  
 cd
 sudo chown -R $userv:$userv . 
 sudo chmod -R +x bin
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 
 set +vx
 

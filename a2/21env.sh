@@ -20,7 +20,7 @@ export user2="pmdsu"
 #hostname from unattended iso...
 export orig_hostname="vamp206b"
 # new hostname..
-export default_hostname="pmdsdata9"
+export default_hostname="pmdsdata99876"
 export default_domain="local"
 
 export mysqlrootpassw="a"
