@@ -51,6 +51,7 @@ set -vx
 
 
 sudo localedef -i en_US -f UTF-8 en_US.UTF-8
+
 sudo apt-get update
 
 # sudo apt-get -y install expect  -- i moved this up to here becuase I got unmet dependencies. -f install would simply abort after pressing y - for yes.
@@ -64,11 +65,13 @@ sudo apt-get -f install
 # sudo apt-get -y install tzdata libtcl8.6 expect perl openssl file sudo libdbi-perl libboost-all-dev libreadline-dev rsync libsnappy1v5 net-tools libdbd-mysql-perl
 
 sudo apt-get -y install tzdata libtcl8.6 
+sudo apt-get -y install  expect 
 sudo apt-get -y install perl openssl file sudo 
 sudo apt-get -y install libdbi-perl libboost-all-dev 
 sudo apt-get -y install  libreadline-dev rsync 
 sudo apt-get -y install  libsnappy1v5 net-tools 
 sudo apt-get -y install  libdbd-mysql-perl
+
 
 sudo apt-get -f install 
 
@@ -91,7 +94,8 @@ cd sw1
 
 #2017-09-25_Mon_12.27-PM troubles in virtualbox, database crashes, vbox errors, etc... wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.1.0/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.1.0-1-xenial.x86_64.deb.tar.gz
 #
-wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.0.11/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.0.11-1-xenial.x86_64.deb.tar.gz
+# wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.0.11/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.0.11-1-xenial.x86_64.deb.tar.gz
+   wget https://downloads.mariadb.com/enterprise/htxx-hpee/mariadb-columnstore/1.1.2/ubuntu/dists/xenial/main/binary_amd64/mariadb-columnstore-1.1.2-1-xenial.x86_64.deb.tar.gz
 
 # tar zxvf mariadb-columnstore-1.0.11-1-xenial.x86_64.deb.tar.gz
   # mariadb-columnstore-1.0.11-1-x86_64-xenial-client.deb
@@ -176,7 +180,8 @@ sudo chmod -R g+rws  $dir1
 # phpmyadmin..
 
 
-# install mysql and give password to installer
+# install mysql php related items and give password(s) to installers...
+
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassw"
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysqlrootpassw"
 
