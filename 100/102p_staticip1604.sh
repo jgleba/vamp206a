@@ -13,6 +13,9 @@ dclark: 10.4.15.105
 kashmiri-vm: 10.4.15.106
 
 
+was
+  iface enp0s3 inet static
+
 END
 # end block comment ===============================
 }
@@ -38,9 +41,9 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
-auto enp0s3
-iface enp0s3 inet static
-   address "${varg1}"
+auto eth0
+iface eth0 inet static
+   address ${varg1}
    #stackpole specfic settings
    netmask 255.255.192.0
    #network 10.253.0.0
@@ -52,7 +55,7 @@ iface enp0s3 inet static
 #
 EOF
 
-sudo ip addr flush enp0s3 && sudo systemctl restart networking
+sudo ip addr flush eth0 && sudo systemctl restart networking
 ip add
 ping -c 3 google.com
 
