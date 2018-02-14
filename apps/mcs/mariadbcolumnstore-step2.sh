@@ -14,9 +14,11 @@
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+echo just paste this from the command line, dont execute as script..
+exit 98
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # set root password..
 
@@ -25,22 +27,22 @@ set +vx
 cd; source safe/21env.sh
 set -vx
 
-mcsmysql 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+tmpfile9='/tmp/heredoctmpfile99.sql'
+cat << 'HEREDOC'> $tmpfile9
  SET PASSWORD FOR 'root'@'localhost' = PASSWORD("$mysqlrootpassw");
  SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD("$mysqlrootpassw");
  SET PASSWORD FOR 'root'@'::1'       = PASSWORD("$mysqlrootpassw");
  SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD("$mysqlrootpassw");
   FLUSH PRIVILEGES;
-  
-# mcsmysql -uroot
-# then...
-# SET PASSWORD FOR 'root'@'localhost' = PASSWORD('a');
-# SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('a');
-# SET PASSWORD FOR 'root'@'::1'       = PASSWORD('a');
-# SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD('a');
-#  FLUSH PRIVILEGES;
-  
+
+HEREDOC
+
+mcsmysql  < $tmpfile9
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 # run this to setup db's and users...
   
@@ -50,14 +52,28 @@ set -vx
 shc/apps/mcs/53mcsimp.sh
   
 
-  
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+# set permissions..
 
+dir1='/usr/local/mariadb/columnstore'
+sudo setfacl -R -m group:www-data:rwx $dir1
+sudo getfacl $dir1
+sudo usermod -a -G mysql  albe
+# this didn't work, so I just did ...
+sudo chmod -R 775  $dir1
+sudo chmod -R g+rws  $dir1
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+# optional..
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #    create columnstores...
 
@@ -74,14 +90,6 @@ mcsmysql -uroot -p$mysqlrootpassw  < pmdsdata3-cmmdb-regulr_no-maindata-mysql.sq
 #mcsmysql -uroot -pa  < pmdsdata3-cmmdb-spectables-mysql.sql
 
 #cpimport dbName tblName [loadFile]
-
-dir1='/usr/local/mariadb/columnstore'
-sudo setfacl -R -m group:www-data:rwx $dir1
-sudo getfacl $dir1
-sudo usermod -a -G mysql  albe
-# this didn't work, so I just did ...
-sudo chmod -R 775  $dir1
-sudo chmod -R g+rws  $dir1
 
 cd /var/www/html/backup/mysql
 cpimport cmmdb cmmdata cmmdata.txt -s '\t'
@@ -109,10 +117,17 @@ tail /var/lib/mysql-files/cmmdb/cmmdata-16.36m.txt
 
 
 
+# end of code.
 
 
 
 
+
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,6 +139,18 @@ exit 0
 notes..
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# mcsmysql -uroot
+# then...
+# SET PASSWORD FOR 'root'@'localhost' = PASSWORD('a');
+# SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('a');
+# SET PASSWORD FOR 'root'@'::1'       = PASSWORD('a');
+# SET PASSWORD FOR 'pma'@'localhost'  = PASSWORD('a');
+#  FLUSH PRIVILEGES;
+  
+  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

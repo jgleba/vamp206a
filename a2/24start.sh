@@ -125,8 +125,8 @@ cd;
 
 #  uncomment one function or the other, regular or columnstore...
 
- regularmysqlserver
-#columnstore
+# regularmysqlserver
+columnstore
 
 
  

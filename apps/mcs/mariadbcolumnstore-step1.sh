@@ -181,9 +181,26 @@ sudo chmod -R g+rws  $dir1
 
 
 # install mysql php related items and give password(s) to installers...
+sleep 3
 
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassw"
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysqlrootpassw"
+# got error on next line...
+# sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassw"
+# sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $mysqlrootpassw"
+
+# Error:
+# sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $mysqlrootpassw"
+# shc/apps/mcs/mariadbcolumnstore-step1.sh: 185: shc/apps/mcs/mariadbcolumnstore-step1.sh: Syntax error: redirection unexpected
+#
+# ggl: sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password " Syntax error: redirection unexpected
+#
+# https://serverfault.com/questions/783527/non-interactive-silent-install-of-mysql-5-7-on-ubuntu-16-04-lts
+#
+
+echo debconf mysql-server/root_password password $mysqlrootpassw | \
+  sudo debconf-set-selections
+echo debconf mysql-server/root_password_again password $mysqlrootpassw | \
+  sudo debconf-set-selections
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
