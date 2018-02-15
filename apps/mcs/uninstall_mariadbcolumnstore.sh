@@ -9,11 +9,9 @@ usage()
            cd ; sudo chmod -R +x shc/ ; 
            sudo  shc/apps/mcs/uninstall_mariadbcolumnstore.sh 2>&1 | tee -a v206_mcs-uninstall-log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
-
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -74,7 +72,10 @@ Title:  .
 
 
 
+
 uninstall summary..
+
+
 
 sudo su
 
@@ -114,7 +115,11 @@ locate my.cnf
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
 detail..
+
+
 
 # remove list of packages from dpkg --list  --  https://linuxprograms.wordpress.com/tag/dpkg-remove/
 
