@@ -230,8 +230,12 @@ sudo ufw allow 3306
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# cd;  sudo shc/a2/43apach.sh 2>&1 | tee -a v206_mcs-setup-log$(date +"__%Y-%m-%d_%H.%M.%S").log
 cd
-source shc/a2/43apach.sh
+source shc/a2/43apach.sh 
+
+
+#  adminer login error  No such file or directory
 
 file1="/etc/php/7.0/apache2/php.ini"
 # back it up with a unique name using a timestamp..
@@ -241,6 +245,10 @@ sudo sed -i 's/.*mysqli.default_socket.*/mysqli.default_socket = \/usr\/local\/m
 
 sudo systemctl restart apache2
 
+
+# cd; sudo shc/a2/43phpmyadmin.sh 
+cd
+source shc/a2/43phpmyadmin.sh 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

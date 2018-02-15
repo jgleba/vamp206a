@@ -29,8 +29,8 @@ set -vx
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-tmpfile9='/tmp/heredoctmpfile99.sql'
-cat << 'HEREDOC'> $tmpfile9
+tmpfile9='/tmp/heredoctmpfile99b.sql'
+cat << HEREDOC> $tmpfile9
  SET PASSWORD FOR 'root'@'localhost' = PASSWORD("$mysqlrootpassw");
  SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD("$mysqlrootpassw");
  SET PASSWORD FOR 'root'@'::1'       = PASSWORD("$mysqlrootpassw");
@@ -38,6 +38,8 @@ cat << 'HEREDOC'> $tmpfile9
   FLUSH PRIVILEGES;
 
 HEREDOC
+
+cat $tmpfile9
 
 mcsmysql  < $tmpfile9
 
@@ -50,6 +52,9 @@ cd
 cd; source safe/21env.sh
 set -vx
 shc/apps/mcs/53mcsimp.sh
+  
+echo '<?php phpinfo(); ?>' > /var/www/html/test2/phpinfo.php
+
   
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
