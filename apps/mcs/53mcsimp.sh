@@ -67,6 +67,7 @@ mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists prodrptdb";
 #mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists lukup";
 #mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists hrdb";
 mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists greygold";
+mcsmysql -uroot -p$mysqlrootpassw -e "create database if not exists ignition";
 
 
 #preferred..
