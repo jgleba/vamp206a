@@ -53,7 +53,7 @@ sudo crontab -u albe -l  # list
 
 #import sc_production..
 sudo crontab -u albe -l | grep -v 'prodrpt/actions/import-sc_production.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l | { cat; echo "10 7-19 * * 0-6 source $HOME/.profile; /var/www/html/prodrpt/actions/import-sc_production.sh 2>&1 | tee -a /home/albe/log/sc_production_import.log"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "10 * * * 0-6 source $HOME/.profile; /var/www/html/prodrpt/actions/import-sc_production.sh 2>&1 | tee -a /home/albe/log/sc_production_import.log"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l  # list
 
 

@@ -47,13 +47,14 @@ mcsmysql  < $tmpfile9
 
 
 # run this to setup db's and users...
+
+echo '<?php phpinfo(); ?>' > /var/www/html/test2/phpinfo.php
   
 cd
 cd; source safe/21env.sh
 set -vx
 shc/apps/mcs/53mcsimp.sh
   
-echo '<?php phpinfo(); ?>' > /var/www/html/test2/phpinfo.php
 
   
 
@@ -62,6 +63,7 @@ echo '<?php phpinfo(); ?>' > /var/www/html/test2/phpinfo.php
 
 # set permissions..
 
+
 dir1='/usr/local/mariadb/columnstore'
 sudo setfacl -R -m group:www-data:rwx $dir1
 sudo getfacl $dir1
@@ -69,6 +71,7 @@ sudo usermod -a -G mysql  albe
 # this didn't work, so I just did ...
 sudo chmod -R 775  $dir1
 sudo chmod -R g+rws  $dir1
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
