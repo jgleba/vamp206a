@@ -52,7 +52,14 @@ BLOCKCOMMENT
 
 #main...
 saynow
-backup1
+
+cd
+file1="/etc/rsnapshot.conf"
+sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt     # do you need sudo cp?
+mkdir ~/work
+cp $file1 work/
+
+
 #
 
 
@@ -61,7 +68,32 @@ backup1
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 exit 0
 
-end of file comment
+end of file comment - this will not excecute.
 
-this will not excecute.
 
+
+file1="/etc/rsnapshot.conf"
+sudo cp ~/work/rsnapshot.conf $file1 
+
+
+sudo rsnapshot alpha
+
+
+https://stackoverflow.com/questions/7788046/how-do-you-get-rsync-to-exclude-any-directory-named-cache
+
+
+
+# list files  --  last 1 hour modified  -- very good and fast.
+
+# sudo find  . -mmin -60 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee -a /home/albe/find21.txt
+# really good.. http://www.liamdelahunty.com/tips/linux_find_exclude_multiple_directories.php
+  sudo find  .  -path './sys' -prune -o   -path './proc' -prune -o   -mmin -60 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
+  or
+  sudo find  .   -path './sys' -prune -o   -path './proc' -prune -o  -mmin -60  -type f -print0 | xargs -0 stat --printf='%Y:%y %A %h %U %G %s \t %n\n'  | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
+  
+  sudo find  .   -path '/sys' -prune -o   -path '/proc' -prune -o  -mmin -60  -type f -print0 | xargs -0 stat --printf='%Y:%y %A %h %U %G %s \t %n\n'  | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
+
+  
+  
+
+=

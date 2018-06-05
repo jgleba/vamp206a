@@ -52,9 +52,10 @@ sudo crontab -u albe -l  # list
 
 
 #import sc_production..
+sudo crontab -u albe -l  |grep sc_pro # list 
 sudo crontab -u albe -l | grep -v 'prodrpt/actions/import-sc_production.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l | { cat; echo "10 * * * 0-6 source $HOME/.profile; /var/www/html/prodrpt/actions/import-sc_production.sh 2>&1 | tee -a /home/albe/log/sc_production_import.log"; } | sudo crontab -u albe -  #add
-sudo crontab -u albe -l  # list
+sudo crontab -u albe -l | { cat; echo "10,25,40,55 * * * 0-6 source $HOME/.profile; /var/www/html/prodrpt/actions/import-sc_production.sh 2>&1 | tee -a /home/albe/log/sc_production_import.log"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l  |grep sc_pro # list 
 
 
 sudo crontab -u albe -l | { cat; echo "55 6,18 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1"; } | sudo crontab -u albe -  #add
@@ -210,7 +211,7 @@ albe@pmdsdata3:/srv/web/shiftcsd1p272$ awk '{printf "%s ~ %s ~ %s\n", $2,$1,$0}'
 11 ~ 31 ~ 31 11 * * 4   /var/www/html/shiftcsd2sup/actions/email_tnopen_script.sh >> /home/albe/log/emailtnopen1.log 2<&1
 15 ~ 22 ~ 22 15 * * 0-6 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1
 15 ~ 43 ~ 43 15 * * 1-5 /var/www/html/lukup/actions/imp-lukup.sh >> /home/albe/log/lukupimp.log 2<&1
-15 ~ 49 ~ 49 15 * * 1-5 /var/www/html/cilist/actions/import-csv-mysql-cridian-eerprise.sh >> /home/albe/log/importcerenterp1.log 2<&1
+15 ~ 49 ~ 49 15 * * 1-5 /var/www/html/cilist/actions/import-csv-mysql-cridian-eerprise.sh >> /home/albe/log/importceren....1.log 2<&1
 6,18 ~ 55 ~ 55 6,18 * * 1-7  /var/www/html/prodrpt/actions/sendemail_recentdowntime_cron.sh >> /home/albe/log/sendrecentdowntime_cron.log 2<&1
 
 
@@ -246,7 +247,7 @@ sudo crontab -u albe -l | { cat; echo "49 15 * * 1-7 /var/www/html/0docs-pmdsdat
 #sudo crontab -u albe -l | { cat; echo "51 21 * * 1-7 /var/www/html/0docs-pmdsdata/backup2.sh >> /home/albe/log/backup2.log 2<&1"; } | sudo crontab -u albe -  #add
 
 dont try to put a date in the filename..
-#just use logrotate... this is dumb...sudo crontab -u albe -l | { cat; echo '58 13 * * 1-5 /var/www/html/cilist/actions/import-csv-mysql-c-e.sh >> /home/albe/log/importcerenterp1_"/bin/date +\%Y\%m\%d\%H\%M\%S.log" 2<&1'; } | sudo crontab -u albe -  #add
+#just use logrotate... this is dumb...sudo crontab -u albe -l | { cat; echo '58 13 * * 1-5 /var/www/html/cilist/actions/import-csv-mysql-c-e.sh >> /home/albe/log/importcerent....1_"/bin/date +\%Y\%m\%d\%H\%M\%S.log" 2<&1'; } | sudo crontab -u albe -  #add
 
 # test...
 sudo crontab -u albe -l | { cat; echo "16 15 * * 2 /var/www/html/cilist/actions/email_owners_script.sh >> /home/albe/log/testowners_taskemail1.log 2<&1"; } | sudo crontab -u albe -  #add

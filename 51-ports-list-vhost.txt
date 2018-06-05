@@ -96,9 +96,16 @@ see...
 ..
 1349
 
+1350
+1351    prod367 - 2018-03-03 produciton managment app
+..
+1352
 
 
 2012    metabase  --   export MB_JETTY_PORT=2012 ; java -jar metabase.jar
+
+2022    redash
+
 
 
 

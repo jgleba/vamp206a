@@ -107,8 +107,13 @@ find $1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -nr | cut -d
 
 find $1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v tmp/ 
 
+
+
 #list 55 newest files. exclude tmp .git 
+
 find $1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n99
+
+
 
 #use other.. worked..
 find . /home /var/www /srv/web -iname kami* -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n155
@@ -137,7 +142,19 @@ find    /srv/web  -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n
 
 # newest files ....
 find  .  -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n654
+find  .  -type f -print0 | xargs -0 stat --printf='%y %A %h %U %G %s  %n\n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n654
 
+
+# last 1 day
+find  . -mtime -1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n654
+
+
+# last 1 hour modified
+# sudo find  . -mmin -60 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee -a /home/albe/find21.txt
+# really good.. http://www.liamdelahunty.com/tips/linux_find_exclude_multiple_directories.php
+  sudo find  .  -path './sys' -prune -o   -path './proc' -prune -o   -mmin -60 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
+  or
+  sudo find  .   -path './sys' -prune -o   -path './proc' -prune -o  -mmin -60  -type f -print0 | xargs -0 stat --printf='%Y:%y %A %h %U %G %s \t %n\n'  | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
 
 
 http://stackoverflow.com/questions/5566310/how-to-recursively-find-and-list-the-latest-modified-files-in-a-directory-with-s
@@ -222,7 +239,7 @@ grep '@example'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,.git} --exclu
 
 grep 'devise'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,.git} --exclude={*.sublime-workspace,*.geany,error_log}
 
-grep 'pundit'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
+grep 'before_filter'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
 
 grep 'tempera'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject} --exclude={*.sublime-workspace,*.geany,error_log}
 
@@ -309,6 +326,18 @@ Title:  .
 
  grep -ir --include="*.sql" -l set.*@ .
  
+ 
+ 
+ grep -ir --include="*.rb" whodunn .
+ 
+ 
+ grep -ir --include="*.rb" paper_tr .
+ 
+
+ # match product or products
+
+ 
+  grep -ri --include="*.sh" -E 'product(s|\s)'  *
 
 
 _____________
@@ -322,31 +351,6 @@ find . -type f -name "database.yml" | xargs grep ENV
 # Just show names matching.. 
 find . -iname 'database.yml' -type f -exec grep -l ENV '{}' \; 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Title:  .
------------------------2017-07-14[Jul-Fri]23-39PM
-
-
-121. find folders named...
-
-
-find . -maxdepth 2 -type d -name lpa34*
-
-find . -type d -name .git -exec dirname {} \;
-
-
-
-find .  \( ! -name tmp -prune \) -o \( ! -name root -prune \)  -name "*.pl" -print
-
-
-find .  \( ! -name tmp -prune \)   -name lpa346 -print
-
-
-
-find . -type d -not \( -name tmp -prune \) -iname lpa346
-
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -355,6 +359,8 @@ find . -type d -not \( -name tmp -prune \) -iname lpa346
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
 -----------------------2018-01-02[Jan-Tue]11-45AM
+
+131.
 
 exclude the two lines that have this part_no..
 
@@ -366,5 +372,91 @@ grep -va --text  '795907' /srv/file/argostat/datatest/in/3/imp_argo_tosql_3_2018
 split --bytes=260M /srv/file/argostat/datatest/in/3/imp_argo_tosql_3_2018.01.01_22.34.02-reworked-dg.txt  split_imp_argo_tosql_3_2018.01.01__
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2018-03-02[Mar-Fri]15-45PM
+
+
+141.
+
+
+see 151...
+
+
+
+locate folders named brail*
+
+not worky. it works in regexer.com
+
+locate -r "/brail(.){0,9}$/mg"
+
+no worky..
+
+locate -r 'brail' | grep "brail(.){0,9}$"
+
+
+#look for this app every dir except /web/ 
+
+    locate -r 'hrapp361'  | grep -v -e '/tmp' -e '/.git'  -e '/test' -e '/app' -e '/spec' -e '/web'
+    
+    locate -r 'hrapp361'  | grep -v -e '/tmp' -e '.git'  -e '/test' -e '/app' -e '/spec'             -e '/public'
+
+    locate -r 'brail' | grep "brail(.){0,9}$"
+
+    
+    locate -r 'brail347'  | grep -v -e '/tmp' -e '/.git'  -e '/test' -e '/app' -e '/spec' -e '/web'
+    locate -r 'brail347'  | grep -v -e '/tmp' -e '/.git'  -e '/test' -e '/app' -e '/spec'
+
+  
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-07-14[Jul-Fri]23-39PM
+
+
+151.     find folders named...
+
+
+works..
+
+fnd='brail*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ; echo . ; echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
+
+
+
+find . -maxdepth 2 -type d -name lpa34*
+
+find . -type d -name .git -exec dirname {} \;
+
+
+
+find .  \( ! -name tmp -prune \) -o \( ! -name root -prune \)  -name "*.pl" -print
+
+no..
+find .  \( ! -name tmp -prune \)   -name lpa346 -print
+
+
+yes..
+find . -type d -not \( -name tmp -prune \) -iname lpa346
+find . -type d -not \( -name tmp -prune \) -iname lpa346
+
+cd /srv
+find . -type d -not \( -name tmp -prune \) -iname 'hrap*'
+
+works..
+f1=/tmp/findtmp ; find . -type d -not \( -name tmp -prune \) -iname 'lpa*' >"$f1" ; echo OUTPUT............. ; cat "$f1" | grep -v 'denied'
+
+
+
+Excluding multiple patterns with one grep command..
+  grep -v -e 90.192.142.138 -e PIX -e Intrusion cisco.log-20151103.log
+https://unix.stackexchange.com/questions/240470/excluding-multiple-patterns-with-one-grep-command
+
+  
+  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

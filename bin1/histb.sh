@@ -13,7 +13,7 @@ saynow()
 {
 date1=$(date +"__%Y.%m.%d_%H.%M.%S")
 echo $date1
-timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+Ktimeout1=2 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
 # I think with lib.trap.sh the read prompt doesn't show. so..   timeout1=111 ; echo "Press ENTER or wait ${timeout1} seconds...." ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
   
 }
@@ -52,16 +52,25 @@ BLOCKCOMMENT
 
 #main...
 saynow
-backup1
 #
 
+# https://unix.stackexchange.com/questions/5684/history-command-inside-bash-script
+HISTFILE=~/.bash_history
+set -o history
+history | tail 
 
+hisf=$HOME/backup/historybackup
+mkdir -p $hisf
+history > $hisf/history_$date1
+
+sudo cp /root/.bash_history  $hisf/roothistory_$date1
+
+#sudo chmod 751 $hisf/**
+sudo chown albe $hisf/**
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 exit 0
 
-end of file comment
-
-this will not excecute.
+end of file comment --  this will not excecute.
 
