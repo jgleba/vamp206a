@@ -191,6 +191,18 @@ eg:
 grep -rli --exclude-dir={proc,boot,root,sys} hello /
 
 
+
+grep -v with multiple patterns.
+    grep 'test' somefile | grep -vE '(error|critical|warning)'
+
+
+    
+Excluding multiple patterns with one grep command..
+  grep -v -e 90.192.142.138 -e PIX -e Intrusion cisco.log-20151103.log
+https://unix.stackexchange.com/questions/240470/excluding-multiple-patterns-with-one-grep-command
+
+  
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 61. 
@@ -251,6 +263,11 @@ grep 'mcmaster'  -ria  --exclude-dir={tmp,bin,shared,log,nbproject,templates_c,b
 
 grep 'segeren'  -ria --include={*.php,*.txt} --exclude-dir={tmp,bin,shared,log,nbproject,templates_c,backup,test,test2} --exclude={*.sublime-workspace,*.geany,error_log,*.sql,*.msg}  . 
 
+grep 'alc123'  -ria --include={*.php,*.rb,*.yml,*.txt,*.ini} --exclude-dir={tmp,bin,shared,log,nbproject,templates_c,backup,test,test2} --exclude={*.sublime-workspace,*.geany,error_log,*.sql,*.msg}  . 
+
+grep 'password'  -ria --include={*.php,*.rb,*.yml,*.txt,*.ini} --exclude-dir={tmp,bin,shared,log,nbproject,templates_c,backup,test,test2} --exclude={*.sublime-workspace,*.geany,error_log,*.sql,*.msg}  . 
+
+
 grep 'ude pun'  -ria  --exclude-dir=tmp
 
 grep nt.sqlite3 -ria
@@ -265,6 +282,9 @@ sudo find .  -name *themerc*
 =
 list lines that end in a  az-09 charater
 cat /home/dg/tmp/ij,2009-01-26-1233001792 |grep '[a-zA-Z0-9]'$
+
+
+
 
 = 
 

@@ -43,7 +43,7 @@ function blockcomment21() {
 : <<'BLOCKCOMMENT'
 
   Purpose:   
-
+              create a timestamped log of commands run on the commandline..
 
 BLOCKCOMMENT
 }
@@ -59,7 +59,7 @@ HISTFILE=~/.bash_history
 set -o history
 history | tail 
 
-hisf=$HOME/backup/historybackup
+hisf=$HOME/historybackup
 mkdir -p $hisf
 history > $hisf/history_$date1
 
@@ -67,6 +67,8 @@ sudo cp /root/.bash_history  $hisf/roothistory_$date1
 
 #sudo chmod 751 $hisf/**
 sudo chown albe $hisf/**
+ls historybackup/
+ll historybackup/
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

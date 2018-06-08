@@ -22,6 +22,7 @@ backup1()
 {
 # create file hello, backup the original file once, and copy it with timestamp.
 # An example of how to backup a file before editing it with a script.
+# sudo echo $USER
 mkdir -p ~/tmp01
 file1="$HOME/tmp01/hello"
 echo "hello" >$file1 ; echo "foo bar">>$file1
@@ -53,6 +54,7 @@ BLOCKCOMMENT
 #main...
 saynow
 
+# get copy of /etc/rsnapshot.conf for editing.
 cd
 file1="/etc/rsnapshot.conf"
 sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt     # do you need sudo cp?
@@ -72,15 +74,78 @@ end of file comment - this will not excecute.
 
 
 
+>21.
+
+install ncdu and look for large folders to exclude from the rsnapshot. Then edit the rsnapshot.conf for the excludes.
+
+sudo ncdu
+
+
+
+>31.
+
+sudo apt install rsnapshot
+
+
+>41.
+
+# copy my rsnapshot.conf to this folder, edit as necessary and copy to /etc..
 file1="/etc/rsnapshot.conf"
 sudo cp ~/work/rsnapshot.conf $file1 
+tail -n95 $file1
+ls -la /etc/rsnapsh*
 
+
+my conf...  https://github.com/dgleba/vamp206a/blob/master/apps/rsnapshot/rsnapshot.conf
+
+
+>51.
+
+run the alpha snapshot.
 
 sudo rsnapshot alpha
 
 
+I think...
+alpha.0 is always the latest snapshot.
+alpha.1 is older
+
+
+how much space do the backup folders take?
+
+sudo su 
+  cd /rsnapshot
+sudo du . --max-depth=3  -cxh   | sort -h 
+
+
+>53.
+
+histb.sh  - store command history..    https://github.com/dgleba/vamp206a/blob/master/bin1/histb.sh
+
+sudo apt install aspell
+
+
+apps ideas to test system restore.
+
+https://searchdatacenter.techtarget.com/tutorial/Linux-command-line-tools-The-top-50
+
+
+
+>61.
+
+excluding folders info...
+
 https://stackoverflow.com/questions/7788046/how-do-you-get-rsync-to-exclude-any-directory-named-cache
 
+
+
+
+
+>71.
+
+show all files on the system / root folder changed in the last 60 mintues.
+
+This shows you what to restore to put the system back to the way it was earlier.
 
 
 # list files  --  last 1 hour modified  -- very good and fast.
@@ -88,12 +153,35 @@ https://stackoverflow.com/questions/7788046/how-do-you-get-rsync-to-exclude-any-
 # sudo find  . -mmin -60 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee -a /home/albe/find21.txt
 # really good.. http://www.liamdelahunty.com/tips/linux_find_exclude_multiple_directories.php
   sudo find  .  -path './sys' -prune -o   -path './proc' -prune -o   -mmin -60 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
+
   or
-  sudo find  .   -path './sys' -prune -o   -path './proc' -prune -o  -mmin -60  -type f -print0 | xargs -0 stat --printf='%Y:%y %A %h %U %G %s \t %n\n'  | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
+
+  num_minutes=59 ;  mkdir -p $HOME/historybackup ; date1=$(date +"__%Y.%m.%d_%H.%M.%S") ; echo $date1 
   
-  sudo find  .   -path '/sys' -prune -o   -path '/proc' -prune -o  -mmin -60  -type f -print0 | xargs -0 stat --printf='%Y:%y %A %h %U %G %s \t %n\n'  | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf='%Y:%y \t%A \t%h %U %G \t%s \t%n \n'  | sort -n | cut -d: -f2- | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  $HOME/historybackup/find21_$date1.txt
+  
+  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#\n'   >>$HOME/historybackup/find21_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf='%Y:%y \t%A \t%h %U %G \t%s \t%n \n'  | sort -n | cut -d: -f2- | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/find21_$date1.txt
+  #
+  echo -e '#\n#\n#\n########       Sorted by Name   ----------------------  \n#\n#\n'   >>$HOME/historybackup/find21_$date1.txt
+  #
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf='%Y:%n \t%y \t%A \t%h %U %G \t%s \n'  | sort -n | cut -d: -f2- | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  -a $HOME/historybackup/find21_$date1.txt
+  
+  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#\n'   >>$HOME/historybackup/find21_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf='%Y:%n \t%y \t%A \t%h %U %G \t%s \n'  | sort -n | cut -d: -f2- | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/find21_$date1.txt
+  
 
   
   
+>81.
+
+restore:
+
+# example..  rsync -av ./mt/ ./mt2 --delete  # copies folder mt to mt2 and deletes anything in mt2 that is not in mt
+
+
+# not done... sudo rsync -av /rsnapshot/alpha.0/localhost/usr/  /usr   --delete  
+
+
 
 =
