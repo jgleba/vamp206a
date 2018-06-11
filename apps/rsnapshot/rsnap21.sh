@@ -54,6 +54,7 @@ BLOCKCOMMENT
 #main...
 saynow
 
+cp shc/apps/bin1/histb.sh  $HOME/bin
 source histb.sh
 
 
