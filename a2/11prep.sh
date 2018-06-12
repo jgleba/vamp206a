@@ -29,7 +29,10 @@ cd ; git clone https://github.com/dgleba/vamp206a.git shc
   
 
 
+# 2a.
 # edit or put env file in safe/vne.sh (otherwise it will use the supplied env data from a2/21env.sh
+
+# 2b.
 # put sample data in /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z if you don't want to use the supplied sample data.
 
 

@@ -240,6 +240,31 @@ cat ~/bin/blank.sh
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+rsnap() {
+
+cp shc/bin1/histb.sh  $HOME/bin
+source bin/histb.sh
+
+
+sudo apt -y install ncdu rsnapshot
+
+# get copy of /etc/rsnapshot.conf for editing.
+cd
+file1="/etc/rsnapshot.conf"
+sudo cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt     # do you need sudo cp?
+mkdir ~/work
+cp $file1 work/
+
+sudo cp shc/apps/rsnapshot/rsnapshot.conf /etc
+
+sudo rsnapshot alpha
+
+}
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 smb() {
 
@@ -258,6 +283,7 @@ if [ -f /home/$userv/15ran ]; then
     echo "run it... 15samsh.sh "
     # turned this off 2018-06-11 - runsam
     onetime1
+    rsnap
  fi
 
 }

@@ -113,6 +113,25 @@ cd;
 }
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+custom1()
+{
+
+# custom other workflow..
+
+cd; source shc/a2/15samsh.sh 
+cd
+
+
+
+}
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -126,7 +145,8 @@ cd;
 #  uncomment one function or the other, regular or columnstore...
 
 # regularmysqlserver
-columnstore
+# columnstore
+custom1
 
 
  

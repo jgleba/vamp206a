@@ -42,7 +42,7 @@ ip a
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-exit 9
+return 9
 
 
 Notes:
@@ -82,6 +82,8 @@ For these settings to take effect you need to restart your networking services.
 
   sudo /etc/init.d/networking restart
 
+  sudo  systemctl restart networking.service
+  
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

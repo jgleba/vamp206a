@@ -43,7 +43,7 @@ line1=' \ \ #added line 1\n \ #added line 2 = ":8071" '
 function blockcomment21() {
 : <<'BLOCKCOMMENT'
 
-  Purpose:   usr rsnapshot to backup system, install some package, then restore the system to the state before the package was installed.
+  Purpose: -  usr rsnapshot to backup system, install some package, then restore the system to the state before the package was installed.
 
 
 BLOCKCOMMENT
@@ -53,6 +53,14 @@ BLOCKCOMMENT
 
 #main...
 saynow
+
+
+echo
+echo 'moved to rsnap function in  https://github.com/dgleba/vamp206a/blob/master/a2/15samsh.sh'
+echo
+
+rsnap1() {
+
 
 cp shc/bin1/histb.sh  $HOME/bin
 source bin/histb.sh
@@ -71,6 +79,7 @@ sudo cp shc/apps/rsnapshot/rsnapshot.conf /etc
 
 sudo rsnapshot alpha
 
+}
 
 #
 
@@ -78,7 +87,7 @@ sudo rsnapshot alpha
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-exit 0
+return 1
 end of file comment - this will not excecute.
 
 
@@ -90,6 +99,7 @@ Notes:
 
 
 These are step by step notes...
+
 Some of this done by the above.
 
 
@@ -133,12 +143,13 @@ alpha.0 is always the latest snapshot.
 alpha.1 is older
 
 
+
 how much space do the backup folders take?
 
-sudo su 
-  cd /rsnapshot
-sudo du . --max-depth=3  -cxh   | sort -h 
+      sudo du /rsnapshot --max-depth=3  -cxh   | sort -h 
 
+      
+      
 
 >53.
 
@@ -180,29 +191,56 @@ This shows you what to restore to put the system back to the way it was earlier.
 
   export num_minutes=5 ; datef='%.19y \t%.19z \t%A \t%U \t%G \t%s \t%n\n'  ;  mkdir -p $HOME/historybackup ; date1=$(date +"__%Y.%m.%d_%H.%M.%S") ; echo $date1 
   
-  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  $HOME/historybackup/find21_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  $HOME/historybackup/findlatest_$date1.txt
   
-  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#\n'   >>$HOME/historybackup/find21_$date1.txt
-  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/find21_$date1.txt
+  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#\n'   >>$HOME/historybackup/findlatest_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/findlatest_$date1.txt
   #
-  echo -e '#\n#\n#\n########       Sorted by Name   ----------------------  \n#\n#\n'   >>$HOME/historybackup/find21_$date1.txt
+  echo -e '#\n#\n#\n########       Sorted by Name   ----------------------  \n#\n#\n'   >>$HOME/historybackup/findlatest_$date1.txt
   #
-  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  -a $HOME/historybackup/find21_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  -a $HOME/historybackup/findlatest_$date1.txt
   
-  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#\n'   >>$HOME/historybackup/find21_$date1.txt
-  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/find21_$date1.txt
+  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#\n'   >>$HOME/historybackup/findlatest_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/findlatest_$date1.txt
   
 
   
-  
+
+
   
 >81.
 
 restore:
 
 
+# restore any folders you wish... 
 
-# not done... sudo rsync -av /rsnapshot/alpha.0/localhost/usr/  /usr   --delete  
+sudo rsync -av /rsnapshot/alpha.2/localhost/usr/  /usr   --delete  
+
+sudo rsync -av /rsnapshot/alpha.2/localhost/var/  /var   --delete  
+
+sudo rsync -av /rsnapshot/alpha.2/localhost/etc/  /etc   --delete  
+
+
+
+# todo.. 
+#   https://unix.stackexchange.com/questions/47557/in-a-bash-shell-script-writing-a-for-loop-that-iterates-over-string-values
+
+set -vx
+for fr in var etc 
+do
+  echo "${fr}"  
+  #sudo rsync -av /rsnapshot/alpha.2/localhost/"${fr}"  /"${fr}" --delete 
+done
+set +vx
+
+
+# example...
+# for fname in a.txt b.txt c.txt
+# do
+  # echo "${fname}"
+# done
+
 
 
 
