@@ -62,29 +62,7 @@ sudo apt-get -y install locate
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-smb() {
-
-sudo sudo service smbd restart
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#if this has run before, then exit...
-if [ -f /home/$userv/15ran ]; then
-    # 15run exists, so don't run this again. exit.
-    echo
-    echo "15samsh.sh has run before, don't run again."
-    echo
-    read -t  19 -p "Hit ENTER or wait about ten seconds" ; echo ;
-
- else
-    echo "run it... 15samsh.sh "
-    runsam
-    onetime1
- fi
-
-}
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 function runsam() {
@@ -257,6 +235,30 @@ sudo cp shc/bin1/* bin
 sudo echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
 sudo chmod +x ~/bin/blank.sh
 cat ~/bin/blank.sh
+
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+smb() {
+
+sudo sudo service smbd restart
+
+#~~~~~~
+#if this has run before, then exit...
+if [ -f /home/$userv/15ran ]; then
+    # 15run exists, so don't run this again. exit.
+    echo
+    echo "15samsh.sh has run before, don't run again."
+    echo
+    read -t  19 -p "Hit ENTER or wait about ten seconds" ; echo ;
+
+ else
+    echo "run it... 15samsh.sh "
+    # turned this off 2018-06-11 - runsam
+    onetime1
+ fi
 
 }
 

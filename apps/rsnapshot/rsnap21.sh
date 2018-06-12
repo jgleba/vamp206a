@@ -54,8 +54,8 @@ BLOCKCOMMENT
 #main...
 saynow
 
-cp shc/apps/bin1/histb.sh  $HOME/bin
-source histb.sh
+cp shc/bin1/histb.sh  $HOME/bin
+source bin/histb.sh
 
 
 sudo apt -y install ncdu rsnapshot
@@ -178,7 +178,7 @@ This shows you what to restore to put the system back to the way it was earlier.
 # list files  --  last 1 hour modified  -- very good and fast.
 
 
-  export num_minutes=11 ; datef='%.19y \t%.19z \t%A \t%U \t%G \t%s \t%n\n'  ;  mkdir -p $HOME/historybackup ; date1=$(date +"__%Y.%m.%d_%H.%M.%S") ; echo $date1 
+  export num_minutes=5 ; datef='%.19y \t%.19z \t%A \t%U \t%G \t%s \t%n\n'  ;  mkdir -p $HOME/historybackup ; date1=$(date +"__%Y.%m.%d_%H.%M.%S") ; echo $date1 
   
   cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  $HOME/historybackup/find21_$date1.txt
   

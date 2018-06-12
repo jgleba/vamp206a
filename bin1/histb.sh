@@ -72,7 +72,4 @@ ll historybackup/
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-exit 0
-
-end of file comment --  this will not excecute.
 

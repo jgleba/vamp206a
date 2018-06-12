@@ -39,10 +39,19 @@ done
 (echo "$pwnu1"; echo "$pwnu1") | sudo smbpasswd -s -a $nuser
 sudo mkdir /home/$nuser/bin
 sudo chown  $nuser:$nuser /home/$nuser/bin
+
+
 echo groups:
 groups $nuser
+
 # show smb users..
 sudo pdbedit -L -v
+
+echo ""
+echo "sudo adduser username sudo  - to add user to sudo"
+echo ""
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # remove user from a group
 #       sudo gpasswd -d username group
