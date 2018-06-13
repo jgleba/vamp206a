@@ -23,7 +23,7 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 function blockcomment21() {
 : <<'BLOCKCOMMENT'
 
-  Purpose: -  install timeshift1
+  Purpose: -  install timeshift
 
 
 BLOCKCOMMENT
@@ -35,12 +35,13 @@ BLOCKCOMMENT
 saynow
 
 
-
-timeshift1() {
-
 sudo apt-add-repository -y ppa:teejee2008/ppa
 sudo apt update
 sudo apt -y install timeshift
+
+
+timeshift1() {
+
 
 sudo timeshift --delete-all
 # sudo timeshift --delete --snapshot "2015-01-21_19-28-43"

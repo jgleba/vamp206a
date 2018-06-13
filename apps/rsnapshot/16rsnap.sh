@@ -38,6 +38,7 @@ saynow
 echo
 echo 'moved to rsnap function in  https://github.com/dgleba/vamp206a/blob/master/a2/15samsh.sh'
 echo  ' notes follow below this message..'
+echo  ' I had no luck restoring the system with this. It didnt work correctly after restore. Use timeshift. '
 echo
 
 rsnap1() {
