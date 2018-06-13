@@ -18,26 +18,6 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
   
 }
 
-backup1()
-{
-# create file hello, backup the original file once, and copy it with timestamp.
-# An example of how to backup a file before editing it with a script.
-# sudo echo $USER
-mkdir -p ~/tmp01
-file1="$HOME/tmp01/hello"
-echo "hello" >$file1 ; echo "foo bar">>$file1
-# backup original file once..
-if [ ! -f $file1.orig ] ; then  cp -a $file1 $file1.orig ; fi  # do you need sudo cp?
-#back it up with a unique name using a timestamp..
- cp $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt     # do you need sudo cp?
- cp $file1 $file1.bak.txt                                   # do you need sudo cp?
-# add line1's after line matching pattern1
-pattern1='^hello'
-line1=' \ \ #added line 1\n \ #added line 2 = ":8071" '
- sed -i.$(date +"_%Y%m%d_%H%M%S").sedbak.txt "/$pattern1/a $line1" $file1   # do you need sudo sed?
-# restore to orig.. sudo cp $file1.orig $file1
-}
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function blockcomment21() {
@@ -57,6 +37,7 @@ saynow
 
 echo
 echo 'moved to rsnap function in  https://github.com/dgleba/vamp206a/blob/master/a2/15samsh.sh'
+echo  ' notes follow below this message..'
 echo
 
 rsnap1() {
@@ -189,19 +170,19 @@ This shows you what to restore to put the system back to the way it was earlier.
 # list files  --  last 1 hour modified  -- very good and fast.
 
 
-  export num_minutes=5 ; datef='%.19y \t%.19z \t%A \t%U \t%G \t%s \t%n\n'  ;  mkdir -p $HOME/historybackup ; date1=$(date +"__%Y.%m.%d_%H.%M.%S") ; echo $date1 
+  export num_minutes=8 ; datef='%.19y \t%.19z \t%A \t%U \t%G \t%n \t%s\n'  ;  mkdir -p $HOME/historybackup ; date1=$(date +"__%Y.%m.%d_%H.%M.%S") ; echo $date1 
   
-  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  $HOME/historybackup/findlatest_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -path './timeshift' -prune -o -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  $HOME/historybackup/findlatest_$date1.txt
   
-  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#\n'   >>$HOME/historybackup/findlatest_$date1.txt
-  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/findlatest_$date1.txt
+  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#'   >>$HOME/historybackup/findlatest_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -path './timeshift' -prune -o -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/findlatest_$date1.txt
   #
-  echo -e '#\n#\n#\n########       Sorted by Name   ----------------------  \n#\n#\n'   >>$HOME/historybackup/findlatest_$date1.txt
+  echo -e '#\n#\n#\n########       Sorted by Name   ----------------------  \n#\n#'   >>$HOME/historybackup/findlatest_$date1.txt
   #
-  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  -a $HOME/historybackup/findlatest_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -path './timeshift' -prune -o -mmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee  -a $HOME/historybackup/findlatest_$date1.txt
   
-  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#\n'   >>$HOME/historybackup/findlatest_$date1.txt
-  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/findlatest_$date1.txt
+  echo -e '#\n#\n#\n######## ----------------------  Created...\n#\n#'   >>$HOME/historybackup/findlatest_$date1.txt
+  cd / ; sudo find  .   -path './sys' -prune -o  -path './proc' -prune -o  -path './run' -prune -o -path './rsnapshot' -prune -o  -path './timeshift' -prune -o -cmin -$num_minutes  -type f -print0 | xargs -0 stat --printf="${datef}"  | sort -n | grep -vE '(.git/|tmp/|lxcfs/cgroup)' 2>&1 | tee -a $HOME/historybackup/findlatest_$date1.txt
   
 
   
@@ -225,12 +206,16 @@ sudo rsync -av /rsnapshot/alpha.2/localhost/etc/  /etc   --delete
 
 # todo.. 
 #   https://unix.stackexchange.com/questions/47557/in-a-bash-shell-script-writing-a-for-loop-that-iterates-over-string-values
-
+    # http://sharadchhetri.com/2012/12/13/rsync-fileshidden-filessymlinkshardlinks-remotes-linux-server/
+    # rsync all files,hidden files,symlinks,hardlinks to remotes Linux Server -- I have used these flags -ravpzHogt along with rsync command many times in server migration. And I always get good results.
+    # -I, --ignore-times   don't skip files that match size and time
+    
 set -vx
-for fr in var etc 
+for fr in var usr etc 
 do
   echo "${fr}"  
-  #sudo rsync -av /rsnapshot/alpha.2/localhost/"${fr}"  /"${fr}" --delete 
+  sudo rsync -ravpzHogt     /rsnapshot/alpha.0/localhost/"${fr}"  /"${fr}" --delete 
+  # sudo rsync -ravpzHogt -I /rsnapshot/alpha.0/localhost/"${fr}"  /"${fr}" --delete 
 done
 set +vx
 

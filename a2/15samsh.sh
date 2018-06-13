@@ -257,7 +257,7 @@ cp $file1 work/
 
 sudo cp shc/apps/rsnapshot/rsnapshot.conf /etc
 
-sudo rsnapshot alpha
+# sudo rsnapshot alpha
 
 }
 
