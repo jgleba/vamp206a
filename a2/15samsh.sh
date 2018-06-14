@@ -5,6 +5,18 @@ echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 #
 
+
+
+#
+#
+#
+#  This file sets some initial settings and sets up samba share. 
+#
+#  2018-06-11 turned off samba share as I am using filzilla over ssh.
+#
+#
+#
+
 # copy vne.sh over. IT is where I edit 21env.sh for my personal settings...
 mkdir -p tmp01
 mkdir -p safe
@@ -28,27 +40,26 @@ source safe/21env.sh
 set -vx
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~
 
 file1="shc/a2/21env.sh"
 # back it up with a unique name using a timestamp..
 cp -a $file1 $file1$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~
 
 #note...
 #    if this is run more than once, it will duplicate entries...
 #
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~
 # description:
 # set samba shares and some linux user settings like immediate history write...
 
 # put other things to run once here too..  see onetime1()
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~
 
 #get a few software to help get things started...   # moved to netson.seed
 sudo apt-get update
@@ -61,7 +72,6 @@ sudo apt-get -y install locate
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -87,7 +97,7 @@ sudo cp /etc/samba/smb.conf    ~/backup/smb.conf.bk.$(date +"__%Y-%m-%d_%a_%k.%M
 #copy the original file backup I made at the beginning so we get a fresh start..
 cp /etc/samba/smb.conf.orig /etc/samba/smb.conf
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~
 
 # cat /etc/samba/smb.conf |grep global
 
@@ -100,7 +110,7 @@ sudo sed -i "/global]/i # \n# David Gleba kdg54 $nowdg1 invalid handle error, ad
 sudo sed -i 's/.*global].*/[global]\n\nunix extensions = no/g' /etc/samba/smb.conf 
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~
 
 
 sudo cat <<EOF >> /etc/samba/smb.conf 
@@ -159,7 +169,7 @@ valid users = ftpup
 EOF
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~
 
 
 source safe/21env.sh
@@ -170,7 +180,7 @@ source safe/21env.sh
 
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~
 #2016-05-15
 #http://unix.stackexchange.com/questions/214128/samba-specified-network-name-no-longer-available
 #Sometimes Samba fails to install or update it's dependencies correctly. Try running the following command to ensure all the dependencies are available, this is on Ubuntu, modify for your Linux flavour:
@@ -178,21 +188,14 @@ sudo apt-get -y install --reinstall libsmbclient libsmbclient-dev libtevent0 lib
 
 #worked!
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 sudo sudo service smbd restart
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-cd
-# create 15ran to mark that is has been run. Then don't run it again.
-touch /home/$userv/15ran
 
 }
 
 
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 function onetime1() {
@@ -206,7 +209,9 @@ echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
 cat ~/.bash_aliases
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~
+
 
 
 # write history immediately...
@@ -218,13 +223,21 @@ sudo cat <<EOF >> /home/$userv/.bashrc
 # -------------------------------------------------------------------
 # David Gleba $nowdg1
 #write history immediately...
-#http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+# http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+# https://askubuntu.com/questions/391082/how-to-see-time-stamps-in-bash-history
+# https://askubuntu.com/questions/885531/half-of-bash-history-is-missing?rq=1
+#
 shopt -s histappend
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
+#
+# 2018-06-13
+export PROMPT_COMMAND='history -a;history -r'
+export HISTTIMEFORMAT="%y-%m-%d %T "
 #
 EOF
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~
 
 mkdir -p bin
 sudo chown $userv bin
@@ -238,9 +251,12 @@ cat ~/bin/blank.sh
 
 }
 
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 rsnap() {
+
 
 cp shc/bin1/histb.sh  $HOME/bin
 source bin/histb.sh
@@ -257,7 +273,7 @@ cp $file1 work/
 
 sudo cp shc/apps/rsnapshot/rsnapshot.conf /etc
 
-# sudo rsnapshot alpha
+# sudo rsnapshot alpha     # run this to make the first backup.
 
 }
 
@@ -281,9 +297,12 @@ if [ -f /home/$userv/15ran ]; then
 
  else
     echo "run it... 15samsh.sh "
-    # turned this off 2018-06-11 - runsam
+    # runsam  # turned this off 2018-06-11 
     onetime1
     rsnap
+    cd
+    # create 15ran to mark that is has been run. Then don't run it again.
+    touch /home/$userv/15ran
  fi
 
 }
