@@ -219,7 +219,7 @@ cat ~/.bash_aliases
 # back ticks evaluate date when run...
 # http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
-sudo cat <<EOF >> /home/$userv/.bashrc
+sudo cat <<EOF >> $HOME/.bashrc
 # -------------------------------------------------------------------
 # David Gleba $nowdg1
 #write history immediately...
