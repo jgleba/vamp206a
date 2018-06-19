@@ -5,7 +5,8 @@ Title:  .
 
 
 hostname:
-sudo shc/67hostn.sh
+no.. sudo shc/67hostn.sh
+sudo shc/a1/68hostp.sh
 
 
 win:
@@ -14,6 +15,9 @@ win:
 sudo shc/47guestad.sh
 
 Static ip:
+
+sudo nano /etc/network/interfaces
+
 
 dclark = 10.4.15.105    
     sudo shc/100/102staticip.sh    

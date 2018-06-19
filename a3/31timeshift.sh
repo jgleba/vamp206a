@@ -54,7 +54,7 @@ file='/etc/timeshift.json'
 sudo cp $file $file$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt     # do you need sudo cp?
 pat='\"exclude\"'
 # first addition line here ends up last in the file. It can have no comma on the end. json file is strict.
-in4='\ \ \ \ "/rsnapshot/**"'
+in4='\ \ \ \ "/rsnapshot/**",'
 in3='\ \ \ \ "/var/snap/lxd/common/lxd/disks/**",'
 in2='\ \ \ \ "/home/**",'
 # sed '/CLIENTSCRIPT="foo"/a CLIENTSCRIPT2="hello"' file
@@ -84,12 +84,26 @@ timeshift1
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function blockcomment22() {
+: <<'BLOCKCOMMENT'
+
+  notes
+  
+  
 return 1
-end of file comment - this will not excecute.
+
+error...  
+timeshift is already the newest version (18.4-0~201804010746~ubuntu16.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 198 not upgraded.
+shc/apps/rsnapshot/16timeshift.sh: line 86: return: can only `return' from a function or sourced script
+shc/apps/rsnapshot/16timeshift.sh: line 87: end: command not found
+shc/apps/rsnapshot/16timeshift.sh: line 91: Notes:: command not found
+albe@ubuntu1604a0311:~$
+  
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Notes:
+BLOCKCOMMENT
+}
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
