@@ -223,10 +223,11 @@ sudo cat <<EOF >> $HOME/.bashrc
 # https://askubuntu.com/questions/885531/half-of-bash-history-is-missing?rq=1
 #
 shopt -s histappend
-PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
+# PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 #
 # 2018-06-13
-export PROMPT_COMMAND='history -a;history -r'
+# export PROMPT_COMMAND='history -a;history -r'
 export HISTTIMEFORMAT="%y-%m-%d %T "
 #
 EOF
@@ -254,6 +255,7 @@ rsnap() {
 
 cp shc/bin1/histb.sh  $HOME/bin
 source bin/histb.sh
+sudo mkdir -p /var/www/html
 
 sudo apt -y install ncdu rsnapshot
 
@@ -266,7 +268,7 @@ cp $file1 work/
 
 sudo cp shc/a3/rsnapshot.conf /etc
 
-# sudo rsnapshot alpha     # run this to make the first backup.
+sudo rsnapshot alpha     # run this to make the first backup.
 
 }
 

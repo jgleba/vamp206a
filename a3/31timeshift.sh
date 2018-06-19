@@ -54,7 +54,7 @@ file='/etc/timeshift.json'
 sudo cp $file $file$(date +"__%Y.%m.%d_%H.%M.%S").bak.txt     # do you need sudo cp?
 pat='\"exclude\"'
 # first addition line here ends up last in the file. It can have no comma on the end. json file is strict.
-in4='\ \ \ \ "/rsnapshot/**",'
+in4='\ \ \ \ "/rsnapshot/**"'
 in3='\ \ \ \ "/var/snap/lxd/common/lxd/disks/**",'
 in2='\ \ \ \ "/home/**",'
 # sed '/CLIENTSCRIPT="foo"/a CLIENTSCRIPT2="hello"' file
@@ -71,7 +71,8 @@ sudo sed -i "/${pat}/a ${in2}" $file
  
  
  
-sudo timeshift --create --comments "dg21"
+# create first system shot...
+   sudo timeshift --create --comments "dg21"
 
 
 

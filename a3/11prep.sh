@@ -1,122 +1,79 @@
 #!/usr/bin/env bash
-echo ~----------~----------Startingb $HOSTNAME, pwd: `pwd`, "${BASH_SOURCE[0]}" $(date +" %Y-%m-%d_%H.%M.%S")
-echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
-#
-# set  username in 21env.sh
-#
 
-get1()
-{
-set -x
+#  paste this into the command prompt on the new server..
+#    use putty or some ssh client that you can paste text into..
+
+#    use filezilla - connection over ssh to put files on the server
+#      to edit files on the server right click on a file and select edit.
+#      if you need to edit files as root, copy it to writable folder and then   
+#         copy it over after editing, or just use sudo sed etc to edit the files.
+
+  
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Step 1
+
+# edit a3/15start.sh. 
+#     use the mariadb `columnstore`  stanza or the `regularmysqlserver` stanza. Or edit as you wish.
+
 cd
-
-userv11=$USER
-echo $userv11
-
-#get a few software to help get things started...   # moved to netson.seed
 sudo apt-get update
-#sudo apt-get -y install openssh-server 
-sudo apt-get -y install p7zip-full
-sudo apt-get -y install unzip 
-sudo apt-get -y install mc
-sudo apt-get -y install locate
-#sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
-
-# get zip of repo from github
-sudo rm -rf shc
-
-read -t 0 -p "Hit ENTER or wait some seconds" ; echo ;
-
-mkdir -p bin
-mkdir -p tmp01
-sudo chmod -R 700 tmp01
-
-cd tmp01
-rm vamp206a-master.zip
-wget -N --output-document=vamp206a-mast.zip https://codeload.github.com/dgleba/vamp206a/zip/master 
-
-if [  -f "/home/$userv11/tmp01/vamp206a-mast.zip" ]; then
-    # 21env.sh exists, so don't copy over top.
-    echo
-    echo "good, we got the new files.."
-    echo userv11 = $userv11
-    echo
-    read -t  1 -p "Hit ENTER or wait about ten seconds" ; echo ;
-
- else
-    echo
-    echo
-    echo "ERROR..  BAD..  COULD NOT GET NEW FILES FROM GIT REPO."
-    echo
-    echo
-    read -t  881 -p "Hit ENTER or wait about ten seconds" ; echo ;
-    exit
- fi
+sudo apt-get -y install git mc ncdu
+#
+cd ; git clone https://github.com/dgleba/vamp206a.git shc   
 
 
-#unzip [ -j junk paths - all in one folder ] 
-# unzip one folder...  unzip  ~/share203/master vamp206a-master/hyperv/* -d ./sh
-# unzip to destination.. unzip ~/share203/master -d ./sh
-unzip -uo ./vamp206a-mast.zip
-mkdir ~/shc
-cp -avf vamp206a-master/* ~/shc/
-cd
-cd shc
-#hmm not sure this is just files with no extension..
-#find -type f -not -name "*.*" -exec chmod +x \{\} \;
-#no working..
-#chmod -R +x *.sh
-# make files executable recursively
-#find . -type f -exec chmod +x {} \;
-#2015-10-27_Tue_09.58-AM.. sudo chown -R ubuntuUser /home/ubuntuUser/shc
-sudo chmod -R 700 .
-sudo chmod -R ug+x .
 
-cd
-sudo chmod -R 500 shc-orginal-setup
+# Step 2
+  
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#add home bin directory. it will be added to the path if it exists -- in debian.
-#http://askubuntu.com/questions/402353/how-to-add-home-username-bin-to-path
+# 2a.
+# edit or put env file in safe/vne.sh (otherwise it will use the supplied env data from a2/21env.sh
 
-mkdir -p bin
+# 2b.
+# put sample data in /home/$userv/tmp01/htdocs.pmdsdata3.latest.7z if you don't want to use the supplied sample data.
 
-if [  -f "/home/$userv11/shc/21env.sh" ]; then
-    # 21env.sh exists, so don't copy over top.
-    echo
-    echo "shc/21env.sh exists, we won't copy over..."
-    echo userv11 = $userv11
-    echo
-    read -t  19 -p "Hit ENTER or wait about ten seconds" ; echo ;
 
- else
-    cp shc/21env-example.sh shc/21env.sh
- fi
 
-#Copy vne.sh over top. it won't copy if it isn't there.
-cp tmp01/vne.sh shc/21env.sh
+#---
+    
+
+# Step 3
+
+
+#this will run setup.. 
+#  it will..
+#  - install sw  
+#  - create data folders and permissions  
+#  - import sample data  
+
+
+
+cd ; cd shc ; git pull
+cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+
+
+
+# Step 4
+
+
+# If you have not used the  regularmysqlserver stanza in a2/24start.sh then you can install mariadb columnstore...
+
+# run apps/mcs/mariadbcolumnstore-step1.sh per the usage info at the top of that file..
+
+
+
+# Step 5
+
+
+
+# paste commands from  apps/mcs/mariadbcolumnstore-step2.sh
+
+
+
+# done
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-}
-
-
-
-#get the repo and call the script that calls all others
-get1
-set +vx
-echo "edit variables like username and passwords..  nano shc/21env.sh"
-echo "ctrl-o to write the file,  ctrl-x to exit editor."
-echo "  If you want to proceed with only a little web data, touch an empty file or copy a file in place that has some "
-echo "  document root data like htdocs-sample-data\.. htdocs.pmdsdata3.latest.7z. See 17docs.sh...."
-echo "     now run:   sudo shc/24start.sh "
-
-#source sudo will not work. cannot use an excecutable. must be source shc/24start.sh. run sudo ./11get.sh
-#source shc/24start.sh
-#
-date
-#
