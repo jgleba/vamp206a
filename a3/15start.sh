@@ -50,15 +50,16 @@ columnstore()
 # for maria columnstore..
 
 cd; source shc/a3/31timeshift.sh 
-source shc/a3/32init.sh 
+cd; source shc/a3/32init.sh 
+cd; source shc/a3/81docker.sh 
 
 cd
 # use this to get specific data file..
 # source shc/a3/17docs.sh
 #
 # use this for sample data in the repo..
-source shc/a3/17docs_sample.sh 
-cd; source shc/a3/31base.sh 
+source shc/a3/38docs_sample.sh 
+cd; source shc/a3/35base.sh 
 cd; source shc/a3/62grpshare.sh 
 cd; source shc/a3/62srvweb.sh 
 cd; source shc/a3/61user.sh 
@@ -84,6 +85,7 @@ regularmysqlserver()
 
 cd; source shc/a3/31timeshift.sh 
 cd; source shc/a3/32init.sh 
+cd; source shc/a3/81docker.sh 
 
 cd
 # use this to get specific data file..
@@ -92,7 +94,7 @@ cd
 # use this for sample data in the repo..
 source shc/a3/38docs_sample.sh 
 
-cd; source shc/a3/31base.sh 
+cd; source shc/a3/35base.sh 
 cd; #source shc/a3/34samm.sh 
 cd; source shc/a3/43apach.sh 
 cd; source shc/a3/43mysql.sh 

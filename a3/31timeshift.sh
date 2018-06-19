@@ -37,7 +37,7 @@ saynow
 
 sudo apt-add-repository -y ppa:teejee2008/ppa
 sudo apt update
-sudo apt -y install timeshift
+sudo apt -y install timeshift ncdu mc openssh-server git
 
 
 timeshift1() {

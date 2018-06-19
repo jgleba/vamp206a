@@ -34,7 +34,8 @@ BLOCKCOMMENT
 saynow
 #
 
-
+timeout1=98765 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+return 9
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,7 +82,14 @@ On host of the lxd..
 
 apt policy lxd lxd-client
 
-sudo apt install  lxd lxd-client
+# sudo apt -y install  lxd lxd-client
+
+
+sudo apt -y remove --purge lxd lxd-client liblxc1 lxcfs
+
+apt policy lxd lxd-client
+
+sudo snap install lxd
 
 _____________
 
@@ -90,28 +98,76 @@ _____________
 sudo lxd init
 
 
-all default answers...
+all default answers - except last one. yes, show yaml...
 
 
 
+Last login: Tue Jun 19 15:20:34 2018 from 10.4.10.118
 albe@ubuntu1604a0311:~$ sudo lxd init
-Do you want to configure a new storage pool (yes/no) [default=yes]?
-Name of the storage backend to use (dir or zfs) [default=dir]: zfs
-Invalid input, try again.
+[sudo] password for albe:
+Would you like to use LXD clustering? (yes/no) [default=no]:
+Do you want to configure a new storage pool? (yes/no) [default=yes]:
+Name of the new storage pool [default=default]:
+Name of the storage backend to use (btrfs, ceph, dir, lvm, zfs) [default=zfs]:
+Create a new ZFS pool? (yes/no) [default=yes]:
+Would you like to use an existing block device? (yes/no) [default=no]:
+Size in GB of the new loop device (1GB minimum) [default=18GB]:
+Would you like to connect to a MAAS server? (yes/no) [default=no]:
+Would you like to create a new local network bridge? (yes/no) [default=yes]:
+What should the new bridge be called? [default=lxdbr0]:
+What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]:
+What IPv6 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]:
+Would you like LXD to be available over the network? (yes/no) [default=no]:
+Would you like stale cached images to be updated automatically? (yes/no) [default=yes]
+Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: yes
+config: {}
+cluster: null
+networks:
+- config:
+    ipv4.address: auto
+    ipv6.address: auto
+  description: ""
+  managed: false
+  name: lxdbr0
+  type: ""
+storage_pools:
+- config:
+    size: 18GB
+  description: ""
+  name: default
+  driver: zfs
+profiles:
+- config: {}
+  description: ""
+  devices:
+    eth0:
+      name: eth0
+      nictype: bridged
+      parent: lxdbr0
+      type: nic
+    root:
+      path: /
+      pool: default
+      type: disk
+  name: default
 
-Name of the storage backend to use (dir or zfs) [default=dir]: zfs
-Invalid input, try again.
-
-Name of the storage backend to use (dir or zfs) [default=dir]: zfs
-Invalid input, try again.
-
-Name of the storage backend to use (dir or zfs) [default=dir]:
-Would you like LXD to be available over the network (yes/no) [default=no]?
-Do you want to configure the LXD bridge (yes/no) [default=yes]?
-Warning: Stopping lxd.service, but it can still be activated by:
-  lxd.socket
-LXD has been successfully configured.
 albe@ubuntu1604a0311:~$
+
+
+
+_____________
+
+
+# 2018-06-19_Tue_15.22-PM
+
+# https://blog.ubuntu.com/2017/02/14/network-management-with-lxd-2-3
+
+
+lxc network show lxdbr0
+
+lxc network set lxdbr0  ipv4.address 10.99.1.1/24
+
+lxc network show lxdbr0
 
 
 
@@ -429,6 +485,8 @@ sudo netfilter-persistent reload
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
 
 

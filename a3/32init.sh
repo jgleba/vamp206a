@@ -257,7 +257,8 @@ cp shc/bin1/histb.sh  $HOME/bin
 source bin/histb.sh
 sudo mkdir -p /var/www/html
 
-sudo apt -y install ncdu rsnapshot
+sudo apt -y install ncdu rsnapshot iptables-persistent
+
 
 # get copy of /etc/rsnapshot.conf for editing.
 cd
