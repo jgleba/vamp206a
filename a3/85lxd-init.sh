@@ -82,8 +82,9 @@ On host of the lxd..
 
 apt policy lxd lxd-client
 
-# sudo apt -y install  lxd lxd-client
 
+# just use lxd 3.0 - get rid of the old stuff...
+#		 sudo apt -y install  lxd lxd-client
 
 sudo apt -y remove --purge lxd lxd-client liblxc1 lxcfs
 
@@ -155,8 +156,11 @@ albe@ubuntu1604a0311:~$
 
 
 
-_____________
+# _____________
 
+
+
+# Change private ip range to 10.99.1.x
 
 # 2018-06-19_Tue_15.22-PM
 
@@ -171,7 +175,7 @@ lxc network show lxdbr0
 
 
 
-_____________
+# _____________
 
 
 
@@ -179,7 +183,24 @@ sudo lxc launch ubuntu:x lx21
 
 lxc list
 
-_____________
+
+
+# _____________
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+use 402lxclaunch.sh ....
+
+
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

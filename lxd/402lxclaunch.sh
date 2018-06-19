@@ -24,6 +24,10 @@ function blockcomment21() {
   Purpose:   
 
 
+lxc exec lx21 -- sudo --login --user ubuntu
+
+
+
 BLOCKCOMMENT
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,11 +41,32 @@ sudo lxc launch ubuntu:x lx21
 
 lxc list
 
-lxc file push shc/lxc/403lxcprov.sh lx21/home/ubuntu
+# example..
+	lxc file pull lx21/etc/hosts hosts.tmp
+
+#
+
+export e21=21env.sh
+lxc exec lx21 --  mkdir -p /home/ubuntu/safe
+lxc file push shc/a3/$e21 lx21/home/ubuntu/safe/$e21
+
+export f21=403lxcprov.sh
+# lxc file push /home/albe/shc/lxd/$f21 lx21/home/ubuntu/$f21
+lxc exec lx21 -- rm /home/ubuntu/$f21
+timeout1=2 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+lxc file push shc/lxd/$f21 lx21/home/ubuntu/$f21
+
+# lxc exec lx21 -- sudo --login --user ubuntu -- sh /home/ubuntu/$f21
+#
+timeout1=2 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+lxc exec lx21 -- sh /home/ubuntu/$f21
 
 
-#_____________
 
+
+lxc list
+
+ssh ubuntu@10.99.1.156
 
 
 #_____________
