@@ -28,7 +28,7 @@ function blockcomment21() {
   setup lxd and test
   
 
-  check these in order...
+  Follow these in order...
   
     85lxd-init.sh  - paste these commands from command line.
     

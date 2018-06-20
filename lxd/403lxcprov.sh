@@ -84,6 +84,9 @@ cat /etc/ssh/sshd_config | grep -i passwordau
 # sudo usermod -a -G adm,dialout,plugdev,www-data,sudo ubuntu
 # echo "ubuntu:$pw1" | sudo chpasswd
 set -vx
+
+# sets the password to a
+
 echo "ubuntu:a" | sudo chpasswd
 
 

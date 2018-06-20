@@ -94,6 +94,8 @@ sudo netfilter-persistent reload
 # _____________
 
 
+# the password is a
+
 #    ssh -p 3501 ubuntu@10.4.10.226
 
 #    ssh -p 3501 ubuntu@192.168.88.55

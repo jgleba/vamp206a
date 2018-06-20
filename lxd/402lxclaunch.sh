@@ -70,6 +70,11 @@ lxc file push shc/lxd/$f21 lx21/home/ubuntu/$f21
 # lxc exec lx21 -- sudo --login --user ubuntu -- sh /home/ubuntu/$f21
 #
 timeout1=2 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+
+#
+#
+# Runs 403lxcprov.sh inside the container to provision it..
+#
 #
 lxc exec lx21 -- sh /home/ubuntu/$f21
 
@@ -78,6 +83,11 @@ lxc list
 
 
 # _____________
+
+
+
+# the password is a
+
 
 #     ssh ubuntu@10.99.1.208
 
