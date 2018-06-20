@@ -82,7 +82,11 @@ For these settings to take effect you need to restart your networking services.
 
   sudo /etc/init.d/networking restart
 
-  sudo  systemctl restart networking.service
+  # sudo  systemctl restart networking.service
+
+# works..
+  sudo  systemctl restart networking
+  
   
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

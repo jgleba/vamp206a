@@ -5,8 +5,13 @@ echo ~----------~----------Startinga `dirname "$0"`/`basename "$0"`
 # echo ~----------~----------Startingc  `$(readlink -f $0)` 
 # echo ~----------~----------Startingd $HOSTNAME, pwd: `pwd`, "$0", "${BASH_SOURCE[0]}", $(date +"%Y-%m-%d_%H.%M.%S")
 # https://stackoverflow.com/questions/8911724/how-to-find-out-name-of-script-called-sourced-by-another-script-in-bash
-echo "from file.... ${BASH_SOURCE[0]}"
-echo "${BASH_SOURCE[@]}"  # echo full bashsource array
+
+# error in lxc exec - lxc exec lx21 -- sh /home/ubuntu/$f21
+#		 echo "from file.... ${BASH_SOURCE[0]}"  			#  /home/ubuntu/403lxcprov.sh: 8: /home/ubuntu/403lxcprov.sh: Bad substitution
+
+# echo "${BASH_SOURCE[@]}"  # echo full bashsource array
+
+#
 
 saynow()
 {
@@ -18,7 +23,7 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function blockcomment21() {
+blockcomment21() {
 : <<'BLOCKCOMMENT'
 
   Purpose:   
@@ -32,6 +37,8 @@ BLOCKCOMMENT
 #main...
 saynow
 #
+
+source /home/ubuntu/safe/21env.sh
 
 
 sudo apt-get update
@@ -50,8 +57,7 @@ sudo tee <<EOF  /var/www/html/index.nginx-debian.html
 working. Further configuration is required.</p>
 EOF
 
-df
-sudo cat  /var/www/html/index.nginx-debian.html
+# sudo cat  /var/www/html/index.nginx-debian.html
 
 
 #_____________
@@ -70,9 +76,21 @@ cat /etc/ssh/sshd_config | grep -i passwordau
 # cat ./tmpf1 | grep -i passwordau
 
 
+# _____________
+
+
+# sudo usermod -a -G adm,dialout,plugdev,www-data,sudo ubuntu
+# echo "ubuntu:$pw1" | sudo chpasswd
+set -vx
+echo "ubuntu:a" | sudo chpasswd
+
+
 sudo systemctl restart ssh
 
-#_____________
+
+# _____________
+
+
 
 
 

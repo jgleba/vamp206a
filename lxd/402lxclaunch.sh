@@ -21,8 +21,18 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 function blockcomment21() {
 : <<'BLOCKCOMMENT'
 
+
   Purpose:   
 
+  
+  create and do initial provisioning of container.
+  
+  Ip addresses must be edited below..
+  
+  
+_____________
+  
+ref..
 
 lxc exec lx21 -- sudo --login --user ubuntu
 
@@ -62,14 +72,68 @@ timeout1=2 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 lxc exec lx21 -- sh /home/ubuntu/$f21
 
 
-
-
 lxc list
 
-ssh ubuntu@10.99.1.156
+
+# _____________
+
+#  ssh ubuntu@10.99.1.156
 
 
-#_____________
+# _____________
+
+
+
+export PUBLIC_IP=192.168.88.55 ;
+#
+export CONTAINER_IP=10.99.1.129;
+#
+export PubPORT=3502; 
+export CPORT=80;
+#
+# export 
+#
+sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
+
+#
+
+export PubPORT=3501; 
+export CPORT=22;
+#
+sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
+
+
+# _____________
+
+
+ sudo iptables -t nat -L PREROUTING
+
+
+# _____________
+
+ 
+# https://askubuntu.com/questions/119393/how-to-save-rules-of-the-iptables
+
+sudo apt -y install iptables-persistent
+
+# The installation as described above works without a problem, but some commands for saving and reloading do not seem to work with a 16.04 server. The following commands work with that version:
+
+sudo netfilter-persistent save
+sudo netfilter-persistent reload
+
+
+
+# _____________
+
+
+#    ssh -p 3501 ubuntu@10.4.10.226
+
+
+#    curl  'http://10.4.10.107:3502'
+
+
+# _____________
+
 
 
 

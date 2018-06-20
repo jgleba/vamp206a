@@ -55,7 +55,7 @@ saynow
  
  sudo apt -y install docker-compose
  
- docker
+ # docker
  
  sudo docker run hello-world
  
