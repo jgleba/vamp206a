@@ -27,6 +27,8 @@ blockcomment21() {
 : <<'BLOCKCOMMENT'
 
   Purpose:   
+    
+        provision the container.
 
 
 BLOCKCOMMENT
