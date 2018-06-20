@@ -25,11 +25,11 @@ function blockcomment21() {
   Purpose:   
 
   
-  create and do initial provisioning of container.
+  usage:   cd ;   chmod +x shc/lxd/402lxclaunch.sh  ;  shc/lxd/402lxclaunch.sh 2>&1 | tee -a 402lxclaunch_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+ 
   
-  Ip addresses must be edited below..
   
-  
+ 
 _____________
   
 ref..
@@ -45,9 +45,10 @@ BLOCKCOMMENT
 
 #main...
 saynow
+set -vx
 #
 
-sudo lxc launch ubuntu:x lx21
+lxc launch ubuntu:x lx23
 
 lxc list
 
@@ -84,60 +85,8 @@ lxc list
 
 
 
-export PUBLIC_IP=192.168.88.55 ;
-#
-export CONTAINER_IP=10.99.1.129;
-#
-export PubPORT=3502; 
-export CPORT=80;
-#
-# export 
-#
-sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
-
-#
-
-export PubPORT=3501; 
-export CPORT=22;
-#
-sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
-
-
-# _____________
-
-
- sudo iptables -t nat -L PREROUTING
-
-
-# _____________
-
- 
-# https://askubuntu.com/questions/119393/how-to-save-rules-of-the-iptables
-
-sudo apt -y install iptables-persistent
-
-# The installation as described above works without a problem, but some commands for saving and reloading do not seem to work with a 16.04 server. The following commands work with that version:
-
-sudo netfilter-persistent save
-sudo netfilter-persistent reload
-
-
-
-# _____________
-
-
-#    ssh -p 3501 ubuntu@10.4.10.226
-
-
-#    curl  'http://10.4.10.107:3502'
-
-
-# _____________
-
-
-
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #exit 0  # bad idea. exit will prevent next script. return will give error if not returning from function. Use blockcomment.
 # end of file comment this will not excecute.
 #
+set +vx
