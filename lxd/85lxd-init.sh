@@ -34,7 +34,7 @@ function blockcomment21() {
     
     402lxclaunch.sh  -  cd ;   chmod +x shc/lxd/402lxclaunch.sh  ;  shc/lxd/402lxclaunch.sh 2>&1 | tee -a 402lxclaunch_log$(date +"__%Y-%m-%d_%H.%M.%S").log
  
-    404lxdnet.sh  - usage:   cd ;   chmod +x shc/lxd/404lxdnet.sh  ;  shc/lxd/404lxdnet.sh 2>&1 | tee -a 404lxdnet_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+    old...  not needed.. 404lxdnet.sh  - usage:   cd ;   chmod +x shc/lxd/404lxdnet.sh  ;  shc/lxd/404lxdnet.sh 2>&1 | tee -a 404lxdnet_log$(date +"__%Y-%m-%d_%H.%M.%S").log
  
   
   
@@ -193,7 +193,10 @@ lxc network show lxdbr0
 # _____________
 
 
+# Create a container..
+lxc launch ubuntu:x lx21
 
+# observe the ip address.
 lxc list
 
 
