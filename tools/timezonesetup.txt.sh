@@ -9,7 +9,7 @@ date
 cd
 timedatectl list-timezones  2>&1 | tee -a listtimezonelist.txt
 
-timedatectl 2>&1 | tee -a  timezoneset.txt
+timedatectl 2>&1 | tee -a  timezonesetting.txt
 
 sudo timedatectl set-timezone America/Toronto
 

@@ -44,19 +44,21 @@ source /home/ubuntu/safe/21env.sh
 
 #_____________
 
+export userv=ubuntu
+
 
 cd
-echo "alias lsl='ls -la'" >>   ~/.bash_aliases
+echo "alias lsl='ls -la'" >>   /home/$userv/.bash_aliases
 sudo chmod ugo+rw  ~/.bash_aliases
-echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
-cat ~/.bash_aliases
+echo "alias psg='ps -ef|grep '" >>   /home/$userv/.bash_aliases
+cat /home/$userv/.bash_aliases
 
 # write history immediately...
 #
 # back ticks evaluate date when run...
 # http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
 nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
-sudo cat <<EOF >> $HOME/.bashrc
+sudo cat <<EOF >> /home/$userv/.bashrc
 # -------------------------------------------------------------------
 # David Gleba $nowdg1
 #write history immediately...
@@ -75,11 +77,12 @@ export HISTTIMEFORMAT="%y-%m-%d %T "
 EOF
 
 echo "Running provision - 403lxcprov.sh  ${nowdg1}" >> 403lxcprov.sh${nowdg1}.txt
+echo "Running provision - 403lxcprov.sh  ${nowdg1}" >> /home/$userv/403lxcprov.sh${nowdg1}.txt
 
 cd
 mkdir -p bin
-sudo chown $HOME bin
-sudo chgrp $HOME bin
+sudo chown $userv bin
+sudo chgrp $userv bin
 cd
 
 # 
@@ -90,11 +93,15 @@ chmod -R 700 safe/
 sudo mkdir -p /tmp01/tempfiles
 sudo chmod -R 700 tmp01
 sudo chmod -R 700 /tmp01/tempfiles
-sudo chown -R $HOME   tmp01 
+sudo chown -R $userv   tmp01 
 
 
 #_____________
 
+
+timedatectl 2>&1 | tee -a  timezonesetting.txt
+sudo timedatectl set-timezone America/Toronto
+timedatectl 2>&1 | tee -a  timezonesetting.txt
 
 
 sudo apt-get update
