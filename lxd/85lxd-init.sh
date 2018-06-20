@@ -24,6 +24,16 @@ function blockcomment21() {
 
   Purpose:   
 
+  
+  setup lxd and test
+  
+
+  check these in order...
+    85lxd-init.sh 
+    402lxclaunch.sh  
+    404lxdnet.sh  
+  
+  
 
 BLOCKCOMMENT
 }
