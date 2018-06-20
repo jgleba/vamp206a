@@ -42,9 +42,63 @@ saynow
 
 source /home/ubuntu/safe/21env.sh
 
+#_____________
+
+
+cd
+echo "alias lsl='ls -la'" >>   ~/.bash_aliases
+sudo chmod ugo+rw  ~/.bash_aliases
+echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
+cat ~/.bash_aliases
+
+# write history immediately...
+#
+# back ticks evaluate date when run...
+# http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo cat <<EOF >> $HOME/.bashrc
+# -------------------------------------------------------------------
+# David Gleba $nowdg1
+#write history immediately...
+# http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+# https://askubuntu.com/questions/391082/how-to-see-time-stamps-in-bash-history
+# https://askubuntu.com/questions/885531/half-of-bash-history-is-missing?rq=1
+#
+shopt -s histappend
+# PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+#
+# 2018-06-13
+# export PROMPT_COMMAND='history -a;history -r'
+export HISTTIMEFORMAT="%y-%m-%d %T "
+#
+EOF
+
+echo "Running provision - 403lxcprov.sh  ${nowdg1}" >> 403lxcprov.sh${nowdg1}.txt
+
+cd
+mkdir -p bin
+sudo chown $HOME bin
+sudo chgrp $HOME bin
+cd
+
+# 
+mkdir -p tmp01
+mkdir -p safe
+chmod -R 700 safe/ 
+
+sudo mkdir -p /tmp01/tempfiles
+sudo chmod -R 700 tmp01
+sudo chmod -R 700 /tmp01/tempfiles
+sudo chown -R $HOME   tmp01 
+
+
+#_____________
+
+
 
 sudo apt-get update
-sudo apt-get -y install nginx
+sudo apt-get -y install nginx mc
 
 
 #_____________

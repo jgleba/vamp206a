@@ -101,6 +101,9 @@ apt policy lxd lxd-client
 # just use lxd 3.0 - get rid of the old stuff...
 #		 sudo apt -y install  lxd lxd-client
 
+# if need be, get prompt for sudo password...
+sudo ls
+#
 sudo apt -y remove --purge lxd lxd-client liblxc1 lxcfs
 
 apt policy lxd lxd-client
@@ -114,7 +117,7 @@ _____________
 sudo lxd init
 
 
-# all default answers - except last one. yes, show yaml...
+# all default answers is OK.   ...   but - if you want, except last one. yes, show yaml...
 
 
 

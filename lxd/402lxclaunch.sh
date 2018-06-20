@@ -180,12 +180,12 @@ sudo netfilter-persistent reload
 
 # the password is a
 
-#    ssh -p 3501 ubuntu@10.4.10.226
+#    ssh -p 3501 ubuntu@10.4.10.175
 
 #    ssh -p 3501 ubuntu@192.168.88.55
 
 
-#    curl  'http://10.4.10.107:3502'
+#    curl  'http://10.4.10.175:3502'
 
 #    curl  http://192.168.88.55:3502
 

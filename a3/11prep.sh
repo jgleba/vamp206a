@@ -18,7 +18,11 @@
 #     use the mariadb `columnstore`  stanza or the `regularmysqlserver` stanza. Or edit as you wish.
 
 cd
+# if need be, get prompt for sudo password...
+sudo ls
+#
 sudo apt-get update
+#
 sudo apt-get -y install git mc ncdu 
 #
 cd ; git clone https://github.com/dgleba/vamp206a.git shc   
