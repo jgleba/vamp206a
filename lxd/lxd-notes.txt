@@ -5,6 +5,9 @@ My not so automated lxd setup scripts.
 Follow  https://github.com/dgleba/vamp206a/blob/master/a3/11prep.sh
 
 
+
+In..  https://github.com/dgleba/vamp206a/tree/master/lxd
+
 Follow these in order...
 
   85lxd-init.sh  - paste these commands from command line.
