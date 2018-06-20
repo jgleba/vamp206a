@@ -44,9 +44,13 @@ source /home/ubuntu/safe/21env.sh
 
 #_____________
 
+
+# setting various helpers like aliases, command history timestamps, etc...
+
 export userv=ubuntu
 
-
+if ! grep -q "history -a" /home/$userv/.bashrc ; then
+{
 cd
 echo "alias lsl='ls -la'" >>   /home/$userv/.bash_aliases
 sudo chmod ugo+rw  ~/.bash_aliases
@@ -76,8 +80,8 @@ export HISTTIMEFORMAT="%y-%m-%d %T "
 #
 EOF
 
-echo "Running provision - 403lxcprov.sh  ${nowdg1}" >> 403lxcprov.sh${nowdg1}.txt
-echo "Running provision - 403lxcprov.sh  ${nowdg1}" >> /home/$userv/403lxcprov.sh${nowdg1}.txt
+echo "Running provision onetime routine - 403lxcprov.sh  ${nowdg1}" >> 403lxcprov.sh${nowdg1}.txt
+echo "Running provision onetime routine - 403lxcprov.sh  ${nowdg1}" >> /home/$userv/403lxcprov.sh${nowdg1}.txt
 
 cd
 mkdir -p bin
@@ -94,6 +98,8 @@ sudo mkdir -p /tmp01/tempfiles
 sudo chmod -R 700 tmp01
 sudo chmod -R 700 /tmp01/tempfiles
 sudo chown -R $userv   tmp01 
+
+}
 
 
 #_____________
