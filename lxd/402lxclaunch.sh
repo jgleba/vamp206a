@@ -48,7 +48,7 @@ saynow
 set -vx
 #
 
-lxc launch ubuntu:x lx23
+lxc launch ubuntu:x lx21
 
 lxc list
 
