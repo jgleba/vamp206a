@@ -135,9 +135,10 @@ set -vx
 
 
 
-export PUBLIC_IP=192.168.88.55 ;
+# export PUBLIC_IP=192.168.88.55;
+export PUBLIC_IP=10.4.11.169;
 #
-export CONTAINER_IP=10.99.1.208;
+export CONTAINER_IP=10.99.1.128;
 #
 export PubPORT=3502; 
 export CPORT=80;

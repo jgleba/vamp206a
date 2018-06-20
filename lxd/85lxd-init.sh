@@ -56,43 +56,43 @@ return 9
 
 function blockcomment22() {
 
-purpose :  lxd init
+# purpose :  lxd init
 
 
-paste these commands by hand...
+# paste these commands by hand...
 
   
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Works..     ssh and nginx
+# Works..     ssh and nginx
 
 
-2018-06-18_Mon_11.16-AM
+# 2018-06-18_Mon_11.16-AM
 
-use vbox vm vamp206a ubuntu 16.04 on csd dgleba pc
+# use vbox vm vamp206a ubuntu 16.04 on csd dgleba pc
 
-ubu335c5b vamp206a
-container lxd lx21   
-ports
-3501 ssh 22
-3502 nginx 80
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-follow roughly..
-
-https://www.digitalocean.com/community/tutorials/how-to-set-up-and-use-lxd-on-ubuntu-16-04
-
-https://github.com/lxc/lxd/issues/2836
-
-https://askubuntu.com/questions/119393/how-to-save-rules-of-the-iptables
-
-ref..
-https://gauvain.pocentek.net/lxd-for-lxc-user.html
+# ubu335c5b vamp206a
+# container lxd lx21   
+# ports
+# 3501 ssh 22
+# 3502 nginx 80
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On host of the lxd..
+# follow roughly..
+
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-and-use-lxd-on-ubuntu-16-04
+
+# https://github.com/lxc/lxd/issues/2836
+
+# https://askubuntu.com/questions/119393/how-to-save-rules-of-the-iptables
+
+# ref..
+# https://gauvain.pocentek.net/lxd-for-lxc-user.html
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# On host of the lxd..
 
 
 apt policy lxd lxd-client
@@ -114,7 +114,7 @@ _____________
 sudo lxd init
 
 
-all default answers - except last one. yes, show yaml...
+# all default answers - except last one. yes, show yaml...
 
 
 

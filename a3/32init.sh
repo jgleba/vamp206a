@@ -66,6 +66,16 @@ sudo apt-get -y install locate
 #sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 
 
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
+
+sudo apt-get -y install iptables-persistent
+
+# You can verify these fields by installing debconf-utils and searching for iptables values:
+sudo apt install debconf-utils
+sudo debconf-get-selections | grep iptables
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -257,7 +267,8 @@ cp shc/bin1/histb.sh  $HOME/bin
 source bin/histb.sh
 sudo mkdir -p /var/www/html
 
-sudo apt -y install ncdu rsnapshot iptables-persistent
+
+sudo apt -y install ncdu rsnapshot 
 
 
 # get copy of /etc/rsnapshot.conf for editing.
