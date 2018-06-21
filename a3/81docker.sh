@@ -48,10 +48,11 @@ saynow
 
  apt-cache policy docker-ce
 
- #sudo apt-get -y install docker-ce
+ sudo apt-get -y install docker-ce
  sudo apt-get -y install docker.io
 
  sudo systemctl status docker
+ docker -v
  
  sudo apt -y install docker-compose
  
@@ -59,6 +60,32 @@ saynow
  
  sudo docker run hello-world
  
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#no..
+# sudo apt-get upgrade docker-compose
+# sudo apt-get upgrade 
+
+
+#
+# upgrade docker compose
+#
+sudo apt-get -y remove docker-compose
+# then install the newest version on the release page at GitHub with
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
+sudo chmod +x /usr/bin/docker-compose
+docker-compose -v
+#
+# ref..
+# https://stackoverflow.com/questions/49839028/how-to-upgrade-docker-compose-to-latest-version
+# https://github.com/docker/compose/releases
+# sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+# docker-compose -v
+# curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+# chmod +x /usr/local/bin/docker-compose
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
