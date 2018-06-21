@@ -100,6 +100,7 @@ sudo chmod -R 700 /tmp01/tempfiles
 sudo chown -R $userv   tmp01 
 
 }
+fi
 
 
 #_____________

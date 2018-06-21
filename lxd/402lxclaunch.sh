@@ -50,7 +50,7 @@ saynow
 set -vx
 #
 
-lxc launch ubuntu:x lx21
+# lxc launch ubuntu:x lx21
 
 lxc list
 
@@ -135,10 +135,10 @@ set -vx
 
 
 
-# export PUBLIC_IP=192.168.88.55;
-export PUBLIC_IP=10.4.11.169;
+export PUBLIC_IP=192.168.88.46;
+# export PUBLIC_IP=10.4.11.169;
 #
-export CONTAINER_IP=10.99.1.128;
+export CONTAINER_IP=10.99.1.134;
 #
 export PubPORT=3502; 
 export CPORT=80;
@@ -182,12 +182,12 @@ sudo netfilter-persistent reload
 
 #    ssh -p 3501 ubuntu@10.4.10.175
 
-#    ssh -p 3501 ubuntu@192.168.88.55
+#    ssh -p 3501 ubuntu@192.168.88.46
 
 
 #    curl  'http://10.4.10.175:3502'
 
-#    curl  http://192.168.88.55:3502
+#    curl  http://192.168.88.46:3502
 
 
 # _____________
