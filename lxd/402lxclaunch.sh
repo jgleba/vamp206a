@@ -107,14 +107,9 @@ function blockcomment21() {
 
   Purpose:   
 
-  
-   old... usage:   cd ; chmod +x shc/lxd/404lxdnet.sh ; shc/lxd/404lxdnet.sh 2>&1 | tee -a 404lxdnet_log$(date +"__%Y-%m-%d_%H.%M.%S").log
- 
-  
   set networking to container.
   
   Ip addresses must be edited below..
-  
   
   
 ref..
@@ -135,10 +130,10 @@ set -vx
 
 
 
-export PUBLIC_IP=192.168.88.46;
-# export PUBLIC_IP=10.4.11.169;
+# export PUBLIC_IP=192.168.88.46;
+export PUBLIC_IP=10.4.10.171;
 #
-export CONTAINER_IP=10.99.1.134;
+export CONTAINER_IP=10.99.1.73;
 #
 export PubPORT=3502; 
 export CPORT=80;

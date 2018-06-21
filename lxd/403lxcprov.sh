@@ -77,6 +77,8 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # 2018-06-13
 # export PROMPT_COMMAND='history -a;history -r'
 export HISTTIMEFORMAT="%y-%m-%d %T "
+export HISTSIZE=10000
+export HISEFILESIZE=30000
 #
 EOF
 
