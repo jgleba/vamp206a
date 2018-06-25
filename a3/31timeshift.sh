@@ -8,6 +8,8 @@ echo ~----------~----------Startingd $HOSTNAME, pwd: `pwd`, "$0", "${BASH_SOURCE
 echo "from file.... ${BASH_SOURCE[0]}"
 echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
+echo Usage:  '         cd ;  sudo shc/a3/31timeshift.sh 2>&1 | tee -a 31timeshift_log$(date +"__%Y-%m-%d_%H.%M.%S").log         '
+
 
 saynow()
 {
@@ -72,7 +74,9 @@ sudo sed -i "/${pat}/a ${in2}" $file
  
  
 # create first system shot...
+echo ~----------~---------- Running timeshift first backup.. $HOSTNAME, pwd: `pwd`, "$0", "${BASH_SOURCE[0]}", $(date +"%Y-%m-%d_%H.%M.%S")
    sudo timeshift --create --comments "dg21"
+echo ~----------~---------- Past --  timeshift first backup.. $HOSTNAME, pwd: `pwd`, "$0", "${BASH_SOURCE[0]}", $(date +"%Y-%m-%d_%H.%M.%S")
 
 
 

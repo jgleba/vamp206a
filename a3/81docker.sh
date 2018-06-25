@@ -48,13 +48,27 @@ saynow
 
  apt-cache policy docker-ce
 
- sudo apt-get -y install docker-ce
- sudo apt-get -y install docker.io
+ # sudo apt-get -y install docker-ce
+ # sudo apt-get -y install docker.io
 
- sudo systemctl status docker
- docker -v
  
- sudo apt -y install docker-compose
+ # https://docs.docker.com/install/linux/docker-ce/ubuntu/#os-requirements
+
+
+  sudo apt-get -y remove docker docker-engine docker.io
+
+  apt-cache madison docker-ce
+
+  dockerv='18.03.0~ce-0~ubuntu'
+
+  sudo apt-get install docker-ce=$dockerv
+
+
+ # sudo systemctl status docker
+ docker -v
+ docker version
+ 
+ # sudo apt -y install docker-compose
  
  # docker
  
@@ -87,5 +101,11 @@ docker-compose -v
 # chmod +x /usr/local/bin/docker-compose
 
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+docker version
+docker-compose version
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

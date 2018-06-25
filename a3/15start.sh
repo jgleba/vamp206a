@@ -149,8 +149,8 @@ cd
 #  uncomment one function or the other, regular or columnstore or custom...
 
 # regularmysqlserver
-# columnstore
-custom1
+ columnstore
+# custom1
 
 
  
