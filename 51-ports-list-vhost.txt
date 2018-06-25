@@ -145,6 +145,12 @@ _____________
 
 6010	redash docker pmdsdata6 tbd
 6012 	redash postgres
+
+
+6021 	nginx dkr378php
+.
+6024	nginx dkr378php
+.
 .
 6020
 

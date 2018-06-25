@@ -128,16 +128,19 @@ custom1()
 cd; source shc/a3/31timeshift.sh 
 cd; source shc/a3/32init.sh 
 cd; source shc/a3/81docker.sh 
-cd
 
+cd; source shc/a3/38docs_sample.sh 
+cd; source shc/a3/35base.sh 
+cd; source shc/a3/62grpshare.sh 
+cd; source shc/a3/62srvweb.sh 
+cd; source shc/a3/61user.sh 
+cd;
 
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -149,8 +152,8 @@ cd
 #  uncomment one function or the other, regular or columnstore or custom...
 
 # regularmysqlserver
- columnstore
-# custom1
+# columnstore
+custom1
 
 
  

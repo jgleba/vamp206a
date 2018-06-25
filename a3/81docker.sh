@@ -21,9 +21,32 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 function blockcomment21() {
 : <<'BLOCKCOMMENT'
 
-  Purpose:   
+  Purpose:   install docker on ubuntu-16-04-lts
+  
 
 
+_____________
+
+for
+  ubu 14.04 - 2018-06-25
+
+works..
+  545  sudo apt update
+  546  sudo apt-get remove docker docker-engine docker.io
+  548  curl -fsSL get.docker.com -o get-docker.sh
+  549  sudo sh get-docker.sh
+  
+albe@pmdsdata4:~$ docker version
+Client:
+ Version:      18.05.0-ce
+
+sudo apt-get -y remove docker-compose
+# then install the newest version on the release page at GitHub with
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
+sudo chmod +x /usr/bin/docker-compose
+docker-compose -v
+
+ 
 BLOCKCOMMENT
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,7 +97,10 @@ saynow
  
  sudo docker run hello-world
  
-
+ 
+# run docker without sudo.. 
+sudo usermod -aG docker $(whoami)
+# su - ${USER}
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
