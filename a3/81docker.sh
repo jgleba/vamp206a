@@ -84,23 +84,25 @@ saynow
 
   dockerv='18.03.0~ce-0~ubuntu'
 
-  sudo apt-get install docker-ce=$dockerv
+  sudo apt-get -y install docker-ce=$dockerv
 
 
- # sudo systemctl status docker
- docker -v
- docker version
- 
- # sudo apt -y install docker-compose
- 
- # docker
- 
+  # sudo systemctl status docker
+  docker -v
+  docker version
+
+  # sudo apt -y install docker-compose
+
+  # docker
+
  sudo docker run hello-world
  
  
-# run docker without sudo.. 
-sudo usermod -aG docker $(whoami)
-# su - ${USER}
+  # run docker without sudo.. 
+  sudo usermod -aG docker $(whoami)
+  sudo usermod -aG docker albe
+  sudo usermod -aG docker ubuntu
+  # su - ${USER}
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
