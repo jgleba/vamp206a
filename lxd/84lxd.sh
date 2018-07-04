@@ -27,12 +27,15 @@ function blockcomment21() {
   setup lxd and test
   
   
+  usage:    shc/lxd/84lxd.sh
+  
+  
 
 BLOCKCOMMENT
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-$fil=shc/lxd/85lxd.sh
+$fil=shc/lxd/85lxd-init.sh
 cd ;   chmod +x $fil  ; source  $fil 2>&1 | tee -a $fil_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 $fil=shc/lxd/402lxclaunch.sh
