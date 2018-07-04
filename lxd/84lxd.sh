@@ -27,7 +27,7 @@ function blockcomment21() {
   setup lxd and test
   
   
-  usage:    shc/lxd/84lxd.sh
+  usage:  cd ; $fil=shc/lxd/84lxd.sh ;  chmod +x $fil  ;  $fil ;
   
   
 
