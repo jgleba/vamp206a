@@ -27,8 +27,7 @@ function blockcomment21() {
   setup lxd and test
   
   
-  usage:  cd ; export pth=shc/lxd ; export fil=84lxd.sh ;
-				chmod +x $pth/$fil  ;  $pth/$fil  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
+  usage:  cd ; export pth=shc/lxd ; export fil=84lxd.sh ;  chmod +x $pth/$fil  ;  $pth/$fil  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
   
   
 

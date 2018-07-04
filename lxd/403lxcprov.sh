@@ -30,6 +30,11 @@ blockcomment21() {
     
         provision the container.
 
+		
+ref.
+
+lxc exec lx21 -- sudo --login --user ubuntu
+		
 
 BLOCKCOMMENT
 }
