@@ -60,7 +60,7 @@ timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 
 
 # export PUBLIC_IP=192.168.88.46;
-export PUBLIC_IP=10.4.10.171;
+export PUBLIC_IP=10.4.11.186;
 #
 export CONTAINER_IP=10.99.1.73;
 #

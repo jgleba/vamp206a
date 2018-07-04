@@ -102,7 +102,7 @@ apt policy lxd lxd-client
 
 sudo snap install lxd
 
-_____________
+# _____________
 
 
 sudo lxd init --auto
