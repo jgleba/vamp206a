@@ -27,7 +27,7 @@ function blockcomment21() {
   setup lxd and test
   
   
-  usage:  cd ; $fil=shc/lxd/84lxd.sh ;  chmod +x $fil  ;  $fil ;
+  usage:  cd ; export fil=shc/lxd/84lxd.sh ; chmod +x $fil  ;  $fil ;
   
   
 
@@ -35,15 +35,15 @@ BLOCKCOMMENT
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-$fil=shc/lxd/85lxd-init.sh
+fil=shc/lxd/85lxd-init.sh
 cd ;   chmod +x $fil  ; source  $fil 2>&1 | tee -a $fil_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
-$fil=shc/lxd/402lxclaunch.sh
+fil=shc/lxd/402lxclaunch.sh
 cd ;   chmod +x $fil  ; source  $fil 2>&1 | tee -a $fil_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 
 # Check this file for ip address settings etc before running...
-$fil=shc/lxd/421lxcnet.sh
+fil=shc/lxd/421lxcnet.sh
 cd ;   chmod +x $fil  ; source  $fil 2>&1 | tee -a $fil_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 
