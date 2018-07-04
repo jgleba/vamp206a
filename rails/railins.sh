@@ -8,6 +8,10 @@ function Purpose() {
 
 
 
+usage:    shc/rails/railins.sh
+
+
+
 Do NOT run this scrpt as root!!!!!!!!
 
 

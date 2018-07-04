@@ -353,6 +353,8 @@ Title:  .
  
  grep -ir --include="*.rb" paper_tr .
  
+ grep -ir  --include={*.sh,*.sql} 'import-enterprise2.sh'
+ 
 
  # match product or products
 

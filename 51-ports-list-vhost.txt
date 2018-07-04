@@ -104,7 +104,11 @@ see...
 
 2012    metabase  --   export MB_JETTY_PORT=2012 ; java -jar metabase.jar
 
-2022     see 6000 series ports .. redash (pmdsdata7 test 10.4.1.228 2018-06-06)
+2022     
+
+_____________
+
+note.  see 6000 series ports .. redash (pmdsdata7 test 10.4.1.228 2018-06-06)
 
 
 
@@ -116,10 +120,12 @@ lxc lxd ports  3511-4999
 
 pmdsdata7 - ignition OPC UA server with mariadb columnstore, ubuntu 16.04,  10.4.1.228
 container lxd lx21   
-3501 ssh
-3502 nginx
+3501 ssh 22
+3502 nginx 
+3503 html 80
 .
 3511
+3512 
 
 
 redek ubu335c3 vamp206a
@@ -135,24 +141,48 @@ container lxd lx21
 .
 3511
 
+
+3521 pdata7 redash test
+
+
+generic vbox with lxc pmdstrn
+3541 ssh 22 vm
+3542 nginx 80 vm
+3543 html 81?? vm 
+.
+3551 ssh 22 lx21
+3552 html 80 lx21
+.
+3560
+
+
+
+.
 4999
+lxc lxd ports  3511-4999
+ 
 
 
 _____________
 
 
+ 
+ 
 6000  to 6999 - docker series
 
-6010	redash docker pmdsdata6 tbd
+6010	redash docker pmdsdata6 tbd  
 6012 	redash postgres
 
 
-6021 	nginx dkr378php
+6021 	apache dkr378php 2018-06-26 pdata4
 .
-6024	nginx dkr378php
+6024	apache dkr378php
 .
 .
 6020
+
+
+6000  to 6999 - docker series
 
 
 _____________

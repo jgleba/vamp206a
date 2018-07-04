@@ -1,4 +1,97 @@
 
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2018-06-28[Jun-Thu]11-58AM
+
+
+Used this on ubuntu 16.04 pmdsdata6..
+
+ran shc/a3/81docker.sh to install
+
+https://redash.io/help/open-source/setup#docker-compose
+
+
+ cd
+ ls
+ mkdir -p /srv/web/dkr
+ cd /srv/web/dkr
+ ls
+ git clone https://github.com/getredash/redash
+ ls
+ cd redash/
+
+_____________
+ 
+ 
+I edited..
+	sftp://albe@192.168.88.55/srv/web/dkr/redash/docker-compose.production.yml
+
+1.
+ports.
+
+2.
+    volumes:
+      - /srv/web/dkr/redash-postgres-data:/var/lib/postgresql/data
+
+	  
+mkdir -p /srv/web/dkr/redash-postgres-data
+
+
+cd /srv/web/dkr/redash
+docker-compose -f docker-compose.production.yml run --rm server create_db
+
+docker-compose -f docker-compose.production.yml up
+
+
+http://10.4.1.245:6010/
+
+
+works!
+
+ 
+6010	redash docker pmdsdata6   
+6012 	redash postgres
+
+ 
+_____________
+
+mail setup..
+
+
+.env file
+
+
+export REDASH_MAIL_SERVER="MESG01.stackpole.ca" # default: localhost
+export REDASH_MAIL_DEFAULT_SENDER="dgleba@stackpole.com" # Email address to send from
+export REDASH_MAIL_USERNAME="dgleba" # default: None
+export REDASH_MAIL_PASSWORD="Controls123" # default: None
+
+#export REDASH_MAIL_PORT="" # default: 25
+#export REDASH_MAIL_USE_TLS="" # default: false
+#export REDASH_MAIL_USE_SSL="" # default: false
+
+#export REDASH_HOST="" # base address of your Redash instance, for example: "https://demo.redash.io"
+
+yes.
+docker restart $(docker ps -q)
+
+
+
+got error sending mail.
+
+2018-06-28_Thu_13.14-PM
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+http://10.4.11.186/invite/IjIi.Dhb8CQ.YbFbblkjddYFnOjgURmyeqIbhr0
+
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Title:  .		Run Redash from a Docker Compose
@@ -144,4 +237,46 @@ albe@ubuntu1604a0311:/home/file/dkr/redash$
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2018-06-28[Jun-Thu]20-51PM
+
+
+test message email.
+
+
+albe@pmdsdata6:~$ 
+
+docker exec -it redash_worker_1 ./manage.py send_test_mail
+
+
+[2018-06-29 00:11:54,373][PID:33][INFO][root] Generating grammar tables from /usr/lib/python2.7/lib2to3/Grammar.txt
+[2018-06-29 00:11:54,469][PID:33][INFO][root] Generating grammar tables from /usr/lib/python2.7/lib2to3/PatternGrammar.txt
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    manager()
+  File "/usr/local/lib/python2.7/dist-packages/click/core.py", line 716, in __call__
+    return self.main(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/cli.py", line 345, in main
+    return AppGroup.main(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/click/core.py", line 696, in main
+    rv = self.invoke(ctx)
+.
+  File "/usr/lib/python2.7/smtplib.py", line 256, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/lib/python2.7/smtplib.py", line 316, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/lib/python2.7/smtplib.py", line 291, in _get_socket
+    return socket.create_connection((host, port), timeout)
+  File "/usr/lib/python2.7/socket.py", line 575, in create_connection
+    raise err
+socket.error: [Errno 99] Cannot assign requested address
+albe@pmdsdata6:~$ 
+
+docker restart $(docker ps -q)
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

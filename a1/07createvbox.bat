@@ -92,9 +92,15 @@ IF %_prefix%==PMDSDATA  %vboxm% modifyvm %vmname%  --nic1 bridged --nictype1 vir
 :%vboxm% modifyvm %vmname% --macaddress1=%macaddvamp%
 %vboxm% modifyvm %vmname% 
 
-::not using NAT...
-:eg:
-:VBoxManage modifyvm "hermes" --natpf1 "guestssh,tcp,,10022,,,22"
+
+
+REM  set vmname=ubu335c5
+REM  set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
+REM  NAT...
+REM  %vboxm%  modifyvm %vmname% --nic1 nat
+REM  %vboxm%  modifyvm %vmname% --natpf1 "guestssh,tcp,,3541,,22"
+REM  %vboxm%  modifyvm %vmname% --natpf1 "guest80,tcp,,3542,,80"
+
 
 
 :

@@ -30,15 +30,15 @@ _____________
 for
   ubu 14.04 - 2018-06-25
 
-works..
-  545  sudo apt update
-  546  sudo apt-get remove docker docker-engine docker.io
-  548  curl -fsSL get.docker.com -o get-docker.sh
-  549  sudo sh get-docker.sh
+# works..
+   sudo apt update
+   sudo apt-get remove docker docker-engine docker.io
+   curl -fsSL get.docker.com -o get-docker.sh
+   sudo sh get-docker.sh
   
-albe@pmdsdata4:~$ docker version
-Client:
- Version:      18.05.0-ce
+# albe@pmdsdata4:~$ docker version
+# Client:
+ # Version:      18.05.0-ce
 
 sudo apt-get -y remove docker-compose
 # then install the newest version on the release page at GitHub with
@@ -62,47 +62,72 @@ saynow
 
 # Set up the docker repository
 
- sudo apt-get update
- sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
- curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
- sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# sudo apt-get update
+# sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
- sudo apt-get update
+# sudo apt-get update
 
- apt-cache policy docker-ce
-
- # sudo apt-get -y install docker-ce
- # sudo apt-get -y install docker.io
-
- 
- # https://docs.docker.com/install/linux/docker-ce/ubuntu/#os-requirements
+apt-cache policy docker-ce
 
 
-  sudo apt-get -y remove docker docker-engine docker.io
-
-  apt-cache madison docker-ce
-
-  dockerv='18.03.0~ce-0~ubuntu'
-
-  sudo apt-get -y install docker-ce=$dockerv
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-  # sudo systemctl status docker
-  docker -v
-  docker version
+sudo apt-get update
+sudo apt-get -y remove docker docker-engine docker.io
+curl -fsSL get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+  
+# albe@pmdsdata4:~$ docker version
+# Client:
+ # Version:      18.05.0-ce
 
-  # sudo apt -y install docker-compose
+sudo apt-get -y remove docker-compose
+# then install the newest version on the release page at GitHub with
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
+sudo chmod +x /usr/bin/docker-compose
+docker-compose -v
 
-  # docker
 
- sudo docker run hello-world
- 
- 
-  # run docker without sudo.. 
-  sudo usermod -aG docker $(whoami)
-  sudo usermod -aG docker albe
-  sudo usermod -aG docker ubuntu
-  # su - ${USER}
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+# sudo apt-get -y install docker-ce
+# sudo apt-get -y install docker.io
+
+
+# https://docs.docker.com/install/linux/docker-ce/ubuntu/#os-requirements
+
+
+# sudo apt-get -y remove docker docker-engine docker.io
+
+# apt-cache madison docker-ce
+# dockerv='18.03.0~ce-0~ubuntu'
+# sudo apt-get -y install docker-ce=$dockerv
+
+
+# sudo systemctl status docker
+# docker -v
+# docker version
+
+
+# sudo apt -y install docker-compose
+# docker
+
+# sudo docker run hello-world
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# run docker without sudo.. 
+sudo usermod -aG docker $(whoami)
+sudo usermod -aG docker albe
+sudo usermod -aG docker ubuntu
+# su - ${USER}
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -114,11 +139,11 @@ saynow
 #
 # upgrade docker compose
 #
-sudo apt-get -y remove docker-compose
-# then install the newest version on the release page at GitHub with
-sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
-sudo chmod +x /usr/bin/docker-compose
-docker-compose -v
+# sudo apt-get -y remove docker-compose
+# # then install the newest version on the release page at GitHub with
+# sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
+# sudo chmod +x /usr/bin/docker-compose
+# docker-compose -v
 #
 # ref..
 # https://stackoverflow.com/questions/49839028/how-to-upgrade-docker-compose-to-latest-version

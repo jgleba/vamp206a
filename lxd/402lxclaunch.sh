@@ -135,7 +135,7 @@ export PUBLIC_IP=10.4.10.171;
 #
 export CONTAINER_IP=10.99.1.73;
 #
-export PubPORT=3502; 
+export PubPORT=3552; 
 export CPORT=80;
 #
 # export 
@@ -144,7 +144,7 @@ sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT
 
 #
 
-export PubPORT=3501; 
+export PubPORT=3551; 
 export CPORT=22;
 #
 sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT

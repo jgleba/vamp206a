@@ -13,13 +13,13 @@ services:
       - postgres
       - redis
     ports:
-      - "5000:5000"
+      - "6012:5000"
     environment:
       PYTHONUNBUFFERED: 0
       REDASH_LOG_LEVEL: "INFO"
       REDASH_REDIS_URL: "redis://redis:6379/0"
       REDASH_DATABASE_URL: "postgresql://postgres@postgres/postgres"
-      REDASH_COOKIE_SECRET: veryberryglebaverysecret
+      REDASH_COOKIE_SECRET: DavidGlebaveryverysecretqwerlkjlkj
       REDASH_WEB_WORKERS: 4
     restart: always
   worker:
@@ -32,6 +32,9 @@ services:
       REDASH_DATABASE_URL: "postgresql://postgres@postgres/postgres"
       QUEUES: "queries,scheduled_queries,celery"
       WORKERS_COUNT: 2
+      REDASH_MAIL_SERVER: "MESG01.stackpole.ca" 
+      REDASH_MAIL_DEFAULT_SENDER: "dgleba@stackpole.com"
+     
     restart: always
   redis:
     image: redis:3.0-alpine
@@ -44,7 +47,7 @@ services:
   nginx:
     image: redash/nginx:latest
     ports:
-      - "2022:80"
+      - "6010:80"
     depends_on:
       - server
     links:
