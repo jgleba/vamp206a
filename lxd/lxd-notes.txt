@@ -28,3 +28,14 @@ Follow these in order...
   old. not needed...  - -  404lxdnet.sh   -  usage:   cd ;   chmod +x shc/lxd/404lxdnet.sh  ;  shc/lxd/404lxdnet.sh 2>&1 | tee -a 404lxdnet_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
   
+  
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# lxc stop lx21
+
+# lxc delete lx21
+
+  
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

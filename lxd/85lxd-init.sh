@@ -177,8 +177,8 @@ sudo lxd init --auto
 
 
 lxc network show lxdbr0
-# sudo lxc network set lxdbr0  ipv4.address 10.99.1.1/24
-lxc network set lxdbr0  ipv4.address 10.0.2.1/24
+lxc network set lxdbr0  ipv4.address 10.99.1.1/24
+# lxc network set lxdbr0  ipv4.address 10.0.2.1/24
 lxc network show lxdbr0
 
 
@@ -196,10 +196,10 @@ lxc network show lxdbr0
 
 # Create a container..
 
-sudo lxc launch ubuntu:x lx21
+lxc launch ubuntu:x lx21
 
 # observe the ip address.
-sudo lxc list
+lxc list
 
 
 
