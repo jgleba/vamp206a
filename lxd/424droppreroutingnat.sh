@@ -22,15 +22,9 @@ function blockcomment21() {
 : <<'BLOCKCOMMENT'
 
 
-  Purpose:   set networking to container
+  Purpose:  drop all iptables prerouting rules...
+ 
 
- 
-  **** NOTE *****     Ip addresses must be edited below before using..
-  
-  
-  usage:   cd ;   chmod +x shc/lxd/402lxclaunch.sh  ;  shc/lxd/402lxclaunch.sh 2>&1 | tee -a 402lxclaunch_log$(date +"__%Y-%m-%d_%H.%M.%S").log
-    
- 
  
 _____________
   
@@ -50,53 +44,12 @@ saynow
 set -vx
 #
 
-# lxc launch ubuntu:x lx21
 
-lxc list
-
-timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
-
-
-
-
-# export PUBLIC_IP=192.168.88.46;
-export PUBLIC_IP=10.4.11.186;
-#
-export CONTAINER_IP=10.99.1.195;
-#
-export PubPORT=3552; 
-export CPORT=80;
-#
-# export 
-#
-sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
-
-#
-
-export PubPORT=3551; 
-export CPORT=22;
-#
-sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
-
-
-# _____________
-
-
- sudo iptables -t nat -L PREROUTING
-
-
-# _____________
-
+sudo iptables -t nat -L PREROUTING --line-numbers
  
-# https://askubuntu.com/questions/119393/how-to-save-rules-of-the-iptables
+for i in $( sudo iptables -t nat --line-numbers -L | grep ^[0-9] | awk '{ print $1 }' | tac ); do sudo iptables -t nat -D PREROUTING $i; done
 
-sudo apt -y install iptables-persistent
-
-# The installation as described above works without a problem, but some commands for saving and reloading do not seem to work with a 16.04 server. The following commands work with that version:
-
-sudo netfilter-persistent save
-sudo netfilter-persistent reload
-
+sudo iptables -t nat -L PREROUTING --line-numbers
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
