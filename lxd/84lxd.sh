@@ -27,7 +27,7 @@ function_blockcomment21() {
   setup lxd and test
   
   
-  usage:  cd ; export pth=shc/lxd ; export fil=84lxd.sh ;  chmod +x $pth/$fil  ;  $pth/$fil  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
+  usage:  cd ; export pth=shc/lxd ; export fil=84lxd.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
   
   
 
@@ -49,7 +49,7 @@ usage() {
   echo "  -cn, --container-name   Name of the new Container"
   echo ""
   echo "Example: $0 -cn lx21 "
-  echo "${CLEAR}"
+  echo -e "${CLEAR}"
   exit 1
 }
 

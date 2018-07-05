@@ -45,6 +45,8 @@ BLOCKCOMMENT
 
 
 
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function lxdinit() {
@@ -105,7 +107,45 @@ sudo snap install lxd
 # _____________
 
 
-sudo lxd init --auto
+cat <<EOF | sudo lxd init --preseed
+config: {}
+cluster: null
+networks:
+- config:
+    ipv4.address: auto
+    ipv6.address: none
+  description: ""
+  managed: true
+  name: lxdbr0
+  type: ""
+storage_pools:
+- config:
+    size: 18GB
+  description: ""
+  name: default
+  driver: zfs
+profiles:
+- config: {}
+  description: ""
+  devices:
+    eth0:
+      name: eth0
+      nictype: bridged
+      parent: lxdbr0
+      type: nic
+    root:
+      path: /
+      pool: default
+      type: disk
+  name: default
+EOF
+
+
+lxc network list
+# lxc network delete lxdbr1
+
+
+# not working everytime.   -- sudo lxd init --auto
 
 #sudo lxd init
 
