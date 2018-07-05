@@ -36,8 +36,10 @@ BLOCKCOMMENT
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-CLEAR='\033[0m'
-RED='\033[0;31m'
+export CLEAR2='\033[0m\033[1;37m'
+export CLEAR='\033[0m'
+export RED='\033[0;31m'
+  echo -e "${CLEAR}"
 
 usage() {
   if [ -n "$1" ]; then
@@ -47,6 +49,7 @@ usage() {
   echo "  -cn, --container-name   Name of the new Container"
   echo ""
   echo "Example: $0 -cn lx21 "
+  echo "${CLEAR}"
   exit 1
 }
 
