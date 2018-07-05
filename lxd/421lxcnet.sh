@@ -40,6 +40,13 @@ lxc exec lx21 -- sudo --login --user ubuntu
 
 
 
+#delete all prerouting...
+
+sudo iptables -t nat -L PREROUTING --line-numbers		# list rules
+   for i in $( sudo iptables -t nat --line-numbers -L | grep ^[0-9] | awk '{ print $1 }' | tac ); do sudo iptables -t nat -D PREROUTING $i; done
+sudo iptables -t nat -L PREROUTING --line-numbers		# list rules
+  
+
 BLOCKCOMMENT
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,19 +77,13 @@ export CPORT=80;
 # export 
 #
 sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
-
 #
-
 export PubPORT=3551; 
 export CPORT=22;
 #
 sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
-
-
 # _____________
-
-
- sudo iptables -t nat -L PREROUTING
+ sudo iptables -t nat -L PREROUTING  # list rules
 
 
 # _____________
@@ -90,11 +91,14 @@ sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT
  
 # https://askubuntu.com/questions/119393/how-to-save-rules-of-the-iptables
 
+sudo apt -y remove --purge iptables-persistent
+
 sudo apt -y install iptables-persistent
 
 # The installation as described above works without a problem, but some commands for saving and reloading do not seem to work with a 16.04 server. The following commands work with that version:
 
 sudo netfilter-persistent save
+sudo netfilter-persistent flush
 sudo netfilter-persistent reload
 
 

@@ -9,8 +9,8 @@ echo "from file.... ${BASH_SOURCE[0]}"
 echo "${BASH_SOURCE[@]}"  # echo full bashsource array
 
 
-saynow()
-{
+function saynow {
+
 date1=$(date +"__%Y.%m.%d_%H.%M.%S")
 echo $date1
 timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
@@ -18,8 +18,8 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
   
 }
 
-backup1()
-{
+fuction backup1 {
+
 # create file hello, backup the original file once, and copy it with timestamp.
 # An example of how to backup a file before editing it with a script.
 mkdir -p ~/tmp01
@@ -39,12 +39,18 @@ line1=' \ \ #added line 1\n \ #added line 2 = ":8071" '
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function blockcomment21() {
+function blockcomment21 {
 : <<'BLOCKCOMMENT'
 
   Purpose:   
 
+  function abc {
+  }
 
+  or 
+  abc() {
+  }
+  
 BLOCKCOMMENT
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

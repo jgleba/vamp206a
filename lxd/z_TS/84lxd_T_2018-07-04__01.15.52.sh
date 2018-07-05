@@ -18,7 +18,7 @@ timeout1=5 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function_blockcomment21() {
+function blockcomment21() {
 : <<'BLOCKCOMMENT'
 
   Purpose:   
@@ -33,37 +33,6 @@ function_blockcomment21() {
 
 BLOCKCOMMENT
 }
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-CLEAR='\033[0m'
-RED='\033[0;31m'
-
-usage() {
-  if [ -n "$1" ]; then
-    echo -e "${RED}ERROR $1\n";
-  fi
-  echo "Usage: $0 [-cn container-name] "
-  echo "  -cn, --container-name   Name of the new Container"
-  echo ""
-  echo "Example: $0 -cn lx21 "
-  exit 1
-}
-
-# parse params
-while [[ "$#" > 0 ]]; do case $1 in
-  -cn|--container-name) ctname="$2"; shift;shift;;
-  *) usage "Unknown parameter passed: $1"; shift; shift;;
-esac; done
-
-# verify params
-if [ -z "$ctname" ]; then usage "Container name not supplied"; fi;
-
-export ectname=${ctname}
-
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 fil=shc/lxd ;fil=85lxd-init.sh ; 

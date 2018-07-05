@@ -153,6 +153,19 @@ cat /etc/ssh/sshd_config | grep -i passwordau
 # cat ./tmpf1 | grep -i passwordau
 
 
+
+# _____________
+
+# Add use albe..
+
+#adduser asks questions and does more...
+sudo adduser albe --gecos "albe,RM,wPhone,hPhone" --disabled-password
+#echo "albe:$pw1" | sudo chpasswd
+echo "albe:a" | sudo chpasswd
+sudo usermod -a -G adm,dialout,plugdev,sambashare,www-data,sudo,docker albe
+#sudo usermod -a -G sudo  albe
+
+
 # _____________
 
 
@@ -161,7 +174,6 @@ cat /etc/ssh/sshd_config | grep -i passwordau
 set -vx
 
 # sets the password to a
-
 echo "ubuntu:a" | sudo chpasswd
 
 
