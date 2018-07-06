@@ -8,6 +8,31 @@ echo ~----------~----------Startingd $HOSTNAME, pwd: `pwd`, dlr0: "$0", bashsour
 #echo "from file.... ${BASH_SOURCE[0]}"
 echo bashsource@0: "${BASH_SOURCE[@]}"  # echo full bashsource array
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function blockcomment21 {
+: <<'BLOCKCOMMENT'
+
+  Purpose:   
+
+  function abc {
+  }
+
+  or 
+  abc() {
+  }
+  
+BLOCKCOMMENT
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# Functions...
+
+
 
 function saynow {
 
@@ -39,20 +64,42 @@ line1=' \ \ #added line 1\n \ #added line 2 = ":8071" '
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function blockcomment21 {
-: <<'BLOCKCOMMENT'
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  Purpose:   
 
-  function abc {
-  }
+# get commmand line arguments / parameters
 
-  or 
-  abc() {
-  }
-  
-BLOCKCOMMENT
+
+export CLEAR='\033[0m'
+export RED='\033[0;31m'
+  echo -e "${CLEAR}"
+
+usage() {
+  if [ -n "$1" ]; then
+    echo -e "${RED}ERROR $1\n";
+  fi
+  echo "Usage: $0 [-t install-type] "
+  echo "  -t, --install-type   Type of install, regularmysqlserver, columnstore, or custom1"
+  echo ""
+  echo "Example: $0 -t regularmysqlserver "
+  echo -e "${CLEAR}"
+  exit 1
 }
+
+# parse params
+while [[ "$#" > 0 ]]; do case $1 in
+  -t|--install-type) tname="$2"; shift;shift;;
+  *) usage "Unknown parameter passed: $1"; shift; shift;;
+esac; done
+
+# verify params
+if [ -z "$ctname" ]; then usage "Container name not supplied"; fi;
+
+export etname=${tname}
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -63,7 +110,5 @@ backup1
 
 
 
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # exit 0  # bad idea. exit will prevent next script. return will give error if not returning from function. Use blockcomment for multiline comments.
-#

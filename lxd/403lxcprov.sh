@@ -119,7 +119,9 @@ timedatectl 2>&1 | tee -a  timezonesetting.txt
 
 
 sudo apt-get update
-sudo apt-get -y install nginx mc
+
+# use this to test port 80...
+# sudo apt-get -y install nginx mc
 
 
 #_____________

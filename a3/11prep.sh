@@ -62,7 +62,7 @@ cd ; sudo chmod -R +x shc/ ; sudo shc/a3/32init.sh 2>&1 | tee -a 32init_v206_log
 
 logout and login again.
 
-cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh regularmysqlserver 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 
 
