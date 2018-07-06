@@ -92,7 +92,7 @@ lxc list
 # export PUBLIC_IP=192.168.88.46;    # if on hyperv or baremetal, use the hosts ip address as the public ip and forward to the container.
 export   PUBLIC_IP=10.0.2.15;        # use the private ip address of the nat vbox vm if using virtualbox..
 #
-export CONTAINER_IP=10.99.1.214;
+export CONTAINER_IP=10.99.1.99;
 #
 export PubPORT=3552; 
 export CPORT=80;
@@ -136,6 +136,25 @@ sudo netfilter-persistent reload
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2018-07-06[Jul-Fri]13-07PM
+
+https://stgraber.org/2016/10/27/network-management-with-lxd-2-3/
+
+
+https://discuss.linuxcontainers.org/t/using-static-ips-with-lxd/1291/4
+works..
+
+lxc stop c1
+lxc network attach lxdbr0 c1 eth0 eth0
+lxc config device set c1 eth0 ipv4.address 10.99.1.99
+lxc start c1
+lxc list
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 set vmname=vamp206b
 set vmname=ubu335c5
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
@@ -169,3 +188,5 @@ set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
   
 sudo /etc/init.d/networking restart
    
+   
+==   

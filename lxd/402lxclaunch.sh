@@ -79,8 +79,17 @@ saynow
 set -vx
 #
 
-lxc launch ubuntu:x ${ctname}
+#test ctname=t22
+export ectname=${ctname}
+lxc init ubuntu:x ${ectname}
+lxc stop ${ectname}
+lxc network attach lxdbr0 ${ectname} eth0 eth0
+lxc config device set ${ectname} eth0 ipv4.address 10.99.1.99
+lxc start ${ectname}
+lxc list
 
+
+timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
 lxc list
 
 # example..
