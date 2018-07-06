@@ -20,7 +20,11 @@ Follow these in order...
 
 85lxd-init.sh  -   usage:  cd ; export pth=shc/lxd ; export fil=85lxd-init.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
 
+
+
 logout and login again.
+
+
 
 86lxd-init.sh  -   usage:  cd ; export pth=shc/lxd ; export fil=86lxd-init.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
 

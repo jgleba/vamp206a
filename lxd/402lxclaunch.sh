@@ -120,6 +120,13 @@ lxc exec ${ctname} -- sh /home/ubuntu/$f21  2>&1 | tee -a ${f21}_log$(date +"__%
     
 
 
+timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+lxc list
+timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+lxc stop ${ctname} 
+timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
+lxc start ${ctname} 
+timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
 lxc list
 
 

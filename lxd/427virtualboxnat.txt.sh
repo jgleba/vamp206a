@@ -81,14 +81,14 @@ sudo iptables -t nat -L PREROUTING --line-numbers
 
 >61.
 
-setup the nat rules...
+setup the nat rules on the vbox vm that is host to the lxc container...
 
 # get container ip by reading this..
 lxc list
 
  
 #    *****   Edit the IP addresses below...   *****  
-
+# 
 # export PUBLIC_IP=192.168.88.46;    # if on hyperv or baremetal, use the hosts ip address as the public ip and forward to the container.
 export   PUBLIC_IP=10.0.2.15;        # use the private ip address of the nat vbox vm if using virtualbox..
 #
@@ -99,6 +99,7 @@ export CPORT=80;
 #
 # export 
 #
+sudo iptables -t nat -L PREROUTING --line-numbers
 sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
 #
 export PubPORT=3551; 
@@ -151,6 +152,11 @@ lxc network attach lxdbr0 c1 eth0 eth0
 lxc config device set c1 eth0 ipv4.address 10.99.1.99
 lxc start c1
 lxc list
+
+
+sudo apt -y install lxc1
+sudo lxc-create -t ubuntu -n test22 -- --user albe --password a
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

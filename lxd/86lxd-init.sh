@@ -240,7 +240,7 @@ lxc network show lxdbr0
 
 # Create a container..
 
-lxc launch ubuntu:x ${ectname}
+lxc launch ubuntu:x test21
 timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
 
 # observe the ip address.

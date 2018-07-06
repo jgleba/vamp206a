@@ -164,8 +164,10 @@ cat /etc/ssh/sshd_config | grep -i passwordau
 sudo adduser albe --gecos "albe,RM,wPhone,hPhone" --disabled-password
 #echo "albe:$pw1" | sudo chpasswd
 echo "albe:a" | sudo chpasswd
-sudo usermod -a -G adm,dialout,plugdev,sambashare,www-data,sudo,docker albe
+# sudo usermod -a -G adm,dialout,plugdev,www-data,sudo,docker albe
+sudo usermod -a -G www-data,sudo albe
 #sudo usermod -a -G sudo  albe
+sudo gpasswd -a albe sudo
 
 #_____________
 

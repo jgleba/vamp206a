@@ -58,7 +58,7 @@ cd ; git clone https://github.com/dgleba/vamp206a.git shc  ; chmod -R +x  shc/
 cd ; cd shc ; git pull
 
 
-cd ; sudo chmod -R +x shc/ ; sudo shc/a3/32init.sh 2>&1 | tee -a v206_32init_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+cd ; sudo chmod -R +x shc/ ; sudo shc/a3/32init.sh 2>&1 | tee -a 32init_v206_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 logout and login again.
 
