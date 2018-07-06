@@ -155,6 +155,8 @@ cat /etc/ssh/sshd_config | grep -i passwordau
 
 
 # _____________
+# _____________
+
 
 # Add use albe..
 
@@ -164,6 +166,71 @@ sudo adduser albe --gecos "albe,RM,wPhone,hPhone" --disabled-password
 echo "albe:a" | sudo chpasswd
 sudo usermod -a -G adm,dialout,plugdev,sambashare,www-data,sudo,docker albe
 #sudo usermod -a -G sudo  albe
+
+#_____________
+
+
+# setting various helpers like aliases, command history timestamps, etc...
+
+export userv=albe
+
+if ! grep -q "history -a" /home/$userv/.bashrc ; then
+{
+cd
+echo "alias lsl='ls -la'" >>   /home/$userv/.bash_aliases
+sudo chmod ugo+rw  ~/.bash_aliases
+echo "alias psg='ps -ef|grep '" >>   /home/$userv/.bash_aliases
+cat /home/$userv/.bash_aliases
+
+# write history immediately...
+#
+# back ticks evaluate date when run...
+# http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
+nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
+sudo cat <<EOF >> /home/$userv/.bashrc
+# -------------------------------------------------------------------
+# David Gleba $nowdg1
+#write history immediately...
+# http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+# https://askubuntu.com/questions/391082/how-to-see-time-stamps-in-bash-history
+# https://askubuntu.com/questions/885531/half-of-bash-history-is-missing?rq=1
+#
+shopt -s histappend
+# PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+#
+# 2018-06-13
+# export PROMPT_COMMAND='history -a;history -r'
+export HISTTIMEFORMAT="%y-%m-%d %T "
+export HISTSIZE=10000
+export HISEFILESIZE=30000
+#
+EOF
+
+echo "Running provision onetime routine - 403lxcprov.sh  ${nowdg1}" >> 403lxcprov.sh${nowdg1}.txt
+echo "Running provision onetime routine - 403lxcprov.sh  ${nowdg1}" >> /home/$userv/403lxcprov.sh${nowdg1}.txt
+
+cd
+mkdir -p /home/$userv/bin
+sudo chown /home/$userv bin
+sudo chgrp /home/$userv bin
+cd
+
+# 
+mkdir -p /home/$userv/tmp01
+mkdir -p /home/$userv/safe
+chmod -R 700 /home/$userv/safe/ 
+
+sudo mkdir -p /home/$userv//tmp01/tempfiles
+sudo chmod -R 700 /home/$userv/tmp01
+sudo chmod -R 700 /home/$userv/tmp01/tempfiles
+sudo chown -R $userv   /home/$userv/tmp01 
+
+}
+fi
+
+
+#_____________
 
 
 # _____________

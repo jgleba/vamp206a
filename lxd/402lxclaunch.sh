@@ -41,32 +41,64 @@ BLOCKCOMMENT
 }
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+export CLEAR2='\033[0m\033[1;37m'
+export CLEAR='\033[0m'
+export RED='\033[0;31m'
+  echo -e "${CLEAR}"
+
+usage() {
+  if [ -n "$1" ]; then
+    echo -e "${RED}ERROR $1\n";
+  fi
+  echo "Usage: $0 [-cn container-name] "
+  echo "  -cn, --container-name   Name of the new Container"
+  echo ""
+  echo "Example: $0 -cn lx21 "
+  echo -e "${CLEAR}"
+  exit 1
+}
+
+# parse params
+while [[ "$#" > 0 ]]; do case $1 in
+  -cn|--container-name) ctname="$2"; shift;shift;;
+  *) usage "Unknown parameter passed: $1"; shift; shift;;
+esac; done
+
+# verify params
+if [ -z "$ctname" ]; then usage "Container name not supplied"; fi;
+
+export ectname=${ctname}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 #main...
 saynow
 set -vx
 #
 
-# lxc launch ubuntu:x lx21
+lxc launch ubuntu:x ${ctname}
 
 lxc list
 
 # example..
-	lxc file pull lx21/etc/hosts hosts.tmp
+	lxc file pull ${ctname}/etc/hosts hosts.tmp
 
 #
 
 export e21=21env.sh
-lxc exec lx21 --  mkdir -p /home/ubuntu/safe
-lxc file push shc/a3/$e21 lx21/home/ubuntu/safe/$e21
+lxc exec ${ctname} --  mkdir -p /home/ubuntu/safe
+lxc file push shc/a3/$e21 ${ctname}/home/ubuntu/safe/$e21
 
 export f21=403lxcprov.sh
-# lxc file push /home/albe/shc/lxd/$f21 lx21/home/ubuntu/$f21
-lxc exec lx21 -- rm /home/ubuntu/$f21
+# lxc file push /home/albe/shc/lxd/$f21 ${ctname}/home/ubuntu/$f21
+lxc exec ${ctname} -- rm /home/ubuntu/$f21
 timeout1=2 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
-lxc file push shc/lxd/$f21 lx21/home/ubuntu/$f21
+lxc file push shc/lxd/$f21 ${ctname}/home/ubuntu/$f21
 
-# lxc exec lx21 -- sudo --login --user ubuntu -- sh /home/ubuntu/$f21
+# lxc exec ${ctname} -- sudo --login --user ubuntu -- sh /home/ubuntu/$f21
 #
 timeout1=2 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
 
@@ -75,7 +107,8 @@ timeout1=2 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 # Runs 403lxcprov.sh inside the container to provision it..
 #
 #
-lxc exec lx21 -- sh /home/ubuntu/$f21
+lxc exec ${ctname} -- sh /home/ubuntu/$f21  2>&1 | tee -a ${f21}_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+    
 
 
 lxc list
