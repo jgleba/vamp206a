@@ -48,6 +48,58 @@ sudo chmod -R o+r /etc/apache2 # viewable for ..
 cd
 #
 
+
+
+#  override - with new concept...  
+#      Just share the whole srv folder, and var/www  with www-data group...   2018-07-06
+
+
+# New 2018-07-06 Just share the whole srv folder, and var/www  with www-data group...
+#
+fold=/srv
+sudo mkdir -p ${fold}
+sudo chgrp -hR www-data ${fold}
+sudo chown -R www-data  ${fold}
+#also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+sudo chmod -R g+rws  ${fold}
+sudo chmod -R o-rw ${fold}
+# make only folders +x so they can be cd into.
+sudo find ${fold} -type d -exec chmod g+x {} +
+sudo usermod -a -G www-data  $userv
+
+
+#
+
+
+# temporary measure 2018-07-06 Just share the whole srv without recursing - faster if srv has lots of stuff in it.
+#
+fold=/srv
+sudo mkdir -p ${fold}
+sudo chgrp -h www-data ${fold}
+sudo chown  www-data  ${fold}
+#also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+sudo chmod  g+rws  ${fold}
+sudo chmod  o-rw ${fold}
+# make only folders +x so they can be cd into.
+#  offline -- sudo find ${fold} -type d -exec chmod g+x {} +
+# sudo usermod -a -G www-data  $userv
+
+
+# temporary measure 2018-07-06 Just share the whole var/www without recursing - faster if srv has lots of stuff in it.
+#
+fold=/var/www
+sudo mkdir -p ${fold}
+sudo chgrp -h www-data ${fold}
+sudo chown  www-data  ${fold}
+#also set the group sticky bit, so that the group is set for new files created. chmod g+s /home/shared – jris198944 May 13 '14 at 8:43 
+sudo chmod  g+rws  ${fold}
+sudo chmod  o-rw ${fold}
+# make only folders +x so they can be cd into.
+#  offline -- sudo find ${fold} -type d -exec chmod g+x {} +
+# sudo usermod -a -G www-data  $userv
+
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

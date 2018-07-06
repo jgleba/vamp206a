@@ -102,12 +102,14 @@ sudo apt -y remove --purge lxd lxd-client liblxc1 lxcfs
 
 apt policy lxd lxd-client
 
+set -vx
+
 sudo snap install lxd
 
 # _____________
 
 
-cat <<EOF | sudo lxd init --preseed
+tee <<EOF /tmp/initlxc.yml
 config: {}
 cluster: null
 networks:
@@ -141,7 +143,12 @@ profiles:
 EOF
 
 
+
+cat </tmp/initlxc.yml | sudo lxd init --preseed
+
+
 lxc network list
+
 # lxc network delete lxdbr1
 
 
@@ -204,6 +211,26 @@ lxc network list
 # albe@ubuntu1604a0311:~$
 
 
+# 2018-07-05_Thu_16.34-PM
+# Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: yes
+# config: {}
+# networks: []
+# storage_pools: []
+# profiles:
+# - config: {}
+  # description: ""
+  # devices:
+    # eth0:
+      # name: eth0
+      # nictype: bridged
+      # parent: lxdbr0
+      # type: nic
+  # name: default
+# cluster: null
+
+# albe@ubuntu1604a0311:~$
+
+
 
 # _____________
 
@@ -217,7 +244,7 @@ lxc network list
 
 
 lxc network show lxdbr0
-lxc network set lxdbr0  ipv4.address 10.99.1.1/24
+sudo lxc network set lxdbr0  ipv4.address 10.99.1.1/24
 # lxc network set lxdbr0  ipv4.address 10.0.2.1/24
 lxc network show lxdbr0
 
@@ -259,3 +286,4 @@ lxdinit
 # timeout1=98765 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..." || true ;  echo ;
 # return 9
 
+set +vx

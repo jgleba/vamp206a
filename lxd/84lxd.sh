@@ -69,10 +69,10 @@ export ectname=${ctname}
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-fil=shc/lxd ;fil=85lxd-init.sh ; 
+pth=shc/lxd ;fil=85lxd-init.sh ; 
 cd ;   chmod +x $pth/$fil  ; source  $pth/$fil 2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
-fil=shc/lxd ;fil=402lxclaunch.sh ; 
+pth=shc/lxd ;fil=402lxclaunch.sh ; 
 cd ;   chmod +x $pth/$fil  ; source  $pth/$fil 2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 

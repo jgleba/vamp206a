@@ -5,6 +5,7 @@ rem Change to nat..
 >11.
 
 set vmname=ubu335c5b-cloned
+set vmname=ubu381
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
 echo %vboxm%
 : NAT...
@@ -14,8 +15,8 @@ echo %vboxm%
 %vboxm%  modifyvm %vmname% --natpf1  delete "guest80"
 %vboxm%  modifyvm %vmname% --natpf1 "guest80,tcp,,3542,,80"
 
-set vmname=ubu335c6
-set vmname=ubu335c5b-cloned
+rem set vmname=ubu335c6
+rem set vmname=ubu335c5b-cloned
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
 echo %vboxm%
 : NAT...

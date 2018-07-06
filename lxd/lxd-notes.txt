@@ -36,6 +36,21 @@ Follow these in order...
 # lxc delete lx21
 
   
+  
+lxc list
+lxc network list
+lxc network show lxdbr0
+apt policy lxd lxd-client
+
+#>81.  list
+
+set vmname=ubu335c6
+set vmname=ubu335c5b-cloned
+set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
+%vboxm%  showvminfo %vmname% |grep -i nic
+
+
+  
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
