@@ -59,7 +59,7 @@ set vmname=ubu335c5b-cloned
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
 %vboxm%  showvminfo %vmname% |grep -i nic
 
-
+sudo shc/a3/32init.sh
   
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

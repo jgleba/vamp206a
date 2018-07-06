@@ -4,15 +4,33 @@
 
 ---
 
-#
-The instructions below refer to making a server from just the scripts. 
-It downloads the ubuntu iso file and creates an unattended install ISO file and install all the software and data.
+# Latest usage instructions...
+
+See `a3\11prep.sh` for the latest setup scripts.
+
+I have been recently doing things in steps.
+
+I install ubuntu in a vbox vm manually. It just has user, timezone, US keyboard, and openssh-server. 
+
+I start that vm and export an appliance. 
+
+That appliance is just an unused ubuntu vm. I can erase my used vm and import a fresh unused applicance and start over anytime.
+
+I also use snapshots in virtualbox. I take a snapshot when it is unused. I can restore that snapshot anytime and start over.
+
+The `lxd` folder has lxd container setup scripts.
+
+The `rails` folder has rails setup scripts.
+
+When using `17docs-sample.sh` it just uses a sample web root and data-set to get things started. Then I use `a2\99newdata.sh` to get new data.
+
+
+---
+
+The instructions below for `version A1` refer to making a server from just the scripts. 
+It downloads the ubuntu iso file, creates an unattended install ISO file, runs it to install ubuntu in a newly created vm, and installs all the software and data.
 That code is in the `a1` folder now.
 
-I have been recently doing it in steps. 
-See `a2\11prep.sh`
-
-When using `17docs-sample.sh` it just uses a sample web root and data set to get things started. Then I use `a2\99newdata.sh` to get new data.
 
 ---
 

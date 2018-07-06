@@ -14,7 +14,7 @@ set -vx
 
 # purpose:
 
-# 24start.sh  setup the server
+# 15start.sh  setup the server
 
 
 
@@ -50,7 +50,7 @@ columnstore()
 # for maria columnstore..
 
 cd; source shc/a3/31timeshift.sh 
-cd; source shc/a3/32init.sh 
+# cd; source shc/a3/32init.sh 
 cd; source shc/a3/81docker.sh 
 
 cd
@@ -84,7 +84,7 @@ regularmysqlserver()
 # For my regular mysql server..
 
 cd; source shc/a3/31timeshift.sh 
-cd; source shc/a3/32init.sh 
+# cd; source shc/a3/32init.sh 
 cd; source shc/a3/81docker.sh 
 
 cd
@@ -126,11 +126,11 @@ custom1()
 # custom other workflow..
 
 cd; source shc/a3/31timeshift.sh 
-cd; source shc/a3/32init.sh 
-cd; source shc/a3/81docker.sh 
+# cd; source shc/a3/32init.sh 
+# cd; source shc/a3/81docker.sh 
 
-cd; source shc/a3/38docs_sample.sh 
-cd; source shc/a3/35base.sh 
+# cd; source shc/a3/38docs_sample.sh 
+# cd; source shc/a3/35base.sh 
 cd; source shc/a3/62grpshare.sh 
 cd; source shc/a3/62srvweb.sh 
 cd; source shc/a3/61user.sh 
