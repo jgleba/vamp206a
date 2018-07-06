@@ -1,8 +1,13 @@
+exit 8
+
 
 rem Change to nat..
 
 
 >11.
+
+change virtual box nat rules to make the virtualbox vm accessible from the pc hosting the virtualboxvm..
+
 
 set vmname=ubu335c5b-cloned
 set vmname=ubu381
@@ -31,11 +36,15 @@ echo %vboxm%
 
 >21.
 
+hmm. not needed..
+
 rem  			check firewall in windows.
 
 
 
 >31.
+
+info..
 
 ssh 10.4.10.118 3541 lxhost works.
 
@@ -45,11 +54,15 @@ ssh 10.4.10.118 3541   # lxhost
 
 >41.
 
+to login to the lxc container from its host..
+
 
 lxc exec lx21 -- sudo --login --user ubuntu
 
 
 >51.
+
+delete iptables rules..
 
 
 #  DELETE ALL  - CAREFULL   **************************
@@ -68,13 +81,18 @@ sudo iptables -t nat -L PREROUTING --line-numbers
 
 >61.
 
+setup the nat rules...
+
+# get container ip by reading this..
 lxc list
 
  
-# export PUBLIC_IP=192.168.88.46;
-export PUBLIC_IP=10.0.2.15;
+#    *****   Edit the IP addresses below...   *****  
+
+# export PUBLIC_IP=192.168.88.46;    # if on hyperv or baremetal, use the hosts ip address as the public ip and forward to the container.
+export   PUBLIC_IP=10.0.2.15;        # use the private ip address of the nat vbox vm if using virtualbox..
 #
-export CONTAINER_IP=10.99.1.64;
+export CONTAINER_IP=10.99.1.214;
 #
 export PubPORT=3552; 
 export CPORT=80;
@@ -91,12 +109,12 @@ sudo iptables -t nat -L PREROUTING --line-numbers
  
 
 
->71.
  
->81.  list
+>81.  list vbox vm info..
 
 set vmname=ubu335c6
 set vmname=ubu335c5b-cloned
+set vmname=ubu381
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
 %vboxm%  showvminfo %vmname% |grep -i nic
 
