@@ -38,7 +38,39 @@ BLOCKCOMMENT
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+export CLEAR2='\033[0m\033[1;37m'
+export CLEAR='\033[0m'
+export RED='\033[0;31m'
+  echo -e "${CLEAR}"
+
+usage() {
+  if [ -n "$1" ]; then
+    echo -e "${RED}ERROR $1\n";
+  fi
+  echo "Usage: $0 [-cn container-name] "
+  echo "  -cn, --container-name   Name of the new Container"
+  echo ""
+  echo "Example: $0 -cn lx21 "
+  echo -e "${CLEAR}"
+  exit 1
+}
+
+# parse params
+while [[ "$#" > 0 ]]; do case $1 in
+  -cn|--container-name) ctname="$2"; shift;shift;;
+  *) usage "Unknown parameter passed: $1"; shift; shift;;
+esac; done
+
+# verify params
+if [ -z "$ctname" ]; then usage "Container name not supplied"; fi;
+
+export ectname=${ctname}
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
