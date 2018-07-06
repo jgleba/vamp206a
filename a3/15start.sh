@@ -59,7 +59,7 @@ while [[ "$#" > 0 ]]; do case $1 in
 esac; done
 
 # verify params
-if [ -z "$ctname" ]; then usage "Container name not supplied"; fi;
+if [ -z "$tname" ]; then usage "install-type not supplied"; fi;
 
 export etname=${tname}
 

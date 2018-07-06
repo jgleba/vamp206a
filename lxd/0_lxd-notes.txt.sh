@@ -18,7 +18,7 @@ In..  https://github.com/dgleba/vamp206a/tree/master/lxd  folder...
 Follow these in order...
 
 
-85lxd-init.sh  -   usage:  cd ; export pth=shc/lxd ; export fil=85lxd-init.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
+85lxd-init.sh  -   usage:        cd ; export pth=shc/lxd ; export fil=85lxd-init.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
 
 
 
@@ -26,10 +26,10 @@ logout and login again.
 
 
 
-86lxd-init.sh  -   usage:  cd ; export pth=shc/lxd ; export fil=86lxd-init.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
+86lxd-init.sh  -   usage:       cd ; export pth=shc/lxd ; export fil=86lxd-init.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
 
 
-402lxclaunch.sh  -   usage:  cd ; export pth=shc/lxd ; export fil=402lxclaunch.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
+402lxclaunch.sh  -  usage:       cd ; export pth=shc/lxd ; export fil=402lxclaunch.sh ;  chmod +x $pth/$fil  ;  $pth/$fil -cn lx21  2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
 
 
 open  ...\lxd\427virtualboxnat.txt.sh with a text editor and read carefully - follow instructions in that file.

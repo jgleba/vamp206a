@@ -106,8 +106,13 @@ export PubPORT=3551;
 export CPORT=22;
 #
 sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
+
+
+
+
+
 sudo iptables -t nat -L PREROUTING --line-numbers
- 
+
 
 
  
