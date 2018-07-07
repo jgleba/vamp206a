@@ -19,17 +19,7 @@ set -vx
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# edit the variables in 21env.sh to match your system...
-#
 
-
-set +vx
-echo
-echo
-echo 15start.sh will commence...
-echo
-read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
-set -vx
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,6 +55,21 @@ export etname=${tname}
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# edit the variables in 21env.sh to match your system...
+#
+
+
+set +vx
+echo
+echo
+echo 15start.sh will commence...
+echo
+read -t  999 -p "Hit ENTER or wait about 900 seconds" ; echo ;
+set -vx
 
 
 

@@ -130,7 +130,44 @@ timeout1=4 ; read -t "${timeout1}" -p "Press ENTER or wait $timeout1 seconds..."
 lxc list
 
 
-# _____________
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+sudo iptables -t nat -L PREROUTING --line-numbers
+
+ 
+#    *****   Edit the IP addresses below...   *****  
+# 
+# export PUBLIC_IP=192.168.88.46;    # if on hyperv or baremetal, use the hosts ip address as the public ip and forward to the container.
+export   PUBLIC_IP=10.0.2.15;        # use the private ip address of the nat vbox vm if using virtualbox..
+#
+export CONTAINER_IP=10.99.1.99;
+#
+export PubPORT=3552; 
+export CPORT=80;
+#
+# export 
+#
+sudo iptables -t nat -L PREROUTING --line-numbers
+sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
+#
+export PubPORT=3551; 
+export CPORT=22;
+#
+sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
+
+
+
+
+lxc list --fast
+lxc list 
+sudo iptables -t nat -L PREROUTING --line-numbers
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
@@ -151,9 +188,6 @@ lxc list
 #    curl  'http://10.4.10.175:3502'
 
 #    curl  http://192.168.88.46:3502
-
-
-# _____________
 
 
 

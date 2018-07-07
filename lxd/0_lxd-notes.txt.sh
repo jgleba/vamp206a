@@ -65,11 +65,23 @@ set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"
 
 sudo shc/a3/32init.sh
   
+  
+http://10.4.10.118:3552/adminer/adminer.php
+http://192.168.88.94:3552/adminer/adminer.php
+
+
+http://10.4.10.118:3552/test2/strap179
+
+http://192.168.88.94:3552/actionlogin2/index.php?-action=homepage#
+
+  
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
 -----------------------2018-06-20[Jun-Wed]08-44AM
 
+ubu
+blandsand
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

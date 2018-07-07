@@ -30,7 +30,16 @@ echo %vboxm%
 %vboxm%  modifyvm %vmname% --natpf1  delete "lx21htm80"
 %vboxm%  modifyvm %vmname% --natpf1 "lx21htm80,tcp,,3552,,3552"
 
+set vmname=ubu381
+set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
 %vboxm%  showvminfo %vmname% |grep -i nic
+
+
+
+# if dns not working..
+set vmname=ubu381
+set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
+%vboxm% modifyvm %vmname% --natdnshostresolver1 on
 
 
 
@@ -85,6 +94,7 @@ setup the nat rules on the vbox vm that is host to the lxc container...
 
 # get container ip by reading this..
 lxc list
+sudo iptables -t nat -L PREROUTING --line-numbers
 
  
 #    *****   Edit the IP addresses below...   *****  
