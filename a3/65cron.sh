@@ -46,7 +46,7 @@ sudo crontab -u albe -l  # list
 
 #  sftp://albe@10.4.1.224/home/albe/bin/metabase_stopstart.sh start a new log daily..
 sudo crontab -u albe -l | grep -v '/home/albe/bin/metabase_stopstart.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l | { cat; echo "5 0 * * 0-6 source $HOME/.profile; /home/albe/bin/metabase_stopstart.sh 2>&1 | tee -a /home/albe/log/metabasestart.log"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "5 0 * * 0-6 source $HOME/.bashrc; sudo /home/albe/bin/metabase_stopstart.sh 2>&1 | tee -a /home/albe/log/metabasestart.log"; } | sudo crontab -u albe -  #add
 sudo crontab -u albe -l  # list
 
 

@@ -56,5 +56,24 @@ if  [ ! -d html ] ; then
 
 fi
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+
+function createinfofile1 {
+
+fil=/var/www/html/test2/phpinfo.php
+sudo tee ${fil} <<EOF
+<?php
+// Show all information, defaults to INFO_ALL
+phpinfo();
+EOF
+
+sudo chmod 755 ${fil}
+
+}
+
+createinfofile1
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

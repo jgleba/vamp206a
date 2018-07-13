@@ -60,6 +60,8 @@ set -o history
 history | tail 
 
 hisf=$HOME/historybackup
+sudo chmod -R 760 $hisf
+sudo chown -R albe $hisf
 mkdir -p $hisf
 history > $hisf/history_$date1
 

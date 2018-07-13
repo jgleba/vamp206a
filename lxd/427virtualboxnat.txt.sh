@@ -32,6 +32,11 @@ echo %vboxm%
 
 set vmname=ubu381
 set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
+%vboxm%  modifyvm %vmname% --natpf1  delete "lx218985"
+%vboxm%  modifyvm %vmname% --natpf1 "lx218985,tcp,,3553,,3553"
+
+set vmname=ubu381
+set vboxm="%VBOX_MSI_INSTALL_PATH%VBoxManage"  
 %vboxm%  showvminfo %vmname% |grep -i nic
 
 
@@ -117,6 +122,10 @@ export CPORT=22;
 #
 sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
 
+export PubPORT=3553; 
+export CPORT=8985;
+#
+sudo iptables -t nat -A PREROUTING -d $PUBLIC_IP -p tcp --dport $PubPORT -j DNAT --to $CONTAINER_IP:$CPORT
 
 
 
@@ -147,6 +156,21 @@ sudo netfilter-persistent reload
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+notes
+
+
+
+
+
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

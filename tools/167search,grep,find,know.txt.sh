@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 cd
-# echo off
-set +vx
-# echo on
-set -vx
+set -vx    # echo on
+set +vx    # echo off
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function offline()
+function notes()
 {
 exit 999
 # begin block comment =============================
@@ -14,8 +12,27 @@ exit 999
 
 search..
 
-http://askubuntu.com/questions/208030/search-for-files-with-gui
 
+
+**************   table of contents   ****************
+
+21  find newest files
+
+151 find folders named..
+
+171 find files system wide in the last hour
+
+
+
+
+
+
+
+
+
+
+
+http://askubuntu.com/questions/208030/search-for-files-with-gui
 
 END
 # end block comment ===============================
@@ -141,7 +158,9 @@ find  /home/albe/share203 /home/albe/web /var/www/html /srv/web  -type f -print0
 find    /srv/web  -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n454
 
 # newest files ....
+# yes
 find  .  -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n654
+# no
 find  .  -type f -print0 | xargs -0 stat --printf='%y %A %h %U %G %s  %n\n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n654
 
 
@@ -446,6 +465,10 @@ Title:  .
 
 
 works..
+
+fnd='*347a22*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ;  echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
+
+
 
 fnd='brail*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ; echo . ; echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
 

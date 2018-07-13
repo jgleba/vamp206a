@@ -17,6 +17,7 @@ cd ; date ; set +vx  ; set -vx ; # echo off, then echo on
 
 sudo apt-get update
 sudo apt-get -y install postgresql postgresql-contrib postgresql-server-dev-X.Y
+sudo apt-get -y install python-psycopg2
 sudo apt-get -y install libpq-dev
 
 

@@ -69,6 +69,12 @@ sudo shc/a3/32init.sh
 http://10.4.10.118:3552/adminer/adminer.php
 http://192.168.88.94:3552/adminer/adminer.php
 
+http://192.168.88.94:3552/test2/phpinfo.php
+
+
+http://10.4.10.118:3552/test2/
+
+
 
 http://10.4.10.118:3552/test2/strap179
 

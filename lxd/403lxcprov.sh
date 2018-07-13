@@ -170,6 +170,10 @@ echo "albe:a" | sudo chpasswd
 sudo usermod -a -G www-data,sudo albe
 #sudo usermod -a -G sudo  albe
 sudo gpasswd -a albe sudo
+sudo gpasswd -a albe www-data
+newgrp www-data
+newgrp sudo
+
 
 #_____________
 
