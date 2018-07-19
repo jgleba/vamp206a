@@ -76,21 +76,6 @@ sudo apt install debconf-utils
 sudo debconf-get-selections | grep iptables
 
 
-# install z-jump
-  cd $HOME
-  mkdir -p $HOME/bin
-  git clone https://github.com/dgleba/z.git  bin/zjump
-  echo . $HOME/bin/zjump/z.sh >> $HOME/.bashrc
-  source $HOME/.bashrc
-  cd /var/www/html
-  # cd /etc/network
-  cd /var/log
-  z -h
-  z -h
-  cd
-  z
-  z
-
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -266,14 +251,35 @@ EOF
 #~~~~~~
 
 mkdir -p bin
-sudo chown $userv bin
-sudo chgrp $userv bin
+sudo chown -R $userv bin
+sudo chgrp -R $userv bin
 cd
 sudo cp shc/bin1/* bin
 
 sudo echo  '#!/usr/bin/env bash' >> ~/bin/blank.sh
 sudo chmod +x ~/bin/blank.sh
 cat ~/bin/blank.sh
+
+
+# install z-jump
+  cd $HOME
+  mkdir -p $HOME/bin
+  git clone https://github.com/dgleba/z.git  bin/zjump
+  echo . $HOME/bin/zjump/z.sh >> $HOME/.bashrc
+  
+  source $HOME/.bashrc
+  cd /var/www/html
+  # cd /etc/network
+  cd /var/log
+  z -h
+  z -h
+  cd
+  z
+  z
+
+sudo chmod -R +x bin
+sudo chown -R $userv bin
+sudo chgrp -R $userv bin
 
 }
 
@@ -300,7 +306,7 @@ cp $file1 work/
 
 sudo cp shc/a3/rsnapshot.conf /etc
 
-sudo rsnapshot alpha     # run this to make the first backup.
+# sudo rsnapshot alpha     # run this to make the first backup.
 
 }
 

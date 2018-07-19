@@ -161,4 +161,7 @@ sudo usermod -aG docker ubuntu
 docker version
 docker-compose version
 
+echo 
+echo ' *******  You will have to logout and back in again to use it without root.'
+echo 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

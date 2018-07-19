@@ -58,11 +58,26 @@ cd ; git clone https://github.com/dgleba/vamp206a.git shc  ; chmod -R +x  shc/
 cd ; cd shc ; git pull
 
 
+cd ; export fil=31timeshift.sh ; export pth=shc/a3 ;  chmod +x $pth/$fil  ;  $pth/$fil   2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
+
 cd ; sudo chmod -R +x shc/ ; sudo shc/a3/32init.sh 2>&1 | tee -a 32init_v206_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+
 
 logout and login again.
 
+
+then..
+
+
 cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh -t regularmysqlserver 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+# or
+cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh -t custom1 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+
+
+# or run pieces individually...
+
+
+cd ; export fil=81docker.sh ; export pth=shc/a3 ;  chmod +x $pth/$fil  ;  $pth/$fil   2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
 
 
 

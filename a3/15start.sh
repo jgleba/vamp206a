@@ -166,7 +166,7 @@ custom1()
 
 # custom other workflow..
 
-cd; source shc/a3/31timeshift.sh 
+# cd; source shc/a3/31timeshift.sh 
 # cd; source shc/a3/32init.sh 
 # cd; source shc/a3/81docker.sh 
 
