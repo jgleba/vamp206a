@@ -75,6 +75,9 @@ apt-cache policy docker-ce
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+# https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script
+
+
 sudo apt-get update
 sudo apt-get -y remove docker docker-engine docker.io
 curl -fsSL get.docker.com -o get-docker.sh

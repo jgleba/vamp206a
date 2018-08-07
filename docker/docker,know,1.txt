@@ -1,15 +1,21 @@
 
+
+
+see also docker know 2
+
+
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
 -----------------------2018-07-14[Jul-Sat]16-49PM
 
-
 see
-
 
 rails..
 
 https://github.com/dgleba/brail347a22
+C:\n\Dropbox\csd\0-csd\dkr\satendra02-dkr380\brail347a22-2018-06-27a-docker-satendra02-dkr380.txt
 
 
 php..
@@ -17,11 +23,26 @@ php..
 https://github.com/dgleba/dkr378php
 
 
-
 django..
 
+https://github.com/dgleba/p382dkr
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2018-07-27[Jul-Fri]12-18PM
+
+problems.
+
+1.
+from php:5.6 led to endless restart with code 0 exit. Should it say no such image?
+
+
+2.
+mysql data host volume folder is not populated after changing compose.yml
+- Justin deleted all images and it then created the folder and populated the mysql data files.
 
 
 

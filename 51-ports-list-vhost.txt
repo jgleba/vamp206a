@@ -184,6 +184,11 @@ _____________
 6031-6040	docker rails dkr380
 6031 		web page
 
+6041-6050	docker django
+6041 		web page nginx
+6042 		gnuicorn
+
+
 6000  to 6999 - docker series
 
 

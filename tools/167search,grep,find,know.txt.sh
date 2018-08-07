@@ -470,7 +470,7 @@ fnd='*347a22*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune 
 
 
 
-fnd='brail*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ; echo . ; echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
+fnd='metab*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ; echo . ; echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
 
 
 

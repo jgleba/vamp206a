@@ -127,6 +127,7 @@ else
 
 fi
 
+
 #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-some-mysql.sql
 #mysql -uroot -p$mysqlrootpassw  < /var/www/html/backup/mysql/pmdsdata3-prodrptdb-mysql.sql
 
@@ -134,6 +135,11 @@ fi
 # use here document to provide input...
 #  https://ignaciopp.wordpress.com/2011/08/08/heredoc-tip-execute-mysql-commands-from-shell-with-multiline-scripts-or-queries/
 #    heredoc not working just do one line at a time.
+
+
+#  dg417
+
+
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'dg417'@'localhost' IDENTIFIED BY '$mysqluserpass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'dg417'@'localhost' IDENTIFIED BY '$mysqluserpass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 #mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO dg417@localhost ;"
@@ -156,10 +162,17 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtr
 # I ran this on the commandlne...
 #              mysql -uroot -p  -e "GRANT ALL PRIVILEGES ON prodrptdb.tkb_prodtrak TO 'dg417'@'%' IDENTIFIED BY '34asfviektighdiekjs' ;"
 
+
+# metabasedb
+
+
 mysql -uroot -p$mysqlrootpassw -e "create database metabasedb";
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'sysuser'@'localhost' IDENTIFIED BY '$mysql_lukup_pass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sysuser'@'localhost' IDENTIFIED BY '$mysql_lukup_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON metabasedb.* TO sysuser@localhost ;"
+
+
+# ciuser
 
 
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'ciuser'@'localhost' IDENTIFIED BY '$mysql_ciuser_pass';"
@@ -169,16 +182,16 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'ciuser'
 # ran at the command line...
 #  mysql -uroot -p  -e "GRANT ALL PRIVILEGES ON cilist.* TO 'cilistu1'@'%' IDENTIFIED BY 'replaceme-er33k456k43ikdi3' ;"
 
+
+# lukup
+
+
+
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'lukup'@'localhost' IDENTIFIED BY '$mysql_lukup_pass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON lukup.* TO lukup@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'lukup'@'localhost' IDENTIFIED BY '$mysql_lukup_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'lukup'@'%' IDENTIFIED BY '$mysql_lukup_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 
-mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass';"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'%' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@localhost IDENTIFIED BY '$mysql_hruser_pass';"
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb_dev.* TO hruser@localhost IDENTIFIED BY '$mysql_hruser_pass';"
 
 # i had to change definer on views looking at lukup database. Got error: View 'cilist.vw_enterprise_all' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them
 # see C:\n\Dropbox\csd\serve\vboxyard\vamp206a\mysql-user-change\viewdefiner-2016-10-11-mysqlknow-changeuser.txt
@@ -189,6 +202,21 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT, show view ON lukup.* TO ciuser
 mysql -uroot -p$mysqlrootpassw  -e "GRANT SELECT ON lukup.* TO hruser@localhost ;"
 
 
+# hruser
+
+
+
+mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass';"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'localhost' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'hruser'@'%' IDENTIFIED BY '$mysql_hruser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb.* TO hruser@localhost IDENTIFIED BY '$mysql_hruser_pass';"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON hrdb_dev.* TO hruser@localhost IDENTIFIED BY '$mysql_hruser_pass';"
+
+
+# stuser
+
+
+
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'stuser'@'localhost' IDENTIFIED BY '$mysqluserpass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stuser'@'localhost' IDENTIFIED BY '$mysql_stuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stuser'@'%' IDENTIFIED BY '$mysql_stuser_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
@@ -197,10 +225,15 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO stuser
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON greygold.* TO 'stuser'@'%' ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON prodrptdb.* TO stuser@localhost ;"
 #
+
+
+# stread
+
+
+
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'stread'@'localhost' IDENTIFIED BY '$mysql_stread_pass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'localhost' IDENTIFIED BY '$mysql_stread_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'%' IDENTIFIED BY '$mysql_stread_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
-
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO stread@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON greygold.* TO 'stread'@'%' ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON prodrptdb.* TO stread@localhost ;"
@@ -209,13 +242,18 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON cmmdb.* TO stread@'%' ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON qualitydb.* TO stread@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT select ON qualitydb.* TO stread@'%' ;"
 
+
+
+# sthistorian
+
+
+
 mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'sthistorian'@'localhost' IDENTIFIED BY '$mysql_sthistorian_pass';"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sthistorian'@'localhost' IDENTIFIED BY '$mysql_sthistorian_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'sthistorian'@'%' IDENTIFIED BY '$mysql_sthistorian_pass' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON ignition.* TO sthistorian@localhost ;"
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON ignition.* TO 'sthistorian'@'%' ;"
 #
-
 
 mysql -uroot -p$mysqlrootpassw -e "create database cmmdb";
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON cmmdb.* TO sthistorian@localhost ;"
@@ -229,9 +267,29 @@ mysql -uroot -p$mysqlrootpassw  -e "GRANT USAGE ON *.* TO 'stread'@'%' IDENTIFIE
 
 
 
-mysql -uroot -p$mysqlrootpassw -e "create database prod367db";
-mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prod367db.* TO stuser@localhost ;"
+# prod367db
+
+
+mysql -uroot -p$mysqlrootpassw  -e "create database prod367db";
 mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prod367db.* TO dg417@localhost ;"
+
+
+
+# remoteu
+
+
+
+mysql -uroot -p$mysqlrootpassw  -e "CREATE USER 'remoteu'@'localhost' IDENTIFIED BY '$mysql_remoteu_pass';"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prod367db.* TO remoteu@localhost ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prod367db.* TO remoteu@'%' ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.* TO remoteu@'localhost' ;"
+mysql -uroot -p$mysqlrootpassw  -e "GRANT ALL PRIVILEGES ON prodrptdb.* TO remoteu@'%' ;"
+
+
+
+
+#  revoke..
+
 
 
 mysql -uroot -p$mysqlrootpassw  -e "revoke ALL PRIVILEGES ON lukup.* from stuser@localhost ;"
