@@ -178,7 +178,6 @@ _____________
 .
 6024	apache dkr378php
 .
-.
 6030
 
 6031-6040	docker rails dkr380
@@ -189,7 +188,31 @@ _____________
 6042 		gnuicorn
 
 
-6000  to 6999 - docker series
+6051-6060  dkr386metabase
+
+6061-6070  trakberrydkr
+6061        trakberrydkr web page.
+
+6071- unused
+
+6081- unused
+
+6091-6099  dkr389sys 
+6091        mysql backend  
+6092      php
+6093      django dev
+6094      adminer
+
+
+
+.
+.
+
+
+6991-6999  albe@pmdsdata4:/srv/dkr/dkr-wsv-ch3-app$
+
+
+end 6000  to 6999 - docker series
 
 
 _____________
@@ -205,6 +228,6 @@ dev mode...
 3017    brail351d
 3018
 3019    brail347a22
-
+3021    trakberrydkr native [outside docker] testing 2018-09-07
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

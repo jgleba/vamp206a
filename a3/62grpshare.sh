@@ -26,7 +26,8 @@ set -vx
 #   mysqldump: Got error: 1290: The MySQL server is running with the --secure-file-priv option so it cannot execute this statement when executing 'SELECT INTO OUTFILE'
 #    mysqldump: Got error: 1: Can't create/write to file '/var/lib/mysql-files/leanmfg/dataface__failed_logins.txt' (Errcode: 13) when executing 'SELECT INTO OUTFILE'
 
-#https://serverfault.com/questions/349145/can-i-override-my-umask-using-acls-to-make-all-files-created-in-a-given-director
+# https://serverfault.com/questions/349145/can-i-override-my-umask-using-acls-to-make-all-files-created-in-a-given-director
+# https://unix.stackexchange.com/questions/1314/how-to-set-default-file-permissions-for-all-folders-files-in-a-directory
 
 # Title:  . find line with pattern, then edit another part of the line.
 #  /ipsum/ selects lines containing "ipsum" and only on these lines the command(s) that follow are executed. You can use braces to run more commands
@@ -72,6 +73,7 @@ sudo chmod -R o-rw ${fold}
 # make only folders +x so they can be cd into.
 sudo find ${fold} -type d -exec chmod g+x {} +
 sudo usermod -a -G www-data  $userv
+sudo setfacl -R -m group:www-data:rwx  ${fold}
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

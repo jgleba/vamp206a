@@ -95,8 +95,8 @@ sudo su
   sudo dpkg --purge mysql-common 
  
   sudo apt-get remove --purge mariadb-server mariadb-client 
-  sudo apt-get autoremove
-  sudo apt-get autoclean 
+  sudo apt-get -y autoremove
+  sudo apt-get -y autoclean 
 
   sudo dpkg  --purge --force-all    dbconfig-mysql
   sudo dpkg  --purge     dbconfig-mysql
@@ -104,8 +104,8 @@ sudo su
   sudo rm -rf /usr/local/mariadb
 
   sudo apt install -f
-  sudo apt autoremove
-  sudo apt autoclean 
+  sudo apt -y autoremove
+  sudo apt -y autoclean 
 
 sudo  updatedb
 locate my.cnf

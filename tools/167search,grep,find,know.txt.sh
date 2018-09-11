@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+1#!/usr/bin/env bash
 cd
 set -vx    # echo on
 set +vx    # echo off
@@ -17,6 +17,9 @@ search..
 **************   table of contents   ****************
 
 21  find newest files
+
+51  grep
+
 
 151 find folders named..
 
@@ -220,21 +223,9 @@ Excluding multiple patterns with one grep command..
   grep -v -e 90.192.142.138 -e PIX -e Intrusion cisco.log-20151103.log
 https://unix.stackexchange.com/questions/240470/excluding-multiple-patterns-with-one-grep-command
 
+
+
   
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-61. 
-Find *.txt file but ignore hidden .txt file such as .vimrc or .data.txt file:
-
-$ find . -type f \( -iname "*.txt" ! -iname ".*" \)
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-71. GREP grep >>
-
-
 grep -rin --color=always  rail2 .  |    grep -vi -e deploy -e tmp -e .git -e log -e /offline -e readme -e docs -e mtime -e offlin
  
 grep -ir --include="*.rb" path
@@ -248,7 +239,44 @@ grep -ir --include="*.sql" variab .
  grep -ir --include="*.ini"  datagrid *
  
  
+ grep -ir --include="*.sql" -l declare .
+
+ grep -ir --include="*.sql" -l set.*@ .
  
+ 
+ 
+ grep -ir --include="*.rb" whodunn .
+ 
+ 
+ grep -ir --include="*.rb" paper_tr .
+ 
+ grep -ir  --include={*.sh,*.sql} 'import-enterprise2.sh'
+ 
+
+ # match product or products
+
+ 
+  grep -ri --include="*.sh" -E 'product(s|\s)'  *
+   
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+61.
+
+ 
+Find *.txt file but ignore hidden .txt file such as .vimrc or .data.txt file:
+
+$ find . -type f \( -iname "*.txt" ! -iname ".*" \)
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+71. GREP grep >>
+
+
+
 
 # find crea*.rb containing v and w 
   find .  -iname *crea*\.rb | grep v |grep w
@@ -305,9 +333,14 @@ cat /home/dg/tmp/ij,2009-01-26-1233001792 |grep '[a-zA-Z0-9]'$
 
 
 
+
 = 
 
+
+
 81. find..
+
+
 
 >.find
 
@@ -335,7 +368,12 @@ find /amn/glebad7/c/  -iname *pcw*
 find /amn/glebad7/c/d/  -iname *grub* |grep cd
 
 
+
+
+
 91. grep..
+
+
 
 >.grep
 
@@ -359,26 +397,9 @@ grep "nmbd" -B0 -C0 -r -i /etc
 Title:  .
 -----------------------2017-06-13[Jun-Tue]20-19PM
 
+
 101. grep..
 
- grep -ir --include="*.sql" -l declare .
-
- grep -ir --include="*.sql" -l set.*@ .
- 
- 
- 
- grep -ir --include="*.rb" whodunn .
- 
- 
- grep -ir --include="*.rb" paper_tr .
- 
- grep -ir  --include={*.sh,*.sql} 'import-enterprise2.sh'
- 
-
- # match product or products
-
- 
-  grep -ri --include="*.sh" -E 'product(s|\s)'  *
 
 
 _____________
@@ -466,7 +487,7 @@ Title:  .
 
 works..
 
-fnd='*347a22*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ;  echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
+fnd='*brail*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ;  echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
 
 
 
