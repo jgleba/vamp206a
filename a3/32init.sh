@@ -62,7 +62,7 @@ sudo apt-get update
 sudo apt-get -y install p7zip-full
 sudo apt-get -y install unzip 
 sudo apt-get -y install mc
-sudo apt-get -y install locate acl
+sudo apt-get -y install locate acl make
 #sudo apt-get -y install curl libcurl3 libcurl3-dev php5-curl
 
 
@@ -80,6 +80,12 @@ sudo debconf-get-selections | grep iptables
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# Functions...
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -330,7 +336,9 @@ if [ -f /home/$userv/15ran ]; then
 
  else
     echo "run it... 15samsh.sh "
-    # runsam  # turned this off 2018-06-11 
+    #
+    #   turned off..         runsam         # turned this off 2018-06-11 
+    #
     onetime1
     rsnap
     cd

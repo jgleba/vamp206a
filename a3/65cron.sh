@@ -73,7 +73,7 @@ sudo crontab -u albe -l | { cat; echo "21 1,15 * * 0-6  /var/www/html/cmmdb/acti
 sudo crontab -u albe -l  # list
 
 sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/scrapimport.sh'  | sudo crontab -u albe - #remove
-sudo crontab -u albe -l | { cat; echo "40 7 * * 0-6 /var/www/html/0docs-pmdsdata/scrapimport.sh 2>&1 | tee -a /home/albe/log/scrapimport1.log"; } | sudo crontab -u albe -  #add
+sudo crontab -u albe -l | { cat; echo "3 7 * * 0-6 /var/www/html/0docs-pmdsdata/scrapimport.sh 2>&1 | tee -a /home/albe/log/scrapimport1.log"; } | sudo crontab -u albe -  #add
 
 sudo crontab -u albe -l | grep -v '/0docs-pmdsdata/archivedata1.sh'  | sudo crontab -u albe - #remove
 sudo crontab -u albe -l | { cat; echo "35 2 * * 0-6 /var/www/html/0docs-pmdsdata/archivedata1.sh >> /home/albe/log/archive1.log 2<&1"; } | sudo crontab -u albe -  #add
@@ -300,8 +300,8 @@ output like:
 
 albe     11412 11219  0 08:15 ?        00:00:00 sshd: albe@pts/0
 albe     11413 11412  0 08:15 pts/0    00:00:00 -bash
-albe     11655 11413  0 08:15 pts/0    00:00:00 bash /var/www/html/0docs-pmdsdata/scrapimport.sh
-albe     11656 11413  0 08:15 pts/0    00:00:00 tee -a /home/albe/log/scrapimport1.log
+albe     11655 11413  0 08:15 pts/0    00:00:00 bash /var/www/html/0docs-pmdsdata/sczrapimport.sh
+albe     11656 11413  0 08:15 pts/0    00:00:00 tee -a /home/albe/log/sczzrapimport1.log
 albe     11848 11655 19 08:17 pts/0    00:00:15 mysql -uroot -px xxxxx
 
 

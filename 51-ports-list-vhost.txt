@@ -181,7 +181,8 @@ _____________
 6030
 
 6031-6040	docker rails dkr380
-6031 		web page
+6031 		web page prod
+6032    dev
 
 6041-6050	docker django
 6041 		web page nginx
@@ -203,11 +204,19 @@ _____________
 6093      django dev
 6094      adminer
 
+6101-6109 dkr391sys [minimal mysql backend with external network 2018-09-14]
 
 
 .
 .
 
+examples..
+
+6900's are junk ports for testing.
+
+6971-6979   sftp://pmdsdata4/srv/dkr/dockerizing-django/docker-compose.yml from https://github.com/realpython/dockerizing-django
+
+6981-6989   albe@pmdsdata4:/srv/dkr/juanjflask$    https://github.com/juanjbrown/flask-nginx-gunicorn-docker-sample.git 
 
 6991-6999  albe@pmdsdata4:/srv/dkr/dkr-wsv-ch3-app$
 
