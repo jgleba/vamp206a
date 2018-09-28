@@ -39,7 +39,7 @@ sudo sed -i '/\ \/\ /{s/errors=remount-ro/errors=remount-ro,acl/g;}' $file22
 
 sudo setfacl -R -m group:www-data:rwx /var/lib/mysql-files/
 sudo getfacl /var/lib/mysql-files/
-sudo usermod -a -G mysql  albe
+sudo usermod -a -G mysql  $userv
 # this didn't work, so I just did ...
 # did this temporaily to get by... sudo chmod -R 777  /var/lib/mysql-files
 sudo chmod -R g+rws  /var/lib/mysql-files

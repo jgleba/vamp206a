@@ -63,18 +63,27 @@ cd ; cd shc ; git pull
  
 cd ; export fil=31timeshift.sh ; export pth=shc/a3 ;  chmod +x $pth/$fil  ;  $pth/$fil   2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
 
+
+# Logout and login after running this next line so that the settings are activated...
+
 cd ; sudo chmod -R +x shc/ ; sudo shc/a3/32init.sh 2>&1 | tee -a 32init_v206_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 
-logout and login again.
+---------------   logout and login again. -----------------------
 
 
 then..
 
 
 cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh -t regularmysqlserver 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+
 # or
+
 cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh -t custom1 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
+
+# or
+
+cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh -t docker1 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 
 # or run pieces individually...

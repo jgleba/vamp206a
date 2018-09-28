@@ -20,7 +20,7 @@ chmod -R 700 safe/
 sudo mkdir -p /tmp01/tempfiles
 sudo chmod -R 700 tmp01
 sudo chmod -R 700 /tmp01/tempfiles
-sudo chown -R $userv  tmp01 
+sudo chown -R  "${userv}"  tmp01 
 
 #copy env supplied with package first..
 cp shc/a2/21env.sh safe/21env.sh

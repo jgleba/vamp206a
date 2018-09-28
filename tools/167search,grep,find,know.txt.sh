@@ -167,8 +167,10 @@ find  .  -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d
 find  .  -type f -print0 | xargs -0 stat --printf='%y %A %h %U %G %s  %n\n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n654
 
 
-# last 1 day
-find  . -mtime -1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n654
+good..
+# https://unix.stackexchange.com/questions/184814/stat-print-time-in-long-iso-format
+find  .  -type f -print0 | xargs -0 stat --printf='%.16y %A %h %U %G %s\t %n\n' | sort -n |  grep -v '.git/' | grep -v tmp/ | tail -n654
+
 
 
 # last 1 hour modified
@@ -178,6 +180,14 @@ find  . -mtime -1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n
   or
   sudo find  .   -path './sys' -prune -o   -path './proc' -prune -o  -mmin -60  -type f -print0 | xargs -0 stat --printf='%Y:%y %A %h %U %G %s \t %n\n'  | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/  2>&1 | tee  /home/albe/find21.txt
 
+
+
+# last 1 day
+find  . -mtime -1 -type f -print0 | xargs -0 stat --format '%Y :%y %n' | sort -n | cut -d: -f2- | grep -v '.git/' | grep -v tmp/ | tail -n654
+# good..
+find  . -mtime -2 -type f -print0 | xargs -0 stat --printf='%.16y %A %h %U\t%G\t%s\t%n\n' | sort -n |  grep -v '.git/' | grep -v tmp/ |grep -v x/ | tail -n154
+
+  
 
 http://stackoverflow.com/questions/5566310/how-to-recursively-find-and-list-the-latest-modified-files-in-a-directory-with-s
 
@@ -238,6 +248,9 @@ grep -ir --include="*.sql" variab .
  grep -ir --include="*.sh"  most_columns_2excel *
  grep -ir --include="*.ini"  datagrid *
  
+ 
+ grep -ir --include={"Make*",*.txt} development .
+ grep -ir rail.*development .
  
  grep -ir --include="*.sql" -l declare .
 
@@ -487,11 +500,11 @@ Title:  .
 
 works..
 
-fnd='*brail*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ;  echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
+fnd='*mksh*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1"; echo .;  echo '==== OUTPUT -- FOLDERS LIKE.. ' "$fnd"; cat "$f1" | sort 
 
 
 
-fnd='metab*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1" ; echo . ; echo . ; echo '==== OUTPUT -- FOLDERS LIKE' "$fnd"....... ; cat "$f1" | sort 
+fnd='*tutori*' ; f1=/tmp/findtmp ; sudo find . -type d -not \( -name tmp -prune \) -iname "$fnd" >"$f1"; echo .; echo '==== OUTPUT -- FOLDERS LIKE.. ' "$fnd"; cat "$f1" | sort 
 
 
 
