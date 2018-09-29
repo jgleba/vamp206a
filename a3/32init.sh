@@ -217,10 +217,22 @@ function onetime1() {
 
 #alias for ls -la
 #
-echo "alias lsl='ls -la'" >>   ~/.bash_aliases
+echo "alias ll='ls -la'" >>   ~/.bash_aliases
+# echo "alias lsl='ls -la'" >>   ~/.bashrc
 sudo chmod ugo+rw  ~/.bash_aliases
 echo "alias psg='ps -ef|grep '" >>   ~/.bash_aliases
+
+echo "alias dkup='docker-compose up'" >>   ~/.bash_aliases
+echo "alias dkd='docker-compose down'" >>   ~/.bash_aliases
+echo "alias dkupd='docker-compose up -d'" >>   ~/.bash_aliases
+echo "alias dkupr='docker-compose  up --build  --force-recreate  '" >>   ~/.bash_aliases
+echo "alias dkupp='docker-compose up -f docker-compose.prod.yml -d'" >>   ~/.bash_aliases
+
+echo "alias dkps='set -vx; docker images; docker network ls;	docker volume ls;	docker ps -a;	docker ps; set +vx'" >>   ~/.bash_aliases
+	
+  
 cat ~/.bash_aliases
+
 
 
 
@@ -230,22 +242,17 @@ cat ~/.bash_aliases
 
 # write history immediately...
 #
-# back ticks evaluate date when run...
-# http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
-nowdg1=`date +'__%Y-%m-%d_%a_%k.%M.%S-%Z'`
-sudo cat <<EOF >> $HOME/.bashrc
-# -------------------------------------------------------------------
-# David Gleba $nowdg1
-#write history immediately...
+# back ticks evaluate date when run... # http://stackoverflow.com/questions/1859113/append-date-and-time-to-an-environment-variable-in-linux-makefile
 # http://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
 # https://askubuntu.com/questions/391082/how-to-see-time-stamps-in-bash-history
 # https://askubuntu.com/questions/885531/half-of-bash-history-is-missing?rq=1
+sudo cat <<EOF >> $HOME/.bashrc
+# -------------------------------------------------------------------
 #
 shopt -s histappend
 # PROMPT_COMMAND="history -a;history -r;$PROMPT_COMMAND"
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 #
-# 2018-06-13
 # export PROMPT_COMMAND='history -a;history -r'
 export HISTTIMEFORMAT="%y-%m-%d %T "
 export HISTSIZE=10000

@@ -10,6 +10,17 @@ Vbox.
 
 export vm1=ubu381_1
 export vbm="/cygdrive/c/p2/Oracle/VirtualBox/VBoxManage.exe"
+export vbm="/c/Program Files/Oracle/VirtualBox/VBoxManage.exe"
+
+for i in {6100..6200}; do
+  "${vbm}" modifyvm "${vm1}" --natpf1 "tcp-port$i,tcp,,$i,,$i";
+  # VBoxManage modifyvm "${vm1}" --natpf1 "udp-port$i,udp,,$i,,$i";
+done
+
+
+
+old..
+
 
 for i in {22..22}; do
   $vbm modifyvm ${vm1} --natpf1 "tcp-port$i,tcp,,$i,,$i";
@@ -25,15 +36,21 @@ for i in {6000..6100}; do
   $vbm modifyvm ${vm1} --natpf1 "tcp-port$i,tcp,,$i,,$i";
   # VBoxManage modifyvm ${vm1} --natpf1 "udp-port$i,udp,,$i,,$i";
 done
+
 for i in {6900..6999}; do
   $vbm modifyvm ${vm1} --natpf1 "tcp-port$i,tcp,,$i,,$i";
   # VBoxManage modifyvm ${vm1} --natpf1 "udp-port$i,udp,,$i,,$i";
 done
 
 
+
+
+
+
+
 # Show...
 
-$vbm showvminfo $vm1 |grep NIC
+"${vbm}" showvminfo $vm1 |grep NIC
 
 
 then get ip address of  machine hosting the vm. say my work pc.

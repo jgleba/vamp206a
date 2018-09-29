@@ -12,7 +12,9 @@
   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Step 1
+
+
+Step 1
 
 # edit a3/15start.sh. 
 #     use the mariadb `columnstore`  stanza or the `regularmysqlserver` stanza. Or edit as you wish.
@@ -29,7 +31,9 @@ cd ; git clone https://github.com/dgleba/vamp206a.git shc  ; chmod -R +x  shc/
 
 
 
-# Step 2
+
+
+Step 2
   
 
 
@@ -41,13 +45,15 @@ cd ; git clone https://github.com/dgleba/vamp206a.git shc  ; chmod -R +x  shc/
 
 
 
-#---
+
+    
+    
     
 
-# Step 3
+Step 3
 
 
-#this will run setup.. 
+#Step 3 and 4 will run setup.. 
 #  it will..
 #  - install sw  
 #  - create data folders and permissions  
@@ -64,15 +70,18 @@ cd ; cd shc ; git pull
 cd ; export fil=31timeshift.sh ; export pth=shc/a3 ;  chmod +x $pth/$fil  ;  $pth/$fil   2>&1 | tee -a ${fil}_log$(date +"__%Y-%m-%d_%H.%M.%S").log;
 
 
-# Logout and login after running this next line so that the settings are activated...
+# Logout and login  [or.. exec bash ] after running this next line so that the settings are activated...
 
 cd ; sudo chmod -R +x shc/ ; sudo shc/a3/32init.sh 2>&1 | tee -a 32init_v206_log$(date +"__%Y-%m-%d_%H.%M.%S").log
 
 
----------------   logout and login again. -----------------------
+## ---------------   logout and login again. or  -  exec bash -----------------------
+exec bash
 
 
-then..
+
+
+Step 4
 
 
 cd ; sudo chmod -R +x shc/ ; sudo shc/a3/15start.sh -t regularmysqlserver 2>&1 | tee -a v206_start_log$(date +"__%Y-%m-%d_%H.%M.%S").log
@@ -93,7 +102,9 @@ cd ; export fil=81docker.sh ; export pth=shc/a3 ;  chmod +x $pth/$fil  ;  $pth/$
 
 
 
-# Step 4
+
+
+Step 5
 
 
 # If you have not used the  mariadb `columnstore` stanza in a3/15start.sh then you can install mariadb columnstore...
@@ -102,7 +113,9 @@ cd ; export fil=81docker.sh ; export pth=shc/a3 ;  chmod +x $pth/$fil  ;  $pth/$
 
 
 
-# Step 5
+
+
+Step 6
 
 
 
@@ -110,7 +123,7 @@ cd ; export fil=81docker.sh ; export pth=shc/a3 ;  chmod +x $pth/$fil  ;  $pth/$
 
 
 
-# done
+done
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

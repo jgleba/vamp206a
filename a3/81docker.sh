@@ -82,16 +82,16 @@ sudo apt-get update
 sudo apt-get -y remove docker docker-engine docker.io
 
 # Uninstall the Docker CE package:
-  sudo apt-get -y purge docker-ce
+sudo apt-get -y purge docker-ce
 
 sleep 12
   
 curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
   
-# albe@pmdsdata4:~$ docker version
+# alb@pmdsdata4:~$ docker version
 # Client:
- # Version:      18.05.0-ce
+# Version:      18.05.0-ce
 
 sudo apt-get -y remove docker-compose
 # then install the newest version on the release page at GitHub with
